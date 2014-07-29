@@ -94,8 +94,9 @@ MenuLayer::MenuLayer()
     m_settingMenuItemImage->setAnchorPoint(Vec2(0.0, 1.0));
     m_settingMenuItemImage->setPosition(Vec2(855, VisibleRect::getVisibleRect().origin.y+100));
     
-    TTFConfig ttfConfig("Avenir.ttf",computeFontSize(18*4));
+    TTFConfig ttfConfig("fonts/Silom.ttf",computeFontSize(18*4));
     m_touchToStartLabel = Label::createWithTTF(ttfConfig, "Touch to Start", TextHAlignment::CENTER);
+    CC_ASSERT(m_touchToStartLabel!=nullptr);
 
     m_touchToStartMenuItemLabel = CustomMenuItemLabel::create(m_touchToStartLabel, CC_CALLBACK_1(MenuLayer::startClickCallback, this));
     CC_ASSERT(m_touchToStartMenuItemLabel!=NULL);
