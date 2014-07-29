@@ -25,7 +25,11 @@ void CustomMenuItemLabel::activate()
 {
     if(_enabled)
     {
-        //this->stopAllActions();
+        Action* action = getActionByTag(kClickAction);
+        if(action)
+        {
+            this->stopAction(action);
+        }
         this->setScale(_originalScale);
         MenuItem::activate();
     }
@@ -50,5 +54,18 @@ void CustomMenuItemLabel::selected()
         Action* clickAction = ScaleTo::create(0.05f, 0.95f);
         clickAction->setTag(kClickAction);
         this->runAction(clickAction);
+    }
+}
+
+
+void CustomMenuItemLabel::unselected()
+{
+    if(_enabled)
+    {
+        MenuItem::unselected();
+        this->stopActionByTag(kClickAction);
+        Action* recoverZoom = ScaleTo::create(0.05f, _originalScale);
+        recoverZoom->setTag(kClickAction);
+        this->runAction(recoverZoom);
     }
 }

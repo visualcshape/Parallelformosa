@@ -17,6 +17,7 @@ public:
     
     virtual void activate();
     virtual void selected();
+    virtual void unselected();
 };
 
 #endif
