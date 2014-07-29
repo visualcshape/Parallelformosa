@@ -30,9 +30,10 @@ static Resource normalResource = {cocos2d::Size(960, 640),"Normal"};
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(960, 640);
 
-static double computeFontSize(double fontSize)
+static float computeFontSize(float fontSize)
 {
     return cocos2d::Director::getInstance()->getOpenGLView()->getDesignResolutionSize().width / normalResource.size.width * fontSize;
 }
+
 
 #endif

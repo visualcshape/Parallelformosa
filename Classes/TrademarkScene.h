@@ -24,6 +24,8 @@ public:
     
     void animate();
     
+    void replaceScene();
+    
     CREATE_FUNC(TrademarkScene);
     
 };

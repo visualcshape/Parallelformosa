@@ -69,8 +69,20 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		F641CC9019854D2200A19A93 /* Mark.png in Resources */ = {isa = PBXBuildFile; fileRef = F641CC8F19854D2200A19A93 /* Mark.png */; };
-		F641CC9119854D2200A19A93 /* Mark.png in Resources */ = {isa = PBXBuildFile; fileRef = F641CC8F19854D2200A19A93 /* Mark.png */; };
+		F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
+		F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
+		F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA2A1986586A00474833 /* VisibleRect.cpp */; };
+		F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA2A1986586A00474833 /* VisibleRect.cpp */; };
+		F696BA5F19877D4100474833 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5C19877D4100474833 /* fonts */; };
+		F696BA6019877D4100474833 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5C19877D4100474833 /* fonts */; };
+		F696BA6119877D4100474833 /* Normal in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5D19877D4100474833 /* Normal */; };
+		F696BA6219877D4100474833 /* Normal in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5D19877D4100474833 /* Normal */; };
+		F696BA6319877D4100474833 /* Small in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5E19877D4100474833 /* Small */; };
+		F696BA6419877D4100474833 /* Small in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5E19877D4100474833 /* Small */; };
+		F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */; };
+		F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */; };
+		F696BA6B1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
+		F696BA6C1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
 		F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F6F6C06119812F2B006578B0 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C05E19812F2B006578B0 /* libjansson.a */; };
@@ -274,8 +286,17 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		F641CC8F19854D2200A19A93 /* Mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mark.png; path = Normal/Mark.png; sourceTree = "<group>"; };
 		F65E0C9C198542AA004B44E4 /* TrademarkScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrademarkScene.h; path = ../Classes/TrademarkScene.h; sourceTree = "<group>"; };
+		F696BA1A1986415400474833 /* LoginTitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginTitleScene.h; path = ../Classes/LoginTitleScene.h; sourceTree = "<group>"; };
+		F696BA251986538D00474833 /* LoginTitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleScene.cpp; path = ../Classes/LoginTitleScene.cpp; sourceTree = "<group>"; };
+		F696BA2A1986586A00474833 /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VisibleRect.cpp; path = ../Classes/VisibleRect.cpp; sourceTree = "<group>"; };
+		F696BA2B1986586A00474833 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisibleRect.h; path = ../Classes/VisibleRect.h; sourceTree = "<group>"; };
+		F696BA5C19877D4100474833 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		F696BA5D19877D4100474833 /* Normal */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Normal; sourceTree = "<group>"; };
+		F696BA5E19877D4100474833 /* Small */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Small; sourceTree = "<group>"; };
+		F696BA6519879AAC00474833 /* CustomLabelMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomLabelMenuItem.h; path = ../Classes/CustomLabelMenuItem.h; sourceTree = "<group>"; };
+		F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CustomLabelMenuItem.cpp; path = ../Classes/CustomLabelMenuItem.cpp; sourceTree = "<group>"; };
+		F696BA6A1987B8F600474833 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkScene.cpp; path = ../Classes/TrademarkScene.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6F6C05E19812F2B006578B0 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../libpomelo/libjansson.a; sourceTree = "<group>"; };
@@ -353,6 +374,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F696BA2A1986586A00474833 /* VisibleRect.cpp */,
+				F696BA2B1986586A00474833 /* VisibleRect.h */,
 				F6A8EDA0198530AB0023CD3D /* AppMacro.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
@@ -360,6 +383,10 @@
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				F65E0C9C198542AA004B44E4 /* TrademarkScene.h */,
 				F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */,
+				F696BA1A1986415400474833 /* LoginTitleScene.h */,
+				F696BA251986538D00474833 /* LoginTitleScene.cpp */,
+				F696BA6519879AAC00474833 /* CustomLabelMenuItem.h */,
+				F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -478,29 +505,16 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F6A8EDA4198541160023CD3D /* Normal */,
-				F6A8EDA3198541090023CD3D /* Small */,
+				F696BA6A1987B8F600474833 /* Shaders */,
+				F696BA5C19877D4100474833 /* fonts */,
+				F696BA5D19877D4100474833 /* Normal */,
+				F696BA5E19877D4100474833 /* Small */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
 			);
 			name = Resources;
 			path = ../Resources;
-			sourceTree = "<group>";
-		};
-		F6A8EDA3198541090023CD3D /* Small */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Small;
-			sourceTree = "<group>";
-		};
-		F6A8EDA4198541160023CD3D /* Normal */ = {
-			isa = PBXGroup;
-			children = (
-				F641CC8F19854D2200A19A93 /* Mark.png */,
-			);
-			name = Normal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -667,18 +681,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F696BA6319877D4100474833 /* Small in Resources */,
+				F696BA6119877D4100474833 /* Normal in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
-				F641CC9019854D2200A19A93 /* Mark.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				F696BA6B1987B8F600474833 /* Shaders in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				F696BA5F19877D4100474833 /* fonts in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
@@ -694,9 +711,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F696BA6419877D4100474833 /* Small in Resources */,
+				F696BA6C1987B8F600474833 /* Shaders in Resources */,
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
+				F696BA6019877D4100474833 /* fonts in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				F641CC9119854D2200A19A93 /* Mark.png in Resources */,
+				F696BA6219877D4100474833 /* Normal in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
 				5087E75517EB910900C73F5D /* HelloWorld.png in Resources */,
 			);
@@ -711,7 +731,10 @@
 			files = (
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */,
+				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
@@ -724,7 +747,10 @@
 			files = (
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
+				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
+				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
+				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

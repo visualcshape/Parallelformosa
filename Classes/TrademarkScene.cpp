@@ -7,6 +7,7 @@
 //
 
 #include "TrademarkScene.h"
+#include "LoginTitleScene.h"
 
 USING_NS_CC;
 
@@ -32,7 +33,8 @@ bool TrademarkScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    m_tradeMark = Sprite::create("Mark.png");
+    //?
+    m_tradeMark = Sprite::create("Trademark/Mark.png");
     CC_ASSERT(m_tradeMark!=NULL);
     m_tradeMark->setAnchorPoint(Vec2(0.5,0.5));
     m_tradeMark->setPosition(Vec2(visibleSize.width/2+origin.x,visibleSize.height/2+origin.y));
@@ -42,6 +44,9 @@ bool TrademarkScene::init()
     
     //Call animation
     animate();
+    
+    //Console : Output Size
+    CCLOG("%f, %f",visibleSize.width,visibleSize.height);
     
     return true;
 }
@@ -54,12 +59,23 @@ void TrademarkScene::animate()
 void TrademarkScene::animateTrademark()
 {
     float timeToFadeIn = 1.0f;
-    float timeToFadeOut = 1.0f;
+    float timeToFadeOut = 2.0f;
     
     auto fadeIn = FadeIn::create(timeToFadeIn);
     auto fadeOut = FadeOut::create(timeToFadeOut);
+
+    auto callFunc = CallFunc::create(CC_CALLBACK_0(TrademarkScene::replaceScene, this));
     
-    auto sequence = Sequence::create(fadeIn,DelayTime::create(2.0f),fadeOut, NULL);
+    auto sequence = Sequence::create(fadeIn,DelayTime::create(2.0f),fadeOut, callFunc, NULL);
     
     m_tradeMark->runAction(sequence);
+}
+
+void TrademarkScene::replaceScene()
+{
+    Scene* pNextScene = LoginTitleScene::createScene();
+    CC_ASSERT(pNextScene!=NULL);
+    //Add pScene = ...
+    
+    Director::getInstance()->replaceScene(pNextScene);
 }
