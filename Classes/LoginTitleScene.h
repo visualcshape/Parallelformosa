@@ -45,6 +45,8 @@ private:
     cocos2d::Label* m_touchToStartLabel;
     CustomMenuItemLabel* m_touchToStartMenuItemLabel;
     cocos2d::Menu* m_menu;
+    cocos2d::MenuItemSprite* m_transparentStartSprite;
+    cocos2d::Menu* m_menuForTransparentSpriteMenuItem;
 public:
     MenuLayer();
     
