@@ -15,6 +15,8 @@ class TrademarkScene : public cocos2d::Layer
 {
 private:
     cocos2d::Sprite* m_tradeMark;
+    cocos2d::MenuItemSprite* m_transparentSpriteMenuItem;
+    cocos2d::Menu* m_menu;
 protected:
     void animateTrademark();
 public:

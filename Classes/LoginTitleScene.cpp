@@ -113,8 +113,6 @@ MenuLayer::MenuLayer()
     //Add transparent sprite as menu item
     m_transparentStartSprite = MenuItemSprite::create(transparentSprite, NULL);
     CC_ASSERT(m_transparentStartSprite!=NULL);
-    //m_transparentStartSprite->setAnchorPoint(Vec2::ZERO);
-    //m_transparentStartSprite->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x, VisibleRect::getVisibleRect().origin.y));
     m_transparentStartSprite->setCallback(CC_CALLBACK_1(MenuLayer::startClickCallback, this));
     m_transparentStartSprite->setOpacity(0);
     
@@ -128,8 +126,6 @@ MenuLayer::MenuLayer()
     //Menu for transparents sprite
     m_menuForTransparentSpriteMenuItem = Menu::create(m_transparentStartSprite, NULL);
     CC_ASSERT(m_menuForTransparentSpriteMenuItem!=nullptr);
-    m_menu->setAnchorPoint(Vec2::ZERO);
-    m_menu->setPosition(Vec2::ZERO);
     addChild(m_menuForTransparentSpriteMenuItem,0);
     
 }

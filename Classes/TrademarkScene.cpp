@@ -8,6 +8,7 @@
 
 #include "TrademarkScene.h"
 #include "LoginTitleScene.h"
+#include "VisibleRect.h"
 
 USING_NS_CC;
 
@@ -40,7 +41,23 @@ bool TrademarkScene::init()
     m_tradeMark->setPosition(Vec2(visibleSize.width/2+origin.x,visibleSize.height/2+origin.y));
     m_tradeMark->setOpacity(0);
     
-    this->addChild(m_tradeMark,0);
+    //A trabsparentSprite
+    auto transparentSprite = Sprite::create();
+    CC_ASSERT(transparentSprite!=nullptr);
+    transparentSprite->setTextureRect(Rect(VisibleRect::getVisibleRect().origin.x,VisibleRect::getVisibleRect().origin.y,VisibleRect::getVisibleRect().size.width,VisibleRect::getVisibleRect().size.height));
+    
+    //Add transparent sprite as menu item
+    m_transparentSpriteMenuItem = MenuItemSprite::create(transparentSprite, NULL);
+    CC_ASSERT(m_transparentSpriteMenuItem!=NULL);
+    m_transparentSpriteMenuItem->setCallback(CC_CALLBACK_0(TrademarkScene::replaceScene, this));
+    m_transparentSpriteMenuItem->setOpacity(0);
+    
+    //Menu for transparents sprite
+    m_menu = Menu::create(m_transparentSpriteMenuItem, NULL);
+    CC_ASSERT(m_menu!=nullptr);
+    addChild(m_menu,0);
+    
+    addChild(m_tradeMark,1);
     
     //Call animation
     animate();
@@ -75,7 +92,7 @@ void TrademarkScene::replaceScene()
 {
     Scene* pNextScene = LoginTitleScene::createScene();
     CC_ASSERT(pNextScene!=NULL);
-    //Add pScene = ...
+    auto fadeTransition = TransitionFade::create(0.32f, pNextScene, Color3B(0, 0, 0));
     
-    Director::getInstance()->replaceScene(pNextScene);
+    Director::getInstance()->replaceScene(fadeTransition);
 }
