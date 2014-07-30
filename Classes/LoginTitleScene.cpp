@@ -105,12 +105,32 @@ MenuLayer::MenuLayer()
     //run action
     loopTouchToStartMenuItemLabel();
     
+    //A transparent sprite..
+    auto transparentSprite = Sprite::create();
+    CC_ASSERT(transparentSprite!=nullptr);
+    transparentSprite->setTextureRect(Rect(VisibleRect::getVisibleRect().origin.x,VisibleRect::getVisibleRect().origin.y,VisibleRect::getVisibleRect().size.width,VisibleRect::getVisibleRect().size.height));
+    
+    //Add transparent sprite as menu item
+    m_transparentStartSprite = MenuItemSprite::create(transparentSprite, NULL);
+    CC_ASSERT(m_transparentStartSprite!=NULL);
+    //m_transparentStartSprite->setAnchorPoint(Vec2::ZERO);
+    //m_transparentStartSprite->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x, VisibleRect::getVisibleRect().origin.y));
+    m_transparentStartSprite->setCallback(CC_CALLBACK_1(MenuLayer::startClickCallback, this));
+    m_transparentStartSprite->setOpacity(0);
+    
     //menu
-    m_menu = Menu::create(m_aboutMenuItemImage, m_settingMenuItemImage,m_touchToStartMenuItemLabel,NULL);
+    m_menu = Menu::create(m_aboutMenuItemImage, m_settingMenuItemImage,m_touchToStartMenuItemLabel,nullptr);
     CC_ASSERT(m_menu!=nullptr);
     m_menu->setAnchorPoint(Vec2::ZERO);
+    m_menu->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x,VisibleRect::getVisibleRect().origin.y));
+    addChild(m_menu,1);
+    
+    //Menu for transparents sprite
+    m_menuForTransparentSpriteMenuItem = Menu::create(m_transparentStartSprite, NULL);
+    CC_ASSERT(m_menuForTransparentSpriteMenuItem!=nullptr);
+    m_menu->setAnchorPoint(Vec2::ZERO);
     m_menu->setPosition(Vec2::ZERO);
-    addChild(m_menu);
+    addChild(m_menuForTransparentSpriteMenuItem,0);
     
 }
 
@@ -127,7 +147,7 @@ void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 {
-    
+    CCLOG("Start Touched!");
 }
 
 void MenuLayer::loopTouchToStartMenuItemLabel()
