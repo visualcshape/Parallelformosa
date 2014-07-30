@@ -12,7 +12,6 @@
 #include <cocos2d.h>
 #include "CustomLabelMenuItem.h"
 
-
 class LoginTitleScene:public cocos2d::Layer
 {
 public:
