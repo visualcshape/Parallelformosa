@@ -69,6 +69,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		F60EBBFE198AA4C400B1011F /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60EBBFD198AA4C400B1011F /* Observer.cpp */; };
+		F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60EBBFD198AA4C400B1011F /* Observer.cpp */; };
 		F646F54919891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F646F54A19891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
@@ -90,7 +92,12 @@
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
-		F6D4CE181989397E002FAE49 /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE171989397E002FAE49 /* database.sqlite3 */; };
+		F6D4CE1C198A4D6D002FAE49 /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */; };
+		F6D4CE1D198A4D6D002FAE49 /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */; };
+		F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */; };
+		F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */; };
+		F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE23198A857D002FAE49 /* Subject.cpp */; };
+		F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE23198A857D002FAE49 /* Subject.cpp */; };
 		F6F6C06119812F2B006578B0 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C05E19812F2B006578B0 /* libjansson.a */; };
 		F6F6C06219812F2B006578B0 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C05F19812F2B006578B0 /* libpomelo.a */; };
 		F6F6C06319812F2B006578B0 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C06019812F2B006578B0 /* libuv.a */; };
@@ -292,6 +299,8 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		F60EBBF7198A8FC000B1011F /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Observer.h; path = ../Classes/Observer.h; sourceTree = "<group>"; };
+		F60EBBFD198AA4C400B1011F /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Observer.cpp; path = ../Classes/Observer.cpp; sourceTree = "<group>"; };
 		F646F5451989100E007519A6 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Database.h; path = ../Classes/Database.h; sourceTree = "<group>"; };
 		F646F54819891025007519A6 /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Database.cpp; path = ../Classes/Database.cpp; sourceTree = "<group>"; };
 		F65E0C9C198542AA004B44E4 /* TrademarkScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrademarkScene.h; path = ../Classes/TrademarkScene.h; sourceTree = "<group>"; };
@@ -313,7 +322,11 @@
 		F6D4CE1019893327002FAE49 /* sqlite3.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = sqlite3.lib; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.lib; sourceTree = "<group>"; };
 		F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libsqlite3.0.dylib; sourceTree = DEVELOPER_DIR; };
 		F6D4CE1419893407002FAE49 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
-		F6D4CE171989397E002FAE49 /* database.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite3; sourceTree = "<group>"; };
+		F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite3; sourceTree = "<group>"; };
+		F6D4CE1E198A8448002FAE49 /* LoginTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginTitleModel.h; path = ../Classes/LoginTitleModel.h; sourceTree = "<group>"; };
+		F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleModel.cpp; path = ../Classes/LoginTitleModel.cpp; sourceTree = "<group>"; };
+		F6D4CE22198A856B002FAE49 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = ../Classes/Subject.h; sourceTree = "<group>"; };
+		F6D4CE23198A857D002FAE49 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Subject.cpp; path = ../Classes/Subject.cpp; sourceTree = "<group>"; };
 		F6F6C05E19812F2B006578B0 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../libpomelo/libjansson.a; sourceTree = "<group>"; };
 		F6F6C05F19812F2B006578B0 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = ../../libpomelo/libpomelo.a; sourceTree = "<group>"; };
 		F6F6C06019812F2B006578B0 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = ../../libpomelo/libuv.a; sourceTree = "<group>"; };
@@ -408,6 +421,12 @@
 				F646F54819891025007519A6 /* Database.cpp */,
 				F6D4CE0A198926C0002FAE49 /* UtilFunc.h */,
 				F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */,
+				F6D4CE1E198A8448002FAE49 /* LoginTitleModel.h */,
+				F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */,
+				F6D4CE22198A856B002FAE49 /* Subject.h */,
+				F6D4CE23198A857D002FAE49 /* Subject.cpp */,
+				F60EBBF7198A8FC000B1011F /* Observer.h */,
+				F60EBBFD198AA4C400B1011F /* Observer.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -530,7 +549,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F6D4CE171989397E002FAE49 /* database.sqlite3 */,
+				F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */,
 				F696BA6A1987B8F600474833 /* Shaders */,
 				F696BA5C19877D4100474833 /* fonts */,
 				F696BA5D19877D4100474833 /* Normal */,
@@ -707,7 +726,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D4CE181989397E002FAE49 /* database.sqlite3 in Resources */,
+				F6D4CE1C198A4D6D002FAE49 /* database.sqlite3 in Resources */,
 				F696BA6319877D4100474833 /* Small in Resources */,
 				F696BA6119877D4100474833 /* Normal in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
@@ -741,6 +760,7 @@
 				F696BA6419877D4100474833 /* Small in Resources */,
 				F696BA6C1987B8F600474833 /* Shaders in Resources */,
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
+				F6D4CE1D198A4D6D002FAE49 /* database.sqlite3 in Resources */,
 				F696BA6019877D4100474833 /* fonts in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				F696BA6219877D4100474833 /* Normal in Resources */,
@@ -760,11 +780,14 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
+				F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
+				F60EBBFE198AA4C400B1011F /* Observer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
+				F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
@@ -774,10 +797,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */,
+				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
+				F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,

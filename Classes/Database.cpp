@@ -8,7 +8,10 @@
 
 #include "Database.h"
 #include <cocos2d.h>
+#include <fstream>
 #include "UtilFunc.h"
+
+#define DB_REWRITE 1
 
 USING_NS_CC;
 
@@ -32,21 +35,53 @@ void Database::initDatabase()
 {
     int result;
     
+    //Copy database to writable path...
+    //Android
+    /**@brief Implement sooner or later*/
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    std::string dbPath;
-    dbPath = FileUtils::getInstance()->getWritablePath();
-    dbPath += "/database.sqlite3";
-    
-    FILE* file = fopen(dbPath.c_str(), "r");
-    if(file==nullptr)
-    {
-        CC_ASSERT(file!=nullptr);
-    }
-    fclose(file);
-    result = sqlite3_open(dbPath.c_str(), &_pdb);
-#else
+    //Implement later.
+#else   //other
     std::string path=FileUtils::getInstance()->getWritablePath()+"database.sqlite3";
-    result = sqlite3_open(path.c_str(), &_pdb);
+    char firstAccess[16];
+    //First Access?
+    FILE* firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "r");
+    if (firstAccessFile==nullptr)
+    {
+        firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "w");
+        fputs("1", firstAccessFile);
+        fclose(firstAccessFile);
+    }
+    fclose(firstAccessFile);
+    
+    std::fstream fin;
+    fin.open((FileUtils::getInstance()->getWritablePath()+"First").c_str(),std::ios::in);
+    fin.getline(firstAccess, sizeof(firstAccess));
+    fin.close();
+    
+    //Copy resource db to document.
+    if(strcmp("1", firstAccess)==0)
+    {
+        ssize_t size;
+        const char* data = (char*)FileUtils::getInstance()->getFileData("database.sqlite3", "rb", &size);
+        FILE* file = fopen(path.c_str(), "wb");
+        CC_ASSERT(file!=nullptr);
+        fwrite(data, size, 1, file);
+        fclose(file);
+        CC_SAFE_DELETE_ARRAY(file);
+        //Re write to first Access file
+#if DB_REWRITE == 1
+        firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "w");
+        strcpy(firstAccess, "1");
+        fputs(firstAccess, firstAccessFile);
+        fclose(firstAccessFile);
+#else
+        firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "w");
+        strcpy(firstAccess, "0");
+        fputs(firstAccess, firstAccessFile);
+        fclose(firstAccessFile);
+#endif
+    }
+        result = sqlite3_open(path.c_str(), &_pdb);
 #endif
     
     if(result!=SQLITE_OK)
@@ -56,10 +91,12 @@ void Database::initDatabase()
     }
     else
     {
+        this->_insertUserID();
         CCLOG("Database initalized!");
     }
 }
 
+/*
 void Database::sqlQuery(std::string query)
 {
     //tok
@@ -71,6 +108,7 @@ void Database::sqlQuery(std::string query)
     std::string curString("");
     std::string insertion("insert");
     std::string del("delete");
+    std::string select("select");
     //
     //Get type
     std::string tmpStr("");
@@ -87,6 +125,10 @@ void Database::sqlQuery(std::string query)
     {
         curString = del;
     }
+    else if (strcmp(pch, select.c_str())==0)
+    {
+        curString = select;
+    }
     //No such type
     else
     {
@@ -94,11 +136,40 @@ void Database::sqlQuery(std::string query)
     }
     CCASSERT(strcmp(curString.c_str(), "-1")!=0, "sqlQuery : No such type!");
     //
-    
+
     int result = sqlite3_exec(_pdb, query.c_str(), nullptr, nullptr, nullptr);
     if (result!=SQLITE_OK) {
         char* err;
         strcat(err, (curString+" data failed!").c_str());
         CCLOG("%s",err);
     }
+}
+*/
+
+/** @brief
+ Insert a user ID 0 if first initialize.
+ */
+void Database::_insertUserID()
+{
+    char** resultTabel;
+    char* pzErrMsg;
+    int row,column,result;
+    
+    //Count rows..
+    result = sqlite3_get_table(_pdb, "select count(*) from User", &resultTabel, &row, &column, &pzErrMsg);
+    CCASSERT(result==SQLITE_OK,pzErrMsg);
+    if(strcmp(resultTabel[1], "0")==0)
+    {
+        //Insert new ID
+        result = sqlite3_exec(_pdb, "insert into User values(0,1)", nullptr, nullptr, nullptr);
+        
+        CCASSERT(result==SQLITE_OK, "_insertUserID new ID Failed!");
+    }
+    //if already exist do nothing.
+    CCLOG("Database : _insertUserID sucess!");
+}
+
+sqlite3* Database::getDatabasePointer()
+{
+    return _pdb;
 }

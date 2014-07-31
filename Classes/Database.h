@@ -20,10 +20,12 @@ class Database
 public:
     static Database* getInstance();
     void initDatabase();
-    void sqlQuery(std::string query);
+    //void sqlQuery(std::string query); //Stop using this temporary.
+    sqlite3* getDatabasePointer();
 protected:
     Database();
 private:
+    void _insertUserID();
     static Database* _instance;
     sqlite3* _pdb;
 };

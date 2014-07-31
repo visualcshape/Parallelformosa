@@ -163,6 +163,9 @@ void MenuLayer::loopTouchToStartMenuItemLabel()
 
 InfoLayer::InfoLayer()
 {
+    //Add Subject
+    _subject = LoginTitleModel::getInstance();
+    _subject->Attach(this);
     //TODO : Set Position
     //TODO : Add child
     TTFConfig config("fonts/Avenir.ttf",computeFontSize(8*4));
@@ -171,4 +174,20 @@ InfoLayer::InfoLayer()
     m_UIDLabel->setAnchorPoint(Vec2(0.0, 1.0));
     m_UIDLabel->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x+20,VisibleRect::getVisibleRect().size.height-3));
     addChild(m_UIDLabel);
+    
+    //Notify...
+    _subject->Notify();
+}
+
+InfoLayer::~InfoLayer()
+{
+    _subject->Detach(this);
+    _subject = nullptr;
+}
+
+void InfoLayer::Update(Subject* changedSubject)
+{
+    //Update uid
+    std::string uid = _subject->getUID();
+    m_UIDLabel->setString("UID:"+uid);
 }

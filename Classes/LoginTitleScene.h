@@ -11,6 +11,8 @@
 
 #include <cocos2d.h>
 #include "CustomLabelMenuItem.h"
+#include "Observer.h"
+#include "LoginTitleModel.h"
 
 class LoginTitleScene:public cocos2d::Layer
 {
@@ -61,12 +63,17 @@ public:
 };
 
 
-class InfoLayer:public cocos2d::Layer
+class InfoLayer:public cocos2d::Layer,public Observer
 {
 private:
     cocos2d::Label* m_UIDLabel;
+    LoginTitleModel* _subject;
 public:
     InfoLayer();
+    
+    ~InfoLayer();
+    
+    virtual void Update(Subject* changedSubject);
     
     CREATE_FUNC(InfoLayer);
 };
