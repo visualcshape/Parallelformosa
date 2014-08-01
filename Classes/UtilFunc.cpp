@@ -16,8 +16,6 @@ UtilFunc::UtilFunc()
     
 }
 
-/** @brief Return an instance.
- */
 UtilFunc* UtilFunc::getInstance()
 {
     //Lazy init.
@@ -29,8 +27,6 @@ UtilFunc* UtilFunc::getInstance()
     return _instance;
 }
 
-/** @brief Return a string that all lower.
- */
 void UtilFunc::toLower(std::string* str)
 {
     for (int i = 0; i<str->length(); i++) {

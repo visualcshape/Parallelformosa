@@ -21,7 +21,13 @@ private:
 protected:
     UtilFunc();
 public:
+    /** @brief Return an instance.
+     */
     static UtilFunc* getInstance();
+    
+    /** @brief Return a string that all lower.
+     *@param String to lower.
+     */
     void toLower(std::string* str);
 };
 

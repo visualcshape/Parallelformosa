@@ -36,7 +36,20 @@ LoginTitleModel::LoginTitleModel()
 
 void LoginTitleModel::setUID(std::string uid)
 {
+    char* pErrMsg;
+    std::string originalUID = _uid;
+    std::string sql("");
+    
+    //make query
+    sql = "update User set ID="+uid+" where ID="+originalUID;
+    //
+    
     _uid = uid;
+    
+    int result = sqlite3_exec(Database::getInstance()->getDatabasePointer(), sql.c_str(), nullptr, nullptr, &pErrMsg);
+    CCASSERT(result==SQLITE_OK, pErrMsg);
+    //
+    
     Notify();
 }
 
