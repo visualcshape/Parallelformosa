@@ -32,6 +32,8 @@ LoginTitleModel::LoginTitleModel()
     CCASSERT(result==SQLITE_OK, pErrMsg);
     
     _uid = table[1];
+    
+    _typeName = "LoginTitleModel";
 }
 
 void LoginTitleModel::setUID(std::string uid)

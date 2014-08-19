@@ -87,6 +87,12 @@
 		F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */; };
 		F696BA6B1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
 		F696BA6C1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
+		F698765F199E549C00D89FC9 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F698765E199E549C00D89FC9 /* libpomelo.a */; };
+		F6987663199E54D200D89FC9 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6987662199E54D200D89FC9 /* libuv.a */; };
+		F6987665199FB6B100D89FC9 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6987660199E54B300D89FC9 /* libjansson.a */; };
+		F698767319A2628E00D89FC9 /* server in Resources */ = {isa = PBXBuildFile; fileRef = F698767119A2628E00D89FC9 /* server */; };
+		F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
+		F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
@@ -98,9 +104,8 @@
 		F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */; };
 		F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE23198A857D002FAE49 /* Subject.cpp */; };
 		F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE23198A857D002FAE49 /* Subject.cpp */; };
-		F6F6C06119812F2B006578B0 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C05E19812F2B006578B0 /* libjansson.a */; };
-		F6F6C06219812F2B006578B0 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C05F19812F2B006578B0 /* libpomelo.a */; };
-		F6F6C06319812F2B006578B0 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F6C06019812F2B006578B0 /* libuv.a */; };
+		F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */; };
+		F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +319,12 @@
 		F696BA6519879AAC00474833 /* CustomLabelMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomLabelMenuItem.h; path = ../Classes/CustomLabelMenuItem.h; sourceTree = "<group>"; };
 		F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CustomLabelMenuItem.cpp; path = ../Classes/CustomLabelMenuItem.cpp; sourceTree = "<group>"; };
 		F696BA6A1987B8F600474833 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
+		F698765E199E549C00D89FC9 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../../libpomelo/build/Default-iphoneos/libpomelo.a"; sourceTree = "<group>"; };
+		F6987660199E54B300D89FC9 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../../libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a"; sourceTree = "<group>"; };
+		F6987662199E54D200D89FC9 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../../libpomelo/deps/uv/build/Default-iphoneos/libuv.a"; sourceTree = "<group>"; };
+		F698767119A2628E00D89FC9 /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; name = server; path = ../server; sourceTree = "<group>"; };
+		F698767419A263E700D89FC9 /* DialogueWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindow.h; path = ../Classes/DialogueWindow.h; sourceTree = "<group>"; };
+		F698767519A2640400D89FC9 /* DialogueWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindow.cpp; path = ../Classes/DialogueWindow.cpp; sourceTree = "<group>"; };
 		F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkScene.cpp; path = ../Classes/TrademarkScene.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
@@ -327,6 +338,8 @@
 		F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleModel.cpp; path = ../Classes/LoginTitleModel.cpp; sourceTree = "<group>"; };
 		F6D4CE22198A856B002FAE49 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = ../Classes/Subject.h; sourceTree = "<group>"; };
 		F6D4CE23198A857D002FAE49 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Subject.cpp; path = ../Classes/Subject.cpp; sourceTree = "<group>"; };
+		F6E7B97819A3A044004D6DAF /* DialogueWindowConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindowConfirm.h; path = ../Classes/DialogueWindowConfirm.h; sourceTree = "<group>"; };
+		F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindowConfirm.cpp; path = ../Classes/DialogueWindowConfirm.cpp; sourceTree = "<group>"; };
 		F6F6C05E19812F2B006578B0 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../libpomelo/libjansson.a; sourceTree = "<group>"; };
 		F6F6C05F19812F2B006578B0 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = ../../libpomelo/libpomelo.a; sourceTree = "<group>"; };
 		F6F6C06019812F2B006578B0 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = ../../libpomelo/libuv.a; sourceTree = "<group>"; };
@@ -337,11 +350,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6987665199FB6B100D89FC9 /* libjansson.a in Frameworks */,
+				F6987663199E54D200D89FC9 /* libuv.a in Frameworks */,
+				F698765F199E549C00D89FC9 /* libpomelo.a in Frameworks */,
 				F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */,
 				F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */,
-				F6F6C06119812F2B006578B0 /* libjansson.a in Frameworks */,
-				F6F6C06219812F2B006578B0 /* libpomelo.a in Frameworks */,
-				F6F6C06319812F2B006578B0 /* libuv.a in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
@@ -427,6 +440,10 @@
 				F6D4CE23198A857D002FAE49 /* Subject.cpp */,
 				F60EBBF7198A8FC000B1011F /* Observer.h */,
 				F60EBBFD198AA4C400B1011F /* Observer.cpp */,
+				F698767419A263E700D89FC9 /* DialogueWindow.h */,
+				F698767519A2640400D89FC9 /* DialogueWindow.cpp */,
+				F6E7B97819A3A044004D6DAF /* DialogueWindowConfirm.h */,
+				F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -461,6 +478,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F698767119A2628E00D89FC9 /* server */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -475,6 +493,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6987662199E54D200D89FC9 /* libuv.a */,
+				F6987660199E54B300D89FC9 /* libjansson.a */,
+				F698765E199E549C00D89FC9 /* libpomelo.a */,
 				F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */,
 				F6D4CE1419893407002FAE49 /* libsqlite3.dylib */,
 				F6D4CE0F19893327002FAE49 /* sqlite3.dll */,
@@ -618,7 +639,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = MDDB52YB8L;
+						DevelopmentTeam = 43W9W2675J;
 					};
 				};
 			};
@@ -762,6 +783,7 @@
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
 				F6D4CE1D198A4D6D002FAE49 /* database.sqlite3 in Resources */,
 				F696BA6019877D4100474833 /* fonts in Resources */,
+				F698767319A2628E00D89FC9 /* server in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				F696BA6219877D4100474833 /* Normal in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
@@ -780,11 +802,13 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
+				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				F60EBBFE198AA4C400B1011F /* Observer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
+				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */,
@@ -798,6 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */,
+				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
@@ -806,6 +831,7 @@
 				F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
+				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
@@ -872,6 +898,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -894,7 +921,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					/Users/Vodalok/Parallelformosa/libpomelo,
 					/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/cocos2d/external/sqlite3/libraries/win32,
+					"/Users/Vodalok/Parallelformosa/libpomelo/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphoneos",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -906,6 +937,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -926,7 +958,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					/Users/Vodalok/Parallelformosa/libpomelo,
 					/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/cocos2d/external/sqlite3/libraries/win32,
+					"/Users/Vodalok/Parallelformosa/libpomelo/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphoneos",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1012,8 +1048,11 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					"~/Parallelformosa/libpomelo/deps/uv/include",
+					"~/Parallelformosa/libpomelo/deps/jansson/src",
+					"~/Parallelformosa/libpomelo/include",
 				);
-				LIBRARY_SEARCH_PATHS = "~/Vodalok/Parallelformosa/libpomelo";
+				LIBRARY_SEARCH_PATHS = "~/Parallelformosa/libpomelo";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1043,8 +1082,11 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					"~/Parallelformosa/libpomelo/deps/uv/include",
+					"~/Parallelformosa/libpomelo/deps/jansson/src",
+					"~/Parallelformosa/libpomelo/include",
 				);
-				LIBRARY_SEARCH_PATHS = "~/Vodalok/Parallelformosa/libpomelo";
+				LIBRARY_SEARCH_PATHS = "~/Parallelformosa/libpomelo";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";

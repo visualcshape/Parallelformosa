@@ -10,6 +10,7 @@
 #define Parallelformosa_Cocos2dx_Subject_h
 
 #include "Observer.h"
+#include <string>
 #include <list>
 
 /**@brief
@@ -26,8 +27,10 @@ public:
     virtual void Attach(Observer* observer);
     virtual void Detach(Observer* observer);
     virtual void Notify();
+    virtual std::string getTypeName();
 protected:
     Subject();
+    std::string _typeName;
 private:
     std::list<Observer*>* _observers;
 };

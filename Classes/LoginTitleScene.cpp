@@ -9,6 +9,8 @@
 #include "LoginTitleScene.h"
 #include "VisibleRect.h"
 #include "AppMacro.h"
+#include <pomelo.h>
+#include "DialogueWindowConfirm.h"
 
 using namespace cocos2d;
 
@@ -58,15 +60,7 @@ bool LoginTitleScene::init()
     menuLayer->release();
     infoLayer->release();
     
-    //When init finish , do login
-    doLogin();
-    
     return true;
-}
-
-void LoginTitleScene::doLogin()
-{
-    //SQLLite first
 }
 
 ///////////////////
@@ -140,11 +134,88 @@ void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
     
 }
 
-
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 {
     CCLOG("Start Touched!");
+    DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("", Color4B(0, 0, 0, 0), "", Color4B(0,0,0,0));
+    addChild(dialogue,100);
+    //_doLoginWaterFall();
 }
+
+//Login waterfall
+void MenuLayer::_doLoginWaterFall()
+{
+    //new a client
+    pc_client_t* client = pc_client_new();
+    _connectServer(client);
+}
+
+void MenuLayer::_connectServer(pc_client_t* client)
+{
+    const char* ip = GATE_HOST;
+    const int port = GATE_PORT;
+    struct sockaddr_in address;
+    
+    memset(&address, 0, sizeof(struct sockaddr_in));
+    address.sin_family = AF_INET;
+    address.sin_port = htons(port);
+    address.sin_addr.s_addr = inet_addr(ip);
+    
+    if(pc_client_connect(client, &address))
+    {
+        //Future : Print on the UI
+        //Now : log at Console
+        CCLOGERROR("Fail to connect to server.");
+        pc_client_destroy(client);
+        return;
+    }
+    
+    //Print on Console
+    CCLOG("Connect to server.");
+    //pass to next step
+    _sendRequest(client);
+}
+
+void MenuLayer::_sendRequest(pc_client_t* client)
+{
+    const char* route = "gate.gateHandler.authUID";
+    json_t* msg = json_object();
+    json_t* uid = json_string("0");
+    json_object_set(msg, "uid", uid);
+    //decref
+    json_decref(uid);
+    
+    pc_request_t* req = pc_request_new();
+    pc_request(client, req, route, msg, _onAuthUIDRequestCallback);
+}
+
+void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)
+{
+    if(status==-1)
+    {
+        CCLOG("Fail to send request to server");
+    }
+    else if(status==0)
+    {
+        char* json_str = json_dumps(resp, 0);
+        if(json_str!=nullptr)
+        {
+            CCLOG("server response:%s",json_str);
+            free(json_str);
+        }
+    }
+    
+    //release
+    json_t* msg = req->msg;
+    pc_client_t* client = req->client;
+    json_decref(msg);
+    pc_request_destroy(req);
+    CCLOG("Released.");
+    
+    //stop
+    pc_client_stop(client);
+}
+//
 
 void MenuLayer::loopTouchToStartMenuItemLabel()
 {
@@ -173,8 +244,7 @@ InfoLayer::InfoLayer()
     CC_ASSERT(m_UIDLabel!=NULL);
     m_UIDLabel->setAnchorPoint(Vec2(0.0, 1.0));
     m_UIDLabel->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x+20,VisibleRect::getVisibleRect().size.height-3));
-    addChild(m_UIDLabel);
-    
+    addChild(m_UIDLabel,2);
     //Notify...
     _subject->Notify();
 }
@@ -188,6 +258,9 @@ InfoLayer::~InfoLayer()
 void InfoLayer::Update(Subject* changedSubject)
 {
     //Update uid
-    std::string uid = _subject->getUID();
-    m_UIDLabel->setString("UID:"+uid);
+    if(changedSubject->getTypeName()==LoginTitleModel::getInstance()->getTypeName()){
+        std::string uid = _subject->getUID();
+        m_UIDLabel->setString("UID:"+uid);
+    }
+    return;
 }

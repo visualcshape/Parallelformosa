@@ -67,7 +67,7 @@ void Database::initDatabase()
         CC_ASSERT(file!=nullptr);
         fwrite(data, size, 1, file);
         fclose(file);
-        CC_SAFE_DELETE_ARRAY(file);
+        //CC_SAFE_DELETE_ARRAY(file);
         //Re write to first Access file
 #if DB_REWRITE == 1
         firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "w");

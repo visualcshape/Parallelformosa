@@ -39,3 +39,8 @@ void Subject::Notify()
         cur->Update(this);
     }
 }
+
+std::string Subject::getTypeName()
+{
+    return _typeName;
+}
