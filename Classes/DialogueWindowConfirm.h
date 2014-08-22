@@ -11,30 +11,22 @@
 
 #include <cocos2d.h>
 #include <string>
+#include <CocosGUI.h>
 #include "DialogueWindow.h"
 
 class DialogueWindowConfirm:public DialogueWindow
 {
 private:
-    std::string _title;
-    std::string _content;
-    cocos2d::Color4B _titleColor;
-    cocos2d::Color4B _contentColor;
+    cocos2d::ui::Button* _confirmButton;
 protected:
     DialogueWindowConfirm();
 public:
     ~DialogueWindowConfirm();
     CREATE_FUNC(DialogueWindowConfirm);
     //Callback will be implemented later
-    static DialogueWindowConfirm* create(std::string title,cocos2d::Color4B titleColor,std::string content,cocos2d::Color4B contetntColor);
+    static DialogueWindowConfirm* create(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contetntColor);
     
-    void setTitleText(std::string text);
-    
-    void setContentText(std::string text);
-    
-    void setTitleColor(cocos2d::Color4B color);
-    
-    void setContentColor(cocos2d::Color4B color);
+    virtual bool init();
 };
 
 

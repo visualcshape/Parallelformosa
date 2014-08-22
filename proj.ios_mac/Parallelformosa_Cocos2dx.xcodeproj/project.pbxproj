@@ -90,7 +90,6 @@
 		F698765F199E549C00D89FC9 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F698765E199E549C00D89FC9 /* libpomelo.a */; };
 		F6987663199E54D200D89FC9 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6987662199E54D200D89FC9 /* libuv.a */; };
 		F6987665199FB6B100D89FC9 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6987660199E54B300D89FC9 /* libjansson.a */; };
-		F698767319A2628E00D89FC9 /* server in Resources */ = {isa = PBXBuildFile; fileRef = F698767119A2628E00D89FC9 /* server */; };
 		F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
@@ -322,7 +321,6 @@
 		F698765E199E549C00D89FC9 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../../libpomelo/build/Default-iphoneos/libpomelo.a"; sourceTree = "<group>"; };
 		F6987660199E54B300D89FC9 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../../libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a"; sourceTree = "<group>"; };
 		F6987662199E54D200D89FC9 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../../libpomelo/deps/uv/build/Default-iphoneos/libuv.a"; sourceTree = "<group>"; };
-		F698767119A2628E00D89FC9 /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; name = server; path = ../server; sourceTree = "<group>"; };
 		F698767419A263E700D89FC9 /* DialogueWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindow.h; path = ../Classes/DialogueWindow.h; sourceTree = "<group>"; };
 		F698767519A2640400D89FC9 /* DialogueWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindow.cpp; path = ../Classes/DialogueWindow.cpp; sourceTree = "<group>"; };
 		F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkScene.cpp; path = ../Classes/TrademarkScene.cpp; sourceTree = "<group>"; };
@@ -478,7 +476,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				F698767119A2628E00D89FC9 /* server */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -783,7 +780,6 @@
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
 				F6D4CE1D198A4D6D002FAE49 /* database.sqlite3 in Resources */,
 				F696BA6019877D4100474833 /* fonts in Resources */,
-				F698767319A2628E00D89FC9 /* server in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				F696BA6219877D4100474833 /* Normal in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,

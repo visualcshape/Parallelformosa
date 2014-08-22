@@ -137,7 +137,7 @@ void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 {
     CCLOG("Start Touched!");
-    DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("", Color4B(0, 0, 0, 0), "", Color4B(0,0,0,0));
+    DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("123", Color3B(0, 0, 0), "", Color3B(0,0,0));
     addChild(dialogue,100);
     //_doLoginWaterFall();
 }
