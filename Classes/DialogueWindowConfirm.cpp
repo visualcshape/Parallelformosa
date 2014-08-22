@@ -43,19 +43,6 @@ bool DialogueWindowConfirm::init()
     DialogueWindow::init();
     //
     
-    /*
-    cocos2d::extension::Scale9Sprite* baseWindow = DialogueWindow::getBaseWindow();
-    CCASSERT(baseWindow!=nullptr, "baseWindow cannot be null.");
-    cocos2d::Size baseWindowSize = baseWindow->getContentSize();
-    
-    _titleText = cocos2d::ui::Text::create(_title, "Avenir", computeFontSize(10*4));
-    CCASSERT(_titleText!=nullptr, "_titleText cannot be null.");
-    _titleText->setColor(Color3B(123,157,134));
-    Vec2 titlePosition(baseWindowSize.width/2,baseWindowSize.height-8);
-    _titleText->setAnchorPoint(Vec2(.5,1.));
-    _titleText->setPosition(titlePosition);
-    baseWindow->addChild(_titleText);
-    */
     
     return ret;
 }
