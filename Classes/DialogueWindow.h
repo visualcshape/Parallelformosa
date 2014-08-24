@@ -25,6 +25,7 @@ private:
     //UI
     cocos2d::ui::Text* _titleText;
     cocos2d::ui::RichText* _contentRichText;
+    cocos2d::ui::Layout* _buttonLayout;
     
     //data
     std::string _title;
@@ -45,12 +46,14 @@ public:
     void setContentText(std::string text);
     void setTitletextColor(cocos2d::Color3B color);
     void setContentTextColor(cocos2d::Color3B color);
+    virtual void setCallback(std::function<void(Ref*,cocos2d::ui::Widget::TouchEventType)>* callback);
     
     //get
     cocos2d::extension::Scale9Sprite* getBaseWindow();
     cocos2d::Sprite* getContentBackground();
     cocos2d::ui::Text* getTitleText();
     cocos2d::ui::RichText* getContentRichText();
+    cocos2d::ui::Layout* getLayout();
 };
 
 #endif

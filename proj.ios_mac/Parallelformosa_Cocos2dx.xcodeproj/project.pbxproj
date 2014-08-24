@@ -94,6 +94,7 @@
 		F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
+		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -325,6 +326,7 @@
 		F698767519A2640400D89FC9 /* DialogueWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindow.cpp; path = ../Classes/DialogueWindow.cpp; sourceTree = "<group>"; };
 		F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkScene.cpp; path = ../Classes/TrademarkScene.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
+		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F6B133F019AA4C77002981C6 /* README.md */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -756,6 +759,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				F696BA6B1987B8F600474833 /* Shaders in Resources */,
+				F6B133F119AA4C77002981C6 /* README.md in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,

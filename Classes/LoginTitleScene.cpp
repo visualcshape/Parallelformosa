@@ -137,8 +137,11 @@ void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 {
     CCLOG("Start Touched!");
-    DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("123", Color3B(0, 0, 0), "Hello WorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorld", Color3B(0,0,0));
-    addChild(dialogue,100);
+    //bind
+    std::function<void(Ref*,cocos2d::ui::Widget::TouchEventType)> bind(std::bind(&MenuLayer::dialogueCallback, this,std::placeholders::_2));
+    DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("Test", Color3B(0, 0, 0), "Hello World", Color3B(0,0,0),&bind);
+    addChild(dialogue,100,"Dialogue");
+    //
     //_doLoginWaterFall();
 }
 
@@ -226,6 +229,12 @@ void MenuLayer::loopTouchToStartMenuItemLabel()
     Sequence* sequence = Sequence::create(toAction,DelayTime::create(.3f),recoverAction,repeat, NULL);
     
     m_touchToStartMenuItemLabel->runAction(sequence);
+}
+
+void MenuLayer::dialogueCallback(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+    ((Layer*)pSender)->removeChildByName("Dialogue");
+    return;
 }
 
 /////////////

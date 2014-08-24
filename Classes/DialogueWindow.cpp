@@ -90,9 +90,32 @@ bool DialogueWindow::init()
     _contentRichText->setPosition(Vec2(contentBackgroundPos.x+2,contentBackgroundPos.y+10+abs((contentBackgroundSize.height-contentBackgroundPos.y))));
     _baseWindow->addChild(_contentRichText,1);
     
+    //layout
+    _buttonLayout = ui::Layout::create();
+    CCASSERT(_buttonLayout!=nullptr, "_buttonLayout cannot be null.");
+    _buttonLayout->setSize(Size(baseWindowSizeSetted.width-10, baseWindowSizeSetted.height-titleTextHeight-8-contentBackgroundSize.height-15));
+    _buttonLayout->setAnchorPoint(Vec2(.5, 1.));
+    _buttonLayout->setPosition(Vec2(baseWindowSizeSetted.width/2, _buttonLayout->getContentSize().height+5));
+    //_buttonLayout->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
+    //_buttonLayout->setBackGroundColor(Color3B(180, 180, 180));
+    _buttonLayout->setLayoutType(ui::Layout::Type::VERTICAL);
+    _baseWindow->addChild(_buttonLayout);
+    
     //addChild...
     addChild(_baseLayer,3);
     addChild(_baseWindow,4);
+    
+    //Event Dispatcher
+    auto blockListener = EventListenerTouchOneByOne::create();
+    blockListener->setSwallowTouches(true);
+    //lambda
+    //at least set onTouchBegan
+    blockListener->onTouchBegan= [](Touch* touch,Event* event){
+        CCLOG("Touch");
+        return true;
+    };
+    //dispatcher
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(blockListener, _baseLayer);
     
     return ret;
 }
@@ -135,4 +158,14 @@ void DialogueWindow::setTitletextColor(cocos2d::Color3B color)
 void DialogueWindow::setContentTextColor(cocos2d::Color3B color)
 {
     _contentColor = color;
+}
+
+void DialogueWindow::setCallback(std::function<void (Ref*,ui::Widget::TouchEventType)> *callback)
+{
+    
+}
+
+ui::Layout* DialogueWindow::getLayout()
+{
+    return _buttonLayout;
 }

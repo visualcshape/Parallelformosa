@@ -10,6 +10,7 @@
 #define Parallelformosa_Cocos2dx_LoginTitleScene_h
 
 #include <cocos2d.h>
+#include <CocosGUI.h>
 #include <pomelo.h>
 #include "CustomLabelMenuItem.h"
 #include "Observer.h"
@@ -65,6 +66,8 @@ public:
     void startClickCallback(Ref* pSender);
     
     void loopTouchToStartMenuItemLabel();
+    
+    static void dialogueCallback(Ref* pSender,cocos2d::ui::Widget::TouchEventType type);
     
     CREATE_FUNC(MenuLayer);
 };

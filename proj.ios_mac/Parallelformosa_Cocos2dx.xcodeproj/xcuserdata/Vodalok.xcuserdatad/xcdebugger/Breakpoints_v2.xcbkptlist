@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430155262.951822"
+            timestampString = "430590888.552388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257">
+            startingLineNumber = "266"
+            endingLineNumber = "266">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430155262.951822"
+            timestampString = "430590888.552388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258">
+            startingLineNumber = "267"
+            endingLineNumber = "267">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -38,11 +38,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430155262.951822"
+            timestampString = "430590888.552388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -54,11 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430155262.951822"
+            timestampString = "430590888.552388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,12 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/DialogueWindowConfirm.cpp"
-            timestampString = "430410376.591323"
+            timestampString = "430589636.589253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "DialogueWindowConfirm::init()"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "DialogueWindowConfirm::setCallback(std::function&lt;void (Ref *,ui::Widget::TouchEventType)&gt; *callback)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -100,12 +100,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/DialogueWindowConfirm.cpp"
-            timestampString = "430410376.591323"
+            timestampString = "430589636.589253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "DialogueWindowConfirm::init()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "DialogueWindowConfirm::setCallback(std::function&lt;void (Ref *,ui::Widget::TouchEventType)&gt; *callback)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -116,27 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/DialogueWindow.cpp"
-            timestampString = "430428056.225722"
+            timestampString = "430587340.187484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "DialogueWindow::getContentBackground()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/DialogueWindow.cpp"
-            timestampString = "430428056.225722"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "DialogueWindow::getContentRichText()"
             landmarkType = "5">
          </BreakpointContent>
@@ -148,11 +132,25 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/DialogueWindow.cpp"
-            timestampString = "430428056.225722"
+            timestampString = "430587340.187484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "132"
+            endingLineNumber = "132">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/DialogueWindow.cpp"
+            timestampString = "430568538.090367"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "DialogueWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/DialogueWindow.cpp"
-            timestampString = "430428056.225722"
+            timestampString = "430587340.187484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "DialogueWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,6 +216,38 @@
             startingLineNumber = "91"
             endingLineNumber = "91"
             landmarkName = "DialogueWindow::init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/DialogueWindowConfirm.cpp"
+            timestampString = "430589636.589253"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "DialogueWindowConfirm::init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoginTitleScene.cpp"
+            timestampString = "430590888.552388"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "MenuLayer::dialogueCallback(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
