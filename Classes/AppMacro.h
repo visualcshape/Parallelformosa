@@ -28,7 +28,7 @@
 //
 
 //server config
-#define GATE_HOST "192.168.0.199"
+#define GATE_HOST "192.168.2.119"
 #define GATE_PORT 3150
 //
 

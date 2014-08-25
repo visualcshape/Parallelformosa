@@ -18,17 +18,18 @@ class DialogueWindowConfirm:public DialogueWindow
 {
 private:
     cocos2d::ui::Button* _confirmButton;
-    std::function<void(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType)>* _callback;
 protected:
     DialogueWindowConfirm();
 public:
     ~DialogueWindowConfirm();
     CREATE_FUNC(DialogueWindowConfirm);
+    std::function<void(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType)> buttonCallback;
     //Callback will be implemented later
-    static DialogueWindowConfirm* create(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contetntColor,std::function<void(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType)>* callback);
+    static DialogueWindowConfirm* create(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contetntColor);
     
     virtual bool init();
-    virtual void setCallback(std::function<void(Ref*,cocos2d::ui::Widget::TouchEventType)>* callback);
+    
+    virtual void addButtonListener(std::function<void(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType)> callback);
 };
 
 

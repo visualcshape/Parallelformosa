@@ -67,8 +67,6 @@ public:
     
     void loopTouchToStartMenuItemLabel();
     
-    static void dialogueCallback(Ref* pSender,cocos2d::ui::Widget::TouchEventType type);
-    
     CREATE_FUNC(MenuLayer);
 };
 

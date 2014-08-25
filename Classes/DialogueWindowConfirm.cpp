@@ -21,7 +21,7 @@ DialogueWindowConfirm::~DialogueWindowConfirm()
     
 }
 
-DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contentColor,std::function<void(Ref*,ui::Widget::TouchEventType)>* callback)
+DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contentColor)
 {
     DialogueWindowConfirm* ret = new DialogueWindowConfirm();
     
@@ -30,7 +30,6 @@ DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::
     ret->setTitletextColor(titleColor);
     ret->setContentTextColor(contentColor);
     //init this class
-    ret->setCallback(callback);
     ret->init();
     
     return ret;
@@ -52,8 +51,6 @@ bool DialogueWindowConfirm::init()
     _confirmButton->setTitleFontName("Avenir");
     _confirmButton->setScale9Enabled(true);
     _confirmButton->setTitleText("OK");
-    if(_callback!=nullptr)
-        _confirmButton->addTouchEventListener(*_callback);
     _confirmButton->setContentSize(confirmButtonSize);
     ui::LinearLayoutParameter* lp = ui::LinearLayoutParameter::create();
     lp->setGravity(cocos2d::ui::LinearLayoutParameter::LinearGravity::CENTER_HORIZONTAL);
@@ -64,7 +61,7 @@ bool DialogueWindowConfirm::init()
     return ret;
 }
 
-void DialogueWindowConfirm::setCallback(std::function<void (Ref *,ui::Widget::TouchEventType)> *callback)
+void DialogueWindowConfirm::addButtonListener(std::function<void(Ref*,ui::Widget::TouchEventType)> callback)
 {
-    _callback = callback;
+    _confirmButton->addTouchEventListener(callback);
 }

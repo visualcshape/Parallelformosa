@@ -11,6 +11,7 @@
 
 #include "Subject.h"
 #include <string>
+#include <cocos2d.h>
 
 /**@brief A Concrete Subject Login Title Model
  */
@@ -19,13 +20,19 @@ class LoginTitleModel:public Subject
 public:
     static LoginTitleModel* getInstance();
     
+    //set
     void setUID(std::string uid);
+    void setBindedLayer(cocos2d::Layer* layer);
+    
+    //get
     std::string getUID();
+    cocos2d::Layer* getBindedLayer();
 protected:
     LoginTitleModel();
 private:
     std::string _uid;
     static LoginTitleModel* _instance;
+    cocos2d::Layer* _layer;
 };
 
 

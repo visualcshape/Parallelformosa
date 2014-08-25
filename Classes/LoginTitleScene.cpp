@@ -136,13 +136,8 @@ void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 {
-    CCLOG("Start Touched!");
-    //bind
-    std::function<void(Ref*,cocos2d::ui::Widget::TouchEventType)> bind(std::bind(&MenuLayer::dialogueCallback, this,std::placeholders::_2));
-    DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("Test", Color3B(0, 0, 0), "Hello World", Color3B(0,0,0),&bind);
-    addChild(dialogue,100,"Dialogue");
-    //
-    //_doLoginWaterFall();
+    CCLOG("Start Login!");
+    _doLoginWaterFall();
 }
 
 //Login waterfall
@@ -158,6 +153,11 @@ void MenuLayer::_connectServer(pc_client_t* client)
     const char* ip = GATE_HOST;
     const int port = GATE_PORT;
     struct sockaddr_in address;
+    Layer* thisLayer = this;
+    //Notice
+    LoginTitleModel::getInstance()->setBindedLayer(this);
+    //
+
     
     memset(&address, 0, sizeof(struct sockaddr_in));
     address.sin_family = AF_INET;
@@ -168,6 +168,15 @@ void MenuLayer::_connectServer(pc_client_t* client)
     {
         //Future : Print on the UI
         //Now : log at Console
+        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "無法連接至伺服器，請檢查網路連線．", Color3B::BLACK);
+        addChild(pDialogue,100,"Dialogue");
+        std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
+            if(type==ui::Widget::TouchEventType::ENDED){
+                thisLayer->removeChildByName("Dialogue");
+                pDialogue->release();
+            }
+        };
+        pDialogue->addButtonListener(callback);
         CCLOGERROR("Fail to connect to server.");
         pc_client_destroy(client);
         return;
@@ -183,7 +192,7 @@ void MenuLayer::_sendRequest(pc_client_t* client)
 {
     const char* route = "gate.gateHandler.authUID";
     json_t* msg = json_object();
-    json_t* uid = json_string("0");
+    json_t* uid = json_string(LoginTitleModel::getInstance()->getUID().c_str());
     json_object_set(msg, "uid", uid);
     //decref
     json_decref(uid);
@@ -196,16 +205,26 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
 {
     if(status==-1)
     {
+        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184, 41, 47), "無法傳送要求至伺服器．", Color3B(0, 0, 0));
+        LoginTitleModel::getInstance()->getBindedLayer()->addChild(pDialogue, 100, "Dialogue");
+        std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
+            if(type==ui::Widget::TouchEventType::ENDED)
+            {
+                LoginTitleModel::getInstance()->getBindedLayer()->removeChildByName("Dialogue");
+                pDialogue->release();
+            }
+        };
         CCLOG("Fail to send request to server");
     }
     else if(status==0)
     {
-        char* json_str = json_dumps(resp, 0);
-        if(json_str!=nullptr)
-        {
-            CCLOG("server response:%s",json_str);
-            free(json_str);
-        }
+        char* dumped = json_dumps(resp, 0);
+        CCLOG("Server Response:\n%s",dumped);
+        json_t* unpack = json_object_get(resp, "resp");
+        dumped = json_dumps(unpack, 0);
+        free(dumped);
+        std::string jUID = json_string_value(json_object_get(unpack, "uid"));
+        LoginTitleModel::getInstance()->setUID(jUID);
     }
     
     //release
@@ -229,12 +248,6 @@ void MenuLayer::loopTouchToStartMenuItemLabel()
     Sequence* sequence = Sequence::create(toAction,DelayTime::create(.3f),recoverAction,repeat, NULL);
     
     m_touchToStartMenuItemLabel->runAction(sequence);
-}
-
-void MenuLayer::dialogueCallback(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
-{
-    ((Layer*)pSender)->removeChildByName("Dialogue");
-    return;
 }
 
 /////////////

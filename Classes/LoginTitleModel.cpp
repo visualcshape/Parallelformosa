@@ -59,3 +59,13 @@ std::string LoginTitleModel::getUID()
 {
     return _uid;
 }
+
+void LoginTitleModel::setBindedLayer(cocos2d::Layer *layer)
+{
+    _layer = layer;
+}
+
+cocos2d::Layer* LoginTitleModel::getBindedLayer()
+{
+    return _layer;
+}
