@@ -28,7 +28,7 @@ bool DialogueWindow::init()
 {
     bool ret = true;
     
-    _baseLayer = LayerColor::create(Color4B(0, 0, 0, 255*0.75), VisibleRect::getVisibleRect().size.width,VisibleRect::VisibleRect::getVisibleRect().size.height);
+    _baseLayer = LayerColor::create(Color4B(0, 0, 0, 255*0.75), VisibleRect::getVisibleRect().size.width,VisibleRect::getVisibleRect().size.height);
     CCASSERT(_baseLayer!=nullptr, "_baseLayer cannot be null");
     _baseLayer->setAnchorPoint(Vec2::ZERO);
     _baseLayer->setPosition(Vec2(0,0));
