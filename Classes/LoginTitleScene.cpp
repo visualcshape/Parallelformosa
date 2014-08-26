@@ -211,7 +211,7 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
             if(type==ui::Widget::TouchEventType::ENDED)
             {
                 LoginTitleModel::getInstance()->getBindedLayer()->removeChildByName("Dialogue");
-                pDialogue->release();
+                pDialogue->autorelease();
             }
         };
         CCLOG("Fail to send request to server");
