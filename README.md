@@ -8,14 +8,25 @@
 #####Includes
 	"DialogueWindowConfirm.h"
 #####API
-	DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::Color3B titleColor,std::string content,Color3B contentColor,std::function<cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType>* callback)
+create
+
+	DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::Color3B titleColor,std::string content,Color3B contentColor)
+
+addButtonListener
+	
+		pDialogue->addButtonListener(std::function<void(Ref*,cocos2d::ui::Widget::EventListenerType)> callback);
 	
 __Notice__
 You must bind callback first.
 
 ####Example
 
-	//bind
-	std::function<void(Ref*,cocos2d::ui::Widget::TouchEventType)> bind(std::bind(&MenuLayer::dialogueCallback, this,std::placeholders::_2));
-	DialogueWindowConfirm* dialogue = DialogueWindowConfirm::create("Test", Color3B(0, 0, 0), "Hello World", Color3B(0,0,0),&bind);
-    addChild(dialogue,100,"Dialogue");
+lambada
+
+	std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
+            if(type==ui::Widget::TouchEventType::ENDED){
+                thisLayer->removeChildByName("Dialogue");
+                pDialogue->release();
+            }
+        };
+        pDialogue->addButtonListener(callback);
