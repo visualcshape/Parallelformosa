@@ -32,7 +32,6 @@ protected:
 private:
     std::string _uid;
     static LoginTitleModel* _instance;
-    cocos2d::Layer* _layer;
 };
 
 

@@ -154,10 +154,6 @@ void MenuLayer::_connectServer(pc_client_t* client)
     const int port = GATE_PORT;
     struct sockaddr_in address;
     Layer* thisLayer = this;
-    //Notice
-    LoginTitleModel::getInstance()->setBindedLayer(this);
-    //
-
     
     memset(&address, 0, sizeof(struct sockaddr_in));
     address.sin_family = AF_INET;
@@ -165,12 +161,13 @@ void MenuLayer::_connectServer(pc_client_t* client)
     address.sin_addr.s_addr = inet_addr(ip);
     
     if(pc_client_connect(client, &address))
-    {DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "無法連接至伺服器，請檢查網路連線．", Color3B::BLACK);
+    {
+        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "無法連接至伺服器，請檢查網路連線．", Color3B::BLACK);
         addChild(pDialogue,100,"Dialogue");
         std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
             if(type==ui::Widget::TouchEventType::ENDED){
                 thisLayer->removeChildByName("Dialogue");
-                pDialogue->release();
+                pDialogue->autorelease();
             }
         };
         pDialogue->addButtonListener(callback);
@@ -202,15 +199,6 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
 {
     if(status==-1)
     {
-        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184, 41, 47), "無法傳送要求至伺服器．", Color3B(0, 0, 0));
-        LoginTitleModel::getInstance()->getBindedLayer()->addChild(pDialogue, 100, "Dialogue");
-        std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
-            if(type==ui::Widget::TouchEventType::ENDED)
-            {
-                LoginTitleModel::getInstance()->getBindedLayer()->removeChildByName("Dialogue");
-                pDialogue->autorelease();
-            }
-        };
         CCLOG("Fail to send request to server");
     }
     else if(status==0)
@@ -218,24 +206,22 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
         char* dumped = json_dumps(resp, 0);
         CCLOG("Server Response:\n%s",dumped);
         json_t* unpack = json_object_get(resp, "resp");
-        json_decref(resp);
         std::string type = json_string_value(json_object_get(unpack, "type"));
         if (strcmp("create", type.c_str())==0)
         {
             std::string jUID = json_string_value(json_object_get(unpack, "uid"));
-            json_decref(unpack);
             LoginTitleModel::getInstance()->setUID(jUID);
         }
-        else if(strcmp("isExist", type.c_str()))
+        else if(strcmp("isExist", type.c_str())==0)
         {
-            std::string jIsExist = json_string_value(json_object_get(unpack, "result"));
-            if(strcmp("true", jIsExist.c_str())==0)
+            std::string result = json_string_value(json_object_get(unpack, "result"));
+            if(result=="true")
             {
-                //start connect to connector
+                //Start login procedure
             }
             else
             {
-                //Error
+                
             }
         }
         else
@@ -248,6 +234,7 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
     json_t* msg = req->msg;
     pc_client_t* client = req->client;
     json_decref(msg);
+    //DO NOT DECREF RESP...
     pc_request_destroy(req);
     CCLOG("Released.");
     

@@ -1,0 +1,927 @@
+Tjansson
+v6
+r1
+cCheck dependencies
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a normal armv7
+cLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a normal armv7s
+cLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a normal arm64
+cCreateUniversalBinary /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a normal armv7\ armv7s\ arm64
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk
+c0000000053119F860000000000000132
+t1393663878
+s306
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/SDKSettings.plist
+c0000000053C8205B000000000000036B
+t1405624411
+s875
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/CoreServices/SystemVersion.plist
+c0000000053C8205C000000000000019E
+t1405624412
+s414
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a
+t2
+s0
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o
+t1408113911
+s21576
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o
+t1408113911
+s5076
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o
+t1408113911
+s18936
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/jansson.LinkFileList
+c0000000053EE1CF60000000000000549
+t1408113910
+s1353
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a
+t1408113911
+s182448
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o
+t1408113911
+s40088
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o
+t1408113911
+s4368
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o
+t1408113911
+s26836
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o
+t1408113911
+s6464
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o
+t1408113911
+s5084
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o
+t1408113911
+s6224
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o
+t1408113911
+s44452
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o
+t1408113910
+s20720
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o
+t1408113910
+s4868
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o
+t1408113910
+s18324
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/jansson.LinkFileList
+c0000000053EE1CF60000000000000549
+t1408113910
+s1353
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a
+t1408113911
+s174208
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o
+t1408113910
+s35584
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o
+t1408113910
+s4336
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o
+t1408113911
+s29868
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o
+t1408113910
+s6172
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o
+t1408113910
+s4588
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o
+t1408113911
+s5820
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o
+t1408113911
+s40576
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o
+t1408113911
+s20720
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o
+t1408113911
+s4856
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o
+t1408113911
+s17816
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/jansson.LinkFileList
+c0000000053EE1CF60000000000000553
+t1408113910
+s1363
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a
+t1408113911
+s173696
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o
+t1408113911
+s35720
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o
+t1408113911
+s4336
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o
+t1408113911
+s29992
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o
+t1408113911
+s6176
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o
+t1408113911
+s4592
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o
+t1408113911
+s5744
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o
+t1408113911
+s40416
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+c0000000053EE1CBC000000000000300F
+t1408113852
+s12303
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+c0000000053EE1CBC00000000000005D7
+t1408113852
+s1495
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+c0000000053EE1CBC00000000000020A3
+t1408113852
+s8355
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+c0000000053EE1CBC0000000000006165
+t1408113852
+s24933
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+c0000000053EE1CBC00000000000003D8
+t1408113852
+s984
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+c0000000053EE1CBC0000000000003D16
+t1408113852
+s15638
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+c0000000053EE1CBC0000000000000A37
+t1408113852
+s2615
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+c0000000053EE1CBC0000000000000AD4
+t1408113852
+s2772
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+c0000000053EE1CBC0000000000000FB5
+t1408113852
+s4021
+
+N/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+c0000000053EE1CBC000000000000493E
+t1408113852
+s18750
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciescb2b6376549eb941^8dd08b76549eb941^---0#1#1#--18"Check dependencies36"7792158D-8E49-45E8-924A-FE34ABF77362-
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.367352
+e429806711.505122
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+o[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c:226:17: [0m[0;1;35mwarning: [0m[1m
+o      implicit conversion loses integer precision: 'size_t'
+o      (aka 'unsigned long') to 'int' [-Wshorten-64-to-32][0m
+o            n = json_array_size(json);
+o[0;1;32m              ~ ^~~~~~~~~~~~~~~~~~~~~
+o[0m1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c173"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o [1msrc/dump.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compilerea255e77549eb941^f7cd8177549eb941^-341"[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c:226:17: [0m[0;1;35mwarning: [0m[1m      implicit conversion loses integer precision: 'size_t'      (aka 'unsigned long') to 'int' [-Wshorten-64-to-32][0m            n = json_array_size(json);[0;1;32m              ~ ^~~~~~~~~~~~~~~~~~~~~[0m1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@84"Implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int'-429806711#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c0000000000000000^225#16#225#16#5749#0#22"Value Conversion Issue2(3@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c0000000000000000^225#16#225#37#5749#20#3@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c0000000000000000^225#14#225#15#5747#0#-0#0#1#-19%DVTDocumentLocation4@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c0000000000000000^2467"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o [1msrc/dump.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/dump.o36"DB00F246-9E49-4D40-85CE-A3968DA4067E-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.380485
+e429806711.471114
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+o[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c:59:23: [0m[0;1;35mwarning: [0m[1m
+o      implicit conversion loses integer precision: 'size_t'
+o      (aka 'unsigned long') to 'int' [-Wshorten-64-to-32][0m
+o    error->position = position;
+o[0;1;32m                    ~ ^~~~~~~~
+o[0m1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c175"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o [1msrc/error.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler3c846177549eb941^c11c7977549eb941^-327"[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c:59:23: [0m[0;1;35mwarning: [0m[1m      implicit conversion loses integer precision: 'size_t'      (aka 'unsigned long') to 'int' [-Wshorten-64-to-32][0m    error->position = position;[0;1;32m                    ~ ^~~~~~~~[0m1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@84"Implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int'-429806711#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c0000000000000000^58#22#58#22#1369#0#22"Value Conversion Issue2(3@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c0000000000000000^58#22#58#30#1369#0#3@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c0000000000000000^58#20#58#21#1367#0#-0#0#1#-19%DVTDocumentLocation4@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c0000000000000000^2473"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o [1msrc/error.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/error.o36"97AC79F8-C5BC-4C55-9D06-AB25D4DED92F-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.426549
+e429806711.542677
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c183"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o [1msrc/hashtable.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler8c4b6d77549eb941^80488b77549eb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c0000000000000000^2497"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o [1msrc/hashtable.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/hashtable.o36"87DAFA10-D783-4EE5-A5E8-448BC4563C1D-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.471449
+e429806711.739691
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+o[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c:852:39: [0m[0;1;35mwarning: [0m[1m
+o      implicit conversion loses integer precision: 'size_t'
+o      (aka 'unsigned long') to 'int' [-Wshorten-64-to-32][0m
+o        error->position = lex->stream.position;
+o[0;1;32m                        ~ ~~~~~~~~~~~~^~~~~~~~
+o[0m1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c173"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o [1msrc/load.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler3eca7877549eb941^b873bd77549eb941^-359"[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c:852:39: [0m[0;1;35mwarning: [0m[1m      implicit conversion loses integer precision: 'size_t'      (aka 'unsigned long') to 'int' [-Wshorten-64-to-32][0m        error->position = lex->stream.position;[0;1;32m                        ~ ~~~~~~~~~~~~^~~~~~~~[0m1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@84"Implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int'-429806711#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c0000000000000000^851#38#851#38#20971#0#22"Value Conversion Issue2(3@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c0000000000000000^851#26#851#46#20959#12#3@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c0000000000000000^851#24#851#25#20957#0#-0#0#1#-19%DVTDocumentLocation4@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c0000000000000000^2467"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o [1msrc/load.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/load.o36"0795E1EE-0FD8-416A-80BA-B073BB9DF4FE-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.505471
+e429806711.554079
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c177"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o [1msrc/memory.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compilerf5808177549eb941^183e8e77549eb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c0000000000000000^2479"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o [1msrc/memory.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/memory.o36"9A06F4F3-8FD7-4538-B8E3-BA7C4B825F47-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.542979
+e429806711.756785
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c187"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o [1msrc/pack_unpack.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler541c8b77549eb941^08cac177549eb941^---0#0#1#-19%DVTDocumentLocation2@78"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c0000000000000000^2509"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o [1msrc/pack_unpack.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/pack_unpack.o36"B8C3B01D-3973-486A-B7A3-A66C664A097C-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.554396
+e429806711.616666
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c183"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o [1msrc/strbuffer.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler81078e77549eb941^802a9e77549eb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c0000000000000000^2497"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o [1msrc/strbuffer.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strbuffer.o36"1B722BF3-DB3C-4E74-80F4-A1BBFE55EDC2-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.616966
+e429806711.725577
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c179"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o [1msrc/strconv.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler88859e77549eb941^01f6b977549eb941^---0#0#1#-19%DVTDocumentLocation2@74"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c0000000000000000^2485"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o [1msrc/strconv.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/strconv.o36"33982460-4EA3-4B57-89EE-FF2584722A53-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.648739
+e429806711.731379
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+o[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c:170:18: [0m[0;1;35mwarning: [0m[1m
+o      implicit conversion loses integer precision: 'unsigned long' to 'int'
+o      [-Wshorten-64-to-32][0m
+o        length = strlen(string);
+o[0;1;32m               ~ ^~~~~~~~~~~~~~
+o[0m1 warning generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c171"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o [1msrc/utf.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compilerb62da677549eb941^c495bb77549eb941^-313"[1m/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c:170:18: [0m[0;1;35mwarning: [0m[1m      implicit conversion loses integer precision: 'unsigned long' to 'int'      [-Wshorten-64-to-32][0m        length = strlen(string);[0;1;32m               ~ ^~~~~~~~~~~~~~[0m1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-429806711#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c0000000000000000^169#17#169#17#3627#0#22"Value Conversion Issue2(3@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c0000000000000000^169#17#169#31#3627#13#3@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c0000000000000000^169#15#169#16#3625#0#-0#0#1#-19%DVTDocumentLocation4@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c0000000000000000^2461"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o [1msrc/utf.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/utf.o36"2C95BD92-55D9-49FA-98A1-FBD067AC8058-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.725882
+e429806711.902062
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+xnormal
+xarm64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c175"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o [1msrc/value.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler0becb977549eb941^89ede677549eb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c0000000000000000^2473"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o [1msrc/value.c[0m normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch arm64 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/arm64 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/value.o36"FD70D02C-402E-4935-A762-1FA2675522B0-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.553296
+e429806710.877874
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c173"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o [1msrc/dump.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compilere4bd8e76549eb941^07cfe076549eb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c0000000000000000^2470"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o [1msrc/dump.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/dump.o36"59556A86-F3DE-48B9-B14D-1F534FCF4203-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.553606
+e429806710.841779
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c175"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o [1msrc/error.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler1bbd8e76549eb941^c3d7d776549eb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c0000000000000000^2476"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o [1msrc/error.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/error.o36"DDF2F322-4951-4D3F-9F87-C81C495209C0-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.554026
+e429806710.863606
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c183"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o [1msrc/hashtable.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler4eb98e76549eb941^e542dd76549eb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c0000000000000000^2500"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o [1msrc/hashtable.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/hashtable.o36"229CFE17-0014-4F0F-95AC-AFE12269260A-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.554707
+e429806710.923968
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c173"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o [1msrc/load.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler1bb98e76549eb941^1bf5ec76549eb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c0000000000000000^2470"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o [1msrc/load.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/load.o36"F252FADC-3A87-4CDD-9366-A6C9ECF39172-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.842218
+e429806710.897415
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c177"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o [1msrc/memory.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler63b7d776549eb941^9640e676549eb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c0000000000000000^2482"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o [1msrc/memory.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/memory.o36"C264E620-FA7C-4E7D-A401-44B2C109AE7C-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.863914
+e429806711.108314
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c187"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o [1msrc/pack_unpack.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compilerae66dd76549eb941^c03c1c77549eb941^---0#0#1#-19%DVTDocumentLocation2@78"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c0000000000000000^2512"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o [1msrc/pack_unpack.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/pack_unpack.o36"5E1A60BF-E51A-43E1-B85A-97574850929D-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.878111
+e429806710.937589
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c183"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o [1msrc/strbuffer.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler6f2fe176549eb941^c651fd76549eb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c0000000000000000^2500"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o [1msrc/strbuffer.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strbuffer.o36"3F08CAFD-11AE-4A4B-BB4D-4BD0FD41198E-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.897906
+e429806710.973568
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c179"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o [1msrc/strconv.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler5709e676549eb941^5c56fd76549eb941^---0#0#1#-19%DVTDocumentLocation2@74"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c0000000000000000^2488"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o [1msrc/strconv.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/strconv.o36"7BDD33E3-0339-4261-9EE9-48C90BEC267A-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.924277
+e429806711.003008
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c171"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o [1msrc/utf.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler6bb8ec76549eb941^b8220177549eb941^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c0000000000000000^2464"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o [1msrc/utf.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/utf.o36"8A4F26D5-C961-4116-9A7E-42630B266AF1-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.941150
+e429806711.272739
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+xnormal
+xarmv7
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c175"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o [1msrc/value.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler3e08f176549eb941^1f824677549eb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c0000000000000000^2476"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o [1msrc/value.c[0m normal armv7 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/value.o36"50BBD2EE-E64C-4B0A-B28C-46406D0C19EC-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806710.973868
+e429806711.112619
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c175"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o [1msrc/dump.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler1a69f976549eb941^dec83077549eb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c0000000000000000^2477"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o [1msrc/dump.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/dump.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/dump.o36"9C062A22-6628-4978-B089-6DDBE688D831-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.003328
+e429806711.059208
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c177"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o [1msrc/error.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler73f40077549eb941^5d8a0f77549eb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c0000000000000000^2483"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o [1msrc/error.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/error.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/error.o36"C08A9132-87C6-4C6F-BFEC-E78C9210E0CF-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.059535
+e429806711.217982
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c185"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o [1msrc/hashtable.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler25590f77549eb941^800c3977549eb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c0000000000000000^2507"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o [1msrc/hashtable.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/hashtable.o36"090D0D2D-EBF8-4C5C-A435-08D315A34FD8-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.108636
+e429806711.380179
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c175"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o [1msrc/load.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compilerfbe91b77549eb941^d07d6177549eb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c0000000000000000^2477"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o [1msrc/load.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/load.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/load.o36"F62047D8-B2D9-49F4-ADA7-67A1443B3DC6-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.112910
+e429806711.181345
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c179"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o [1msrc/memory.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler9f011d77549eb941^2b183177549eb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c0000000000000000^2489"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o [1msrc/memory.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/memory.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/memory.o36"98A6F515-0AAB-43CE-A802-F735760BCC51-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.181645
+e429806711.426252
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c189"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o [1msrc/pack_unpack.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler52992e77549eb941^61a66d77549eb941^---0#0#1#-19%DVTDocumentLocation2@78"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c0000000000000000^2519"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o [1msrc/pack_unpack.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/pack_unpack.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/pack_unpack.o36"472B9050-3838-469C-9378-8FCF66F24AF1-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.218579
+e429806711.293924
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c185"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o [1msrc/strbuffer.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler6f113877549eb941^b6ba5477549eb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c0000000000000000^2507"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o [1msrc/strbuffer.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strbuffer.o36"66445A04-5D72-433A-A6B8-C4D0BEC35DD8-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.273023
+e429806711.346535
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c181"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o [1msrc/strconv.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler0b414677549eb941^40dc5977549eb941^---0#0#1#-19%DVTDocumentLocation2@74"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c0000000000000000^2495"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o [1msrc/strconv.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strconv.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/strconv.o36"98E7FCF2-9710-44F6-A497-139F2B4F77D8-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.295240
+e429806711.367047
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c173"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o [1msrc/utf.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler8db54b77549eb941^573f5e77549eb941^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c0000000000000000^2471"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o [1msrc/utf.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/utf.o36"194B46FF-FE8C-4F61-A7BF-F75B24CB8A3D-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCompileC build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler
+s429806711.348143
+e429806711.648428
+r1
+xCompileC
+xbuild/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+xnormal
+xarmv7s
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_config.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/hashtable.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/jansson_private.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/strbuffer.h
+d/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c177"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o [1msrc/value.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler41835977549eb941^0038a677549eb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c0000000000000000^2483"[1mCompileC[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o [1msrc/value.c[0m normal armv7s c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch armv7s -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/jansson.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/include -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources/armv7s -I/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/value.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/value.o36"09CB5869-B389-45DF-BA31-CB3655974E1D-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CCreateUniversalBinary /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a normal armv7\ armv7s\ arm64
+s429806711.915235
+e429806711.943394
+r1
+xCreateUniversalBinary
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a
+xnormal
+xarmv7 armv7s arm64
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Create universal binary /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a101"[1mCreateUniversalBinary[0m [1mbuild/Default-iphoneos/libjansson.a[0m normal armv7\ armv7s\ arm64b264ea77549eb941^8882f177549eb941^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a003464ceddffdf42^997"[1mCreateUniversalBinary[0m [1mbuild/Default-iphoneos/libjansson.a[0m normal armv7\ armv7s\ arm64    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a36"CADFEA8A-2D99-4B35-8167-5B1F6CE2D7D4-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a normal arm64
+s429806711.904376
+e429806711.914061
+r1
+xLibtool
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a
+xnormal
+xarm64
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a normal arm64113"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a normal arm64459be777549eb941^780dea77549eb941^---0#0#1#--1049"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a normal arm64    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export IPHONEOS_DEPLOYMENT_TARGET=5.0    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only arm64 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -L/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -filelist /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/jansson.LinkFileList -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/arm64/libjansson.a36"11BED1B4-418F-4332-AFAC-07EE35E0D1AA-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a normal armv7
+s429806711.902857
+e429806711.913921
+r1
+xLibtool
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a
+xnormal
+xarmv7
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a normal armv7113"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a normal armv73337e777549eb941^f4f8e977549eb941^---0#0#1#--1049"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a normal armv7    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export IPHONEOS_DEPLOYMENT_TARGET=5.0    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -L/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -filelist /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/jansson.LinkFileList -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7/libjansson.a36"35687A0A-B231-4365-930B-654A13884921-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
+CLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a normal armv7s
+s429806711.903362
+e429806711.914653
+r1
+xLibtool
+x/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a
+xnormal
+xarmv7s
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a normal armv7s115"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a normal armv7s8d60e777549eb941^ed28ea77549eb941^---0#0#1#--1054"[1mLibtool[0m build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a normal armv7s    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson    export IPHONEOS_DEPLOYMENT_TARGET=5.0    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7s -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk -L/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos -filelist /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/jansson.LinkFileList -o /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/jansson.build/Default-iphoneos/jansson.build/Objects-normal/armv7s/libjansson.a36"560F53B8-3404-4396-9563-FA3462BB71E4-
+b72C17B4F-8EF8-413B-AA03-185051718C24
+
