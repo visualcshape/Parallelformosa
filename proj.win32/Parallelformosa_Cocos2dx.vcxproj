@@ -136,16 +136,17 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\BaseLayer.cpp" />
     <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp" />
     <ClCompile Include="..\Classes\Database.cpp" />
     <ClCompile Include="..\Classes\DialogueWindow.cpp" />
     <ClCompile Include="..\Classes\DialogueWindowConfirm.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\LoginTitleLayer.cpp" />
     <ClCompile Include="..\Classes\LoginTitleModel.cpp" />
-    <ClCompile Include="..\Classes\LoginTitleScene.cpp" />
     <ClCompile Include="..\Classes\Observer.cpp" />
+    <ClCompile Include="..\Classes\SceneManager.cpp" />
     <ClCompile Include="..\Classes\Subject.cpp" />
-    <ClCompile Include="..\Classes\TrademarkScene.cpp" />
+    <ClCompile Include="..\Classes\TrademarkLayer.cpp" />
     <ClCompile Include="..\Classes\UtilFunc.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,16 +154,17 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacro.h" />
+    <ClInclude Include="..\Classes\BaseLayer.h" />
     <ClInclude Include="..\Classes\CustomLabelMenuItem.h" />
     <ClInclude Include="..\Classes\Database.h" />
     <ClInclude Include="..\Classes\DialogueWindow.h" />
     <ClInclude Include="..\Classes\DialogueWindowConfirm.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\LoginTitleLayer.h" />
     <ClInclude Include="..\Classes\LoginTitleModel.h" />
-    <ClInclude Include="..\Classes\LoginTitleScene.h" />
     <ClInclude Include="..\Classes\Observer.h" />
+    <ClInclude Include="..\Classes\SceneManager.h" />
     <ClInclude Include="..\Classes\Subject.h" />
-    <ClInclude Include="..\Classes\TrademarkScene.h" />
+    <ClInclude Include="..\Classes\TrademarkLayer.h" />
     <ClInclude Include="..\Classes\UtilFunc.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />
     <ClInclude Include="main.h" />
