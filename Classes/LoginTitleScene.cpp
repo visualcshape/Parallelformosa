@@ -1,4 +1,4 @@
-//
+﻿//
 //  LoginTitleScene.cpp
 //  Parallelformosa_Cocos2dx
 //
@@ -165,10 +165,7 @@ void MenuLayer::_connectServer(pc_client_t* client)
     address.sin_addr.s_addr = inet_addr(ip);
     
     if(pc_client_connect(client, &address))
-    {
-        //Future : Print on the UI
-        //Now : log at Console
-        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "無法連接至伺服器，請檢查網路連線．", Color3B::BLACK);
+    {DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "無法連接至伺服器，請檢查網路連線．", Color3B::BLACK);
         addChild(pDialogue,100,"Dialogue");
         std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
             if(type==ui::Widget::TouchEventType::ENDED){
@@ -221,10 +218,30 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
         char* dumped = json_dumps(resp, 0);
         CCLOG("Server Response:\n%s",dumped);
         json_t* unpack = json_object_get(resp, "resp");
-        dumped = json_dumps(unpack, 0);
-        free(dumped);
-        std::string jUID = json_string_value(json_object_get(unpack, "uid"));
-        LoginTitleModel::getInstance()->setUID(jUID);
+        json_decref(resp);
+        std::string type = json_string_value(json_object_get(unpack, "type"));
+        if (strcmp("create", type.c_str())==0)
+        {
+            std::string jUID = json_string_value(json_object_get(unpack, "uid"));
+            json_decref(unpack);
+            LoginTitleModel::getInstance()->setUID(jUID);
+        }
+        else if(strcmp("isExist", type.c_str()))
+        {
+            std::string jIsExist = json_string_value(json_object_get(unpack, "result"));
+            if(strcmp("true", jIsExist.c_str())==0)
+            {
+                //start connect to connector
+            }
+            else
+            {
+                //Error
+            }
+        }
+        else
+        {
+            CCASSERT(false, "Server Response:No such type");
+        }
     }
     
     //release

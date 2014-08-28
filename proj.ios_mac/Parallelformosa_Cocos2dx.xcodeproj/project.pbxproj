@@ -73,6 +73,9 @@
 		F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F60EBBFD198AA4C400B1011F /* Observer.cpp */; };
 		F646F54919891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F646F54A19891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
+		F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E166E19AEE33E005046E1 /* libpomelo.a */; };
+		F64E167119AEE36A005046E1 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
+		F64E167319AEE391005046E1 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167219AEE391005046E1 /* libuv.a */; };
 		F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
 		F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
 		F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA2A1986586A00474833 /* VisibleRect.cpp */; };
@@ -87,9 +90,6 @@
 		F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */; };
 		F696BA6B1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
 		F696BA6C1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
-		F698765F199E549C00D89FC9 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F698765E199E549C00D89FC9 /* libpomelo.a */; };
-		F6987663199E54D200D89FC9 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6987662199E54D200D89FC9 /* libuv.a */; };
-		F6987665199FB6B100D89FC9 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6987660199E54B300D89FC9 /* libjansson.a */; };
 		F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
@@ -308,6 +308,9 @@
 		F60EBBFD198AA4C400B1011F /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Observer.cpp; path = ../Classes/Observer.cpp; sourceTree = "<group>"; };
 		F646F5451989100E007519A6 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Database.h; path = ../Classes/Database.h; sourceTree = "<group>"; };
 		F646F54819891025007519A6 /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Database.cpp; path = ../Classes/Database.cpp; sourceTree = "<group>"; };
+		F64E166E19AEE33E005046E1 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../libpomelo/build/Default-iphoneos/libpomelo.a"; sourceTree = "<group>"; };
+		F64E167019AEE36A005046E1 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a"; sourceTree = "<group>"; };
+		F64E167219AEE391005046E1 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../libpomelo/deps/uv/build/Default-iphoneos/libuv.a"; sourceTree = "<group>"; };
 		F65E0C9C198542AA004B44E4 /* TrademarkScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrademarkScene.h; path = ../Classes/TrademarkScene.h; sourceTree = "<group>"; };
 		F696BA1A1986415400474833 /* LoginTitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginTitleScene.h; path = ../Classes/LoginTitleScene.h; sourceTree = "<group>"; };
 		F696BA251986538D00474833 /* LoginTitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleScene.cpp; path = ../Classes/LoginTitleScene.cpp; sourceTree = "<group>"; };
@@ -350,9 +353,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6987665199FB6B100D89FC9 /* libjansson.a in Frameworks */,
-				F6987663199E54D200D89FC9 /* libuv.a in Frameworks */,
-				F698765F199E549C00D89FC9 /* libpomelo.a in Frameworks */,
+				F64E167319AEE391005046E1 /* libuv.a in Frameworks */,
+				F64E167119AEE36A005046E1 /* libjansson.a in Frameworks */,
+				F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */,
 				F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */,
 				F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
@@ -493,6 +496,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F64E167219AEE391005046E1 /* libuv.a */,
+				F64E167019AEE36A005046E1 /* libjansson.a */,
+				F64E166E19AEE33E005046E1 /* libpomelo.a */,
 				F6987662199E54D200D89FC9 /* libuv.a */,
 				F6987660199E54B300D89FC9 /* libjansson.a */,
 				F698765E199E549C00D89FC9 /* libpomelo.a */,
@@ -924,6 +930,9 @@
 					"/Users/Vodalok/Parallelformosa/libpomelo/build/Default-iphoneos",
 					"/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos",
 					"/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/jansson/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/uv/build/Default-iphoneos",
 				);
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -961,6 +970,9 @@
 					"/Users/Vodalok/Parallelformosa/libpomelo/build/Default-iphoneos",
 					"/Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/build/Default-iphoneos",
 					"/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/jansson/build/Default-iphoneos",
+					"/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/uv/build/Default-iphoneos",
 				);
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1048,16 +1060,16 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
-					"~/Parallelformosa/libpomelo/deps/uv/include",
-					"~/Parallelformosa/libpomelo/deps/jansson/src",
-					"~/Parallelformosa/libpomelo/include",
+					"$(SRCROOT)/../libpomelo/deps/uv/include",
+					"$(SRCROOT)/../libpomelo/deps/jansson/src",
+					"$(SRCROOT)/../libpomelo/include",
 				);
-				LIBRARY_SEARCH_PATHS = "~/Parallelformosa/libpomelo";
+				LIBRARY_SEARCH_PATHS = "~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "~/Parallelformosa/libpomelo/deps/jansson/src ~/Parallelformosa/libpomelo/deps/uv/include ~/Parallelformosa/libpomelo/include";
+				USER_HEADER_SEARCH_PATHS = "~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/jansson/src ~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/uv/include ~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/include";
 			};
 			name = Debug;
 		};
@@ -1082,16 +1094,16 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
-					"~/Parallelformosa/libpomelo/deps/uv/include",
-					"~/Parallelformosa/libpomelo/deps/jansson/src",
-					"~/Parallelformosa/libpomelo/include",
+					"$(SRCROOT)/../libpomelo/deps/uv/include",
+					"$(SRCROOT)/../libpomelo/deps/jansson/src",
+					"$(SRCROOT)/../libpomelo/include",
 				);
-				LIBRARY_SEARCH_PATHS = "~/Parallelformosa/libpomelo";
+				LIBRARY_SEARCH_PATHS = "~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "~/Parallelformosa/libpomelo/deps/jansson/src ~/Parallelformosa/libpomelo/deps/uv/include ~/Parallelformosa/libpomelo/include";
+				USER_HEADER_SEARCH_PATHS = "~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/jansson/src ~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/uv/include ~/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/include";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

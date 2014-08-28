@@ -10,39 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680025.00557"
+            timestampString = "430893395.718065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680025.00557"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680025.00557"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -54,11 +26,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680025.00557"
+            timestampString = "430893395.718065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoginTitleScene.cpp"
+            timestampString = "430893395.718065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoginTitleScene.cpp"
+            timestampString = "430893395.718065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -288,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680155.788456"
+            timestampString = "430893395.718065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)"
             landmarkType = "5">
          </BreakpointContent>
@@ -304,57 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680025.00557"
+            timestampString = "430893395.718065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_s*, int, json_t*)"
-                  moduleName = "Parallelformosa_Cocos2dx iOS"
-                  urlString = "file:///Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/Classes/LoginTitleScene.cpp"
-                  timestampString = "430680155.838734"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "227"
-                  endingLineNumber = "227"
-                  offsetFromSymbolStart = "988">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_s*, int, json_t*)"
-                  moduleName = "Parallelformosa_Cocos2dx iOS"
-                  urlString = "file:///Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/Classes/LoginTitleScene.cpp"
-                  timestampString = "430680155.838938"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "227"
-                  endingLineNumber = "227"
-                  offsetFromSymbolStart = "1000">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680155.788456"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)"
             landmarkType = "5">
          </BreakpointContent>
@@ -366,27 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680070.301618"
+            timestampString = "430893395.718065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "430680221.113008"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)"
             landmarkType = "5">
          </BreakpointContent>
