@@ -54,7 +54,7 @@ bool DialogueWindow::init()
     Size baseWindowSizeSetted = _baseWindow->getContentSize();
     
     //Set title
-    _titleText = ui::Text::create(_title, "Avenir", computeFontSize(10*4));
+    _titleText = ui::Text::create(_title, "fonts/Avenir.ttf", computeFontSize(10*4));
     CCASSERT(_titleText!=nullptr, "_titleText cannot be null.");
     _titleText->setAnchorPoint(Vec2(.5, 1.));
     _titleText->setPosition(Vec2(baseWindowSizeSetted.width/2, baseWindowSizeSetted.height-8));
@@ -84,7 +84,7 @@ bool DialogueWindow::init()
     _contentRichText = ui::RichText::create();
     _contentRichText->ignoreContentAdaptWithSize(false);
     _contentRichText->setContentSize(Size(contentBackgroundSize.width-4-2,contentBackgroundSize.height-4-2));
-    ui::RichElementText* contentElement = ui::RichElementText::create(1, _contentColor, 255, _content, "STHeiti Light0", computeFontSize(6*4));
+    ui::RichElementText* contentElement = ui::RichElementText::create(1, _contentColor, 255, _content, "fonts/STHeiti Light0.ttf", computeFontSize(6*4));
     _contentRichText->pushBackElement(contentElement);
     _contentRichText->setAnchorPoint(Vec2(.5, 1.));
     _contentRichText->setPosition(Vec2(contentBackgroundPos.x+2,contentBackgroundPos.y+10+abs((contentBackgroundSize.height-contentBackgroundPos.y))));

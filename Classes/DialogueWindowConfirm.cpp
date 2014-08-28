@@ -48,7 +48,7 @@ bool DialogueWindowConfirm::init()
     _confirmButton->setTouchEnabled(true);
     _confirmButton->loadTextures("BTN.png", "BTN_P.png");
     _confirmButton->setTitleFontSize(computeFontSize(10*4));
-    _confirmButton->setTitleFontName("Avenir");
+    _confirmButton->setTitleFontName("fonts/Avenir.ttf");
     _confirmButton->setScale9Enabled(true);
     _confirmButton->setTitleText("OK");
     _confirmButton->setContentSize(confirmButtonSize);
