@@ -30,7 +30,7 @@ bool LoginTitleLayer::init(){
     infoLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
 
     addChild(menuLayer,1);
-    addChild(infoLayer,1);
+    addChild(infoLayer,0);
 
     return true;
 }
