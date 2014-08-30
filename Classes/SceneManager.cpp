@@ -1,7 +1,7 @@
 #include "SceneManager.h"
-#include "TrademarkLayer.h"
-#include "LoginTitleLayer.h"
-
+#include "GameLayer\TrademarkLayer.h"
+#include "GameLayer\LoginTitleLayer.h"
+#include "GameLayer\MapLayer.h"
 USING_NS_CC;
 
 SceneManager::SceneManager(){
@@ -17,6 +17,11 @@ void SceneManager::goTrademarkScreen(){
 
 void SceneManager::goTitleScreen(){
 	Layer* layer = LoginTitleLayer::create();
+	SceneManager::go(layer, 0.32f, Color3B::BLACK);
+}
+
+void SceneManager::goMapScreen(){
+	Layer* layer = MapLayer::create();
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }
 
