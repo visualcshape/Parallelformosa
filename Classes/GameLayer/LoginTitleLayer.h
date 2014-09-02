@@ -68,4 +68,3 @@ private:
     Label* m_UIDLabel;
     LoginTitleModel* _subject;
 };
-

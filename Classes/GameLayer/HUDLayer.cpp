@@ -1,12 +1,25 @@
 #include "GameLayer\HUDLayer.h"
 #include "GameLayer\MapLayer.h"
 #include "Model\DataModel.h"
+#include "DialogueWindowConfirm.h"
+#include "AppMacro.h"
+#include "VisibleRect.h"
 
 USING_NS_CC;
 
 HUDLayer* HUDLayer::_sharHUD;
 
 HUDLayer::HUDLayer(){
+
+	/*DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184, 41, 47), "Fail to connect to server", Color3B::BLACK);
+	addChild(pDialogue, 100, "Dialogue");
+	std::function<void(Ref*, ui::Widget::TouchEventType)> callback = [=](Ref* pSender, ui::Widget::TouchEventType type){
+		if (type == ui::Widget::TouchEventType::ENDED){
+			this->removeChildByName("Dialogue");
+			pDialogue->autorelease();
+		}
+	};
+	pDialogue->addButtonListener(callback);*/
 }
 
 HUDLayer::~HUDLayer(){
@@ -26,6 +39,7 @@ bool HUDLayer::init(){
 	this->addChild(background);
 	CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_Default);
 
+	selSprite = NULL;
 	// Load the images of the towers we'll have and draw them to the game HUD layer
 	Vector<String*> images;
 	images.pushBack(StringMake("MachineGunTurret.png"));
@@ -41,13 +55,24 @@ bool HUDLayer::init(){
 		movableSprites.pushBack(sprite);
 	}
 
+	//@var used to show message.
+	TTFConfig config("fonts/Avenir.ttf", computeFontSize(8 * 4));
+	Label* lblcursorPos = Label::createWithTTF(config, "x:?? y:??", TextHAlignment::LEFT);
+	//lbl_cursorPos->setAnchorPoint(ccp(0, 0));
+	lblcursorPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 100, VisibleRect::getVisibleRect().size.height - 20));
+	this->addChild(lblcursorPos, -1);
+	this->setlblCursorPos(lblcursorPos);
+
+	// used to manage building range images.
+	rangeSprites = Node::create();
+	this->addChild(rangeSprites);
+
 	return true;
 }
 
 HUDLayer* HUDLayer::shareHUD(){
 	if (_sharHUD == NULL)
 		_sharHUD = HUDLayer::create();
-
 	return _sharHUD;
 }
 
@@ -67,7 +92,7 @@ void HUDLayer::onEnter(){
 }
 
 bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
-	Point touchLocation = this->convertToWorldSpace(this->convertTouchToNodeSpace(touch));
+	Point touchLocation = this->convertTouchToNodeSpace(touch);
 
 	DataModel *m = DataModel::getModel();
 
@@ -81,7 +106,7 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 		if (pos_rect.containsPoint(touchLocation)){
 			selSpriteRange = Sprite::create("Range.png");
 			selSpriteRange->setScale(4);
-			this->addChild(selSpriteRange, -1);
+			rangeSprites->addChild(selSpriteRange, -1, "range");
 			selSpriteRange->setPosition(sprite->getPosition());
 
 			newSprite = Sprite::createWithTexture(sprite->getTexture()); //sprite;
@@ -89,48 +114,64 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 			selSprite = newSprite;
 			this->addChild(newSprite);
 
-			for each(Tower* tower in m->towers){
+			for each(Tower* tower in m->getTowers()){
 				auto rangeSprite = Sprite::create("Range.png");
 				rangeSprite->setScale(4);
-				rangeSprite->setPosition(tower->getPosition());
-				this->addChild(rangeSprite, -1);
-				rangeSprites.pushBack(rangeSprite);
+				rangeSprite->setPosition(tower->getPosition() + m->getGameLayer()->getPosition());
+				rangeSprites->addChild(rangeSprite, -1);
 			}
 		}
-
 	}
-
 	return true;
 }
 
 void HUDLayer::onTouchMoved(Touch* touch, Event* event){
-	Point touchLocation = this->convertToWorldSpace(this->convertTouchToNodeSpace(touch));
 
-	Point oldTouchLocation = touch->getPreviousLocationInView();
-	oldTouchLocation = Director::getInstance()->convertToGL(oldTouchLocation);
-	oldTouchLocation = this->convertToNodeSpace(oldTouchLocation);
+	//@remind modify debug label.
+	DataModel *m = DataModel::getModel();
+	char buffer[30];
+	sprintf(buffer, "x:G+, y:G-");
+	m->getMyHUDLayer()->getlblCursorPos()->setString(buffer);
 
-	Point translation = ccpSub(touchLocation, oldTouchLocation);
+	//avoid border error
+	if (touch->getLocation().x < 0) return;
+	if (touch->getLocation().x > m->getGameLayer()->getContentSize().width) return;
+	if (touch->getLocation().y < 0) return;
+	if (touch->getLocation().y > m->getGameLayer()->getContentSize().height) return;
+	Point touchLocation = this->convertTouchToNodeSpace(touch);
+	Point oldTouchLocation = this->convertToNodeSpace(touch->getPreviousLocation());
+	Point translation = touchLocation - oldTouchLocation;
 
 	if (selSprite){
 		Point newPos = selSprite->getPosition() + translation;
 		selSprite->setPosition(newPos);
 		selSpriteRange->setPosition(newPos);
 
-		DataModel *m = DataModel::getModel();
-		Point touchLocationInGameLayer = m->_gameLayer->convertTouchToNodeSpace(touch);
+		Point touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
 
-		BOOL isBuildable = m->_gameLayer->canBuildOnTilePosition(touchLocationInGameLayer);
+		BOOL isBuildable = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
 		if (isBuildable)
 			selSprite->setOpacity(200);
 		else
 			selSprite->setOpacity(50);
 	}
+	else{
+		Point oldBaseLayerLocation = m->getGameLayer()->getPosition();
+		m->getGameLayer()->panForTranslation(translation);
+		Point HUDtranstion = m->getGameLayer()->getPosition() - oldBaseLayerLocation;
+		this->panForTranslation(HUDtranstion);
+	}
 }
 
 void HUDLayer::onTouchEnded(Touch* touch, Event* event){
-	Point touchLocation = this->convertTouchToNodeSpace(touch);
+	//avoid border error
 	DataModel *m = DataModel::getModel();
+	if (touch->getLocation().x < 0) return;
+	if (touch->getLocation().x > m->getGameLayer()->getContentSize().width) return;
+	if (touch->getLocation().y < 0) return;
+	if (touch->getLocation().y > m->getGameLayer()->getContentSize().height) return;
+
+	Point touchLocation = this->convertTouchToNodeSpace(touch);
 
 	if (selSprite){
 		Rect backgroundRect = Rect(background->getPositionX(),
@@ -138,18 +179,20 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 			background->getContentSize().width,
 			background->getContentSize().height);
 
-		if (!backgroundRect.containsPoint(touchLocation) && m->_gameLayer->canBuildOnTilePosition(touchLocation)){
-			Point touchLocationInGameLayer = m->_gameLayer->convertTouchToNodeSpace(touch);
-			m->_gameLayer->addTower(touchLocationInGameLayer);
-		}
+		Point touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
+		if (!backgroundRect.containsPoint(touchLocation) && m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer))
+			m->getGameLayer()->addTower(touchLocationInGameLayer);
+
+		rangeSprites->removeAllChildren();
 
 		this->removeChild(selSprite, true);
 		selSprite = NULL;
 		this->removeChild(selSpriteRange, true);
 		selSpriteRange = NULL;
-
-		for each(Sprite* sprite in rangeSprites)
-			this->removeChild(sprite, true);
-		rangeSprites.clear();
 	}
+}
+
+void HUDLayer::panForTranslation(Point translation){
+	Point newPos = this->getPosition() - translation;
+	this->setPosition(newPos);
 }

@@ -21,11 +21,11 @@ bool MapLayer::init(){
 
 	myHUDLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
 	// add layer as a child to scene
-	this->addChild(myHUDLayer, 1);
+	this->addChild(myHUDLayer, 100);
 
 	DataModel* m = DataModel::getModel();
-	m->_gameLayer = this;
-	m->_HUDLayerLayer = myHUDLayer;
+	m->setGameLayer(this);
+	m->setMyHUDLayer(myHUDLayer);
 
 	this->tileMap = TMXTiledMap::create("TileMap.tmx");
 	this->background = tileMap->layerNamed("Background");
@@ -40,6 +40,7 @@ bool MapLayer::init(){
 Point MapLayer::tileCoordForPosition(Point position){
 	int x = position.x / this->tileMap->getTileSize().width;
 	int y = (this->tileMap->getMapSize().height *this->tileMap->getTileSize().height - position.y) / this->tileMap->getTileSize().height;
+
 	return ccp(x, y);
 }
 
@@ -61,7 +62,7 @@ void MapLayer::addTower(Point pos){
 			target->setCoord(towerLoc);
 			this->addChild(target, 1);
 			target->setTag(1);
-			m->towers.pushBack(target);
+			m->getTowers().pushBack(target);
 		}
 		else
 			buildable = false;
@@ -74,7 +75,7 @@ bool MapLayer::canBuildOnTilePosition(Point pos){
 	int tileGid = this->background->getTileGIDAt(towerLoc);
 	DataModel* m = DataModel::getModel();
 
-	for each(Tower *tower in m->towers){
+	for each(Tower *tower in m->getTowers()){
 		if (tower->getCoord() == towerLoc)
 			return false;
 	}
@@ -94,11 +95,20 @@ bool MapLayer::canBuildOnTilePosition(Point pos){
 }
 
 Point MapLayer::boundLayerPos(Point newPos){
-	Size winSize = CCDirector::getInstance()->getWinSize();
+	Size winSize = Director::getInstance()->getWinSize();
 	Point retval = newPos;
+
+	// inside the map, don't over border.
 	retval.x = MIN(retval.x, 0);
-	retval.x = MAX(retval.x, tileMap->getContentSize().width + winSize.width);
-	retval.y = MIN(0, retval.y);
-	retval.y = MAX(tileMap->getContentSize().height + winSize.height, retval.y);
+	retval.x = MAX(retval.x, -background->getContentSize().width + winSize.width);
+
+	retval.y = MIN(retval.y, 0);
+	retval.y = MAX(retval.y, -background->getContentSize().height + winSize.height);
+
 	return retval;
+}
+
+void MapLayer::panForTranslation(Point translation){
+	Point newPos = this->getPosition() + translation;
+	this->setPosition(this->boundLayerPos(newPos));
 }

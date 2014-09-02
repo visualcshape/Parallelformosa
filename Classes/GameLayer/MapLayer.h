@@ -17,6 +17,7 @@ public:
 	bool canBuildOnTilePosition(Point pos);
 	void addTower(Point pos);
 	Point boundLayerPos(Point newPos);
+	void panForTranslation(Point translation);
 
 private:
 	TMXTiledMap* tileMap;

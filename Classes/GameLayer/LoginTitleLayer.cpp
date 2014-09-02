@@ -164,7 +164,6 @@ void MenuLayer::_sendRequest(pc_client_t* client){
     json_object_set(msg, "uid", uid);
     //decref
     json_decref(uid);
-    
     pc_request_t* req = pc_request_new();
     pc_request(client, req, route, msg, _onAuthUIDRequestCallback);
 }

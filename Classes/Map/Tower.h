@@ -5,16 +5,20 @@ USING_NS_CC;
 
 class Tower : public Sprite {
 public:
-	CC_SYNTHESIZE(Point, _coord, Coord);
-	CC_SYNTHESIZE(Point, screenPosition, ScreenPosition);
+	//@remind The access permission will modify when class "building" will be established.
+	CREATE_FUNC(Tower);
+
 	int range;
 	Sprite* sprite;
 	Sprite* selSpriteRange;
-	CREATE_FUNC(Tower);
+
+	CC_SYNTHESIZE(Point, _coord, Coord);
+	CC_SYNTHESIZE(Point, screenPosition, ScreenPosition);
+private:
 };
 
 class MachineGunTower : public Tower {
 public:
 	static Tower* tower();
-	bool virtual init();
+	virtual bool init();
 };

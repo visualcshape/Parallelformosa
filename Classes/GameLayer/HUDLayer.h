@@ -19,6 +19,11 @@ public:
 	virtual void onTouchMoved(Touch *touch, Event *event);
 	virtual void onTouchEnded(Touch* touch, Event* event);
 
+	CC_SYNTHESIZE(Label*, _lblCursorPos, lblCursorPos);
+
+protected:
+	void panForTranslation(Point translation);
+
 private:
 	static HUDLayer* _sharHUD;
 
@@ -26,5 +31,7 @@ private:
 	Sprite* selSpriteRange;
 	Sprite* selSprite;
 	Vector <Sprite*> movableSprites;
-	Vector <Sprite*> rangeSprites;
+	Node* rangeSprites;
+
 };
+

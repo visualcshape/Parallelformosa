@@ -3,7 +3,7 @@
 
 USING_NS_CC;
 
-class SceneManager :public Object{
+class SceneManager :public Ref{
 public:
 	SceneManager();
 	~SceneManager();

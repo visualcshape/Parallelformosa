@@ -8,11 +8,15 @@ USING_NS_CC;
 
 class DataModel{
 public:
-	MapLayer* _gameLayer;
-	HUDLayer* _HUDLayerLayer;
-	Vector <Tower*> towers;
+	DataModel();
+	~DataModel();
+
 	static DataModel* getModel();
+
+	CC_SYNTHESIZE(MapLayer*, _gameLayer, GameLayer);
+	CC_SYNTHESIZE(HUDLayer*, _myHUDLayer, MyHUDLayer);
+	CC_SYNTHESIZE(Vector <Tower*>, _towers, Towers);
+
 private:
-	DataModel(){};
 	static DataModel * m_pInstance;
 };
