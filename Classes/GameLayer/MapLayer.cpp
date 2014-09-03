@@ -1,13 +1,20 @@
 #include "GameLayer\MapLayer.h"
 #include "GameLayer\HUDLayer.h"
 #include "Model\DataModel.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
 MapLayer::MapLayer(){
+
 }
 
 MapLayer::~MapLayer(){
+	DataModel* m = DataModel::getModel();
+	this->removeAllChildrenWithCleanup(true);
+	m->setGameLayer(NULL);
+	m->setMyHUDLayer(NULL);
+	CCLOG("call call");
 }
 
 bool MapLayer::init(){
@@ -17,10 +24,8 @@ bool MapLayer::init(){
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 visibleOrigin = Director::getInstance()->getVisibleOrigin();
 
-	auto myHUDLayer = HUDLayer::shareHUD();
-
+	auto myHUDLayer = HUDLayer::create();
 	myHUDLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
-	// add layer as a child to scene
 	this->addChild(myHUDLayer, 100);
 
 	DataModel* m = DataModel::getModel();
@@ -33,6 +38,12 @@ bool MapLayer::init(){
 	this->addChild(tileMap, 0);
 
 	this->scheduleUpdate();
+
+	//@debug conveniently use keyboard to restart in Win32.
+	auto keyboardListener = EventListenerKeyboard::create();
+	keyboardListener->onKeyPressed = CC_CALLBACK_2(MapLayer::keyPressed, this);
+	keyboardListener->onKeyReleased = CC_CALLBACK_2(MapLayer::keyReleased, this);
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 
 	return true;
 }
@@ -62,7 +73,9 @@ void MapLayer::addTower(Point pos){
 			target->setCoord(towerLoc);
 			this->addChild(target, 1);
 			target->setTag(1);
-			m->getTowers().pushBack(target);
+			Vector <Tower*> V = m->getTowers();
+			V.pushBack(target);
+			m->setTowers(V);
 		}
 		else
 			buildable = false;
@@ -111,4 +124,20 @@ Point MapLayer::boundLayerPos(Point newPos){
 void MapLayer::panForTranslation(Point translation){
 	Point newPos = this->getPosition() + translation;
 	this->setPosition(this->boundLayerPos(newPos));
+}
+void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
+	if (keyCode == EventKeyboard::KeyCode::KEY_R){
+		CCLog("R key was pressed");
+		SceneManager::goTitleScreen();
+
+
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_W){
+		CCLog("W key was pressed");
+		SceneManager::goTrademarkScreen();
+	}
+}
+
+void MapLayer::keyReleased(EventKeyboard::KeyCode keyCode, Event *event){
+
 }

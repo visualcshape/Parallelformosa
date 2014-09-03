@@ -67,6 +67,6 @@ void TrademarkLayer::animateTrademark(){
 	m_tradeMark->runAction(sequence);
 }
 
-void TrademarkLayer::back(Object* pSender){
+void TrademarkLayer::back(Ref* pSender){
 	SceneManager::goTitleScreen();
 }

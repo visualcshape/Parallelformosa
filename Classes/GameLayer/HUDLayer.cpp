@@ -7,8 +7,6 @@
 
 USING_NS_CC;
 
-HUDLayer* HUDLayer::_sharHUD;
-
 HUDLayer::HUDLayer(){
 
 	/*DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184, 41, 47), "Fail to connect to server", Color3B::BLACK);
@@ -23,6 +21,12 @@ HUDLayer::HUDLayer(){
 }
 
 HUDLayer::~HUDLayer(){
+	rangeSprites->removeAllChildrenWithCleanup(true);
+	selGroups->removeAllChildrenWithCleanup(true);
+	rangeSprites = NULL;
+	selGroups = NULL;
+	DataModel *m = DataModel::getModel();
+	auto towers = m->getTowers(); towers.clear(); m->setTowers(towers);
 }
 
 bool HUDLayer::init(){
@@ -63,17 +67,17 @@ bool HUDLayer::init(){
 	this->addChild(lblcursorPos, -1);
 	this->setlblCursorPos(lblcursorPos);
 
-	// used to manage building range images.
+	//@var used to manage building range images.
 	rangeSprites = Node::create();
-	this->addChild(rangeSprites);
+	this->addChild(rangeSprites, -50);
+	selGroups = Node::create();
+	this->addChild(selGroups, -50);
 
+	prevCursurOutside = false;
+
+	this->scheduleUpdate();
+	this->schedule(schedule_selector(HUDLayer::refresh), 0.05f);
 	return true;
-}
-
-HUDLayer* HUDLayer::shareHUD(){
-	if (_sharHUD == NULL)
-		_sharHUD = HUDLayer::create();
-	return _sharHUD;
 }
 
 void HUDLayer::onEnter(){
@@ -106,19 +110,18 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 		if (pos_rect.containsPoint(touchLocation)){
 			selSpriteRange = Sprite::create("Range.png");
 			selSpriteRange->setScale(4);
-			rangeSprites->addChild(selSpriteRange, -1, "range");
-			selSpriteRange->setPosition(sprite->getPosition());
+			selGroups->setPosition(sprite->getPosition());
+			selGroups->addChild(selSpriteRange);
 
 			newSprite = Sprite::createWithTexture(sprite->getTexture()); //sprite;
-			newSprite->setPosition(sprite->getPosition());
 			selSprite = newSprite;
-			this->addChild(newSprite);
+			selGroups->addChild(newSprite);
 
 			for each(Tower* tower in m->getTowers()){
 				auto rangeSprite = Sprite::create("Range.png");
 				rangeSprite->setScale(4);
 				rangeSprite->setPosition(tower->getPosition() + m->getGameLayer()->getPosition());
-				rangeSprites->addChild(rangeSprite, -1);
+				rangeSprites->addChild(rangeSprite);
 			}
 		}
 	}
@@ -127,25 +130,26 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 
 void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 
-	//@remind modify debug label.
 	DataModel *m = DataModel::getModel();
-	char buffer[30];
-	sprintf(buffer, "x:G+, y:G-");
-	m->getMyHUDLayer()->getlblCursorPos()->setString(buffer);
 
 	//avoid border error
-	if (touch->getLocation().x < 0) return;
-	if (touch->getLocation().x > m->getGameLayer()->getContentSize().width) return;
-	if (touch->getLocation().y < 0) return;
-	if (touch->getLocation().y > m->getGameLayer()->getContentSize().height) return;
+	if (this->outsideBordor(touch)){
+		prevCursurOutside = true;
+		return;
+	}
+
 	Point touchLocation = this->convertTouchToNodeSpace(touch);
 	Point oldTouchLocation = this->convertToNodeSpace(touch->getPreviousLocation());
 	Point translation = touchLocation - oldTouchLocation;
 
+	if (prevCursurOutside){
+		selGroups->setPosition(touchLocation);
+		prevCursurOutside = false;
+	}
+
 	if (selSprite){
-		Point newPos = selSprite->getPosition() + translation;
-		selSprite->setPosition(newPos);
-		selSpriteRange->setPosition(newPos);
+		Point newPos = selGroups->getPosition() + translation;
+		selGroups->setPosition(newPos);
 
 		Point touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
 
@@ -156,22 +160,12 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 			selSprite->setOpacity(50);
 	}
 	else{
-		Point oldBaseLayerLocation = m->getGameLayer()->getPosition();
-		m->getGameLayer()->panForTranslation(translation);
-		Point HUDtranstion = m->getGameLayer()->getPosition() - oldBaseLayerLocation;
-		this->panForTranslation(HUDtranstion);
+		this->slide(translation);
 	}
 }
 
 void HUDLayer::onTouchEnded(Touch* touch, Event* event){
-	//avoid border error
 	DataModel *m = DataModel::getModel();
-	if (touch->getLocation().x < 0) return;
-	if (touch->getLocation().x > m->getGameLayer()->getContentSize().width) return;
-	if (touch->getLocation().y < 0) return;
-	if (touch->getLocation().y > m->getGameLayer()->getContentSize().height) return;
-
-	Point touchLocation = this->convertTouchToNodeSpace(touch);
 
 	if (selSprite){
 		Rect backgroundRect = Rect(background->getPositionX(),
@@ -179,15 +173,22 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 			background->getContentSize().width,
 			background->getContentSize().height);
 
-		Point touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
+		Point touchLocationInGameLayer = selGroups->getPosition() - m->getGameLayer()->getPosition();
+		Point touchLocation = selGroups->getPosition();
+
+		//avoid border error
+		if (!this->outsideBordor(touch)){
+			prevCursurOutside = false;
+			m->getGameLayer()->convertTouchToNodeSpace(touch);
+			touchLocation = this->convertTouchToNodeSpace(touch);
+		}
+
 		if (!backgroundRect.containsPoint(touchLocation) && m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer))
 			m->getGameLayer()->addTower(touchLocationInGameLayer);
 
 		rangeSprites->removeAllChildren();
-
-		this->removeChild(selSprite, true);
+		selGroups->removeAllChildren();
 		selSprite = NULL;
-		this->removeChild(selSpriteRange, true);
 		selSpriteRange = NULL;
 	}
 }
@@ -195,4 +196,46 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 void HUDLayer::panForTranslation(Point translation){
 	Point newPos = this->getPosition() - translation;
 	this->setPosition(newPos);
+}
+
+bool HUDLayer::outsideBordor(Touch* touch){
+	DataModel *m = DataModel::getModel();
+
+	Point pos = touch->getLocation();
+
+	//@remind use 16 pixel to avoid border error
+	if (pos.x < 16 || pos.x + 16 > m->getGameLayer()->getContentSize().width)
+		return true;
+	if (pos.y < 16 || pos.y + 16 > m->getGameLayer()->getContentSize().height)
+		return true;
+
+	return false;
+}
+
+void HUDLayer::slide(Vec2 translation){
+	DataModel *m = DataModel::getModel();
+	Point oldBaseLayerLocation = m->getGameLayer()->getPosition();
+	m->getGameLayer()->panForTranslation(translation);
+	Point HUDtranstion = m->getGameLayer()->getPosition() - oldBaseLayerLocation;
+	this->panForTranslation(HUDtranstion);
+}
+
+void HUDLayer::refresh(float dt){
+	DataModel *m = DataModel::getModel();
+	if (selSprite){
+
+		//@debug modify label.
+		char buffer[30];
+		sprintf(buffer, "x:%.1f, y:%.1f", selGroups->getPosition().x, selGroups->getPosition().y);
+		m->getMyHUDLayer()->getlblCursorPos()->setString(buffer);
+
+		if (selGroups->getPositionX() < 40)
+			this->slide(Vec2(15.0, 0));
+		if (selGroups->getPositionX() >= m->getGameLayer()->getContentSize().width - 40)
+			this->slide(Vec2(-15.0, 0));
+		if (selGroups->getPositionY() < 40)
+			this->slide(Vec2(0, 15.0));
+		if (selGroups->getPositionY() >= m->getGameLayer()->getContentSize().height - 40)
+			this->slide(Vec2(0, -15.0));
+	}
 }

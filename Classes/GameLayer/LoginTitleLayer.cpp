@@ -10,6 +10,7 @@ USING_NS_CC;
 //////////////////////////
 //class LoginTitleLayer //
 //////////////////////////
+
 LoginTitleLayer::LoginTitleLayer(){
 }
 

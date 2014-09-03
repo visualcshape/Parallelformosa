@@ -10,6 +10,8 @@ public:
 	~MapLayer();
 
 	virtual bool init();
+	virtual void keyPressed(EventKeyboard::KeyCode keyCode, Event *event);
+	virtual void keyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 
 	CREATE_FUNC(MapLayer);
 

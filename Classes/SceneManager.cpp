@@ -22,6 +22,7 @@ void SceneManager::goTitleScreen(){
 
 void SceneManager::goMapScreen(){
 	Layer* layer = MapLayer::create();
+	CCLOG("enter mappppppppp");
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }
 

@@ -17,6 +17,6 @@ public:
 	CC_SYNTHESIZE(HUDLayer*, _myHUDLayer, MyHUDLayer);
 	CC_SYNTHESIZE(Vector <Tower*>, _towers, Towers);
 
-private:
+protected:
 	static DataModel * m_pInstance;
 };
