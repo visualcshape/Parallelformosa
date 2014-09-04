@@ -21,12 +21,9 @@ HUDLayer::HUDLayer(){
 }
 
 HUDLayer::~HUDLayer(){
-	rangeSprites->removeAllChildrenWithCleanup(true);
-	selGroups->removeAllChildrenWithCleanup(true);
-	rangeSprites = NULL;
-	selGroups = NULL;
 	DataModel *m = DataModel::getModel();
 	auto towers = m->getTowers(); towers.clear(); m->setTowers(towers);
+	m->setMyHUDLayer(NULL);
 }
 
 bool HUDLayer::init(){
@@ -34,6 +31,9 @@ bool HUDLayer::init(){
 		return false;
 
 	Size winSize = CCDirector::getInstance()->getWinSize();
+
+	DataModel *m = DataModel::getModel();
+	m->setMyHUDLayer(this);
 
 	// Draw the background of the game HUD
 	CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565);
@@ -68,8 +68,6 @@ bool HUDLayer::init(){
 	this->setlblCursorPos(lblcursorPos);
 
 	//@var used to manage building range images.
-	rangeSprites = Node::create();
-	this->addChild(rangeSprites, -50);
 	selGroups = Node::create();
 	this->addChild(selGroups, -50);
 
@@ -117,19 +115,13 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 			selSprite = newSprite;
 			selGroups->addChild(newSprite);
 
-			for each(Tower* tower in m->getTowers()){
-				auto rangeSprite = Sprite::create("Range.png");
-				rangeSprite->setScale(4);
-				rangeSprite->setPosition(tower->getPosition() + m->getGameLayer()->getPosition());
-				rangeSprites->addChild(rangeSprite);
-			}
+			m->getGameLayer()->showAllRange(true);
 		}
 	}
 	return true;
 }
 
 void HUDLayer::onTouchMoved(Touch* touch, Event* event){
-
 	DataModel *m = DataModel::getModel();
 
 	//avoid border error
@@ -148,11 +140,9 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 	}
 
 	if (selSprite){
-		Point newPos = selGroups->getPosition() + translation;
-		selGroups->setPosition(newPos);
+		selGroups->setPosition(selGroups->getPosition() + translation);
 
 		Point touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
-
 		BOOL isBuildable = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
 		if (isBuildable)
 			selSprite->setOpacity(200);
@@ -186,16 +176,16 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 		if (!backgroundRect.containsPoint(touchLocation) && m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer))
 			m->getGameLayer()->addTower(touchLocationInGameLayer);
 
-		rangeSprites->removeAllChildren();
 		selGroups->removeAllChildren();
 		selSprite = NULL;
 		selSpriteRange = NULL;
+
+		m->getGameLayer()->showAllRange(false);
 	}
 }
 
 void HUDLayer::panForTranslation(Point translation){
-	Point newPos = this->getPosition() - translation;
-	this->setPosition(newPos);
+	this->setPosition(this->getPosition() - translation);
 }
 
 bool HUDLayer::outsideBordor(Touch* touch){
@@ -221,10 +211,10 @@ void HUDLayer::slide(Vec2 translation){
 }
 
 void HUDLayer::refresh(float dt){
-	DataModel *m = DataModel::getModel();
 	if (selSprite){
-
+		
 		//@debug modify label.
+		DataModel *m = DataModel::getModel();
 		char buffer[30];
 		sprintf(buffer, "x:%.1f, y:%.1f", selGroups->getPosition().x, selGroups->getPosition().y);
 		m->getMyHUDLayer()->getlblCursorPos()->setString(buffer);

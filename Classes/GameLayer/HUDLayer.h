@@ -31,7 +31,6 @@ private:
 	Sprite* selSpriteRange;
 	Sprite* selSprite;
 	Vector <Sprite*> movableSprites;
-	Node* rangeSprites;
 	Node* selGroups;
 
 	bool prevCursurOutside;

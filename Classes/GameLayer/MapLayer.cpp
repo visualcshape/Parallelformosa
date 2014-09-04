@@ -11,14 +11,11 @@ MapLayer::MapLayer(){
 
 MapLayer::~MapLayer(){
 	DataModel* m = DataModel::getModel();
-	this->removeAllChildrenWithCleanup(true);
 	m->setGameLayer(NULL);
-	m->setMyHUDLayer(NULL);
-	CCLOG("call call");
 }
 
 bool MapLayer::init(){
-	if (!Layer::init())
+	if (!BaseLayer::init())
 		return false;
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -28,9 +25,11 @@ bool MapLayer::init(){
 	myHUDLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
 	this->addChild(myHUDLayer, 100);
 
+	rangeSprites = Node::create();
+	this->addChild(rangeSprites, 5);
+
 	DataModel* m = DataModel::getModel();
 	m->setGameLayer(this);
-	m->setMyHUDLayer(myHUDLayer);
 
 	this->tileMap = TMXTiledMap::create("TileMap.tmx");
 	this->background = tileMap->layerNamed("Background");
@@ -42,7 +41,6 @@ bool MapLayer::init(){
 	//@debug conveniently use keyboard to restart in Win32.
 	auto keyboardListener = EventListenerKeyboard::create();
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(MapLayer::keyPressed, this);
-	keyboardListener->onKeyReleased = CC_CALLBACK_2(MapLayer::keyReleased, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 
 	return true;
@@ -72,10 +70,7 @@ void MapLayer::addTower(Point pos){
 			target->setPosition(ccp((towerLoc.x * 32) + 16, this->tileMap->getContentSize().height - (towerLoc.y * 32) - 16));
 			target->setCoord(towerLoc);
 			this->addChild(target, 1);
-			target->setTag(1);
-			Vector <Tower*> V = m->getTowers();
-			V.pushBack(target);
-			m->setTowers(V);
+			Vector <Tower*> V = m->getTowers();	V.pushBack(target);	m->setTowers(V);
 		}
 		else
 			buildable = false;
@@ -126,18 +121,20 @@ void MapLayer::panForTranslation(Point translation){
 	this->setPosition(this->boundLayerPos(newPos));
 }
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
-	if (keyCode == EventKeyboard::KeyCode::KEY_R){
-		CCLog("R key was pressed");
-		SceneManager::goTitleScreen();
-
-
-	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_W){
-		CCLog("W key was pressed");
-		SceneManager::goTrademarkScreen();
-	}
+	SceneManager::pressKeyCode(keyCode);
 }
 
-void MapLayer::keyReleased(EventKeyboard::KeyCode keyCode, Event *event){
-
+void MapLayer::showAllRange(bool visible){
+	DataModel *m = DataModel::getModel();
+	if (visible){
+		for each(Tower* tower in m->getTowers()){
+			auto rangeSprite = Sprite::create("Range.png");
+			rangeSprite->setScale(4);
+			rangeSprite->setPosition(tower->getPosition());
+			rangeSprites->addChild(rangeSprite);
+		}
+	}
+	else{
+		rangeSprites->removeAllChildrenWithCleanup(true);
+	}
 }

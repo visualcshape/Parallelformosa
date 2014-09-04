@@ -11,6 +11,10 @@ public:
 	static void goTrademarkScreen();
 	static void goTitleScreen();
 	static void goMapScreen();
+	static void pressKeyCode(EventKeyboard::KeyCode keyCode);
+
+protected:
+	static void cleanRunningScreen();
 
 private:
 	static void go(Layer *layer, float duration = 0.0f, Color3B cr = Color3B::BLACK);

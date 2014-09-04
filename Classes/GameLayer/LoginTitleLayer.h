@@ -18,7 +18,7 @@ public:
 	LoginTitleLayer();
 	~LoginTitleLayer();
 
-    virtual bool init();
+	virtual bool init();
 
 	CREATE_FUNC(LoginTitleLayer);
 };
@@ -56,7 +56,7 @@ private:
 };
 
 
-class InfoLayer:public BaseLayer,public Observer{
+class InfoLayer :public BaseLayer, public Observer{
 public:
 	InfoLayer();
 	~InfoLayer();

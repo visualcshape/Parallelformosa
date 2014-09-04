@@ -9,7 +9,9 @@ class TrademarkLayer :public BaseLayer{
 public:
 	TrademarkLayer();
 	~TrademarkLayer();
+
 	virtual bool init();
+
 	void animate();
 	void back(Object* pSender);
 
