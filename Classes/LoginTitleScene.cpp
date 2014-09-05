@@ -64,6 +64,7 @@ bool LoginTitleScene::init()
     
     //Add notice manager
     NoticeManager::getInstance()->put("UIDNotFound", "ERROR", Color3B::RED, "UID不存在，重設UID", Color3B::BLACK, nullptr);
+    //
     
     return true;
 }
