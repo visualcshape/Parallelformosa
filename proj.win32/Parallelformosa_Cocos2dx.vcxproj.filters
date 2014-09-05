@@ -10,22 +10,19 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\GameLayer">
+      <UniqueIdentifier>{a81f6a91-5a65-4d28-badc-7cb6da0f635d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Map">
+      <UniqueIdentifier>{a235d73c-899b-452f-a4af-7eae0194dee3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Model">
+      <UniqueIdentifier>{11b1dcb3-3182-40bb-a296-f8d37b9333d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Database.cpp">
-      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\DialogueWindow.cpp">
       <Filter>Classes</Filter>
@@ -33,19 +30,13 @@
     <ClCompile Include="..\Classes\DialogueWindowConfirm.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LoginTitleModel.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LoginTitleScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Observer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Subject.cpp">
+    <ClCompile Include="..\Classes\SceneManager.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\TrademarkScene.cpp">
+    <ClCompile Include="..\Classes\Subject.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UtilFunc.cpp">
@@ -54,15 +45,66 @@
     <ClCompile Include="..\Classes\VisibleRect.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Database.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer\BaseLayer.cpp">
+      <Filter>Classes\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer\LoginTitleLayer.cpp">
+      <Filter>Classes\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer\TrademarkLayer.cpp">
+      <Filter>Classes\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Map\Tower.cpp">
+      <Filter>Classes\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer\MapLayer.cpp">
+      <Filter>Classes\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer\HUDLayer.cpp">
+      <Filter>Classes\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\LoginTitleModel.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\DataModel.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
+    <ClInclude Include="..\Classes\DialogueWindow.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
+    <ClInclude Include="..\Classes\DialogueWindowConfirm.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Observer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneManager.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Subject.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UtilFunc.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VisibleRect.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppMacro.h">
@@ -74,32 +116,29 @@
     <ClInclude Include="..\Classes\Database.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DialogueWindow.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\GameLayer\BaseLayer.h">
+      <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DialogueWindowConfirm.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\GameLayer\LoginTitleLayer.h">
+      <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LoginTitleModel.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\GameLayer\TrademarkLayer.h">
+      <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LoginTitleScene.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\Map\Tower.h">
+      <Filter>Classes\Map</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Observer.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\GameLayer\MapLayer.h">
+      <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Subject.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\GameLayer\HUDLayer.h">
+      <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\TrademarkScene.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\Model\DataModel.h">
+      <Filter>Classes\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\UtilFunc.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\VisibleRect.h">
-      <Filter>Classes</Filter>
+    <ClInclude Include="..\Classes\Model\LoginTitleModel.h">
+      <Filter>Classes\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
