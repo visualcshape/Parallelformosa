@@ -27,6 +27,8 @@ public:
     //Callback will be implemented later
     static DialogueWindowConfirm* create(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contetntColor);
     
+    static cocos2d::Scene* createByScene(std::string title,cocos2d::Color3B titleColor,std::string content,cocos2d::Color3B contentColor,std::function<void(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType)> callback);
+    
     virtual bool init();
     
     virtual void addButtonListener(std::function<void(cocos2d::Ref*,cocos2d::ui::Widget::TouchEventType)> callback);

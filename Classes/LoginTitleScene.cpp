@@ -10,7 +10,9 @@
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include <pomelo.h>
-#include "DialogueWindowConfirm.h"
+#include "NoticeManager.h"
+//
+
 
 using namespace cocos2d;
 
@@ -59,6 +61,9 @@ bool LoginTitleScene::init()
     backgroundLayer->release();
     menuLayer->release();
     infoLayer->release();
+    
+    //Add notice manager
+    NoticeManager::getInstance()->put("UIDNotFound", "ERROR", Color3B::RED, "UID不存在，重設UID", Color3B::BLACK, nullptr);
     
     return true;
 }
@@ -221,7 +226,20 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
             }
             else
             {
-                
+                auto pScene = Director::getInstance()->getRunningScene();
+                DialogueWindowConfirm* pDialogue = NoticeManager::getInstance()->get("UIDNotFound");
+                CCASSERT(pDialogue!=nullptr, "pDialogue cannot be null");
+                pScene->addChild(pDialogue,100,"UIDNotFound");
+                auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
+                {
+                    if(type==ui::Widget::TouchEventType::ENDED)
+                    {
+                        pScene->removeChildByName("UIDNotFound");
+                        //reset UID
+                        LoginTitleModel::getInstance()->setUID("0");
+                    }
+                };
+                pDialogue->addButtonListener(cb);
             }
         }
         else
@@ -263,14 +281,13 @@ InfoLayer::InfoLayer()
     //Add Subject
     _subject = LoginTitleModel::getInstance();
     _subject->Attach(this);
-    //TODO : Set Position
-    //TODO : Add child
     TTFConfig config("fonts/Avenir.ttf",computeFontSize(8*4));
     m_UIDLabel = Label::createWithTTF(config, "UID:Undefined", TextHAlignment::LEFT);
     CC_ASSERT(m_UIDLabel!=NULL);
     m_UIDLabel->setAnchorPoint(Vec2(0.0, 1.0));
     m_UIDLabel->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x+20,VisibleRect::getVisibleRect().size.height-3));
     addChild(m_UIDLabel,2);
+    
     //Notify...
     _subject->Notify();
 }

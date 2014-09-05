@@ -15,6 +15,8 @@
 #include "CustomLabelMenuItem.h"
 #include "Observer.h"
 #include "LoginTitleModel.h"
+#include "DialogueWindowConfirm.h"
+
 
 class LoginTitleScene:public cocos2d::Layer
 {
@@ -56,6 +58,7 @@ private:
     //authUID callback
     static void _onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp);
     ////
+    
 public:
     MenuLayer();
     

@@ -94,6 +94,8 @@
 		F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F698767519A2640400D89FC9 /* DialogueWindow.cpp */; };
 		F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
+		F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486019B77665009717E7 /* NoticeManager.cpp */; };
+		F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486019B77665009717E7 /* NoticeManager.cpp */; };
 		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
@@ -328,6 +330,8 @@
 		F698767419A263E700D89FC9 /* DialogueWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindow.h; path = ../Classes/DialogueWindow.h; sourceTree = "<group>"; };
 		F698767519A2640400D89FC9 /* DialogueWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindow.cpp; path = ../Classes/DialogueWindow.cpp; sourceTree = "<group>"; };
 		F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkScene.cpp; path = ../Classes/TrademarkScene.cpp; sourceTree = "<group>"; };
+		F69E485D19B77655009717E7 /* NoticeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeManager.h; path = ../Classes/NoticeManager.h; sourceTree = "<group>"; };
+		F69E486019B77665009717E7 /* NoticeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeManager.cpp; path = ../Classes/NoticeManager.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 				F698767519A2640400D89FC9 /* DialogueWindow.cpp */,
 				F6E7B97819A3A044004D6DAF /* DialogueWindowConfirm.h */,
 				F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */,
+				F69E485D19B77655009717E7 /* NoticeManager.h */,
+				F69E486019B77665009717E7 /* NoticeManager.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -806,6 +812,7 @@
 			files = (
 				F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
@@ -830,6 +837,7 @@
 				F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */,
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
+				F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */,
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,

@@ -35,6 +35,14 @@ DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::
     return ret;
 }
 
+Scene* DialogueWindowConfirm::createByScene(std::string title, cocos2d::Color3B titleColor, std::string content, cocos2d::Color3B contentColor,std::function<void(Ref*,ui::Widget::TouchEventType)> callback)
+{
+    Scene* scene = Scene::create();
+    CCASSERT(scene!=nullptr, "scene should not be null");
+    
+    return scene;
+}
+
 bool DialogueWindowConfirm::init()
 {
     bool ret = true;
