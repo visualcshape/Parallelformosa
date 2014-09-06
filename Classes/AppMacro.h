@@ -34,6 +34,9 @@
 
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
+static std::string CONNECTOR_HOST = "";
+static long long CONNECTOR_PORT = 0;
+
 typedef struct tagResource
 {
     cocos2d::Size size;
@@ -51,6 +54,5 @@ static float computeFontSize(float fontSize)
 {
     return cocos2d::Director::getInstance()->getOpenGLView()->getDesignResolutionSize().width / normalResource.size.width * fontSize;
 }
-
 
 #endif

@@ -96,6 +96,8 @@
 		F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */; };
 		F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486019B77665009717E7 /* NoticeManager.cpp */; };
 		F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486019B77665009717E7 /* NoticeManager.cpp */; };
+		F69E486519B9D687009717E7 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486419B9D687009717E7 /* LoadingScene.cpp */; };
+		F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486419B9D687009717E7 /* LoadingScene.cpp */; };
 		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
@@ -332,6 +334,8 @@
 		F69DAB22198544D2004D06E1 /* TrademarkScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkScene.cpp; path = ../Classes/TrademarkScene.cpp; sourceTree = "<group>"; };
 		F69E485D19B77655009717E7 /* NoticeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeManager.h; path = ../Classes/NoticeManager.h; sourceTree = "<group>"; };
 		F69E486019B77665009717E7 /* NoticeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeManager.cpp; path = ../Classes/NoticeManager.cpp; sourceTree = "<group>"; };
+		F69E486319B9D674009717E7 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingScene.h; path = ../Classes/LoadingScene.h; sourceTree = "<group>"; };
+		F69E486419B9D687009717E7 /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadingScene.cpp; path = ../Classes/LoadingScene.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
@@ -453,6 +457,8 @@
 				F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */,
 				F69E485D19B77655009717E7 /* NoticeManager.h */,
 				F69E486019B77665009717E7 /* NoticeManager.cpp */,
+				F69E486319B9D674009717E7 /* LoadingScene.h */,
+				F69E486419B9D687009717E7 /* LoadingScene.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -825,6 +831,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */,
+				F69E486519B9D687009717E7 /* LoadingScene.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
@@ -843,6 +850,7 @@
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
+				F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,

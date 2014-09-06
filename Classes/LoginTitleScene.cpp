@@ -11,6 +11,7 @@
 #include "AppMacro.h"
 #include <pomelo.h>
 #include "NoticeManager.h"
+#include "LoadingScene.h"
 //
 
 
@@ -190,7 +191,7 @@ void MenuLayer::_connectServer(pc_client_t* client)
 
 void MenuLayer::_sendRequest(pc_client_t* client)
 {
-    const char* route = "gate.gateHandler.authUID";
+    const char* route = "gate.gateHandler.authUIDAndDispatch";
     json_t* msg = json_object();
     json_t* uid = json_string(LoginTitleModel::getInstance()->getUID().c_str());
     json_object_set(msg, "uid", uid);
@@ -203,6 +204,7 @@ void MenuLayer::_sendRequest(pc_client_t* client)
 
 void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)
 {
+    bool isLoginSuccess = false;
     if(status==-1)
     {
         CCLOG("Fail to send request to server");
@@ -217,13 +219,14 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
         {
             std::string jUID = json_string_value(json_object_get(unpack, "uid"));
             LoginTitleModel::getInstance()->setUID(jUID);
+            isLoginSuccess = true;
         }
         else if(strcmp("isExist", type.c_str())==0)
         {
             std::string result = json_string_value(json_object_get(unpack, "result"));
             if(result=="true")
             {
-                //Start login procedure
+                isLoginSuccess = true;
             }
             else
             {
@@ -247,6 +250,11 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
         {
             CCASSERT(false, "Server Response:No such type");
         }
+        if(isLoginSuccess)
+        {
+            CONNECTOR_HOST = json_string_value(json_object_get(unpack, "connectorHost"));
+            CONNECTOR_PORT = json_integer_value(json_object_get(unpack, "connectorPort"));
+        }
     }
     
     //release
@@ -259,6 +267,15 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
     
     //stop
     pc_client_stop(client);
+    if(isLoginSuccess)
+        _startLoading();
+}
+
+void MenuLayer::_startLoading()
+{
+    
+    Scene* pScene = LoadingScene::createScene();
+    Director::getInstance()->replaceScene(pScene);
 }
 //
 

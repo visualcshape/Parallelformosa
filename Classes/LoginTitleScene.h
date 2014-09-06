@@ -59,6 +59,8 @@ private:
     static void _onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp);
     ////
     
+    static void _startLoading();
+    
 public:
     MenuLayer();
     
