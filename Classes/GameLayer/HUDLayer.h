@@ -20,6 +20,7 @@ public:
 	void refresh(float dt);
 
 	CC_SYNTHESIZE(Label*, _lblCursorPos, lblCursorPos);
+	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 
 protected:
 	void panForTranslation(Point translation);
@@ -30,6 +31,7 @@ private:
 	Sprite* background;
 	Sprite* selSpriteRange;
 	Sprite* selSprite;
+	int selID;
 	Vector <Sprite*> movableSprites;
 	Node* selGroups;
 

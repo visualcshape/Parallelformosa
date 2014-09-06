@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="12" height="20" tilewidth="100" tileheight="40">
- <tileset firstgid="1" source="Untitled.tsx"/>
+ <tileset firstgid="1" name="ortho-test1" tilewidth="101" tileheight="171" spacing="2" margin="2">
+  <image source="ortho-test1.png" width="1024" height="1024"/>
+  <tile id="0">
+   <properties>
+    <property name="buildable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="buildable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="buildable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="36">
+   <properties>
+    <property name="buildable" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="Tile Layer 1" width="12" height="20">
   <data>
    <tile gid="0"/>

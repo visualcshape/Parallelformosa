@@ -17,17 +17,23 @@ public:
 	//@func tilemap
 	Point tileCoordForPosition(Point position);
 	bool canBuildOnTilePosition(Point pos);
+	Point mapCoordForPosition(Point position, int level);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
 	void panForTranslation(Point translation);
-
+	
 	//@func building
-	void addTower(Point pos);
+	void addBuilding(Point pos, int id);
 	void showAllRange(bool visible);
+
+	//@func tilemark
+	void setTileMark(Point pos, bool canBuild);
+	void removeTileMark();
 
 private:
 	TMXTiledMap* tileMap;
-	TMXLayer* background;
+	TMXLayer* tileLayer;
 	Node* rangeSprites;
+	Node* tileMark;
 };

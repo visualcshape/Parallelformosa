@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "Map\Tower.h"
+#include "Map\Building.h"
 #include "GameLayer\HUDLayer.h"
 #include "GameLayer\MapLayer.h"
 
@@ -15,7 +15,7 @@ public:
 
 	CC_SYNTHESIZE(MapLayer*, _gameLayer, GameLayer);
 	CC_SYNTHESIZE(HUDLayer*, _myHUDLayer, MyHUDLayer);
-	CC_SYNTHESIZE(Vector <Tower*>, _towers, Towers);
+	CC_SYNTHESIZE(Vector <Building*>, _building, Buildings);
 
 protected:
 	static DataModel * m_pInstance;
