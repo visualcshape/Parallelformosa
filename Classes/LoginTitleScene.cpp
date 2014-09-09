@@ -12,7 +12,6 @@
 #include <pomelo.h>
 #include "NoticeManager.h"
 #include "LoadingScene.h"
-#include "CCPomeloWrapper.h"
 //
 
 
@@ -152,8 +151,12 @@ void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 void MenuLayer::_doLoginWaterFall()
 {
     //new a client
+    /*
     pc_client_t* client = pc_client_new();
     _connectServer(client);
+     */
+    //New connect
+    _newConnectServer();
 }
 
 void MenuLayer::_connectServer(pc_client_t* client)
@@ -270,6 +273,49 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
     pc_client_stop(client);
     if(isLoginSuccess)
         _startLoading();
+}
+
+void MenuLayer::_newConnectServer()
+{
+    Layer* thisLayer = this;
+    CCPomeloWrapper::getInstance()->connectAsnyc(GATE_HOST, GATE_PORT,[=](int err){
+        if(err!=0)
+        {
+            DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Cannot connect to server , please check \nyour network.", Color3B::BLACK);
+            auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
+                {
+                    if(type==ui::Widget::TouchEventType::ENDED)
+                    {
+                        thisLayer->removeChildByTag(DIALAGOUE_TAG);
+                        pDialogue->autorelease();
+                    }
+                };
+            pDialogue->addButtonListener(cb);
+            thisLayer->addChild(pDialogue, 100, DIALAGOUE_TAG);
+            CCLOG("Connect Failed");
+        }
+        else
+        {
+            CCLOG("Connected!");
+            _newSendRequest();
+        }
+    });
+}
+
+void MenuLayer::_newSendRequest()
+{
+    const char* route = "gate.gateHandler.authUIDAndDispatch";
+    Json::Value msg;
+    Json::FastWriter writer;
+    msg["uid"] = LoginTitleModel::getInstance()->getUID();
+    
+    auto cb = std::bind(&MenuLayer::_newOnAuthUIDRequestCallback, this,std::placeholders::_1);
+    CCPomeloWrapper::getInstance()->request(route, writer.write(msg), cb);
+}
+
+void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result)
+{
+    CCLOG("OnAuthUIDCallback...");
 }
 
 void MenuLayer::_startLoading()

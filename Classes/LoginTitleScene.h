@@ -16,7 +16,8 @@
 #include "Observer.h"
 #include "LoginTitleModel.h"
 #include "DialogueWindowConfirm.h"
-
+#include "CCPomeloWrapper.h"
+#include "json.h"
 
 class LoginTitleScene:public cocos2d::Layer
 {
@@ -58,6 +59,12 @@ private:
     //authUID callback
     static void _onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp);
     ////
+    //new login waterfall//
+    
+    void _newConnectServer();
+    void _newSendRequest();
+    void _newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result);
+    //
     
     static void _startLoading();
     
