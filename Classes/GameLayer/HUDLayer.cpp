@@ -40,6 +40,13 @@ bool HUDLayer::init(){
 	images.pushBack(StringMake("PlanetCute/Gem Blue.png"));
 	images.pushBack(StringMake("PlanetCute/Gem Green.png"));
 	images.pushBack(StringMake("PlanetCute/Star.png"));
+
+	movableSpritesGID.clear();
+	movableSpritesGID.push_back(16);
+	movableSpritesGID.push_back(14);
+	movableSpritesGID.push_back(15);
+	movableSpritesGID.push_back(35);
+
 	for (int i = 0; i < images.size(); ++i){
 		String* image = images.at(i);
 		auto *sprite = Sprite::create(image->getCString());
@@ -112,7 +119,7 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 			selSprite = newSprite;
 			selGroups->addChild(newSprite);
 
-			selID = i;
+			selID = movableSpritesGID.at(i);
 			m->getGameLayer()->showAllRange(true);
 		}
 	}
@@ -147,14 +154,14 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 		sprintf(buffer, "x:%.1f, y:%.1f", touchLocationInGameLayer.x, touchLocationInGameLayer.y);
 		m->getMyHUDLayer()->getlblCursorPos()->setString(buffer);
 
-		BOOL isBuildable = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
-		if (isBuildable){
+		int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
+		if (~isBuildableLevel){
 			selSprite->setOpacity(200);
-			m->getGameLayer()->setTileMark(touchLocationInGameLayer, true);
+			m->getGameLayer()->setTileMark(touchLocationInGameLayer, isBuildableLevel, true);
 		}
 		else{
 			selSprite->setOpacity(50);
-			m->getGameLayer()->setTileMark(touchLocationInGameLayer, false);
+			m->getGameLayer()->setTileMark(touchLocationInGameLayer, isBuildableLevel, false);
 		}
 	}
 	else{
@@ -177,12 +184,16 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 		//avoid border error
 		if (!this->outsideBordor(touch)){
 			prevCursurOutside = false;
-			m->getGameLayer()->convertTouchToNodeSpace(touch);
+			touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
 			touchLocation = this->convertTouchToNodeSpace(touch);
 		}
 
-		if (!backgroundRect.containsPoint(touchLocation) && m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer))
-			m->getGameLayer()->addBuilding(touchLocationInGameLayer, selID);
+		
+		if (!backgroundRect.containsPoint(touchLocation)){
+			int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
+			if (~isBuildableLevel)
+				m->getGameLayer()->addBuilding(touchLocationInGameLayer, isBuildableLevel, selID);
+		}
 
 		selGroups->removeAllChildren();
 		selSprite = NULL;

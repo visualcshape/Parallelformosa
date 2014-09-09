@@ -1,13 +1,4 @@
-//
-//  AppMacro.h
-//  Parallelformosa_Cocos2dx
-//
-//  Created by Chi-Chia Sun on 2014/7/27.
-//
-//
-
-#ifndef Parallelformosa_Cocos2dx_AppMacro_h
-#define Parallelformosa_Cocos2dx_AppMacro_h
+#pragma once
 #include <cocos2d.h>
 
 #define DESIGN_RESOLUTION_480X320   0
@@ -52,5 +43,6 @@ static float computeFontSize(float fontSize)
     return cocos2d::Director::getInstance()->getOpenGLView()->getDesignResolutionSize().width / normalResource.size.width * fontSize;
 }
 
-
-#endif
+// personal macro {
+#define SZ(a) ((a).size())
+// }

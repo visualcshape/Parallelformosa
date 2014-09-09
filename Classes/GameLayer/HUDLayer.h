@@ -33,6 +33,7 @@ private:
 	Sprite* selSprite;
 	int selID;
 	Vector <Sprite*> movableSprites;
+	std::vector <int> movableSpritesGID;
 	Node* selGroups;
 
 	bool prevCursurOutside;

@@ -16,7 +16,7 @@ public:
 
 	//@func tilemap
 	Point tileCoordForPosition(Point position);
-	bool canBuildOnTilePosition(Point pos);
+	int canBuildOnTilePosition(Point pos);
 	Point mapCoordForPosition(Point position, int level);
 
 	//@func screen
@@ -24,16 +24,16 @@ public:
 	void panForTranslation(Point translation);
 	
 	//@func building
-	void addBuilding(Point pos, int id);
+	void addBuilding(Point pos, int level, int id);
 	void showAllRange(bool visible);
 
 	//@func tilemark
-	void setTileMark(Point pos, bool canBuild);
+	void setTileMark(Point pos, int level, bool canBuild);
 	void removeTileMark();
 
 private:
 	TMXTiledMap* tileMap;
-	TMXLayer* tileLayer;
+	Vector <TMXLayer*> tileLayers;
 	Node* rangeSprites;
 	Node* tileMark;
 };
