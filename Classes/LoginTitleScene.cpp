@@ -12,6 +12,7 @@
 #include <pomelo.h>
 #include "NoticeManager.h"
 #include "LoadingScene.h"
+#include "CCPomeloWrapper.h"
 //
 
 
@@ -275,7 +276,8 @@ void MenuLayer::_startLoading()
 {
     
     Scene* pScene = LoadingScene::createScene();
-    Director::getInstance()->replaceScene(pScene);
+    auto fadeTransition = TransitionFade::create(0.32f, pScene, Color3B(0,0,0));
+    Director::getInstance()->replaceScene(fadeTransition);
 }
 //
 

@@ -10,8 +10,7 @@
 #include <cocos2d.h>
 #include <fstream>
 #include "UtilFunc.h"
-
-#define DB_REWRITE 1
+#include "AppMacro.h"
 
 USING_NS_CC;
 

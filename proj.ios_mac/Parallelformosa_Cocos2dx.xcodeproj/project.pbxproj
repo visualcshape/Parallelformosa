@@ -98,6 +98,8 @@
 		F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486019B77665009717E7 /* NoticeManager.cpp */; };
 		F69E486519B9D687009717E7 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486419B9D687009717E7 /* LoadingScene.cpp */; };
 		F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486419B9D687009717E7 /* LoadingScene.cpp */; };
+		F69E486919BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486719BF0946009717E7 /* CCPomeloWrapper.cpp */; };
+		F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486719BF0946009717E7 /* CCPomeloWrapper.cpp */; };
 		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
@@ -336,6 +338,8 @@
 		F69E486019B77665009717E7 /* NoticeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeManager.cpp; path = ../Classes/NoticeManager.cpp; sourceTree = "<group>"; };
 		F69E486319B9D674009717E7 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingScene.h; path = ../Classes/LoadingScene.h; sourceTree = "<group>"; };
 		F69E486419B9D687009717E7 /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadingScene.cpp; path = ../Classes/LoadingScene.cpp; sourceTree = "<group>"; };
+		F69E486719BF0946009717E7 /* CCPomeloWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCPomeloWrapper.cpp; path = ../Classes/CCPomeloWrapper.cpp; sourceTree = "<group>"; };
+		F69E486819BF0946009717E7 /* CCPomeloWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCPomeloWrapper.h; path = ../Classes/CCPomeloWrapper.h; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
@@ -428,6 +432,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F69E486719BF0946009717E7 /* CCPomeloWrapper.cpp */,
+				F69E486819BF0946009717E7 /* CCPomeloWrapper.h */,
 				F696BA2A1986586A00474833 /* VisibleRect.cpp */,
 				F696BA2B1986586A00474833 /* VisibleRect.h */,
 				F6A8EDA0198530AB0023CD3D /* AppMacro.h */,
@@ -816,6 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69E486919BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */,
@@ -848,6 +855,7 @@
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,
+				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */,

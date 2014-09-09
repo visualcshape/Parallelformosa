@@ -28,9 +28,12 @@
 //
 
 //server config
-#define GATE_HOST "192.168.2.102"
+#define GATE_HOST "192.168.3.102"
 #define GATE_PORT 3150
 //
+
+//SQLite DB config
+#define DB_REWRITE 1
 
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
