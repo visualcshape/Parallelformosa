@@ -54,7 +54,7 @@ bool DialogueWindowConfirm::init()
     Size confirmButtonSize(layout->getContentSize().width/4,layout->getContentSize().height-2);
     _confirmButton = ui::Button::create();
     _confirmButton->setTouchEnabled(true);
-    _confirmButton->loadTextures("BTN.png", "BTN_P.png");
+    _confirmButton->loadTextures("UI/BTN.png", "UI/BTN_P.png");
     _confirmButton->setTitleFontSize(computeFontSize(10*4));
     _confirmButton->setTitleFontName("fonts/Avenir.ttf");
     _confirmButton->setScale9Enabled(true);

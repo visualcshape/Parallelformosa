@@ -35,7 +35,7 @@ bool DialogueWindow::init()
     
     
     //base window here
-    Sprite* temp = Sprite::create("dialogueWindowBase.png");
+    Sprite* temp = Sprite::create("UI/dialogueWindowBase.png");
     //retain this sprite
     temp->retain();
     CCASSERT(temp, "temp cannot be null.");
@@ -44,7 +44,7 @@ bool DialogueWindow::init()
     //release
     temp->release();
     
-    _baseWindow = extension::Scale9Sprite::create("dialogueWindowBase.png", Rect(0, 0, baseWindowSize.width, baseWindowSize.height), insetRect);
+    _baseWindow = extension::Scale9Sprite::create("UI/dialogueWindowBase.png", Rect(0, 0, baseWindowSize.width, baseWindowSize.height), insetRect);
     CCASSERT(_baseWindow!=nullptr, "_baseWindow cannot be null");
     _baseWindow->setAnchorPoint(Vec2(.5, .5));
     _baseWindow->setPosition(Vec2(VisibleRect::center().x,VisibleRect::center().y-20));

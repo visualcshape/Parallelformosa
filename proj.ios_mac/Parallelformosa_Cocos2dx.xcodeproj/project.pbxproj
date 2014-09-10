@@ -102,6 +102,8 @@
 		F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486719BF0946009717E7 /* CCPomeloWrapper.cpp */; };
 		F69E486C19BF539F009717E7 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486B19BF539F009717E7 /* jsoncpp.cpp */; };
 		F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486B19BF539F009717E7 /* jsoncpp.cpp */; };
+		F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
+		F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
 		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
@@ -345,6 +347,8 @@
 		F69E486B19BF539F009717E7 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		F69E486E19BF544A009717E7 /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		F69E486F19BF544A009717E7 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		F69E487019C064B4009717E7 /* NoticeLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeLoading.h; path = ../Classes/NoticeLoading.h; sourceTree = "<group>"; };
+		F69E487119C064C2009717E7 /* NoticeLoading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeLoading.cpp; path = ../Classes/NoticeLoading.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 				F69E486019B77665009717E7 /* NoticeManager.cpp */,
 				F69E486319B9D674009717E7 /* LoadingScene.h */,
 				F69E486419B9D687009717E7 /* LoadingScene.cpp */,
+				F69E487019C064B4009717E7 /* NoticeLoading.h */,
+				F69E487119C064C2009717E7 /* NoticeLoading.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -834,6 +840,7 @@
 				F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */,
+				F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F69E486C19BF539F009717E7 /* jsoncpp.cpp in Sources */,
 				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
@@ -861,6 +868,7 @@
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
 				F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */,
+				F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */,
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,

@@ -12,6 +12,7 @@
 #include <pomelo.h>
 #include "NoticeManager.h"
 #include "LoadingScene.h"
+#include "NoticeLoading.h"
 //
 
 
@@ -277,6 +278,11 @@ void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* r
 
 void MenuLayer::_newConnectServer()
 {
+    //test zone
+    NoticeLoading* pLoading = NoticeLoading::create("Connecting...", Color3B::WHITE);
+    addChild(pLoading,99);
+    //
+    
     Layer* thisLayer = this;
     CCPomeloWrapper::getInstance()->connectAsnyc(GATE_HOST, GATE_PORT,[=](int err){
         if(err!=0)
