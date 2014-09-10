@@ -41,12 +41,6 @@ bool HUDLayer::init(){
 	images.pushBack(StringMake("PlanetCute/Gem Green.png"));
 	images.pushBack(StringMake("PlanetCute/Star.png"));
 
-	movableSpritesGID.clear();
-	movableSpritesGID.push_back(16);
-	movableSpritesGID.push_back(14);
-	movableSpritesGID.push_back(15);
-	movableSpritesGID.push_back(35);
-
 	for (int i = 0; i < images.size(); ++i){
 		String* image = images.at(i);
 		auto *sprite = Sprite::create(image->getCString());
@@ -68,6 +62,11 @@ bool HUDLayer::init(){
 	lblTilePos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 60));
 	this->addChild(lblTilePos, -1);
 	this->setlblTilePos(lblTilePos);
+
+	Label* lblBuldingPos = Label::createWithTTF(config, "bulding id=??", TextHAlignment::LEFT);
+	lblBuldingPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 100));
+	this->addChild(lblBuldingPos, -1);
+	this->setlblBuldingPos(lblBuldingPos);
 
 
 	//@var used to manage building range images.
@@ -102,6 +101,7 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 	DataModel *m = DataModel::getModel();
 
 	Sprite * newSprite = NULL;
+	Building* target = NULL;
 	for (int i = 0; i < movableSprites.size(); i++){
 		Sprite* sprite = movableSprites.at(i);
 		Rect pos_rect = Rect((sprite->getPositionX() - sprite->getContentSize().width / 2), (sprite->getPositionY() - sprite->getContentSize().height / 2), sprite->getContentSize().width, sprite->getContentSize().height);
@@ -119,7 +119,15 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 			selSprite = newSprite;
 			selGroups->addChild(newSprite);
 
-			selID = movableSpritesGID.at(i);
+			
+			switch (i){
+			case 0: selID = 16; break;
+			case 1: selID = 14; break;
+			case 2: selID = 15; break;
+			case 3: selID = 35; break;
+			default: CCLOGERROR("nothing select");
+			}
+
 			m->getGameLayer()->showAllRange(true);
 		}
 	}
@@ -154,14 +162,14 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 		sprintf(buffer, "x:%.1f, y:%.1f", touchLocationInGameLayer.x, touchLocationInGameLayer.y);
 		m->getMyHUDLayer()->getlblCursorPos()->setString(buffer);
 
-		int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
+		int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer, selID);
 		if (~isBuildableLevel){
 			selSprite->setOpacity(200);
-			m->getGameLayer()->setTileMark(touchLocationInGameLayer, isBuildableLevel, true);
+			m->getGameLayer()->setTileMark(touchLocationInGameLayer, selID, isBuildableLevel, true);
 		}
 		else{
 			selSprite->setOpacity(50);
-			m->getGameLayer()->setTileMark(touchLocationInGameLayer, isBuildableLevel, false);
+			m->getGameLayer()->setTileMark(touchLocationInGameLayer, selID, isBuildableLevel, false);
 		}
 	}
 	else{
@@ -188,11 +196,10 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 			touchLocation = this->convertTouchToNodeSpace(touch);
 		}
 
-		
 		if (!backgroundRect.containsPoint(touchLocation)){
-			int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer);
+			int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer, selID);
 			if (~isBuildableLevel)
-				m->getGameLayer()->addBuilding(touchLocationInGameLayer, isBuildableLevel, selID);
+				m->getGameLayer()->addBuilding(touchLocationInGameLayer, selID, isBuildableLevel);
 		}
 
 		selGroups->removeAllChildren();

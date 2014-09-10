@@ -145,7 +145,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\GameLayer\LoginTitleLayer.cpp" />
     <ClCompile Include="..\Classes\GameLayer\MapLayer.cpp" />
     <ClCompile Include="..\Classes\GameLayer\TrademarkLayer.cpp" />
-    <ClCompile Include="..\Classes\Map\Tower.cpp" />
+    <ClCompile Include="..\Classes\Map\Building.cpp" />
     <ClCompile Include="..\Classes\Model\DataModel.cpp" />
     <ClCompile Include="..\Classes\Model\LoginTitleModel.cpp" />
     <ClCompile Include="..\Classes\Observer.cpp" />
@@ -167,7 +167,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\GameLayer\LoginTitleLayer.h" />
     <ClInclude Include="..\Classes\GameLayer\MapLayer.h" />
     <ClInclude Include="..\Classes\GameLayer\TrademarkLayer.h" />
-    <ClInclude Include="..\Classes\Map\Tower.h" />
+    <ClInclude Include="..\Classes\Map\Building.h" />
     <ClInclude Include="..\Classes\Model\DataModel.h" />
     <ClInclude Include="..\Classes\Model\LoginTitleModel.h" />
     <ClInclude Include="..\Classes\Observer.h" />

@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "GameLayer\BaseLayer.h"
+#include "Map\Building.h"
 
 USING_NS_CC;
 
@@ -21,6 +22,7 @@ public:
 
 	CC_SYNTHESIZE(Label*, _lblCursorPos, lblCursorPos);
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
+	CC_SYNTHESIZE(Label*, _lblBuldingPos, lblBuldingPos);
 
 protected:
 	void panForTranslation(Point translation);
@@ -32,8 +34,9 @@ private:
 	Sprite* selSpriteRange;
 	Sprite* selSprite;
 	int selID;
+
 	Vector <Sprite*> movableSprites;
-	std::vector <int> movableSpritesGID;
+
 	Node* selGroups;
 
 	bool prevCursurOutside;

@@ -1,13 +1,13 @@
 #include "GameLayer\MapLayer.h"
 #include "GameLayer\HUDLayer.h"
 #include "Model\DataModel.h"
+#include "Map\Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"
 
 USING_NS_CC;
 
 MapLayer::MapLayer(){
-
 }
 
 MapLayer::~MapLayer(){
@@ -48,8 +48,7 @@ bool MapLayer::init(){
 		CCLOG(">> at %d layer, zorder = %d, zcoord is %.2f\n", lr, tileLayer->getZOrder(), tileLayer->getVertexZ());
 		for (int r = 0; r < 20; r++, puts("")) for (int c = 0; c < 12; c++){
 			CCSprite *tile0 = tileLayer->tileAt(ccp(c, r));
-			if (tile0)
-				CCLOG(">>>> at (%d,%d) => %d ", c, r, tile0->getLocalZOrder());
+			if (tile0) CCLOG(">>>> at (%d,%d) => %d ", c, r, tile0->getLocalZOrder());
 		}
 	}
 	CCLOG(">> %d\n", SZ(tileLayers));
@@ -81,10 +80,10 @@ Point MapLayer::mapCoordForPosition(Point position, int level){
 	return ccp(TileLoc.x, row);
 }
 
-void MapLayer::addBuilding(Point pos, int level, int id){
+void MapLayer::addBuilding(Point pos, int selID, int level){
 	DataModel *m = DataModel::getModel();
-	Building *target = NULL;
-	if (!~this->canBuildOnTilePosition(pos)){
+
+	if (!~this->canBuildOnTilePosition(pos, selID)){
 		CCLOG("Tile Not Buildable");
 		return;
 	}
@@ -96,77 +95,105 @@ void MapLayer::addBuilding(Point pos, int level, int id){
 	CCLOG(">> tileBuildingLoc %.0f %.0f", tileBuildingLoc.x, tileBuildingLoc.y);
 	const int TW = this->tileMap->getTileSize().width;
 	const int TH = 82;
-	switch (id){
-	case 16: target = OrangeGem::build(level); break;
-	case 14: target = BlueGem::build(level); break;
-	case 15: target = GreenGem::build(level); break;
-	case 35: target = Star::build(level); break;
+
+	Building* target = NULL;
+	switch (selID){
+	case 16: target = OrangeGem::build(); break;
+	case 14: target = BlueGem::build(); break;
+	case 15: target = GreenGem::build(); break;
+	case 35: target = Star::build(); break;
 	}
-	//target->setAnchorPoint(ccp(0, 0));
+
+	target->setAnchorPoint(ccp(0, 0));
 	target->setPosition(ccp((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + level * 41 + 123)));
 	target->setCoord(buildingLoc);
-	//target->setZOrder(12 - buildingLoc.y);
 	target->height = level;
-	tileLayers.at(level + 1)->setTileGID(id, ccp(tileBuildingLoc.x, tileBuildingLoc.y));
-	Vector <Building*> V = m->getBuildings();	V.pushBack(target);	m->setBuildings(V);
+
+	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
+		tileLayers.at(level + 1)->setTileGID(target->id, ccp(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
+	}
+	
+	Vector <Building*> V = m->getBuildings(); V.pushBack(target);	m->setBuildings(V);
 	CCLOG(">> ADD to layer %d, zorder=%d z=%d buildingLoc %.0f %.0f", level, target->getZOrder(), target->getLocalZOrder(), buildingLoc.x, buildingLoc.y);
 }
 
 /*@return the highest layer could build, otherwise NONE
  */
-int MapLayer::canBuildOnTilePosition(Point pos){
+int MapLayer::canBuildOnTilePosition(Point pos, int selID){
 	Point TileLoc = this->tileCoordForPosition(pos);
 
 	//@debug modify label.
-	DataModel *m = DataModel::getModel();
-	char buffer[30];
-	sprintf(buffer, "row:%.0f, col:%.0f", TileLoc.x, TileLoc.y);
-	m->getMyHUDLayer()->getlblTilePos()->setString(buffer);
+	{
+		DataModel *m = DataModel::getModel();
+		char buffer[30];
+		sprintf(buffer, "row:%.0f, col:%.0f", TileLoc.x, TileLoc.y);
+		m->getMyHUDLayer()->getlblTilePos()->setString(buffer);
+	}
+
+	//@var later need to Resoucre Manager
+	Building *target = NULL;
+	switch (selID){
+	case 16: target = OrangeGem::build(); break;
+	case 14: target = BlueGem::build(); break;
+	case 15: target = GreenGem::build(); break;
+	case 35: target = Star::build(); break;
+	}
+
+	//@debug modify label.
+	{
+		DataModel *m = DataModel::getModel();
+		char buffer[30];
+		sprintf(buffer, "bulding occpuy=%d,%d", target->occupy.X, target->occupy.Y);
+		m->getMyHUDLayer()->getlblBuldingPos()->setString(buffer);
+	}
+
+	DataModel* m = DataModel::getModel();
 
 	for (int lr = SZ(tileLayers) - 1; lr >= 0; lr--){
 		CCLOG(">> at tile layer = %d", lr);
 		Point buildingLoc = this->mapCoordForPosition(pos, lr);
+		if (lr < SZ(tileLayers) - 1){
+			for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
+				for (int offset = 0; offset <= 1; offset++){
+					Point checkTileLoc = ccp(TileLoc.x + tr, TileLoc.y - tc * 2 + offset);
+					if (checkTileLoc.x < 0) continue;
+					if (checkTileLoc.x >= this->tileLayers.at(lr)->getLayerSize().width) continue;
+					if (checkTileLoc.y < 0) continue;
+					if (checkTileLoc.y >= this->tileLayers.at(lr)->getLayerSize().height) continue;
 
-		DataModel* m = DataModel::getModel();
-		for each(Building *building in m->getBuildings()){
-			if (building->getCoord() == buildingLoc && lr == building->height)
-				return -1;
-		}
-
-		bool foundTile = false;
-		for (int offset = 2; offset >= 1; offset--){
-			Point checkTileLoc = ccp(TileLoc.x, TileLoc.y + offset);
-			if (checkTileLoc.y < 0) continue;
-			if (checkTileLoc.y >= this->tileLayers.at(lr)->getLayerSize().height) continue;
-
-			int tileGid = this->tileLayers.at(lr)->getTileGIDAt(checkTileLoc);
-
-			Value props = this->tileMap->getPropertiesForGID(tileGid);
-			if (!props.isNull()){
-				foundTile = true;
-				ValueMap map = props.asValueMap();
-				int type_int = 0;
-				if (map.size() == 0)
-					type_int = 0;
-				else
-					type_int = map.at("buildable").asInt();
-				if (1 == type_int)
-					return lr;
+					int tileGid = this->tileLayers.at(lr + 1)->getTileGIDAt(checkTileLoc);
+					if (tileGid != 46) return -1;
+				}
 			}
 		}
 
-		Point checkTileLoc = ccp(TileLoc.x, TileLoc.y);
-		if (checkTileLoc.y < 0)continue;
-		if (checkTileLoc.y >= this->tileLayers.at(lr)->getLayerSize().height) continue;
-		int tileGid = this->tileLayers.at(lr)->getTileGIDAt(checkTileLoc);
+		int couldTileCnt = 0;
+		for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
+			for (int offset = 1; offset <= 2; offset++){
+				Point checkTileLoc = ccp(TileLoc.x + tr, TileLoc.y - tc * 2 + offset);
+				if (checkTileLoc.x < 0) continue; 
+				if (checkTileLoc.x >= this->tileLayers.at(lr)->getLayerSize().width) continue;
+				if (checkTileLoc.y < 0) continue;
+				if (checkTileLoc.y >= this->tileLayers.at(lr)->getLayerSize().height) continue;
 
-		Value props = this->tileMap->getPropertiesForGID(tileGid);
-		if (!props.isNull()){
-			foundTile = true;
+				int tileGid = this->tileLayers.at(lr)->getTileGIDAt(checkTileLoc);
+
+				Value props = this->tileMap->getPropertiesForGID(tileGid);
+				if (!props.isNull()){
+					ValueMap map = props.asValueMap();
+					int type_int = 0;
+					if (map.size() == 0)
+						type_int = 0;
+					else
+						type_int = map.at("buildable").asInt();
+					if (1 == type_int){
+						couldTileCnt++;
+						break;
+					}
+				}
+			}
 		}
-		if (foundTile){
-			return -1;
-		}
+		if (couldTileCnt == target->occupy.X*target->occupy.Y) return lr;
 	}
 	return -1;
 }
@@ -209,23 +236,33 @@ void MapLayer::showAllRange(bool visible){
 	}
 }
 
-void MapLayer::setTileMark(Point pos, int level, bool canBuild){
+void MapLayer::setTileMark(Point pos, int selID, int level, bool canBuild){
 	Point loc = this->mapCoordForPosition(pos, level);
-	tileMark->removeChildByName("mark");
-	if (canBuild){
-		Sprite* mark = Sprite::create("100_80_green.png");
-		mark->setAnchorPoint(ccp(0, 0));
-		mark->setPosition(ccp(100 * loc.x, 41 * (level + 1) + 82 * loc.y));
-		tileMark->addChild(mark, 0, "mark");
+	tileMark->removeAllChildren();
+
+	Building *target = NULL;
+	switch (selID){
+	case 16: target = OrangeGem::build(); break;
+	case 14: target = BlueGem::build(); break;
+	case 15: target = GreenGem::build(); break;
+	case 35: target = Star::build(); break;
 	}
-	else{
-		Sprite* mark = Sprite::create("100_80_red.png");
-		mark->setAnchorPoint(ccp(0, 0));
-		mark->setPosition(ccp(100 * loc.x, 41 * (level + 1) + 82 * loc.y));
-		tileMark->addChild(mark, 0, "mark");
+
+	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
+		if (canBuild){
+			Sprite* mark = Sprite::create("100_80_green.png");
+			mark->setAnchorPoint(ccp(0, 0));
+			mark->setPosition(ccp(100 * (loc.x + tr), 41 * (level + 1) + 82 * (loc.y + tc)));
+			tileMark->addChild(mark, 0);
+		}
+		else{
+			Sprite* mark = Sprite::create("100_80_red.png");
+			mark->setAnchorPoint(ccp(0, 0));
+			mark->setPosition(ccp(100 * (loc.x + tr), 41 * (level + 1) + 82 * (loc.y + tc)));
+			tileMark->addChild(mark, 0);
+		}
 	}
 }
-
 void MapLayer::removeTileMark(){
 	tileMark->removeAllChildren();
 }

@@ -43,6 +43,10 @@ static float computeFontSize(float fontSize)
     return cocos2d::Director::getInstance()->getOpenGLView()->getDesignResolutionSize().width / normalResource.size.width * fontSize;
 }
 
-// personal macro {
+// Personal Macro {
 #define SZ(a) ((a).size())
+typedef std::pair <int, int> PII;
+#define X first
+#define Y second
+#define MP std::make_pair
 // }

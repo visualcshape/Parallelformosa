@@ -1,14 +1,21 @@
 #include "Map\Building.h"
 #include "Model\DataModel.h"
 
+bool Building::init(){
+	if (!Sprite::init())
+		return false;
+	return true;
+}
+
 //@subclass OrangeGem
-Building* OrangeGem::build(int level){
+Building* OrangeGem::build(){
 	Building* building = Building::create();
 	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Gem Orange.png"), "PlanetCute/Gem Orange.png doesn't exist");
 	building->sprite = Sprite::create("PlanetCute/Gem Orange.png");
 	building->addChild(building->sprite, 0);
+	building->id = 16;
 	building->range = 200;
-	building->height = level;
+	building->occupy = MP(3, 3);
 	return building;
 }
 
@@ -19,12 +26,14 @@ bool OrangeGem::init(){
 }
 
 //@subclass BlueGem
-Building* BlueGem::build(int level){
+Building* BlueGem::build(){
 	Building* building = Building::create();
 	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Gem Blue.png"), "PlanetCute/Gem Blue.png doesn't exist");
 	building->sprite = Sprite::create("PlanetCute/Gem Blue.png");
 	building->addChild(building->sprite, 0);
+	building->id = 14;
 	building->range = 200;
+	building->occupy = MP(1, 1);
 	return building;
 }
 
@@ -35,12 +44,14 @@ bool BlueGem::init(){
 }
 
 //@subclass GreenGem
-Building* GreenGem::build(int level){
+Building* GreenGem::build(){
 	Building* building = Building::create();
 	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Gem Green.png"), "PlanetCute/Gem Green.png doesn't exist");
 	building->sprite = Sprite::create("PlanetCute/Gem Green.png");
 	building->addChild(building->sprite, 0);
+	building->id = 15;
 	building->range = 200;
+	building->occupy = MP(4, 2);
 	return building;
 }
 
@@ -51,12 +62,14 @@ bool GreenGem::init(){
 }
 
 //@subclass Star
-Building* Star::build(int level){
+Building* Star::build(){
 	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Star.png"), "PlanetCute/Star.png doesn't exist");
 	Building* building = Building::create();
 	building->sprite = Sprite::create("PlanetCute/Star.png");
 	building->addChild(building->sprite, 0);
+	building->id = 35;
 	building->range = 200;
+	building->occupy = MP(2, 2);
 	return building;
 }
 

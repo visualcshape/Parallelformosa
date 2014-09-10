@@ -60,7 +60,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Database::getInstance()->initDatabase();
     
     //run
-	SceneManager::goTrademarkScreen();
+	SceneManager::goMapScreen();
 
     return true;
 }

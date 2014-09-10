@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "GameLayer\BaseLayer.h"
+#include "Map\Building.h"
 
 USING_NS_CC;
 
@@ -16,7 +17,7 @@ public:
 
 	//@func tilemap
 	Point tileCoordForPosition(Point position);
-	int canBuildOnTilePosition(Point pos);
+	int canBuildOnTilePosition(Point pos, int selID);
 	Point mapCoordForPosition(Point position, int level);
 
 	//@func screen
@@ -24,11 +25,11 @@ public:
 	void panForTranslation(Point translation);
 	
 	//@func building
-	void addBuilding(Point pos, int level, int id);
+	void addBuilding(Point pos, int selID, int level);
 	void showAllRange(bool visible);
 
 	//@func tilemark
-	void setTileMark(Point pos, int level, bool canBuild);
+	void setTileMark(Point pos, int selID, int level, bool canBuild);
 	void removeTileMark();
 
 private:
