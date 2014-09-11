@@ -54,20 +54,15 @@ private:
     
     void _doLoginWaterFall();
     //Login waterfall//
-    void _connectServer(pc_client_t* client);
-    void _sendRequest(pc_client_t* client);
-    //authUID callback
-    static void _onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp);
-    ////
     //new login waterfall//
     
     void _newConnectServer();
     void _newSendRequest();
     void _newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result);
+    void _startLodaing(Json::Value resp);
+    
+    void _timedOut(float delta);
     //
-    
-    static void _startLoading();
-    
 public:
     MenuLayer();
     

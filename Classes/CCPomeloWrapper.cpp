@@ -954,7 +954,7 @@ void CCPomeloImpl::stop()
             clearAllPendingEvents();
             
 #if CCX3
-            CCDirector::getInstance()->getScheduler()->pauseTarget(this);
+            Director::getInstance()->getScheduler()->pauseTarget(this);
 #else
             CCDirector::sharedDirector()->getScheduler()->pauseTarget(this);
 #endif

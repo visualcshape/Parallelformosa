@@ -160,133 +160,25 @@ void MenuLayer::_doLoginWaterFall()
     _newConnectServer();
 }
 
-void MenuLayer::_connectServer(pc_client_t* client)
-{
-    const char* ip = GATE_HOST;
-    const int port = GATE_PORT;
-    struct sockaddr_in address;
-    Layer* thisLayer = this;
-    
-    memset(&address, 0, sizeof(struct sockaddr_in));
-    address.sin_family = AF_INET;
-    address.sin_port = htons(port);
-    address.sin_addr.s_addr = inet_addr(ip);
-    
-    if(pc_client_connect(client, &address))
-    {
-        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "無法連接至伺服器，請檢查網路連線．", Color3B::BLACK);
-        addChild(pDialogue,100,"Dialogue");
-        std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
-            if(type==ui::Widget::TouchEventType::ENDED){
-                thisLayer->removeChildByName("Dialogue");
-                pDialogue->autorelease();
-            }
-        };
-        pDialogue->addButtonListener(callback);
-        CCLOGERROR("Fail to connect to server.");
-        pc_client_destroy(client);
-        return;
-    }
-    
-    //Print on Console
-    CCLOG("Connect to server.");
-    //pass to next step
-    _sendRequest(client);
-}
-
-void MenuLayer::_sendRequest(pc_client_t* client)
-{
-    const char* route = "gate.gateHandler.authUIDAndDispatch";
-    json_t* msg = json_object();
-    json_t* uid = json_string(LoginTitleModel::getInstance()->getUID().c_str());
-    json_object_set(msg, "uid", uid);
-    //decref
-    json_decref(uid);
-    
-    pc_request_t* req = pc_request_new();
-    pc_request(client, req, route, msg, _onAuthUIDRequestCallback);
-}
-
-void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp)
-{
-    bool isLoginSuccess = false;
-    if(status==-1)
-    {
-        CCLOG("Fail to send request to server");
-    }
-    else if(status==0)
-    {
-        char* dumped = json_dumps(resp, 0);
-        CCLOG("Server Response:\n%s",dumped);
-        json_t* unpack = json_object_get(resp, "resp");
-        std::string type = json_string_value(json_object_get(unpack, "type"));
-        if (strcmp("create", type.c_str())==0)
-        {
-            std::string jUID = json_string_value(json_object_get(unpack, "uid"));
-            LoginTitleModel::getInstance()->setUID(jUID);
-            isLoginSuccess = true;
-        }
-        else if(strcmp("isExist", type.c_str())==0)
-        {
-            std::string result = json_string_value(json_object_get(unpack, "result"));
-            if(result=="true")
-            {
-                isLoginSuccess = true;
-            }
-            else
-            {
-                auto pScene = Director::getInstance()->getRunningScene();
-                DialogueWindowConfirm* pDialogue = NoticeManager::getInstance()->get("UIDNotFound");
-                CCASSERT(pDialogue!=nullptr, "pDialogue cannot be null");
-                pScene->addChild(pDialogue,100,"UIDNotFound");
-                auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
-                {
-                    if(type==ui::Widget::TouchEventType::ENDED)
-                    {
-                        pScene->removeChildByName("UIDNotFound");
-                        //reset UID
-                        LoginTitleModel::getInstance()->setUID("0");
-                    }
-                };
-                pDialogue->addButtonListener(cb);
-            }
-        }
-        else
-        {
-            CCASSERT(false, "Server Response:No such type");
-        }
-        if(isLoginSuccess)
-        {
-            CONNECTOR_HOST = json_string_value(json_object_get(unpack, "connectorHost"));
-            CONNECTOR_PORT = json_integer_value(json_object_get(unpack, "connectorPort"));
-        }
-    }
-    
-    //release
-    json_t* msg = req->msg;
-    pc_client_t* client = req->client;
-    json_decref(msg);
-    //DO NOT DECREF RESP...
-    pc_request_destroy(req);
-    CCLOG("Released.");
-    
-    //stop
-    pc_client_stop(client);
-    if(isLoginSuccess)
-        _startLoading();
-}
-
 void MenuLayer::_newConnectServer()
 {
     //test zone
     NoticeLoading* pLoading = NoticeLoading::create("Connecting...", Color3B::WHITE);
-    addChild(pLoading,99);
+    addChild(pLoading,99,"Loading");
+    //pLoading->autorelease();
+    //
+    
+    //Timer
+    schedule(schedule_selector(MenuLayer::_timedOut), 5.0f);
     //
     
     Layer* thisLayer = this;
     CCPomeloWrapper::getInstance()->connectAsnyc(GATE_HOST, GATE_PORT,[=](int err){
+        thisLayer->unschedule(schedule_selector(MenuLayer::_timedOut));
         if(err!=0)
         {
+            thisLayer->removeChildByName("Loading");
+            pLoading->autorelease();
             DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Cannot connect to server , please check \nyour network.", Color3B::BLACK);
             auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
                 {
@@ -322,15 +214,122 @@ void MenuLayer::_newSendRequest()
 void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result)
 {
     CCLOG("OnAuthUIDCallback...");
+    Json::Value root;
+    Json::Reader reader;
+    if(reader.parse(result.jsonMsg, root))
+    {
+        CCLOG("Server response :\n %s",root.toStyledString().c_str());
+        if(!root["reps"]){
+            Json::Value resp = root["resp"];
+            std::string type = resp["type"].asString();
+            if(type=="create")
+            {
+                std::string uid = resp["uid"].asString();
+                LoginTitleModel::getInstance()->setUID(uid);
+                _startLodaing(resp);
+            }
+            else if(type=="isExist")
+            {
+                //true
+                if(resp["result"].asBool())
+                {
+                    _startLodaing(resp);
+                }
+                else
+                {
+                    Layer* thisLayer = this;
+                    DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "UID not existed.\nReset UID.", Color3B::BLACK);
+                    auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
+                    {
+                        if(type==ui::Widget::TouchEventType::ENDED)
+                        {
+                            thisLayer->removeChildByTag(DIALAGOUE_TAG);
+                            //remove loading
+                            thisLayer->removeChildByName("Loading");
+                            pDialogue->autorelease();
+                            LoginTitleModel::getInstance()->setUID("0");
+                        }
+                    };
+                    pDialogue->addButtonListener(cb);
+                    addChild(pDialogue,100,DIALAGOUE_TAG);
+                    CCPomeloWrapper::getInstance()->stop();
+                }
+            }
+        }else if(root["code"]!=nullptr)
+        {
+            if(root["code"].asInt()==500)
+            {
+                Layer* thisLayer = this;
+                DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Unexpected error occured.", Color3B::BLACK);
+                auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
+                {
+                    if(type==ui::Widget::TouchEventType::ENDED)
+                    {
+                        thisLayer->removeChildByTag(DIALAGOUE_TAG);
+                        //remove loading
+                        thisLayer->removeChildByName("Loading");
+                        pDialogue->autorelease();
+                    }
+                };
+                pDialogue->addButtonListener(cb);
+                addChild(pDialogue,100,DIALAGOUE_TAG);
+                CCPomeloWrapper::getInstance()->stop();
+            }
+        }else
+        {
+            Layer* thisLayer = this;
+            DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Unexpected error occured.", Color3B::BLACK);
+            auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
+            {
+                if(type==ui::Widget::TouchEventType::ENDED)
+                {
+                    thisLayer->removeChildByTag(DIALAGOUE_TAG);
+                    thisLayer->removeChildByName("Loading");
+                    pDialogue->autorelease();
+                }
+            };
+            pDialogue->addButtonListener(cb);
+            addChild(pDialogue,100,DIALAGOUE_TAG);
+            CCPomeloWrapper::getInstance()->stop();
+        }
+    }
 }
 
-void MenuLayer::_startLoading()
+void MenuLayer::_startLodaing(Json::Value resp)
 {
-    
+    CONNECTOR_HOST = resp["connectorHost"].asString();
+    CONNECTOR_PORT = resp["connectorPort"].asInt();
+    CCPomeloWrapper::getInstance()->stop();
     Scene* pScene = LoadingScene::createScene();
     auto fadeTransition = TransitionFade::create(0.32f, pScene, Color3B(0,0,0));
     Director::getInstance()->replaceScene(fadeTransition);
 }
+
+void MenuLayer::_timedOut(float delta)
+{
+    unschedule(schedule_selector(MenuLayer::_timedOut));
+    CCLOG("Connect timed out");
+    //stop
+    if(CCPomeloWrapper::getInstance()->status()==CCPomeloStatus::EPomeloConnecting)
+    {
+        CCPomeloWrapper::getInstance()->stop();
+    }
+    //
+    Layer* thisLayer = this;
+    removeChildByName("Loading");
+    DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Connection timed out,configuration may goes wrong.", Color3B::BLACK);
+    auto cb = [=](Ref* pSender,ui::Widget::TouchEventType type)
+    {
+        if(type==ui::Widget::TouchEventType::ENDED)
+        {
+            thisLayer->removeChildByTag(DIALAGOUE_TAG);
+            pDialogue->autorelease();
+        }
+    };
+    pDialogue->addButtonListener(cb);
+    addChild(pDialogue, 100, DIALAGOUE_TAG);
+}
+
 //
 
 void MenuLayer::loopTouchToStartMenuItemLabel()
