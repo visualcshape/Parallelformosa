@@ -46,10 +46,6 @@ bool MapLayer::init(){
 		tileLayer->setAnchorPoint(ccp(0, 0));
 		this->tileLayers.pushBack(tileLayer);
 		CCLOG(">> at %d layer, zorder = %d, zcoord is %.2f\n", lr, tileLayer->getZOrder(), tileLayer->getVertexZ());
-		for (int r = 0; r < 20; r++, puts("")) for (int c = 0; c < 12; c++){
-			CCSprite *tile0 = tileLayer->tileAt(ccp(c, r));
-			if (tile0) CCLOG(">>>> at (%d,%d) => %d ", c, r, tile0->getLocalZOrder());
-		}
 	}
 	CCLOG(">> %d\n", SZ(tileLayers));
 	this->addChild(tileMap, 0);
