@@ -18,5 +18,5 @@ public:
 	CC_SYNTHESIZE(Vector <Building*>, _building, Buildings);
 
 protected:
-	static DataModel * m_pInstance;
+	static DataModel * dm_pInstance;
 };

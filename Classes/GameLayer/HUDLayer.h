@@ -6,6 +6,10 @@
 USING_NS_CC;
 
 class HUDLayer : public BaseLayer{
+	const float SLIDE_RATE = 25.0f;
+	static const int BORDER_PIXEL = 40;
+	static const int BAR_ICON = 5;
+
 public:
 	HUDLayer();
 	~HUDLayer();

@@ -6,6 +6,11 @@
 USING_NS_CC;
 
 class MapLayer : public BaseLayer{
+	static const int EMPTY_TILE = 63;
+	static const int GREEN_MARK = 64;
+	static const int RED_MARK = 65;
+	static const int EMPTY_MARK = 75;
+
 public:
 	MapLayer();
 	~MapLayer();
@@ -17,8 +22,9 @@ public:
 
 	//@func tilemap
 	Point tileCoordForPosition(Point position);
-	int canBuildOnTilePosition(Point pos, int selID);
 	Point mapCoordForPosition(Point position, int level);
+	int canBuildOnTilePosition(Point pos, int selID);
+	bool isTileInsideLayer(Point checkTileLoc, int level);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
@@ -32,9 +38,13 @@ public:
 	void setTileMark(Point pos, int selID, int level, bool canBuild);
 	void removeTileMark();
 
+protected:
+	void loadLayers(Vector <TMXLayer*> *tileLayers, std::string prefix);
 private:
 	TMXTiledMap* tileMap;
-	Vector <TMXLayer*> tileLayers;
+	Vector <TMXLayer*> PFLayers;
+	Vector <TMXLayer*> markLayers;
+
 	Node* rangeSprites;
-	Node* tileMark;
+	std::vector <Vec3> tileMark;
 };

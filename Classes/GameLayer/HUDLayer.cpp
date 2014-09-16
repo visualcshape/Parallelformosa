@@ -1,5 +1,6 @@
 #include "GameLayer\HUDLayer.h"
 #include "GameLayer\MapLayer.h"
+#include "Model\ResourceModel.h"
 #include "Model\DataModel.h"
 #include "DialogueWindowConfirm.h"
 #include "AppMacro.h"
@@ -35,16 +36,11 @@ bool HUDLayer::init(){
 
 	selSprite = NULL;
 	// Load the images of the buildings we'll have and draw them to the game HUD layer
-	Vector<String*> images;
-	images.pushBack(StringMake("PlanetCute/Gem Orange.png"));
-	images.pushBack(StringMake("PlanetCute/Gem Blue.png"));
-	images.pushBack(StringMake("PlanetCute/Gem Green.png"));
-	images.pushBack(StringMake("PlanetCute/Star.png"));
+	ResourceModel *rm = ResourceModel::getModel();
 
-	for (int i = 0; i < images.size(); ++i){
-		String* image = images.at(i);
-		auto *sprite = Sprite::create(image->getCString());
-		float offsetFraction = ((float)(i + 1)) / (images.size() + 1);
+	for (int i = 0; i < BAR_ICON; ++i){
+		auto *sprite = rm->picBuilding[i + 1];
+		float offsetFraction = ((float)(i + 1)) / (BAR_ICON + 1);
 		sprite->setPosition(ccp(winSize.width*offsetFraction, 70));
 		this->addChild(sprite);
 		movableSprites.pushBack(sprite);
@@ -119,15 +115,7 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 			selSprite = newSprite;
 			selGroups->addChild(newSprite);
 
-			
-			switch (i){
-			case 0: selID = 16; break;
-			case 1: selID = 14; break;
-			case 2: selID = 15; break;
-			case 3: selID = 35; break;
-			default: CCLOGERROR("nothing select");
-			}
-
+			selID = i + 1;
 			m->getGameLayer()->showAllRange(true);
 		}
 	}
@@ -169,7 +157,8 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 		}
 		else{
 			selSprite->setOpacity(50);
-			m->getGameLayer()->setTileMark(touchLocationInGameLayer, selID, isBuildableLevel, false);
+			m->getGameLayer()->removeTileMark();
+			//m->getGameLayer()->setTileMark(touchLocationInGameLayer, selID, isBuildableLevel, false);
 		}
 	}
 	else{
@@ -220,10 +209,10 @@ bool HUDLayer::outsideBordor(Touch* touch){
 
 	Point pos = touch->getLocation();
 
-	//@remind use 30 pixel to avoid border error
-	if (pos.x < 30 || pos.x + 30 > m->getGameLayer()->getContentSize().width)
+	//@remind use BORDER_PIXEL pixel to avoid border error
+	if (pos.x < BORDER_PIXEL || pos.x + BORDER_PIXEL > m->getGameLayer()->getContentSize().width)
 		return true;
-	if (pos.y < 30 || pos.y + 30 > m->getGameLayer()->getContentSize().height)
+	if (pos.y < BORDER_PIXEL || pos.y + BORDER_PIXEL > m->getGameLayer()->getContentSize().height)
 		return true;
 
 	return false;
@@ -240,13 +229,13 @@ void HUDLayer::slide(Vec2 translation){
 void HUDLayer::refresh(float dt){
 	DataModel *m = DataModel::getModel();
 	if (selSprite){
-		if (selGroups->getPositionX() < 40)
-			this->slide(Vec2(15.0, 0));
-		if (selGroups->getPositionX() >= m->getGameLayer()->getContentSize().width - 40)
-			this->slide(Vec2(-15.0, 0));
-		if (selGroups->getPositionY() < 40)
-			this->slide(Vec2(0, 15.0));
-		if (selGroups->getPositionY() >= m->getGameLayer()->getContentSize().height - 40)
-			this->slide(Vec2(0, -15.0));
+		if (selGroups->getPositionX() < BORDER_PIXEL)
+			this->slide(Vec2(SLIDE_RATE, 0));
+		if (selGroups->getPositionX() >= m->getGameLayer()->getContentSize().width - BORDER_PIXEL)
+			this->slide(Vec2(-SLIDE_RATE, 0));
+		if (selGroups->getPositionY() < BORDER_PIXEL)
+			this->slide(Vec2(0, SLIDE_RATE));
+		if (selGroups->getPositionY() >= m->getGameLayer()->getContentSize().height - BORDER_PIXEL)
+			this->slide(Vec2(0, -SLIDE_RATE));
 	}
 }

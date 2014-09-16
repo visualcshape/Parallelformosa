@@ -16,33 +16,8 @@ public:
 	Sprite* sprite;
 	Sprite* selSpriteRange;
 
+	static Building* build(int BID);
 	CC_SYNTHESIZE(Point, _coord, Coord);
 	CC_SYNTHESIZE(Point, screenPosition, ScreenPosition);
 
-private:
-};
-
-class OrangeGem : public Building {
-public:
-	static Building* build();
-	virtual bool init();
-};
-
-class BlueGem : public Building {
-public:
-	static Building* build();
-	virtual bool init();
-};
-
-
-class GreenGem : public Building {
-public:
-	static Building* build();
-	virtual bool init();
-};
-
-class Star : public Building {
-public:
-	static Building* build();
-	virtual bool init();
 };

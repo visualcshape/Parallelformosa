@@ -1,5 +1,6 @@
 #include "Map\Building.h"
 #include "Model\DataModel.h"
+#include "Model\ResourceModel.h"
 
 bool Building::init(){
 	if (!Sprite::init())
@@ -7,74 +8,24 @@ bool Building::init(){
 	return true;
 }
 
-//@subclass OrangeGem
-Building* OrangeGem::build(){
+//@subclass Gem
+Building* Building::build(int BID){
+	ResourceModel *rm = ResourceModel::getModel();
+
 	Building* building = Building::create();
-	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Gem Orange.png"), "PlanetCute/Gem Orange.png doesn't exist");
-	building->sprite = Sprite::create("PlanetCute/Gem Orange.png");
+	building->sprite = Sprite::createWithTexture(rm->picBuilding[BID]->getTexture());
 	building->addChild(building->sprite, 0);
-	building->id = 16;
+	building->id = rm->GIDBuilding[BID];
 	building->range = 200;
-	building->occupy = MP(3, 3);
+
+	switch (BID){
+	case 1: building->occupy = MP(1, 1); break;
+	case 2: building->occupy = MP(2, 2); break;
+	case 3: building->occupy = MP(3, 3); break;
+	case 4: building->occupy = MP(2, 1); break;
+	case 5: building->occupy = MP(1, 3); break;
+	default: CCASSERT(false, "BID not found"); break;
+	}
+
 	return building;
-}
-
-bool OrangeGem::init(){
-	if (!Sprite::init())
-		return false;
-	return true;
-}
-
-//@subclass BlueGem
-Building* BlueGem::build(){
-	Building* building = Building::create();
-	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Gem Blue.png"), "PlanetCute/Gem Blue.png doesn't exist");
-	building->sprite = Sprite::create("PlanetCute/Gem Blue.png");
-	building->addChild(building->sprite, 0);
-	building->id = 14;
-	building->range = 200;
-	building->occupy = MP(1, 1);
-	return building;
-}
-
-bool BlueGem::init(){
-	if (!Sprite::init())
-		return false;
-	return true;
-}
-
-//@subclass GreenGem
-Building* GreenGem::build(){
-	Building* building = Building::create();
-	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Gem Green.png"), "PlanetCute/Gem Green.png doesn't exist");
-	building->sprite = Sprite::create("PlanetCute/Gem Green.png");
-	building->addChild(building->sprite, 0);
-	building->id = 15;
-	building->range = 200;
-	building->occupy = MP(4, 2);
-	return building;
-}
-
-bool GreenGem::init(){
-	if (!Sprite::init())
-		return false;
-	return true;
-}
-
-//@subclass Star
-Building* Star::build(){
-	CCASSERT(CCFileUtils::getInstance()->isFileExist("PlanetCute/Star.png"), "PlanetCute/Star.png doesn't exist");
-	Building* building = Building::create();
-	building->sprite = Sprite::create("PlanetCute/Star.png");
-	building->addChild(building->sprite, 0);
-	building->id = 35;
-	building->range = 200;
-	building->occupy = MP(2, 2);
-	return building;
-}
-
-bool Star::init(){
-	if (!Sprite::init())
-		return false;
-	return true;
 }
