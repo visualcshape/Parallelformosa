@@ -9,7 +9,7 @@ import sys
 import MySQLdb
 
 def init():
-    db = MySQLdb.connect("@unknown", "@usr", "@pwd", "mySQLMapDB")
+    db = MySQLdb.connect("@", "@", "@", "mySQLMapDB")
     cursor = db.cursor()
     cursor.execute("DROP TABLE IF EXISTS `mySQLMapDB`.`test1`")
     sql = """CREATE TABLE `mySQLMapDB`.`test1` (
@@ -41,7 +41,9 @@ def anylize(filepath, db):
         cursor = db.cursor()
         cursor.execute(ins_sql)
         db.commit()
-        print "insert at %d" % (cursor.lastrowid)
+        lastID = cursor.lastrowid
+        if(lastID % 1000 == 0):
+            print "insert at %d" % (lastID)
     fp.close()
     return 0
 

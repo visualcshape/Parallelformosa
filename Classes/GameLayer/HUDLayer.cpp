@@ -64,7 +64,6 @@ bool HUDLayer::init(){
 	this->addChild(lblBuldingPos, -1);
 	this->setlblBuldingPos(lblBuldingPos);
 
-
 	//@var used to manage building range images.
 	selGroups = Node::create();
 	this->addChild(selGroups, -50);

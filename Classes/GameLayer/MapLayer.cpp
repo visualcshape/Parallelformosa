@@ -100,12 +100,12 @@ void MapLayer::addBuilding(Point pos, int selID, int level){
 
 	CCLOG(">> tileBuildingLoc %.0f %.0f", tileBuildingLoc.x, tileBuildingLoc.y);
 	const int TW = this->tileMap->getTileSize().width;
-	const int TH = 82;
+	const int TH = 50;
 
 	Building* target = Building::build(selID);
 
 	target->setAnchorPoint(ccp(0, 0));
-	target->setPosition(ccp((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + level * 41 + 123)));
+	target->setPosition(ccp((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + level * 25 + 75)));
 	target->setCoord(buildingLoc);
 	target->height = level;
 

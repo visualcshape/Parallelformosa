@@ -6,10 +6,10 @@
 USING_NS_CC;
 
 class MapLayer : public BaseLayer{
-	static const int EMPTY_TILE = 63;
-	static const int GREEN_MARK = 64;
-	static const int RED_MARK = 65;
-	static const int EMPTY_MARK = 75;
+	static const int EMPTY_TILE = 54;
+	static const int GREEN_MARK = 55;
+	static const int RED_MARK = 56;
+	static const int EMPTY_MARK = 57;
 
 public:
 	MapLayer();
