@@ -1,14 +1,12 @@
-#include "GameLayer\MapLayer.h"
-#include "GameLayer\HUDLayer.h"
-#include "Model\DataModel.h"
-#include "Map\Building.h"
+#include "MapLayer.h"
+#include "HUDLayer.h"
+#include "DataModel.h"
+#include "Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include <ctime>
 
 USING_NS_CC;
-
-class SceneManager;
 
 MapLayer::MapLayer(){
 
@@ -224,6 +222,7 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 }
 
 void MapLayer::showAllRange(bool visible){
+    /*
 	DataModel *m = DataModel::getModel();
 	if (visible){
 		for each(Building* building in m->getBuildings()){
@@ -235,7 +234,7 @@ void MapLayer::showAllRange(bool visible){
 	}
 	else{
 		rangeSprites->removeAllChildrenWithCleanup(true);
-	}
+	}*/
 }
 
 void MapLayer::setTileMark(Point pos, int selID, int level, bool canBuild){

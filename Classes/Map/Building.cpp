@@ -1,6 +1,6 @@
-#include "Map\Building.h"
-#include "Model\DataModel.h"
-#include "Model\ResourceModel.h"
+#include "../Map/Building.h"
+#include "../Model/DataModel.h"
+#include "../Model/ResourceModel.h"
 
 bool Building::init(){
 	if (!Sprite::init())

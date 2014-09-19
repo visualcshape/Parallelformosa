@@ -1,4 +1,4 @@
-#include "Model\MaterialModel.h"
+#include "../Model/MaterialModel.h"
 
 USING_NS_CC;
 

@@ -8,8 +8,6 @@
 USING_NS_CC;
 using namespace std;
 
-class ResourceModel;
-
 AppDelegate::AppDelegate() {
 
 }

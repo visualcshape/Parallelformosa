@@ -1,4 +1,4 @@
-﻿#include "GameLayer\LoginTitleLayer.h"
+﻿#include "LoginTitleLayer.h"
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include <pomelo.h>

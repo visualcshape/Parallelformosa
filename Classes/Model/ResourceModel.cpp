@@ -1,4 +1,4 @@
-#include "Model\ResourceModel.h"
+#include "ResourceModel.h"
 
 USING_NS_CC;
 

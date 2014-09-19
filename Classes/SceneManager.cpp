@@ -5,8 +5,6 @@
 
 USING_NS_CC;
 
-class MapLayer;
-
 SceneManager::SceneManager(){
 }
 

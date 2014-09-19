@@ -80,34 +80,17 @@
 		F610DBF419CC1F0000639FCA /* Untitled.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F62392DA19CC17C200C643BF /* Untitled.tsx */; };
 		F610DBF519CC1F0000639FCA /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */; };
 		F610DBFB19CC229F00639FCA /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F623929019CC178800C643BF /* AppDelegate.cpp */; };
-		F610DBFC19CC229F00639FCA /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929119CC178800C643BF /* AppDelegate.h */; };
-		F610DBFD19CC229F00639FCA /* AppMacro.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929219CC178800C643BF /* AppMacro.h */; };
 		F610DBFE19CC229F00639FCA /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F623929319CC178800C643BF /* CustomLabelMenuItem.cpp */; };
-		F610DBFF19CC229F00639FCA /* CustomLabelMenuItem.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929419CC178800C643BF /* CustomLabelMenuItem.h */; };
 		F610DC0019CC229F00639FCA /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F623929519CC178800C643BF /* Database.cpp */; };
-		F610DC0119CC229F00639FCA /* Database.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929619CC178800C643BF /* Database.h */; };
 		F610DC0219CC229F00639FCA /* DialogueWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F623929719CC178800C643BF /* DialogueWindow.cpp */; };
-		F610DC0319CC229F00639FCA /* DialogueWindow.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929819CC178800C643BF /* DialogueWindow.h */; };
 		F610DC0419CC229F00639FCA /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F623929919CC178800C643BF /* DialogueWindowConfirm.cpp */; };
-		F610DC0519CC229F00639FCA /* DialogueWindowConfirm.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929A19CC178800C643BF /* DialogueWindowConfirm.h */; };
-		F610DC0619CC229F00639FCA /* GameLayer in Sources */ = {isa = PBXBuildFile; fileRef = F623929B19CC178800C643BF /* GameLayer */; };
-		F610DC0719CC229F00639FCA /* Map in Sources */ = {isa = PBXBuildFile; fileRef = F623929C19CC178800C643BF /* Map */; };
-		F610DC0819CC229F00639FCA /* Model in Sources */ = {isa = PBXBuildFile; fileRef = F623929D19CC178800C643BF /* Model */; };
 		F610DC0919CC229F00639FCA /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F623929E19CC178800C643BF /* Observer.cpp */; };
-		F610DC0A19CC229F00639FCA /* Observer.h in Sources */ = {isa = PBXBuildFile; fileRef = F623929F19CC178800C643BF /* Observer.h */; };
 		F610DC0B19CC229F00639FCA /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62392A019CC178800C643BF /* SceneManager.cpp */; };
-		F610DC0C19CC229F00639FCA /* SceneManager.h in Sources */ = {isa = PBXBuildFile; fileRef = F62392A119CC178800C643BF /* SceneManager.h */; };
 		F610DC0D19CC229F00639FCA /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62392A219CC178800C643BF /* Subject.cpp */; };
-		F610DC0E19CC229F00639FCA /* Subject.h in Sources */ = {isa = PBXBuildFile; fileRef = F62392A319CC178800C643BF /* Subject.h */; };
 		F610DC0F19CC229F00639FCA /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62392A419CC178800C643BF /* UtilFunc.cpp */; };
-		F610DC1019CC229F00639FCA /* UtilFunc.h in Sources */ = {isa = PBXBuildFile; fileRef = F62392A519CC178800C643BF /* UtilFunc.h */; };
 		F610DC1119CC229F00639FCA /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62392A619CC178800C643BF /* VisibleRect.cpp */; };
-		F610DC1219CC229F00639FCA /* VisibleRect.h in Sources */ = {isa = PBXBuildFile; fileRef = F62392A719CC178800C643BF /* VisibleRect.h */; };
-		F610DC1319CC258E00639FCA /* AppController.h in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FA17EB989F00D1A890 /* AppController.h */; };
 		F610DC1419CC258E00639FCA /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		F610DC1519CC258E00639FCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
-		F610DC1619CC258E00639FCA /* Prefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FD17EB989F00D1A890 /* Prefix.pch */; };
-		F610DC1719CC258E00639FCA /* RootViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FE17EB989F00D1A890 /* RootViewController.h */; };
 		F610DC1819CC258E00639FCA /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FF17EB989F00D1A890 /* RootViewController.mm */; };
 		F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E166E19AEE33E005046E1 /* libpomelo.a */; };
 		F64E167119AEE36A005046E1 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
@@ -116,6 +99,17 @@
 		F696BA6219877D4100474833 /* Normal in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5D19877D4100474833 /* Normal */; };
 		F696BA6419877D4100474833 /* Small in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5E19877D4100474833 /* Small */; };
 		F696BA6C1987B8F600474833 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F696BA6A1987B8F600474833 /* Shaders */; };
+		F6AA69DE19CC30DC006DA6F9 /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69D419CC30DC006DA6F9 /* BaseLayer.cpp */; };
+		F6AA69DF19CC30DC006DA6F9 /* HUDLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69D619CC30DC006DA6F9 /* HUDLayer.cpp */; };
+		F6AA69E019CC30DC006DA6F9 /* LoginTitleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69D819CC30DC006DA6F9 /* LoginTitleLayer.cpp */; };
+		F6AA69E119CC30DC006DA6F9 /* MapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69DA19CC30DC006DA6F9 /* MapLayer.cpp */; };
+		F6AA69E219CC30DC006DA6F9 /* TrademarkLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69DC19CC30DC006DA6F9 /* TrademarkLayer.cpp */; };
+		F6AA69E719CC30EF006DA6F9 /* Building.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69E319CC30EF006DA6F9 /* Building.cpp */; };
+		F6AA69E819CC30EF006DA6F9 /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69E519CC30EF006DA6F9 /* Tower.cpp */; };
+		F6AA69F119CC30FB006DA6F9 /* DataModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69E919CC30FB006DA6F9 /* DataModel.cpp */; };
+		F6AA69F219CC30FB006DA6F9 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69EB19CC30FB006DA6F9 /* LoginTitleModel.cpp */; };
+		F6AA69F319CC30FB006DA6F9 /* MaterialModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69ED19CC30FB006DA6F9 /* MaterialModel.cpp */; };
+		F6AA69F419CC30FB006DA6F9 /* ResourceModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6AA69EF19CC30FB006DA6F9 /* ResourceModel.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
 		F6D4CE1D198A4D6D002FAE49 /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */; };
@@ -321,9 +315,6 @@
 		F623929819CC178800C643BF /* DialogueWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindow.h; path = ../Classes/DialogueWindow.h; sourceTree = "<group>"; };
 		F623929919CC178800C643BF /* DialogueWindowConfirm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindowConfirm.cpp; path = ../Classes/DialogueWindowConfirm.cpp; sourceTree = "<group>"; };
 		F623929A19CC178800C643BF /* DialogueWindowConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindowConfirm.h; path = ../Classes/DialogueWindowConfirm.h; sourceTree = "<group>"; };
-		F623929B19CC178800C643BF /* GameLayer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GameLayer; path = ../Classes/GameLayer; sourceTree = "<group>"; };
-		F623929C19CC178800C643BF /* Map */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Map; path = ../Classes/Map; sourceTree = "<group>"; };
-		F623929D19CC178800C643BF /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = ../Classes/Model; sourceTree = "<group>"; };
 		F623929E19CC178800C643BF /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Observer.cpp; path = ../Classes/Observer.cpp; sourceTree = "<group>"; };
 		F623929F19CC178800C643BF /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Observer.h; path = ../Classes/Observer.h; sourceTree = "<group>"; };
 		F62392A019CC178800C643BF /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = ../Classes/SceneManager.cpp; sourceTree = "<group>"; };
@@ -382,6 +373,28 @@
 		F698765E199E549C00D89FC9 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../../libpomelo/build/Default-iphoneos/libpomelo.a"; sourceTree = "<group>"; };
 		F6987660199E54B300D89FC9 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../../libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a"; sourceTree = "<group>"; };
 		F6987662199E54D200D89FC9 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../../libpomelo/deps/uv/build/Default-iphoneos/libuv.a"; sourceTree = "<group>"; };
+		F6AA69D419CC30DC006DA6F9 /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseLayer.cpp; path = ../Classes/GameLayer/BaseLayer.cpp; sourceTree = "<group>"; };
+		F6AA69D519CC30DC006DA6F9 /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseLayer.h; path = ../Classes/GameLayer/BaseLayer.h; sourceTree = "<group>"; };
+		F6AA69D619CC30DC006DA6F9 /* HUDLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HUDLayer.cpp; path = ../Classes/GameLayer/HUDLayer.cpp; sourceTree = "<group>"; };
+		F6AA69D719CC30DC006DA6F9 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDLayer.h; path = ../Classes/GameLayer/HUDLayer.h; sourceTree = "<group>"; };
+		F6AA69D819CC30DC006DA6F9 /* LoginTitleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleLayer.cpp; path = ../Classes/GameLayer/LoginTitleLayer.cpp; sourceTree = "<group>"; };
+		F6AA69D919CC30DC006DA6F9 /* LoginTitleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginTitleLayer.h; path = ../Classes/GameLayer/LoginTitleLayer.h; sourceTree = "<group>"; };
+		F6AA69DA19CC30DC006DA6F9 /* MapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapLayer.cpp; path = ../Classes/GameLayer/MapLayer.cpp; sourceTree = "<group>"; };
+		F6AA69DB19CC30DC006DA6F9 /* MapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapLayer.h; path = ../Classes/GameLayer/MapLayer.h; sourceTree = "<group>"; };
+		F6AA69DC19CC30DC006DA6F9 /* TrademarkLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkLayer.cpp; path = ../Classes/GameLayer/TrademarkLayer.cpp; sourceTree = "<group>"; };
+		F6AA69DD19CC30DC006DA6F9 /* TrademarkLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrademarkLayer.h; path = ../Classes/GameLayer/TrademarkLayer.h; sourceTree = "<group>"; };
+		F6AA69E319CC30EF006DA6F9 /* Building.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Building.cpp; path = ../Classes/Map/Building.cpp; sourceTree = "<group>"; };
+		F6AA69E419CC30EF006DA6F9 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Building.h; path = ../Classes/Map/Building.h; sourceTree = "<group>"; };
+		F6AA69E519CC30EF006DA6F9 /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tower.cpp; path = ../Classes/Map/Tower.cpp; sourceTree = "<group>"; };
+		F6AA69E619CC30EF006DA6F9 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tower.h; path = ../Classes/Map/Tower.h; sourceTree = "<group>"; };
+		F6AA69E919CC30FB006DA6F9 /* DataModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataModel.cpp; path = ../Classes/Model/DataModel.cpp; sourceTree = "<group>"; };
+		F6AA69EA19CC30FB006DA6F9 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = ../Classes/Model/DataModel.h; sourceTree = "<group>"; };
+		F6AA69EB19CC30FB006DA6F9 /* LoginTitleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleModel.cpp; path = ../Classes/Model/LoginTitleModel.cpp; sourceTree = "<group>"; };
+		F6AA69EC19CC30FB006DA6F9 /* LoginTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginTitleModel.h; path = ../Classes/Model/LoginTitleModel.h; sourceTree = "<group>"; };
+		F6AA69ED19CC30FB006DA6F9 /* MaterialModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaterialModel.cpp; path = ../Classes/Model/MaterialModel.cpp; sourceTree = "<group>"; };
+		F6AA69EE19CC30FB006DA6F9 /* MaterialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialModel.h; path = ../Classes/Model/MaterialModel.h; sourceTree = "<group>"; };
+		F6AA69EF19CC30FB006DA6F9 /* ResourceModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceModel.cpp; path = ../Classes/Model/ResourceModel.cpp; sourceTree = "<group>"; };
+		F6AA69F019CC30FB006DA6F9 /* ResourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceModel.h; path = ../Classes/Model/ResourceModel.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
 		F6D4CE1019893327002FAE49 /* sqlite3.lib */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = sqlite3.lib; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.lib; sourceTree = "<group>"; };
@@ -465,6 +478,28 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F6AA69E919CC30FB006DA6F9 /* DataModel.cpp */,
+				F6AA69EA19CC30FB006DA6F9 /* DataModel.h */,
+				F6AA69EB19CC30FB006DA6F9 /* LoginTitleModel.cpp */,
+				F6AA69EC19CC30FB006DA6F9 /* LoginTitleModel.h */,
+				F6AA69ED19CC30FB006DA6F9 /* MaterialModel.cpp */,
+				F6AA69EE19CC30FB006DA6F9 /* MaterialModel.h */,
+				F6AA69EF19CC30FB006DA6F9 /* ResourceModel.cpp */,
+				F6AA69F019CC30FB006DA6F9 /* ResourceModel.h */,
+				F6AA69E319CC30EF006DA6F9 /* Building.cpp */,
+				F6AA69E419CC30EF006DA6F9 /* Building.h */,
+				F6AA69E519CC30EF006DA6F9 /* Tower.cpp */,
+				F6AA69E619CC30EF006DA6F9 /* Tower.h */,
+				F6AA69D419CC30DC006DA6F9 /* BaseLayer.cpp */,
+				F6AA69D519CC30DC006DA6F9 /* BaseLayer.h */,
+				F6AA69D619CC30DC006DA6F9 /* HUDLayer.cpp */,
+				F6AA69D719CC30DC006DA6F9 /* HUDLayer.h */,
+				F6AA69D819CC30DC006DA6F9 /* LoginTitleLayer.cpp */,
+				F6AA69D919CC30DC006DA6F9 /* LoginTitleLayer.h */,
+				F6AA69DA19CC30DC006DA6F9 /* MapLayer.cpp */,
+				F6AA69DB19CC30DC006DA6F9 /* MapLayer.h */,
+				F6AA69DC19CC30DC006DA6F9 /* TrademarkLayer.cpp */,
+				F6AA69DD19CC30DC006DA6F9 /* TrademarkLayer.h */,
 				F623929019CC178800C643BF /* AppDelegate.cpp */,
 				F623929119CC178800C643BF /* AppDelegate.h */,
 				F623929219CC178800C643BF /* AppMacro.h */,
@@ -476,9 +511,6 @@
 				F623929819CC178800C643BF /* DialogueWindow.h */,
 				F623929919CC178800C643BF /* DialogueWindowConfirm.cpp */,
 				F623929A19CC178800C643BF /* DialogueWindowConfirm.h */,
-				F623929B19CC178800C643BF /* GameLayer */,
-				F623929C19CC178800C643BF /* Map */,
-				F623929D19CC178800C643BF /* Model */,
 				F623929E19CC178800C643BF /* Observer.cpp */,
 				F623929F19CC178800C643BF /* Observer.h */,
 				F62392A019CC178800C643BF /* SceneManager.cpp */,
@@ -900,36 +932,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F610DC1319CC258E00639FCA /* AppController.h in Sources */,
+				F6AA69F219CC30FB006DA6F9 /* LoginTitleModel.cpp in Sources */,
 				F610DC1419CC258E00639FCA /* AppController.mm in Sources */,
 				F610DC1519CC258E00639FCA /* main.m in Sources */,
-				F610DC1619CC258E00639FCA /* Prefix.pch in Sources */,
-				F610DC1719CC258E00639FCA /* RootViewController.h in Sources */,
+				F6AA69F319CC30FB006DA6F9 /* MaterialModel.cpp in Sources */,
+				F6AA69DF19CC30DC006DA6F9 /* HUDLayer.cpp in Sources */,
+				F6AA69E819CC30EF006DA6F9 /* Tower.cpp in Sources */,
 				F610DC1819CC258E00639FCA /* RootViewController.mm in Sources */,
 				F610DBFB19CC229F00639FCA /* AppDelegate.cpp in Sources */,
-				F610DBFC19CC229F00639FCA /* AppDelegate.h in Sources */,
-				F610DBFD19CC229F00639FCA /* AppMacro.h in Sources */,
 				F610DBFE19CC229F00639FCA /* CustomLabelMenuItem.cpp in Sources */,
-				F610DBFF19CC229F00639FCA /* CustomLabelMenuItem.h in Sources */,
 				F610DC0019CC229F00639FCA /* Database.cpp in Sources */,
-				F610DC0119CC229F00639FCA /* Database.h in Sources */,
+				F6AA69E719CC30EF006DA6F9 /* Building.cpp in Sources */,
+				F6AA69F119CC30FB006DA6F9 /* DataModel.cpp in Sources */,
 				F610DC0219CC229F00639FCA /* DialogueWindow.cpp in Sources */,
-				F610DC0319CC229F00639FCA /* DialogueWindow.h in Sources */,
 				F610DC0419CC229F00639FCA /* DialogueWindowConfirm.cpp in Sources */,
-				F610DC0519CC229F00639FCA /* DialogueWindowConfirm.h in Sources */,
-				F610DC0619CC229F00639FCA /* GameLayer in Sources */,
-				F610DC0719CC229F00639FCA /* Map in Sources */,
-				F610DC0819CC229F00639FCA /* Model in Sources */,
+				F6AA69E219CC30DC006DA6F9 /* TrademarkLayer.cpp in Sources */,
 				F610DC0919CC229F00639FCA /* Observer.cpp in Sources */,
-				F610DC0A19CC229F00639FCA /* Observer.h in Sources */,
 				F610DC0B19CC229F00639FCA /* SceneManager.cpp in Sources */,
-				F610DC0C19CC229F00639FCA /* SceneManager.h in Sources */,
+				F6AA69DE19CC30DC006DA6F9 /* BaseLayer.cpp in Sources */,
+				F6AA69E019CC30DC006DA6F9 /* LoginTitleLayer.cpp in Sources */,
+				F6AA69F419CC30FB006DA6F9 /* ResourceModel.cpp in Sources */,
 				F610DC0D19CC229F00639FCA /* Subject.cpp in Sources */,
-				F610DC0E19CC229F00639FCA /* Subject.h in Sources */,
+				F6AA69E119CC30DC006DA6F9 /* MapLayer.cpp in Sources */,
 				F610DC0F19CC229F00639FCA /* UtilFunc.cpp in Sources */,
-				F610DC1019CC229F00639FCA /* UtilFunc.h in Sources */,
 				F610DC1119CC229F00639FCA /* VisibleRect.cpp in Sources */,
-				F610DC1219CC229F00639FCA /* VisibleRect.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
