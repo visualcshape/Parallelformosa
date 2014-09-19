@@ -8,6 +8,8 @@
 
 USING_NS_CC;
 
+class SceneManager;
+
 MapLayer::MapLayer(){
 
 }

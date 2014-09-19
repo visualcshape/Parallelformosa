@@ -1,9 +1,11 @@
 #include "SceneManager.h"
-#include "GameLayer\TrademarkLayer.h"
-#include "GameLayer\LoginTitleLayer.h"
-#include "GameLayer\MapLayer.h"
+#include "GameLayer/TrademarkLayer.h"
+#include "GameLayer/LoginTitleLayer.h"
+#include "GameLayer/MapLayer.h"
 
 USING_NS_CC;
+
+class MapLayer;
 
 SceneManager::SceneManager(){
 }

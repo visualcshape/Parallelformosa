@@ -3,10 +3,12 @@
 #include "Database.h"
 #include "UtilFunc.h"
 #include "SceneManager.h"
-#include "Model\ResourceModel.h"
+#include "Model/ResourceModel.h"
 
 USING_NS_CC;
 using namespace std;
+
+class ResourceModel;
 
 AppDelegate::AppDelegate() {
 
