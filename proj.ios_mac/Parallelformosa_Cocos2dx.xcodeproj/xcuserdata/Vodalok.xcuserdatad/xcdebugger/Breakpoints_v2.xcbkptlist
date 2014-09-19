@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "502"
-            endingLineNumber = "502"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,11 +278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.h"
-            timestampString = "432129526.757765"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73">
+            startingLineNumber = "65"
+            endingLineNumber = "65">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "503"
-            endingLineNumber = "503"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "InfoLayer::Update(Subject* changedSubject)"
             landmarkType = "5">
          </BreakpointContent>
@@ -338,11 +338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "MenuLayer::_timedOut(float delta)"
             landmarkType = "5">
          </BreakpointContent>
@@ -354,11 +354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "MenuLayer::_timedOut(float delta)"
             landmarkType = "5">
          </BreakpointContent>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432130161.354956"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult&amp; result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -386,11 +386,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleScene.cpp"
-            timestampString = "432132245.533622"
+            timestampString = "432138820.492995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult&amp; result)"
             landmarkType = "5">
          </BreakpointContent>

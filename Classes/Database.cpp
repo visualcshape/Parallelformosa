@@ -18,7 +18,6 @@ Database* Database::_instance = nullptr;
 
 Database::Database()
 {
-    
 }
 
 Database* Database::getInstance()
@@ -160,7 +159,7 @@ void Database::_insertUserID()
     if(strcmp(resultTabel[1], "0")==0)
     {
         //Insert new ID
-        result = sqlite3_exec(_pdb, "insert into User values(0,1)", nullptr, nullptr, nullptr);
+        result = sqlite3_exec(_pdb, "insert into User values(1,1)", nullptr, nullptr, nullptr);
         
         CCASSERT(result==SQLITE_OK, "_insertUserID new ID Failed!");
     }
