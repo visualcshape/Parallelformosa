@@ -1,6 +1,6 @@
-#include "../Map/Building.h"
-#include "../Model/DataModel.h"
 #include "../Model/ResourceModel.h"
+#include "../Model/DataModel.h"
+#include "../Map/Building.h"
 
 bool Building::init(){
 	if (!Sprite::init())
@@ -8,12 +8,11 @@ bool Building::init(){
 	return true;
 }
 
-//@subclass Gem
 Building* Building::build(int BID){
 	ResourceModel *rm = ResourceModel::getModel();
 
 	Building* building = Building::create();
-	building->sprite = Sprite::createWithTexture(rm->picBuilding[BID]->getTexture());
+	building->sprite = Sprite::create(rm->strBuilding[BID]);
 	building->addChild(building->sprite, 0);
 	building->id = rm->GIDBuilding[BID];
 	building->range = 200;

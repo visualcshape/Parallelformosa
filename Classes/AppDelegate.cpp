@@ -3,7 +3,7 @@
 #include "Database.h"
 #include "UtilFunc.h"
 #include "SceneManager.h"
-#include "Model/ResourceModel.h"
+#include "../Model/ResourceModel.h"
 
 USING_NS_CC;
 using namespace std;
@@ -61,8 +61,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Database::getInstance()->initDatabase();
     
     //run
-	SceneManager::goMapScreen();
 	ResourceModel *rm = ResourceModel::getModel();
+	SceneManager::goTitleScreen();
     return true;
 }
 

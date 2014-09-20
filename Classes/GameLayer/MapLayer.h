@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "BaseLayer.h"
+#include "../GameLayer/BaseLayer.h"
 #include "../Map/Building.h"
 
 USING_NS_CC;
@@ -40,6 +40,7 @@ public:
 
 protected:
 	void loadLayers(Vector <TMXLayer*> *tileLayers, std::string prefix);
+
 private:
 	TMXTiledMap* tileMap;
 	Vector <TMXLayer*> PFLayers;

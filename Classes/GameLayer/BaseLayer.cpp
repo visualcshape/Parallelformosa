@@ -1,4 +1,4 @@
-#include "BaseLayer.h"
+#include "../GameLayer/BaseLayer.h"
 
 USING_NS_CC;
 

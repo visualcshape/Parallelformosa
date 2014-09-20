@@ -1,7 +1,8 @@
-#include "MapLayer.h"
-#include "HUDLayer.h"
-#include "DataModel.h"
-#include "Building.h"
+#include "../GameLayer/MapLayer.h"
+#include "../GameLayer/HUDLayer.h"
+#include "../Model/DataModel.h"
+#include "../Model/MapModel.h"
+#include "../Map/Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include <ctime>
@@ -9,12 +10,13 @@
 USING_NS_CC;
 
 MapLayer::MapLayer(){
-
+	CCLOG("Map Layer construct");
 }
 
 MapLayer::~MapLayer(){
 	DataModel* m = DataModel::getModel();
 	m->setGameLayer(NULL);
+	CCLOG("Map Layer destruct");
 }
 
 bool MapLayer::init(){
@@ -31,11 +33,11 @@ bool MapLayer::init(){
 	rangeSprites = Node::create();
 	this->addChild(rangeSprites, 5);
 
-	DataModel* m = DataModel::getModel();
-	m->setGameLayer(this);
+	DataModel* dm = DataModel::getModel();
+	dm->setGameLayer(this);
 
 	double tstart = clock();
-	this->tileMap = TMXTiledMap::create("TestMap.tmx");
+	this->tileMap = TMXTiledMap::create(dm->getMapName());
 	
 	loadLayers(&PFLayers, "PF Layer");
 	loadLayers(&markLayers, "Mark Layer");
@@ -52,6 +54,15 @@ bool MapLayer::init(){
 	auto keyboardListener = EventListenerKeyboard::create();
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(MapLayer::keyPressed, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+
+
+	//@debug modify label.
+	{
+		DataModel *m = DataModel::getModel();
+		char buffer[70];
+		sprintf(buffer, "map id = %s", m->getMapName().c_str());
+		m->getMyHUDLayer()->getlblBuldingPos()->setString(buffer);
+	}
 
 	return true;
 }
@@ -133,18 +144,9 @@ int MapLayer::canBuildOnTilePosition(Point pos, int selID){
 	//@var later need to Resoucre Manager
 	Building *target = Building::build(selID);
 
-	//@debug modify label.
-	{
-		DataModel *m = DataModel::getModel();
-		char buffer[30];
-		sprintf(buffer, "building occpuy=%d, %d", target->occupy.X, target->occupy.Y);
-		m->getMyHUDLayer()->getlblBuldingPos()->setString(buffer);
-	}
-
 	DataModel* m = DataModel::getModel();
 
 	for (int lr = SZ(PFLayers) - 1; lr >= 0; lr--){
-		CCLOG(">> at tile layer = %d", lr);
 		Point buildingLoc = mapCoordForPosition(pos, lr);
 
 		//@procedure check for no tiles on the tile.
@@ -222,10 +224,9 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 }
 
 void MapLayer::showAllRange(bool visible){
-    /*
 	DataModel *m = DataModel::getModel();
 	if (visible){
-		for each(Building* building in m->getBuildings()){
+		for (auto &building : m->getBuildings()){
 			auto rangeSprite = Sprite::create("Range.png");
 			rangeSprite->setScale(4);
 			rangeSprite->setPosition(building->getPosition());
@@ -233,8 +234,8 @@ void MapLayer::showAllRange(bool visible){
 		}
 	}
 	else{
-		rangeSprites->removeAllChildrenWithCleanup(true);
-	}*/
+		rangeSprites->removeAllChildren();
+	}
 }
 
 void MapLayer::setTileMark(Point pos, int selID, int level, bool canBuild){

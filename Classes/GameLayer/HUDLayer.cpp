@@ -1,20 +1,26 @@
-#include "HUDLayer.h"
-#include "MapLayer.h"
-#include "ResourceModel.h"
-#include "DataModel.h"
+#include "../GameLayer/HUDLayer.h"
+#include "../GameLayer/MapLayer.h"
+#include "../Model/ResourceModel.h"
+#include "../Model/DataModel.h"
+#include "../Model/ResourceModel.h"
+#include "../Model/MapModel.h"
 #include "DialogueWindowConfirm.h"
-#include "AppMacro.h"
+#include "SceneManager.h"
 #include "VisibleRect.h"
+#include "AppMacro.h"
 
 USING_NS_CC;
 
 HUDLayer::HUDLayer(){
+	CCLOG("HUD Layer construct");
 }
 
 HUDLayer::~HUDLayer(){
+	removeAllChildren();
 	DataModel *m = DataModel::getModel();
 	auto buildings = m->getBuildings(); buildings.clear(); m->setBuildings(buildings);
 	m->setMyHUDLayer(NULL);
+	CCLOG("HUD Layer destruct");
 }
 
 bool HUDLayer::init(){
@@ -37,9 +43,8 @@ bool HUDLayer::init(){
 	selSprite = NULL;
 	// Load the images of the buildings we'll have and draw them to the game HUD layer
 	ResourceModel *rm = ResourceModel::getModel();
-
 	for (int i = 0; i < BAR_ICON; ++i){
-		auto *sprite = rm->picBuilding[i + 1];
+		auto sprite = Sprite::create(rm->strBuilding[i + 1]);
 		float offsetFraction = ((float)(i + 1)) / (BAR_ICON + 1);
 		sprite->setPosition(ccp(winSize.width*offsetFraction, 70));
 		this->addChild(sprite);
@@ -92,8 +97,10 @@ void HUDLayer::onEnter(){
 
 bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 	Point touchLocation = this->convertTouchToNodeSpace(touch);
-
 	DataModel *m = DataModel::getModel();
+
+	pressLoc = touchLocation;
+
 
 	Sprite * newSprite = NULL;
 	Building* target = NULL;
@@ -166,7 +173,28 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 }
 
 void HUDLayer::onTouchEnded(Touch* touch, Event* event){
-	DataModel *m = DataModel::getModel();
+	DataModel *dm = DataModel::getModel();
+	ResourceModel *rm = ResourceModel::getModel();
+
+	Point touchLocation = selGroups->getPosition();
+	Point touchLocationInGameLayer = selGroups->getPosition() - dm->getGameLayer()->getPosition();
+
+	//avoid border error
+	if (!this->outsideBordor(touch)){
+		prevCursurOutside = false;
+		touchLocationInGameLayer = dm->getGameLayer()->convertTouchToNodeSpace(touch);
+		touchLocation = this->convertTouchToNodeSpace(touch);
+	}
+
+	CCLOG("ccpdist. %.2f\n", ccpDistance(pressLoc, touchLocation));
+	if (ccpDistance(pressLoc, touchLocation) < 1.0f){
+		if (dm->getMapName().compare(rm->strWorldMap) == 0){
+			Point tileLoc = dm->getGameLayer()->tileCoordForPosition(touchLocationInGameLayer);
+			SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
+			return;
+		}
+	}
+
 
 	if (selSprite){
 		Rect backgroundRect = Rect(background->getPositionX(),
@@ -174,28 +202,19 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 			background->getContentSize().width,
 			background->getContentSize().height);
 
-		Point touchLocationInGameLayer = selGroups->getPosition() - m->getGameLayer()->getPosition();
-		Point touchLocation = selGroups->getPosition();
-
-		//avoid border error
-		if (!this->outsideBordor(touch)){
-			prevCursurOutside = false;
-			touchLocationInGameLayer = m->getGameLayer()->convertTouchToNodeSpace(touch);
-			touchLocation = this->convertTouchToNodeSpace(touch);
-		}
 
 		if (!backgroundRect.containsPoint(touchLocation)){
-			int isBuildableLevel = m->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer, selID);
+			int isBuildableLevel = dm->getGameLayer()->canBuildOnTilePosition(touchLocationInGameLayer, selID);
 			if (~isBuildableLevel)
-				m->getGameLayer()->addBuilding(touchLocationInGameLayer, selID, isBuildableLevel);
+				dm->getGameLayer()->addBuilding(touchLocationInGameLayer, selID, isBuildableLevel);
 		}
 
 		selGroups->removeAllChildren();
 		selSprite = NULL;
 		selSpriteRange = NULL;
 
-		m->getGameLayer()->showAllRange(false);
-		m->getGameLayer()->removeTileMark();
+		dm->getGameLayer()->showAllRange(false);
+		dm->getGameLayer()->removeTileMark();
 	}
 }
 

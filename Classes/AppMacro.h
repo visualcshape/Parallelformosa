@@ -49,4 +49,5 @@ typedef std::pair <int, int> PII;
 #define X first
 #define Y second
 #define MP std::make_pair
+#define FOR(it, c) for( decltype((c).begin()) it = (c).begin(); it != (c).end(); it++)
 // }

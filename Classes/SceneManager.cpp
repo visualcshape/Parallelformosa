@@ -2,7 +2,8 @@
 #include "GameLayer/TrademarkLayer.h"
 #include "GameLayer/LoginTitleLayer.h"
 #include "GameLayer/MapLayer.h"
-
+#include "Model/ResourceModel.h"
+#include "Model/DataModel.h"
 USING_NS_CC;
 
 SceneManager::SceneManager(){
@@ -28,7 +29,10 @@ void SceneManager::goTitleScreen(){
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }
 
-void SceneManager::goMapScreen(){
+void SceneManager::goMapScreen(std::string mapName){
+	DataModel *dm = DataModel::getModel();
+	dm->setMapName(mapName);
+
 	SceneManager::cleanRunningScreen();
 	Layer* layer = MapLayer::create();
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
@@ -51,6 +55,9 @@ Scene* SceneManager::wrap(Layer* layer){
 }
 
 void SceneManager::pressKeyCode(EventKeyboard::KeyCode keyCode){
+	DataModel *dm = DataModel::getModel();
+	ResourceModel *rm = ResourceModel::getModel();
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_R){
 		CCLog("R key was pressed");
 		SceneManager::goTitleScreen();
@@ -61,6 +68,7 @@ void SceneManager::pressKeyCode(EventKeyboard::KeyCode keyCode){
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_M){
 		CCLog("M key was pressed");
-		SceneManager::goMapScreen();
+		if (dm->getMapName().compare(rm->strWorldMap) != 0)
+			SceneManager::goMapScreen(rm->strWorldMap);
 	}
 }

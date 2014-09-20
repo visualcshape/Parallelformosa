@@ -1,7 +1,7 @@
 #pragma once
 #include "cocos2d.h"
-#include "BaseLayer.h"
-#include "Building.h"
+#include "../GameLayer/BaseLayer.h"
+#include "../Map/Building.h"
 
 USING_NS_CC;
 
@@ -37,6 +37,7 @@ private:
 	Sprite* background;
 	Sprite* selSpriteRange;
 	Sprite* selSprite;
+	Point pressLoc;
 	int selID;
 
 	Vector <Sprite*> movableSprites;
