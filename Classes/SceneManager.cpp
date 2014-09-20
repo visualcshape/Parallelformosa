@@ -1,17 +1,9 @@
 #include "SceneManager.h"
-<<<<<<< HEAD
-#include "GameLayer\TrademarkLayer.h"
-#include "GameLayer\LoginTitleLayer.h"
-#include "Model\DataModel.h"
-#include "Model\ResourceModel.h"
-#include "GameLayer\MapLayer.h"
-=======
 #include "TrademarkLayer.h"
 #include "LoginTitleLayer.h"
 #include "MapLayer.h"
 #include "ResourceModel.h"
 #include "DataModel.h"
->>>>>>> v0.1.2_iOS
 USING_NS_CC;
 
 SceneManager::SceneManager(){

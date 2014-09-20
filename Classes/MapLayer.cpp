@@ -1,16 +1,8 @@
-<<<<<<< HEAD:Classes/GameLayer/MapLayer.cpp
-#include "GameLayer\MapLayer.h"
-#include "GameLayer\HUDLayer.h"
-#include "Model\DataModel.h"
-#include "Model\MapModel.h"
-#include "Map\Building.h"
-=======
 #include "MapLayer.h"
 #include "HUDLayer.h"
 #include "DataModel.h"
 #include "MapModel.h"
 #include "Building.h"
->>>>>>> v0.1.2_iOS:Classes/MapLayer.cpp
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include <ctime>

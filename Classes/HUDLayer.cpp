@@ -1,14 +1,3 @@
-<<<<<<< HEAD:Classes/GameLayer/HUDLayer.cpp
-#include "GameLayer\HUDLayer.h"
-#include "GameLayer\MapLayer.h"
-#include "Model\ResourceModel.h"
-#include "Model\DataModel.h"
-#include "Model\ResourceModel.h"
-#include "Model\MapModel.h"
-#include "DialogueWindowConfirm.h"
-#include "SceneManager.h"
-#include "AppMacro.h"
-=======
 #include "HUDLayer.h"
 #include "MapLayer.h"
 #include "ResourceModel.h"
@@ -17,7 +6,6 @@
 #include "MapModel.h"
 #include "DialogueWindowConfirm.h"
 #include "SceneManager.h"
->>>>>>> v0.1.2_iOS:Classes/HUDLayer.cpp
 #include "VisibleRect.h"
 #include "AppMacro.h"
 
@@ -199,14 +187,6 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 	}
 
 	CCLOG("ccpdist. %.2f\n", ccpDistance(pressLoc, touchLocation));
-<<<<<<< HEAD:Classes/GameLayer/HUDLayer.cpp
-	if (ccpDistance(pressLoc, touchLocation) < 1.0f){
-		if (dm->getMapName().compare(rm->strWorldMap) == 0){
-			Point tileLoc = dm->getGameLayer()->tileCoordForPosition(touchLocationInGameLayer);
-			SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
-			return;
-		}
-=======
 	if (ccpDistance(pressLoc, touchLocation) < 6.5f){
 		if (dm->getMapName().compare(rm->strWorldMap) == 0){
 			Point tileLoc = dm->getGameLayer()->tileCoordForPosition(touchLocationInGameLayer);
@@ -216,7 +196,6 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 			SceneManager::goMapScreen(rm->strWorldMap);
 		}
 		return;
->>>>>>> v0.1.2_iOS:Classes/HUDLayer.cpp
 	}
 
 

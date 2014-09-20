@@ -5,12 +5,9 @@
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include <pomelo.h>
-<<<<<<< HEAD:Classes/GameLayer/LoginTitleLayer.cpp
 #include "DialogueWindowConfirm.h"
 #include "SceneManager.h"
-#include "Model\ResourceModel.h"
-=======
->>>>>>> v0.1.2_iOS:Classes/LoginTitleLayer.cpp
+#include "ResourceModel.h"
 
 USING_NS_CC;
 
