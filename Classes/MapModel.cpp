@@ -1,4 +1,4 @@
-#include "../Model/MapModel.h"
+#include "MapModel.h"
 
 USING_NS_CC;
 

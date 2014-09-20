@@ -1,7 +1,7 @@
 #include "MapLayer.h"
 #include "HUDLayer.h"
 #include "DataModel.h"
-#include "../Model/MapModel.h"
+#include "MapModel.h"
 #include "Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"

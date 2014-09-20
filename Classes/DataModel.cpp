@@ -1,4 +1,4 @@
-#include "../Model/DataModel.h"
+#include "DataModel.h"
 
 USING_NS_CC;
 

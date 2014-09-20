@@ -3,7 +3,7 @@
 #include "ResourceModel.h"
 #include "DataModel.h"
 #include "ResourceModel.h"
-#include "../Model/MapModel.h"
+#include "MapModel.h"
 #include "DialogueWindowConfirm.h"
 #include "SceneManager.h"
 #include "VisibleRect.h"
@@ -191,8 +191,11 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 		if (dm->getMapName().compare(rm->strWorldMap) == 0){
 			Point tileLoc = dm->getGameLayer()->tileCoordForPosition(touchLocationInGameLayer);
 			SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
-			return;
 		}
+		else{
+			SceneManager::goMapScreen(rm->strWorldMap);
+		}
+		return;
 	}
 
 

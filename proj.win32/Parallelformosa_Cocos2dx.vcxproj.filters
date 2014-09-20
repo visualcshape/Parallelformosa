@@ -54,29 +54,35 @@
     <ClCompile Include="..\Classes\Database.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameLayer\BaseLayer.cpp">
+    <ClCompile Include="..\Classes\LoginTitleLayer.cpp">
       <Filter>Classes\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameLayer\LoginTitleLayer.cpp">
+    <ClCompile Include="..\Classes\BaseLayer.cpp">
       <Filter>Classes\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameLayer\TrademarkLayer.cpp">
+    <ClCompile Include="..\Classes\HUDLayer.cpp">
       <Filter>Classes\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameLayer\MapLayer.cpp">
+    <ClCompile Include="..\Classes\TrademarkLayer.cpp">
       <Filter>Classes\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameLayer\HUDLayer.cpp">
-      <Filter>Classes\GameLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Model\LoginTitleModel.cpp">
+    <ClCompile Include="..\Classes\DataModel.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\DataModel.cpp">
+    <ClCompile Include="..\Classes\LoginTitleModel.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Map\Building.cpp">
+    <ClCompile Include="..\Classes\MapModel.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResourceModel.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Building.cpp">
       <Filter>Classes\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapLayer.cpp">
+      <Filter>Classes\GameLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,29 +122,35 @@
     <ClInclude Include="..\Classes\Database.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameLayer\BaseLayer.h">
+    <ClInclude Include="..\Classes\LoginTitleLayer.h">
       <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameLayer\LoginTitleLayer.h">
+    <ClInclude Include="..\Classes\BaseLayer.h">
       <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameLayer\TrademarkLayer.h">
+    <ClInclude Include="..\Classes\HUDLayer.h">
       <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameLayer\MapLayer.h">
+    <ClInclude Include="..\Classes\TrademarkLayer.h">
       <Filter>Classes\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameLayer\HUDLayer.h">
-      <Filter>Classes\GameLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Model\DataModel.h">
+    <ClInclude Include="..\Classes\DataModel.h">
       <Filter>Classes\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\LoginTitleModel.h">
+    <ClInclude Include="..\Classes\LoginTitleModel.h">
       <Filter>Classes\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Map\Building.h">
+    <ClInclude Include="..\Classes\MapModel.h">
+      <Filter>Classes\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResourceModel.h">
+      <Filter>Classes\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Building.h">
       <Filter>Classes\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapLayer.h">
+      <Filter>Classes\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
