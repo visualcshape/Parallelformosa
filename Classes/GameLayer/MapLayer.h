@@ -40,6 +40,7 @@ public:
 
 protected:
 	void loadLayers(Vector <TMXLayer*> *tileLayers, std::string prefix);
+
 private:
 	TMXTiledMap* tileMap;
 	Vector <TMXLayer*> PFLayers;

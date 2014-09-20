@@ -10,7 +10,7 @@ public:
 
 	static void goTrademarkScreen();
 	static void goTitleScreen();
-	static void goMapScreen();
+	static void goMapScreen(std::string mapName);
 	static void pressKeyCode(EventKeyboard::KeyCode keyCode);
 
 protected:

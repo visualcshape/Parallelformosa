@@ -12,9 +12,9 @@ ResourceModel::ResourceModel(){
 		std::string str("PlanetCute/Building");
 		str += std::string(buffer);
 		str += std::string(".png");
-		CCLOG("%s\n", str.c_str());
+		CCLOG(">> Load %s\n", str.c_str());
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Building Resource Loading Fail!!");
-		picBuilding[i] = Sprite::create(str);
+		strBuilding[i] = str;
 		GIDBuilding[i] = 36 + i;
 	}
 
@@ -27,7 +27,7 @@ ResourceModel::ResourceModel(){
 		str += std::string(".png");
 		CCLOG("%s\n", str.c_str());
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Character Resource Loading Fail!!");
-		picCharacter[i] = Sprite::create(str);
+		strCharacter[i] = str;
 		GIDCharacter[i] = 18 + i;
 	}
 
@@ -40,8 +40,20 @@ ResourceModel::ResourceModel(){
 		str += std::string(".png");
 		CCLOG("%s\n", str.c_str());
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Terrain Resource Loading Fail!!");
-		picTerrain[i] = Sprite::create(str);
+		strTerrain[i] = str;
 		GIDTerrain[i] = i;
+	}
+
+	strWorldMap = std::string("PFMAP/pfmap_world.tmx");
+	CCASSERT(CCFileUtils::getInstance()->isFileExist(strWorldMap), "Map Resource Loading Fail!!");
+	for (int i = 0; i < TILEMAP_SIZE; i++){
+		char buffer[30];
+		sprintf(buffer, "%03d", i);
+		std::string str("PFMAP/pfmap");
+		str += std::string(buffer);
+		str += std::string(".tmx");
+		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Map Resource Loading Fail!!");
+		strTileMap[i] = str;
 	}
 }
 

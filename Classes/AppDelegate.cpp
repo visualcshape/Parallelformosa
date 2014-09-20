@@ -61,8 +61,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Database::getInstance()->initDatabase();
     
     //run
-	SceneManager::goMapScreen();
 	ResourceModel *rm = ResourceModel::getModel();
+	SceneManager::goTitleScreen();
     return true;
 }
 

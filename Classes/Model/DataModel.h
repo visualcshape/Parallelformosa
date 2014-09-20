@@ -16,6 +16,7 @@ public:
 	CC_SYNTHESIZE(MapLayer*, _gameLayer, GameLayer);
 	CC_SYNTHESIZE(HUDLayer*, _myHUDLayer, MyHUDLayer);
 	CC_SYNTHESIZE(Vector <Building*>, _building, Buildings);
+	CC_SYNTHESIZE(std::string, _MapName, MapName);
 
 protected:
 	static DataModel * dm_pInstance;

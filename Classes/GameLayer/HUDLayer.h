@@ -37,6 +37,7 @@ private:
 	Sprite* background;
 	Sprite* selSpriteRange;
 	Sprite* selSprite;
+	Point pressLoc;
 	int selID;
 
 	Vector <Sprite*> movableSprites;

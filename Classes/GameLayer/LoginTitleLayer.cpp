@@ -4,6 +4,7 @@
 #include <pomelo.h>
 #include "DialogueWindowConfirm.h"
 #include "SceneManager.h"
+#include "Model\ResourceModel.h"
 
 USING_NS_CC;
 
@@ -103,8 +104,8 @@ void MenuLayer::settingClickCallback(Object *pSender){
 }
 
 void MenuLayer::startClickCallback(Object *pSender){
-    
-	SceneManager::goMapScreen();
+	ResourceModel *rm = ResourceModel::getModel();
+	SceneManager::goMapScreen(rm->strWorldMap);
 	CCLOG("enter map");
 	/*******************************************************/
 	/* v0.1.1 just to test maplayer, don't directly login! */
