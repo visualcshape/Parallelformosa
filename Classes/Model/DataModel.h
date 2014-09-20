@@ -1,8 +1,8 @@
 #pragma once
 #include "cocos2d.h"
-#include "../GameLayer/HUDLayer.h"
-#include "../GameLayer/MapLayer.h"
-#include "../Map/Building.h"
+#include "HUDLayer.h"
+#include "MapLayer.h"
+#include "Building.h"
 
 USING_NS_CC;
 

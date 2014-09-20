@@ -1,8 +1,8 @@
-#include "../GameLayer/HUDLayer.h"
-#include "../GameLayer/MapLayer.h"
-#include "../Model/ResourceModel.h"
-#include "../Model/DataModel.h"
-#include "../Model/ResourceModel.h"
+#include "HUDLayer.h"
+#include "MapLayer.h"
+#include "ResourceModel.h"
+#include "DataModel.h"
+#include "ResourceModel.h"
 #include "../Model/MapModel.h"
 #include "DialogueWindowConfirm.h"
 #include "SceneManager.h"
@@ -187,7 +187,7 @@ void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 	}
 
 	CCLOG("ccpdist. %.2f\n", ccpDistance(pressLoc, touchLocation));
-	if (ccpDistance(pressLoc, touchLocation) < 1.0f){
+	if (ccpDistance(pressLoc, touchLocation) < 6.5f){
 		if (dm->getMapName().compare(rm->strWorldMap) == 0){
 			Point tileLoc = dm->getGameLayer()->tileCoordForPosition(touchLocationInGameLayer);
 			SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);

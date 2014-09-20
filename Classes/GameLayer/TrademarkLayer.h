@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-#include "../GameLayer/BaseLayer.h"
+#include "BaseLayer.h"
 #include "SceneManager.h"
 
 USING_NS_CC;

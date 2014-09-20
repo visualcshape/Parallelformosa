@@ -1,9 +1,9 @@
 #include "SceneManager.h"
-#include "GameLayer/TrademarkLayer.h"
-#include "GameLayer/LoginTitleLayer.h"
-#include "GameLayer/MapLayer.h"
-#include "Model/ResourceModel.h"
-#include "Model/DataModel.h"
+#include "TrademarkLayer.h"
+#include "LoginTitleLayer.h"
+#include "MapLayer.h"
+#include "ResourceModel.h"
+#include "DataModel.h"
 USING_NS_CC;
 
 SceneManager::SceneManager(){

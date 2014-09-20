@@ -95,6 +95,7 @@
 		F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E166E19AEE33E005046E1 /* libpomelo.a */; };
 		F64E167119AEE36A005046E1 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
 		F64E167319AEE391005046E1 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167219AEE391005046E1 /* libuv.a */; };
+		F667581C19CE062200464A68 /* PFMAP in Resources */ = {isa = PBXBuildFile; fileRef = F667581B19CE062200464A68 /* PFMAP */; };
 		F696BA6019877D4100474833 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5C19877D4100474833 /* fonts */; };
 		F696BA6219877D4100474833 /* Normal in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5D19877D4100474833 /* Normal */; };
 		F696BA6419877D4100474833 /* Small in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5E19877D4100474833 /* Small */; };
@@ -366,6 +367,7 @@
 		F64E166E19AEE33E005046E1 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../libpomelo/build/Default-iphoneos/libpomelo.a"; sourceTree = "<group>"; };
 		F64E167019AEE36A005046E1 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a"; sourceTree = "<group>"; };
 		F64E167219AEE391005046E1 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../libpomelo/deps/uv/build/Default-iphoneos/libuv.a"; sourceTree = "<group>"; };
+		F667581B19CE062200464A68 /* PFMAP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PFMAP; path = ../Resources/PFMAP; sourceTree = "<group>"; };
 		F696BA5C19877D4100474833 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		F696BA5D19877D4100474833 /* Normal */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Normal; sourceTree = "<group>"; };
 		F696BA5E19877D4100474833 /* Small */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Small; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F667581B19CE062200464A68 /* PFMAP */,
 				F6B133F019AA4C77002981C6 /* README.md */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
@@ -875,6 +878,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F667581C19CE062200464A68 /* PFMAP in Resources */,
 				F610DBCF19CC1F0000639FCA /* 62x120 in Resources */,
 				F610DBD019CC1F0000639FCA /* 100_80_green.png in Resources */,
 				F610DBD119CC1F0000639FCA /* 100_80_red.png in Resources */,

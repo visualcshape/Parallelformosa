@@ -1,4 +1,4 @@
-#include "../GameLayer/TrademarkLayer.h"
+#include "TrademarkLayer.h"
 #include "VisibleRect.h"
 
 USING_NS_CC;

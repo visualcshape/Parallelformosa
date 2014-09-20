@@ -1,5 +1,5 @@
 #include "Tower.h"
-#include "../Model/DataModel.h"
+#include "DataModel.h"
 
 Tower* MachineGunTower::tower(){
 	Tower* tower = Tower::create();

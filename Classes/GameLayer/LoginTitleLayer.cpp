@@ -1,5 +1,5 @@
-﻿#include "../GameLayer/LoginTitleLayer.h"
-#include "../Model/ResourceModel.h"
+﻿#include "LoginTitleLayer.h"
+#include "ResourceModel.h"
 #include "DialogueWindowConfirm.h"
 #include "SceneManager.h"
 #include "VisibleRect.h"

@@ -1,8 +1,8 @@
-#include "../GameLayer/MapLayer.h"
-#include "../GameLayer/HUDLayer.h"
-#include "../Model/DataModel.h"
+#include "MapLayer.h"
+#include "HUDLayer.h"
+#include "DataModel.h"
 #include "../Model/MapModel.h"
-#include "../Map/Building.h"
+#include "Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include <ctime>
