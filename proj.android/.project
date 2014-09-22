@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Parallelformosa_Cocos2dx</name>
+	<name>Parallelformosa</name>
 	<comment></comment>
 	<projects>
 		<project>libcocos2dx</project>
