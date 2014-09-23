@@ -41,7 +41,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../libpomelo/deps/jansson/src \
 					$(LOCAL_PATH)/../../libpomelo/deps/uv/include \
 					$(LOCAL_PATH)/../../libpomelo/deps/uv/uv-private \
-					$(LOCAL_PATH)/../../cocos2d/extensions
+					$(LOCAL_PATH)/../../cocos2d/extensions \
+					$(LOCAL_PATH)/../../cocos2d/external/sqlite3/include/
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
