@@ -1,0 +1,312 @@
+﻿  ConvertUTF.c
+  ConvertUTFWrapper.cpp
+  edtaa3func.cpp
+  tinyxml2.cpp
+  ioapi.cpp
+  unzip.cpp
+  xxhash.c
+  CCAnimate3D.cpp
+..\..\external\xxhash\xxhash.c(312): warning C4804: '/' : unsafe use of type 'bool' in operation
+  CCAnimation3D.cpp
+  CCBundle3D.cpp
+  CCBundleReader.cpp
+..\3d\CCBundle3D.cpp(107): warning C4018: '<' : signed/unsigned mismatch
+..\3d\CCAnimate3D.cpp(98): warning C4018: '<' : signed/unsigned mismatch
+..\3d\CCBundle3D.cpp(494): warning C4018: '<' : signed/unsigned mismatch
+  CCMesh.cpp
+  CCMeshSkin.cpp
+  CCObjLoader.cpp
+  CCSprite3D.cpp
+..\3d\CCMeshSkin.cpp(301): warning C4018: '<' : signed/unsigned mismatch
+..\3d\CCMeshSkin.cpp(307): warning C4018: '<' : signed/unsigned mismatch
+..\3d\CCMeshSkin.cpp(335): warning C4018: '<' : signed/unsigned mismatch
+..\3d\CCMeshSkin.cpp(338): warning C4018: '<' : signed/unsigned mismatch
+  CCSprite3DMaterial.cpp
+  atitc.cpp
+..\3d\CCObjLoader.cpp(170): warning C4018: '>' : signed/unsigned mismatch
+  base64.cpp
+  CCAutoreleasePool.cpp
+  ccCArray.cpp
+  CCConfiguration.cpp
+  CCConsole.cpp
+  CCData.cpp
+  CCDataVisitor.cpp
+  CCDirector.cpp
+  CCEvent.cpp
+  CCEventAcceleration.cpp
+  CCEventCustom.cpp
+  CCEventDispatcher.cpp
+  CCEventFocus.cpp
+  CCEventKeyboard.cpp
+  CCEventListener.cpp
+  CCEventListenerAcceleration.cpp
+  CCEventListenerCustom.cpp
+  CCEventListenerFocus.cpp
+  CCEventListenerKeyboard.cpp
+  CCEventListenerMouse.cpp
+  CCEventListenerTouch.cpp
+  CCEventMouse.cpp
+  CCEventTouch.cpp
+  ccFPSImages.c
+  CCIMEDispatcher.cpp
+  CCNS.cpp
+  CCProfiling.cpp
+  CCRef.cpp
+  CCScheduler.cpp
+  CCScriptSupport.cpp
+  CCTouch.cpp
+  ccTypes.cpp
+  CCUserDefault.cpp
+  ccUTF8.cpp
+  ccUtils.cpp
+  CCValue.cpp
+..\base\ccUTF8.cpp(234): warning C4996: 'cocos2d::cc_wcslen': was declared deprecated
+          d:\git\parallelformosa_g+\cocos2d\cocos\base\ccUTF8.h(130) : see declaration of 'cocos2d::cc_wcslen'
+..\base\ccUTF8.cpp(277): warning C4996: 'cocos2d::cc_wcslen': was declared deprecated
+          d:\git\parallelformosa_g+\cocos2d\cocos\base\ccUTF8.h(130) : see declaration of 'cocos2d::cc_wcslen'
+  etc1.cpp
+  ObjectFactory.cpp
+  s3tc.cpp
+  TGAlib.cpp
+  ZipUtils.cpp
+  cocos2d.cpp
+  CCArray.cpp
+  CCDeprecated.cpp
+  CCDictionary.cpp
+  CCNotificationCenter.cpp
+  CCSet.cpp
+  CCString.cpp
+  CCAffineTransform.cpp
+  CCGeometry.cpp
+  CCVertex.cpp
+  Mat4.cpp
+  MathUtil.cpp
+  Quaternion.cpp
+  TransformUtils.cpp
+  Vec2.cpp
+  Vec3.cpp
+  Vec4.cpp
+  CCPhysicsBody.cpp
+  CCPhysicsContact.cpp
+  CCPhysicsJoint.cpp
+  CCPhysicsShape.cpp
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsShape.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsShape.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsJoint.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsJoint.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsBody.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsBody.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsContact.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsContact.cpp)
+  CCPhysicsWorld.cpp
+  CCPhysicsBodyInfo_chipmunk.cpp
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsBodyInfo_chipmunk.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsBodyInfo_chipmunk.cpp)
+  CCPhysicsContactInfo_chipmunk.cpp
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsContactInfo_chipmunk.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsContactInfo_chipmunk.cpp)
+  CCPhysicsJointInfo_chipmunk.cpp
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsJointInfo_chipmunk.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsJointInfo_chipmunk.cpp)
+  CCPhysicsShapeInfo_chipmunk.cpp
+  CCPhysicsWorldInfo_chipmunk.cpp
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsWorldInfo_chipmunk.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsShapeInfo_chipmunk.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\chipmunk\CCPhysicsShapeInfo_chipmunk.cpp)
+  CCFileUtils.cpp
+  CCGLViewProtocol.cpp
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(105): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsWorld.cpp)
+d:\git\parallelformosa_g+\cocos2d\external\chipmunk\include\chipmunk\cpBB.h(111): warning C4056: overflow in floating-point constant arithmetic (..\physics\CCPhysicsWorld.cpp)
+  CCImage.cpp
+  CCSAXParser.cpp
+..\platform\CCFileUtils.cpp(546): warning C4018: '<' : signed/unsigned mismatch
+  CCThread.cpp
+  CCGLView.cpp
+  CCApplication.cpp
+  CCCommon.cpp
+  CCDevice.cpp
+  CCFileUtilsWin32.cpp
+  CCStdC.cpp
+  CCBatchCommand.cpp
+  CCCustomCommand.cpp
+  CCGLProgram.cpp
+d:\git\parallelformosa_g+\cocos2d\cocos\platform\win32\CCFileUtilsWin32.h(102): warning C4996: 'cocos2d::FileUtils::getFileData': was declared deprecated (..\platform\win32\CCFileUtilsWin32.cpp)
+          D:\Git\Parallelformosa_G+\cocos2d\cocos\platform/CCFileUtils.h(101) : see declaration of 'cocos2d::FileUtils::getFileData'
+  CCGLProgramCache.cpp
+  CCGLProgramState.cpp
+  CCGLProgramStateCache.cpp
+  ccGLStateCache.cpp
+  CCGroupCommand.cpp
+  CCMeshCommand.cpp
+  CCQuadCommand.cpp
+..\renderer\ccGLStateCache.cpp(225): warning C4800: 'uint32_t' : forcing value to bool 'true' or 'false' (performance warning)
+..\renderer\ccGLStateCache.cpp(226): warning C4800: 'uint32_t' : forcing value to bool 'true' or 'false' (performance warning)
+  CCRenderCommand.cpp
+  CCRenderer.cpp
+  ccShaders.cpp
+  CCTexture2D.cpp
+  CCTextureAtlas.cpp
+  CCTextureCache.cpp
+  CCAction.cpp
+  CCActionCamera.cpp
+  CCActionCatmullRom.cpp
+  CCActionEase.cpp
+  CCActionGrid.cpp
+  CCActionGrid3D.cpp
+  CCActionInstant.cpp
+  CCActionInterval.cpp
+  CCActionManager.cpp
+  CCActionPageTurn3D.cpp
+  CCActionProgressTimer.cpp
+  CCActionTiledGrid.cpp
+  CCActionTween.cpp
+  CCAnimation.cpp
+  CCAnimationCache.cpp
+  CCAtlasNode.cpp
+  CCClippingNode.cpp
+  CCComponent.cpp
+  CCComponentContainer.cpp
+  CCDrawingPrimitives.cpp
+  CCDrawNode.cpp
+  CCFastTMXLayer.cpp
+  CCFastTMXTiledMap.cpp
+  CCFont.cpp
+  CCFontAtlas.cpp
+  CCFontAtlasCache.cpp
+  CCFontCharMap.cpp
+  CCFontFNT.cpp
+  CCFontFreeType.cpp
+  CCGLBufferedNode.cpp
+  CCGrabber.cpp
+  CCGrid.cpp
+  CCLabel.cpp
+  CCLabelAtlas.cpp
+  CCLabelBMFont.cpp
+  CCLabelTextFormatter.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(1149): warning C4800: 'unsigned int' : forcing value to bool 'true' or 'false' (performance warning) (CCLabel.cpp)
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(1137) : see reference to function template instantiation 'void std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>::_Do_call<,0,1,2>(std::tuple<>,std::_Arg_idx<0,1,2>)' being compiled
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(1137) : see reference to function template instantiation 'void std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>::_Do_call<,0,1,2>(std::tuple<>,std::_Arg_idx<0,1,2>)' being compiled
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xrefwrap(283) : see reference to function template instantiation 'void std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>::operator ()<>(void)' being compiled
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xrefwrap(283) : see reference to function template instantiation 'void std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>::operator ()<>(void)' being compiled
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(228) : see reference to function template instantiation '_Ret std::_Callable_obj<std::_Bind<true,_Ret,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>,false>::_ApplyX<_Rx,>(void)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Rx=void
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(228) : see reference to function template instantiation '_Ret std::_Callable_obj<std::_Bind<true,_Ret,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>,false>::_ApplyX<_Rx,>(void)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Rx=void
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(226) : while compiling class template member function 'void std::_Func_impl<_MyWrapper,_Alloc,_Ret,>::_Do_call(void)'
+          with
+          [
+              _Alloc=std::allocator<std::_Func_class<void,>>
+  ,            _Ret=void
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(495) : see reference to class template instantiation 'std::_Func_impl<_MyWrapper,_Alloc,_Ret,>' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::_Func_class<void,>>
+  ,            _Ret=void
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(396) : see reference to function template instantiation 'void std::_Func_class<_Ret,>::_Do_alloc<_Myimpl,_Ty,_Alloc>(_Fty &&,_Alloc)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Ty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Alloc=std::allocator<std::_Func_class<void,>>
+  ,            _Fty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(396) : see reference to function template instantiation 'void std::_Func_class<_Ret,>::_Do_alloc<_Myimpl,_Ty,_Alloc>(_Fty &&,_Alloc)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Ty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Alloc=std::allocator<std::_Func_class<void,>>
+  ,            _Fty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(385) : see reference to function template instantiation 'void std::_Func_class<_Ret,>::_Reset_alloc<_Ty,std::allocator<std::_Func_class<_Ret,>>>(_Fty &&,_Alloc)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Ty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Fty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Alloc=std::allocator<std::_Func_class<void,>>
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(385) : see reference to function template instantiation 'void std::_Func_class<_Ret,>::_Reset_alloc<_Ty,std::allocator<std::_Func_class<_Ret,>>>(_Fty &&,_Alloc)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Ty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Fty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Alloc=std::allocator<std::_Func_class<void,>>
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(688) : see reference to function template instantiation 'void std::_Func_class<_Ret,>::_Reset<_Ty>(_Fty &&)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Ty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Fty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\functional(688) : see reference to function template instantiation 'void std::_Func_class<_Ret,>::_Reset<_Ty>(_Fty &&)' being compiled
+          with
+          [
+              _Ret=void
+  ,            _Ty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+  ,            _Fty=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+          ]
+          CCLabel.cpp(888) : see reference to function template instantiation 'std::function<void (void)> &std::function<void (void)>::operator =<std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>>(_Fx &&)' being compiled
+          with
+          [
+              _Fx=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+          ]
+          CCLabel.cpp(888) : see reference to function template instantiation 'std::function<void (void)> &std::function<void (void)>::operator =<std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>>(_Fx &&)' being compiled
+          with
+          [
+              _Fx=std::_Bind<true,void,std::_Pmf_wrap<void (__thiscall cocos2d::Label::* )(const cocos2d::Mat4 &,bool),void,cocos2d::Label,const cocos2d::Mat4 &,bool>,cocos2d::Label *const ,const cocos2d::Mat4 &,uint32_t &>
+          ]
+  CCLabelTTF.cpp
+  CCLayer.cpp
+  CCMenu.cpp
+  CCMenuItem.cpp
+  CCMotionStreak.cpp
+  CCNode.cpp
+  CCNodeGrid.cpp
+  CCParallaxNode.cpp
+  CCParticleBatchNode.cpp
+  CCParticleExamples.cpp
+  CCParticleSystem.cpp
+  CCParticleSystemQuad.cpp
+  CCProgressTimer.cpp
+  CCRenderTexture.cpp
+  CCScene.cpp
+  CCSprite.cpp
+  CCSpriteBatchNode.cpp
+  CCSpriteFrame.cpp
+  CCSpriteFrameCache.cpp
+  CCTextFieldTTF.cpp
+  CCTileMapAtlas.cpp
+  CCTMXLayer.cpp
+  CCTMXObjectGroup.cpp
+  CCTMXTiledMap.cpp
+  CCTMXXMLParser.cpp
+  CCTransition.cpp
+  CCTransitionPageTurn.cpp
+  CCTransitionProgress.cpp
+  CCTweenFunction.cpp
+  1 File(s) copied
+  1 File(s) copied
+  2 File(s) copied
+  1 File(s) copied
+  1 File(s) copied
+  2 File(s) copied
+  1 File(s) copied
+  2 File(s) copied
+  2 File(s) copied
+  2 File(s) copied
+  2 File(s) copied
+  cocos2d.vcxproj -> D:\Git\Parallelformosa_G+\proj.win32\Debug.win32\libcocos2d.lib
