@@ -44,7 +44,6 @@ protected:
 private:
 	TMXTiledMap* tileMap;
 	Vector <TMXLayer*> PFLayers;
-	Vector <TMXLayer*> markLayers;
 
 	Node* rangeSprites;
 	std::vector <Vec3> tileMark;

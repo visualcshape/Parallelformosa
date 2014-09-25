@@ -40,7 +40,6 @@ bool MapLayer::init(){
 	this->tileMap = TMXTiledMap::create(dm->getMapName());
 	
 	loadLayers(&PFLayers, "PF Layer");
-	loadLayers(&markLayers, "Mark Layer");
 
 	CCLOG(">> %d\n", SZ(PFLayers));
 	this->addChild(tileMap, 0);
@@ -239,6 +238,7 @@ void MapLayer::showAllRange(bool visible){
 }
 
 void MapLayer::setTileMark(Point pos, int selID, int level, bool canBuild){
+	/*@discard
 	Point tileLoc = tileCoordForPosition(pos);
 	Point tileBuildingLoc = ccp(tileLoc.x, (int)(tileLoc.y + 1 - (level & 1)) / 2 * 2 + (level & 1));
 
@@ -253,18 +253,21 @@ void MapLayer::setTileMark(Point pos, int selID, int level, bool canBuild){
 				markLayers.at(level)->setTileGID(GREEN_MARK, targetBuildingLoc);
 				tileMark.push_back(Vec3(targetBuildingLoc.x, targetBuildingLoc.y, level));
 			}
-			/*@discard
+			//@discard
 			markLayers.at(level)->setTileGID(RED_MARK, targetBuildingLoc);
 			Sprite* mark = Sprite::create("100_80_red.png");
 			mark->setAnchorPoint(ccp(0, 0));
 			mark->setPosition(ccp(100 * (loc.x + tr), 41 * (level + 1) + 82 * (loc.y + tc)));
-			tileMark->addChild(mark, 0);*/
+			tileMark->addChild(mark, 0);
 		}
 	}
+	*/
 }
 
 void MapLayer::removeTileMark(){
+	/*@discard
 	for (auto mark : tileMark)
 		markLayers.at(mark.z)->setTileGID(EMPTY_MARK, ccp(mark.x, mark.y));
 	tileMark.clear();
+	*/
 }

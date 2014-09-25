@@ -1,37 +1,37 @@
 ./obj/local/armeabi/objs-debug/chipmunk_static/src/cpSpaceHash.o: \
   jni/../../cocos2d/external/chipmunk/src/cpSpaceHash.c \
-  jni/../../cocos2d/external/chipmunk/include/chipmunk/chipmunk_private.h \
+  jni/../../cocos2d/external/chipmunk/include/chipmunk\chipmunk_private.h \
   jni/../../cocos2d/external/chipmunk/include/chipmunk/chipmunk.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdlib.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/android/api-level.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/string.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/malloc.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdint.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/_types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/asm/types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/math.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/limits.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/limits.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/limits.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/limits.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
-  /Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/asm/page.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdlib.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\string.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\malloc.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\alloca.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\strings.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_wchar_limits.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/posix_types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/stddef.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/compiler.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/posix_types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/kernel.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/sysmacros.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\memory.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\math.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h \
   jni/../../cocos2d/external/chipmunk/include/chipmunk/chipmunk_types.h \
   jni/../../cocos2d/external/chipmunk/include/chipmunk/cpVect.h \
   jni/../../cocos2d/external/chipmunk/include/chipmunk/cpBB.h \
@@ -54,69 +54,69 @@
   jni/../../cocos2d/external/chipmunk/include/chipmunk/cpSpace.h \
   jni/../../cocos2d/external/chipmunk/src/prime.h
 
-jni/../../cocos2d/external/chipmunk/include/chipmunk/chipmunk_private.h:
+jni/../../cocos2d/external/chipmunk/include/chipmunk\chipmunk_private.h:
 
 jni/../../cocos2d/external/chipmunk/include/chipmunk/chipmunk.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdlib.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdlib.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/cdefs.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/android/api-level.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/string.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\string.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/malloc.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\malloc.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\alloca.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\strings.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdint.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/_types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_wchar_limits.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/posix_types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/posix_types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/stddef.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/stddef.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/compiler.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/compiler.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/asm/posix_types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/posix_types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/asm/types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/kernel.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/kernel.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/sysmacros.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\memory.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/math.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\math.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/limits.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/limits.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/linux/limits.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/internal_types.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/machine/limits.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/syslimits.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h:
 
-/Users/Vodalok/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/asm/page.h:
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h:
 
 jni/../../cocos2d/external/chipmunk/include/chipmunk/chipmunk_types.h:
 
