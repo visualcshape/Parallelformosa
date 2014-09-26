@@ -21,6 +21,8 @@ public:
 	std::string strWorldMap;
 	std::string strTileMap[TILEMAP_SIZE + 1];
 
+	std::string strRangePic;
+
 	int GIDBuilding[BUILDING_SIZE + 1];
 	int GIDCharacter[CHARACTER_SIZE + 1];
 	int GIDTerrain[TERRAIN_SIZE + 1];

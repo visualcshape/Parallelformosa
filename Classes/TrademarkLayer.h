@@ -13,7 +13,7 @@ public:
 	virtual bool init();
 
 	void animate();
-	void back(Object* pSender);
+	void back(Ref* pSender);
 
 	CREATE_FUNC(TrademarkLayer);
 

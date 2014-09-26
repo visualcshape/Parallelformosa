@@ -98,15 +98,15 @@ bool MenuLayer::init(){
 	addChild(m_menuForTransparentSpriteMenuItem, 0);
 	return true;
 }
-void MenuLayer::aboutClickCallback(Object *pSender){
+void MenuLayer::aboutClickCallback(Ref *pSender){
     
 }
 
-void MenuLayer::settingClickCallback(Object *pSender){
+void MenuLayer::settingClickCallback(Ref *pSender){
     
 }
 
-void MenuLayer::startClickCallback(Object *pSender){
+void MenuLayer::startClickCallback(Ref *pSender){
 	ResourceModel *rm = ResourceModel::getModel();
 	SceneManager::goMapScreen(rm->strWorldMap);
 	CCLOG("enter map");

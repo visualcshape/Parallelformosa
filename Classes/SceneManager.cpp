@@ -2,8 +2,9 @@
 #include "TrademarkLayer.h"
 #include "LoginTitleLayer.h"
 #include "MapLayer.h"
+#include "HUDLayer.h"
 #include "ResourceModel.h"
-#include "DataModel.h"
+
 USING_NS_CC;
 
 SceneManager::SceneManager(){
@@ -30,11 +31,11 @@ void SceneManager::goTitleScreen(){
 }
 
 void SceneManager::goMapScreen(std::string mapName){
-	DataModel *dm = DataModel::getModel();
-	dm->setMapName(mapName);
-
 	SceneManager::cleanRunningScreen();
-	Layer* layer = MapLayer::create();
+	MapModel::getModel()->init(mapName);
+	Layer* layer = MapLayer::create(mapName);
+	auto hudlayer = HUDLayer::create();
+	layer->addChild(hudlayer);
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }
 
@@ -55,20 +56,18 @@ Scene* SceneManager::wrap(Layer* layer){
 }
 
 void SceneManager::pressKeyCode(EventKeyboard::KeyCode keyCode){
-	DataModel *dm = DataModel::getModel();
 	ResourceModel *rm = ResourceModel::getModel();
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_R){
-		CCLog("R key was pressed");
+		CCLOG("R key was pressed");
 		SceneManager::goTitleScreen();
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_W){
-		CCLog("W key was pressed");
+		CCLOG("W key was pressed");
 		SceneManager::goTrademarkScreen();
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_M){
-		CCLog("M key was pressed");
-		if (dm->getMapName().compare(rm->strWorldMap) != 0)
-			SceneManager::goMapScreen(rm->strWorldMap);
+		CCLOG("M key was pressed");
+		SceneManager::goMapScreen(rm->strWorldMap);
 	}
 }

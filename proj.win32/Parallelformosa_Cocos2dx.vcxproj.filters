@@ -10,14 +10,14 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\GameLayer">
-      <UniqueIdentifier>{a81f6a91-5a65-4d28-badc-7cb6da0f635d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Map">
       <UniqueIdentifier>{a235d73c-899b-452f-a4af-7eae0194dee3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\Model">
       <UniqueIdentifier>{11b1dcb3-3182-40bb-a296-f8d37b9333d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Controller &amp; View">
+      <UniqueIdentifier>{a81f6a91-5a65-4d28-badc-7cb6da0f635d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,19 +55,16 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LoginTitleLayer.cpp">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BaseLayer.cpp">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HUDLayer.cpp">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\TrademarkLayer.cpp">
-      <Filter>Classes\GameLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\DataModel.cpp">
-      <Filter>Classes\Model</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LoginTitleModel.cpp">
       <Filter>Classes\Model</Filter>
@@ -82,7 +79,7 @@
       <Filter>Classes\Map</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MapLayer.cpp">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,19 +120,16 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoginTitleLayer.h">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BaseLayer.h">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HUDLayer.h">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\TrademarkLayer.h">
-      <Filter>Classes\GameLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\DataModel.h">
-      <Filter>Classes\Model</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoginTitleModel.h">
       <Filter>Classes\Model</Filter>
@@ -150,7 +144,7 @@
       <Filter>Classes\Map</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MapLayer.h">
-      <Filter>Classes\GameLayer</Filter>
+      <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

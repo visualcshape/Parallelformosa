@@ -2,13 +2,13 @@
 #include "cocos2d.h"
 #include "BaseLayer.h"
 #include "Building.h"
+#include "Subject.h"
+#include "Observer.h"
+#include "MapModel.h"
 
 USING_NS_CC;
 
-class HUDLayer : public BaseLayer{
-	const float SLIDE_RATE = 25.0f;
-	static const int BORDER_PIXEL = 40;
-	static const int BAR_ICON = 5;
+class HUDLayer : public BaseLayer, public Observer{
 
 public:
 	HUDLayer();
@@ -16,34 +16,16 @@ public:
 
 	virtual bool init();
 
+	virtual void Update(Subject* _subject);
 	CREATE_FUNC(HUDLayer);
 
-	virtual void onEnter();
 	virtual bool onTouchBegan(Touch *touch, Event *event);
 	virtual void onTouchMoved(Touch *touch, Event *event);
 	virtual void onTouchEnded(Touch* touch, Event* event);
-	void refresh(float dt);
 
-	CC_SYNTHESIZE(Label*, _lblCursorPos, lblCursorPos);
-	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
-	CC_SYNTHESIZE(Label*, _lblBuldingPos, lblBuldingPos);
-
-protected:
-	void panForTranslation(Point translation);
-	bool outsideBordor(Touch* touch);
-	void slide(Vec2 translation);
+	void panForTranslation(Point translation);		
 
 private:
-	Sprite* background;
-	Sprite* selSpriteRange;
-	Sprite* selSprite;
-	Point pressLoc;
-	int selID;
-
-	Vector <Sprite*> movableSprites;
-
-	Node* selGroups;
-
-	bool prevCursurOutside;
+	MapModel *mm;
 };
 

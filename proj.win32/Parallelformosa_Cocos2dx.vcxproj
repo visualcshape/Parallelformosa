@@ -140,7 +140,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Building.cpp" />
     <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp" />
     <ClCompile Include="..\Classes\Database.cpp" />
-    <ClCompile Include="..\Classes\DataModel.cpp" />
     <ClCompile Include="..\Classes\DialogueWindow.cpp" />
     <ClCompile Include="..\Classes\DialogueWindowConfirm.cpp" />
     <ClCompile Include="..\Classes\HUDLayer.cpp" />
@@ -164,7 +163,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Building.h" />
     <ClInclude Include="..\Classes\CustomLabelMenuItem.h" />
     <ClInclude Include="..\Classes\Database.h" />
-    <ClInclude Include="..\Classes\DataModel.h" />
     <ClInclude Include="..\Classes\DialogueWindow.h" />
     <ClInclude Include="..\Classes\DialogueWindowConfirm.h" />
     <ClInclude Include="..\Classes\HUDLayer.h" />

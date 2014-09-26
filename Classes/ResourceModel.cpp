@@ -55,6 +55,9 @@ ResourceModel::ResourceModel(){
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Map Resource Loading Fail!!");
 		strTileMap[i] = str;
 	}
+
+	strRangePic = std::string("Range.png");
+	CCASSERT(CCFileUtils::getInstance()->isFileExist(strRangePic), "RangePic Resource Loading Fail!!");
 }
 
 ResourceModel::~ResourceModel(){

@@ -30,9 +30,9 @@ public:
 
 	virtual bool init();
 
-	void settingClickCallback(Object* pSender);
-	void aboutClickCallback(Object* pSender);
-	void startClickCallback(Object* pSender);
+	void settingClickCallback(Ref* pSender);
+	void aboutClickCallback(Ref* pSender);
+	void startClickCallback(Ref* pSender);
 	void loopTouchToStartMenuItemLabel();
 
 	CREATE_FUNC(MenuLayer);
