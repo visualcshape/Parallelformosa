@@ -1,6 +1,5 @@
 #include "MapLayer.h"
 #include "HUDLayer.h"
-#include "DataModel.h"
 #include "MapModel.h"
 #include "Building.h"
 #include "SceneManager.h"
@@ -38,6 +37,7 @@ MapLayer* MapLayer::create(std::string mapName){
 
 bool MapLayer::init(std::string mapName){
 	if (!BaseLayer::init()) return false;
+	mm->init(mapName);
 	mm->setMapBasePosition(getPosition());
 	mm->setMapContent(getContentSize());
 	double tstart = clock();
@@ -54,6 +54,8 @@ bool MapLayer::init(std::string mapName){
 	mm->loadLayers(_pfLayers, "PF Layer");
 	mm->setPFLayers(_pfLayers);
 	CCLOG(">> %d\n", SZ(_pfLayers));
+
+	mm->readMapInfo();
 
 	double tend = clock();
 	double tcost = (double)(tend - tstart) / CLOCKS_PER_SEC;

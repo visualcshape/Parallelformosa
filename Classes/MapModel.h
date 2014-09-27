@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "Subject.h"
+#include "Building.h"
 
 USING_NS_CC;
 
@@ -29,21 +30,21 @@ public:
 
 	//@func tilemap
 	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
-	Point tileCoordForPosition(Point position);
-	Point mapCoordForPosition(Point position, int level);
 	int canBuildOnTilePosition(Point pos);
 	bool isTileInsideLayer(Point checkTileLoc, int level);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
+	bool outsideBordor(Size contentSize, Point pos);
+	void slide(Vec2 translation);
 
 	//@func building
 	void addBuilding(Point pos, int level);
 	void showAllRange(bool visible);
 
-	void panForTranslation(Point translation);
-	bool outsideBordor(Size contentSize, Point pos);
-	void slide(Vec2 translation);
+	//@func sync to database (now used update locally)
+	void readMapInfo();
+	void writeMapInfo();
 
 	CC_SYNTHESIZE(TMXTiledMap*, _tileMap, TileMap);
 	CC_SYNTHESIZE(Vector <TMXLayer*>, _pfLayers, PFLayers);
@@ -54,12 +55,14 @@ public:
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 	CC_SYNTHESIZE(Label*, _lblBuldingPos, lblBuldingPos);
 
+	//@brief touch event point
 	CC_SYNTHESIZE(Point, _touchOriginLocation, TouchOriginLocation);
 	CC_SYNTHESIZE(Point, _touchLocation, TouchLocation);
 	CC_SYNTHESIZE(Point, _oldTouchLocation, OldTouchLocation);
 	CC_SYNTHESIZE(Point, _touchLocationInGameLayer, TouchLocationInGameLayer);
 	CC_SYNTHESIZE(Point, _pressLoc, PressLoc);
 
+	//@brief layer view element
 	CC_SYNTHESIZE(Sprite*, _background, Background);
 	CC_SYNTHESIZE(Sprite*, _selSpriteRange, SelSpriteRange);
 	CC_SYNTHESIZE(Sprite*, _selSprite, SelSprite);
@@ -76,7 +79,18 @@ public:
 protected:
 	static MapModel * mm_pInstance;
 
+	//@func tilemap of coord transformation system.
+	TilePoint tileCoordForPosition(Point position);
+	MapPoint mapCoordForPosition(Point position, int level);
+	MapPoint mapCoordForTilePoint(TilePoint tileLoc, int level);
+	TilePoint tileCoordForMapPoint(MapPoint mapLoc, int level);
+
+
+	//@func internally add building
+	void addBuildingToMap(int ID, MapPoint pos, int level);
+
 private:
+
 	std::string mapName;
 	int selID;
 	bool _prevCursurOutside;

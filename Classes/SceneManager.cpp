@@ -32,10 +32,12 @@ void SceneManager::goTitleScreen(){
 
 void SceneManager::goMapScreen(std::string mapName){
 	SceneManager::cleanRunningScreen();
-	MapModel::getModel()->init(mapName);
 	Layer* layer = MapLayer::create(mapName);
+
+	//@brief bind HUDlayer
 	auto hudlayer = HUDLayer::create();
-	layer->addChild(hudlayer);
+	layer->addChild(hudlayer, 10000);
+
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }
 
@@ -62,10 +64,12 @@ void SceneManager::pressKeyCode(EventKeyboard::KeyCode keyCode){
 		CCLOG("R key was pressed");
 		SceneManager::goTitleScreen();
 	}
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_W){
 		CCLOG("W key was pressed");
 		SceneManager::goTrademarkScreen();
 	}
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_M){
 		CCLOG("M key was pressed");
 		SceneManager::goMapScreen(rm->strWorldMap);

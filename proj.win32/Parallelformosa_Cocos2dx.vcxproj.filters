@@ -10,14 +10,14 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Map">
-      <UniqueIdentifier>{a235d73c-899b-452f-a4af-7eae0194dee3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\Model">
       <UniqueIdentifier>{11b1dcb3-3182-40bb-a296-f8d37b9333d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\Controller &amp; View">
       <UniqueIdentifier>{a81f6a91-5a65-4d28-badc-7cb6da0f635d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\MISC">
+      <UniqueIdentifier>{a235d73c-899b-452f-a4af-7eae0194dee3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -76,10 +76,13 @@
       <Filter>Classes\Model</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Building.cpp">
-      <Filter>Classes\Map</Filter>
+      <Filter>Classes\MISC</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MapLayer.cpp">
       <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>Classes\MISC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,10 +144,13 @@
       <Filter>Classes\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Building.h">
-      <Filter>Classes\Map</Filter>
+      <Filter>Classes\MISC</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MapLayer.h">
       <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>Classes\MISC</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

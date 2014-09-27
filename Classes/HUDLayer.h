@@ -23,8 +23,6 @@ public:
 	virtual void onTouchMoved(Touch *touch, Event *event);
 	virtual void onTouchEnded(Touch* touch, Event* event);
 
-	void panForTranslation(Point translation);		
-
 private:
 	MapModel *mm;
 };

@@ -5,7 +5,6 @@
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include "ResourceModel.h"
-#include "ResourceModel.h"
 #include "DialogueWindowConfirm.h"
 #include "VisibleRect.h"
 #include "AppMacro.h"
@@ -50,20 +49,31 @@ void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
 	}
 }
 
-Point MapModel::tileCoordForPosition(Point position){
+TilePoint MapModel::tileCoordForPosition(Point position){
 	int x = position.x / _tileMap->getTileSize().width;
 	int y = (_tileMap->getMapSize().height *_tileMap->getTileSize().height - position.y) / _tileMap->getTileSize().height;
 
-	return Point(x, y);
+	return TilePoint(x, y);
 }
 
-Point MapModel::mapCoordForPosition(Point position, int level){
-	Point TileLoc = this->tileCoordForPosition(position);
+MapPoint MapModel::mapCoordForPosition(Point position, int level){
+	Point tileLoc = tileCoordForPosition(position);
+
+	return mapCoordForTilePoint(tileLoc, level);
+}
+
+MapPoint MapModel::mapCoordForTilePoint(TilePoint tileLoc, int level){
 	const int MH = _tileMap->getMapSize().height;
-	int row = MH - 2 - level - TileLoc.y;
+	int row = MH - 1 - level - tileLoc.y;
 	row = (row) >> 1;
 
-	return Point(TileLoc.x, row);
+	return MapPoint(tileLoc.x, row);
+}
+
+TilePoint MapModel::tileCoordForMapPoint(MapPoint mapLoc, int level){
+	const int MH = _tileMap->getMapSize().height;
+
+	return TilePoint(mapLoc.x, (MH - (mapLoc.y + 1) * 2 - level + 1));
 }
 
 void MapModel::addBuilding(Point pos, int level){
@@ -72,30 +82,29 @@ void MapModel::addBuilding(Point pos, int level){
 		return;
 	}
 
-	Point buildingLoc = this->mapCoordForPosition(pos, level);
-	Point tileLoc = tileCoordForPosition(pos);
-	Point tileBuildingLoc = Point(tileLoc.x, (int)(tileLoc.y + 1 - (level & 1)) / 2 * 2 + (level & 1));
+	addBuildingToMap(selID + 36, mapCoordForPosition(pos, level), level);
+}
 
-	CCLOG(">> tileBuildingLoc %.0f %.0f", tileBuildingLoc.x, tileBuildingLoc.y);
+void MapModel::addBuildingToMap(int ID, MapPoint buildingLoc, int level){
+	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, level);
+
 	const int TW = _tileMap->getTileSize().width;
 	const int TH = 50;
 
-	Building* target = Building::build(selID);
+	Building* target = Building::build(ID - 36);
 
 	target->setAnchorPoint(Point(0, 0));
 	target->setPosition(Point((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + level * 25 + 75)));
 	target->setCoord(buildingLoc);
 	target->height = level;
 
-	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
-		_pfLayers.at(level + 1)->setTileGID(target->id, Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
-	}
+	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
+		_pfLayers.at(target->height)->setTileGID(target->id, Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
 
 	_buildings.pushBack(target);
 }
-
 /*@return the highest layer could build, otherwise NONE
-*/
+ */
 int MapModel::canBuildOnTilePosition(Point pos){
 	Point TileLoc = tileCoordForPosition(pos);
 	
@@ -150,7 +159,7 @@ int MapModel::canBuildOnTilePosition(Point pos){
 				}
 			}
 		}
-		if (couldTileCnt == target->occupy.X*target->occupy.Y) return lr;
+		if (couldTileCnt == target->occupy.X*target->occupy.Y) return lr + 1;
 	}
 	return -1;
 }
@@ -232,7 +241,6 @@ void MapModel::tryTouchMoved(){
 	if (_selSprite){
 		_selGroups->setPosition(_selGroups->getPosition() + translation);
 
-
 		//@debug modify label.
 		char buffer[30];
 		sprintf(buffer, "x:%.1f, y:%.1f", _touchLocationInGameLayer.x, _touchLocationInGameLayer.y);
@@ -255,14 +263,23 @@ void MapModel::tryTouchEnded(){
 	//@brief just click once
 	CCLOG("ccpdist. %.2f\n", _pressLoc.distance(_touchLocation));
 	if (_pressLoc.distance(_touchLocation) < 6.5f){
-		if (mapName.compare(rm->strWorldMap) == 0){
-			Point tileLoc = tileCoordForPosition(_touchLocationInGameLayer);
-			SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
+		TilePoint tileLoc = tileCoordForPosition(_touchLocationInGameLayer);
+		for (int lr = 5; lr >= 0; lr--){
+			for (auto &building : _buildings){
+				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
+				if (coord == building->getCoord() && lr == building->height){
+					if (mapName.compare(rm->strWorldMap) == 0){
+						writeMapInfo();
+						SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
+					}
+					else{
+						writeMapInfo();
+						SceneManager::goMapScreen(rm->strWorldMap);
+					}
+					return;
+				}
+			}
 		}
-		else{
-			SceneManager::goMapScreen(rm->strWorldMap);
-		}
-		return;
 	}
 
 	if (_selSprite){
@@ -314,4 +331,38 @@ void MapModel::refresh(float dt){
 		if (_selGroups->getPositionY() >= _mapContent.height - BORDER_PIXEL)
 			slide(Vec2(0, -SLIDE_RATE));
 	}
+}
+
+//@debug later online
+void MapModel::writeMapInfo(){
+	std::string path = "MapInfo/" + mapName + ".info";
+	std::string filepath = CCFileUtils::getInstance()->fullPathForFilename(path.c_str());	
+	FILE *fp = fopen(filepath.c_str(), "w");
+	CCASSERT(fp != nullptr, "write map info fail");
+	for (auto &building : _buildings)
+		fprintf(fp, "%d %.0f %.0f %d\n", building->id, building->getCoord().x, building->getCoord().y, building->height);
+	fclose(fp);
+}
+
+void MapModel::readMapInfo(){
+	std::string path = "MapInfo/" + mapName + ".info";
+	std::string filepath = CCFileUtils::getInstance()->fullPathForFilename(path.c_str());
+	CCLOG(filepath.c_str());
+	FILE *fp = fopen(filepath.c_str(), "r");
+
+	//@brief create empty file
+	if (fp == nullptr){
+		fp = fopen(filepath.c_str(), "w");
+		fclose(fp);
+		fp = fopen(filepath.c_str(), "r");
+	}
+
+	CCASSERT(fp != nullptr, "read map info fail");
+
+	int id, x, y, height;
+	while (~fscanf(fp, "%d %d %d %d", &id, &x, &y, &height)){
+		addBuildingToMap(id, MapPoint(x, y), height);
+		CCLOG("info: %d %d %d %d", id, x, y, height);
+	}
+	fclose(fp);
 }

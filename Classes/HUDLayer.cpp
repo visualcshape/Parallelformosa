@@ -1,7 +1,6 @@
 #include "HUDLayer.h"
 #include "MapLayer.h"
 #include "ResourceModel.h"
-#include "DataModel.h"
 #include "ResourceModel.h"
 #include "MapModel.h"
 #include "DialogueWindowConfirm.h"
@@ -57,8 +56,8 @@ bool HUDLayer::init(){
 
 	//@var used to show message.
 	TTFConfig config("fonts/Avenir.ttf", computeFontSize(8 * 4));
+
 	Label* lblcursorPos = Label::createWithTTF(config, "x:?? y:??", TextHAlignment::LEFT);
-	//lbl_cursorPos->setAnchorPoint(ccp(0, 0));
 	lblcursorPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 20));
 	addChild(lblcursorPos, -1);
 	mm->setlblCursorPos(lblcursorPos);
@@ -79,7 +78,7 @@ bool HUDLayer::init(){
 	mm->setSelGroups(selGroups);
 
 	scheduleUpdate();
-	//schedule(schedule_selector(HUDLayer::refresh), 0.05f);
+
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 
@@ -88,7 +87,6 @@ bool HUDLayer::init(){
 	listener->onTouchEnded = CC_CALLBACK_2(HUDLayer::onTouchEnded, this);
 
 	auto dispatcher = Director::getInstance()->getEventDispatcher();
-
 	dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 	return true;
@@ -112,7 +110,6 @@ void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 
 void HUDLayer::onTouchEnded(Touch* touch, Event* event){
 	mm->setTouchLocation(mm->getSelGroups()->getPosition());
-	if (!mm->outsideBordor(getContentSize(), touch->getLocation())){
+	if (!mm->outsideBordor(getContentSize(), touch->getLocation()))
 		mm->setTouchLocation(convertTouchToNodeSpace(touch));
-	}
 }
