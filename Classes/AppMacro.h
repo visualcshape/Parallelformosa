@@ -40,6 +40,8 @@
 //other
 #define DIALAGOUE_TAG 999999
 #define DIALOGUE_TAG 999999
+//No connection 0 = false 1 = true will skip connection step at title scene.
+#define NO_CONNECTION 1
 //
 
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640

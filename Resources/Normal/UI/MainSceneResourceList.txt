@@ -1,0 +1,5 @@
+UI/MainInfo_Background.png
+UI/MainInfo_Notice.png
+UI/MainUI_Background.png
+UI/MainUI_BTN_Pressed.png
+UI/MainUI_BTN_Normal.png

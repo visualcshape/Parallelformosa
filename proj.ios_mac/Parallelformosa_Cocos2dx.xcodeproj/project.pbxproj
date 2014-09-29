@@ -74,8 +74,6 @@
 		F646F54919891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F646F54A19891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E166E19AEE33E005046E1 /* libpomelo.a */; };
-		F64E167119AEE36A005046E1 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
-		F64E167319AEE391005046E1 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167219AEE391005046E1 /* libuv.a */; };
 		F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
 		F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
 		F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA2A1986586A00474833 /* VisibleRect.cpp */; };
@@ -105,6 +103,10 @@
 		F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
 		F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
 		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
+		F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
+		F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
+		F6B5E34019D9DC43004F1FA6 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
+		F6B5E34119D9DC56004F1FA6 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167219AEE391005046E1 /* libuv.a */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -351,6 +353,8 @@
 		F69E487119C064C2009717E7 /* NoticeLoading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeLoading.cpp; path = ../Classes/NoticeLoading.cpp; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
+		F6B5E33B19D99A69004F1FA6 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = ../Classes/MainScene.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -374,8 +378,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F64E167319AEE391005046E1 /* libuv.a in Frameworks */,
-				F64E167119AEE36A005046E1 /* libjansson.a in Frameworks */,
+				F6B5E34119D9DC56004F1FA6 /* libuv.a in Frameworks */,
+				F6B5E34019D9DC43004F1FA6 /* libjansson.a in Frameworks */,
 				F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */,
 				F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */,
 				F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */,
@@ -479,6 +483,8 @@
 				F69E486419B9D687009717E7 /* LoadingScene.cpp */,
 				F69E487019C064B4009717E7 /* NoticeLoading.h */,
 				F69E487119C064C2009717E7 /* NoticeLoading.cpp */,
+				F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */,
+				F6B5E33B19D99A69004F1FA6 /* MainScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -847,6 +853,7 @@
 				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				F60EBBFE198AA4C400B1011F /* Observer.cpp in Sources */,
+				F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
@@ -868,6 +875,7 @@
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
 				F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */,
+				F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */,
 				F69DAB24198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,

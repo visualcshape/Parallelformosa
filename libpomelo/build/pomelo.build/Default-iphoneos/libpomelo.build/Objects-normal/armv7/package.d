@@ -1,6 +1,7 @@
-dependencies: /Users/Vodalok/Parallelformosa/libpomelo/src/package.c \
+dependencies: \
+  /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/src/package.c \
   include/pomelo-private/internal.h \
-  /Users/Vodalok/Parallelformosa/libpomelo/include/pomelo.h \
+  /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/include/pomelo.h \
   deps/uv/include/uv.h deps/uv/include/uv-private/uv-unix.h \
   deps/uv/include/uv-private/ngx-queue.h \
   deps/uv/include/uv-private/uv-darwin.h deps/jansson/src/jansson.h \

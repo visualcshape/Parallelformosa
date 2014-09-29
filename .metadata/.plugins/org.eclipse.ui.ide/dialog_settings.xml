@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/cocos2d/cocos/platform/android/java"/>
+			<item value="/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/proj.android"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="com.android.ide.eclipse.adt.project.ImportProjectWizard.NewPrj" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.android.ide.eclipse.wizards.category"/>
+			<item value="org.eclipse.cdt.ui.newCWizards"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+</section>

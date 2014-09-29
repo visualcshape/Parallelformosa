@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Vodalok/Parallelformosa/libpomelo/deps/jansson/src/utf.c \
+  /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/jansson/src/utf.c \
   src/utf.h

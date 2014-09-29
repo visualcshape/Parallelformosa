@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c
+  /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/deps/uv/src/unix/darwin-proctitle.c

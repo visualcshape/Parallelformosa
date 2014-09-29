@@ -1,2 +1,3 @@
-dependencies: /Users/Vodalok/Parallelformosa/libpomelo/src/pb-util.c \
+dependencies: \
+  /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/libpomelo/src/pb-util.c \
   include/pomelo-protobuf/pb-util.h

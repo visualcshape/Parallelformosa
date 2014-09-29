@@ -13,6 +13,7 @@
 #include "NoticeManager.h"
 #include "LoadingScene.h"
 #include "NoticeLoading.h"
+#include "LoadingScene.h"
 //
 
 
@@ -145,17 +146,18 @@ void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 {
     CCLOG("Start Login!");
+#if NO_CONNECTION == 0
     _doLoginWaterFall();
+#else
+    //Go to main scene
+    auto scene = LoadingScene::createScene();
+    Director::getInstance()->replaceScene(scene);
+#endif
 }
 
 //Login waterfall
 void MenuLayer::_doLoginWaterFall()
 {
-    //new a client
-    /*
-    pc_client_t* client = pc_client_new();
-    _connectServer(client);
-     */
     //New connect
     _newConnectServer();
 }
