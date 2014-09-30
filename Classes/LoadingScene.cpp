@@ -39,6 +39,7 @@ LoadingLayer::LoadingLayer(){
     while(std::getline(inputStream, curLine)){
         _fileNames.push_back(curLine);
     }
+    inputStream.close();
     _fileNames.shrink_to_fit();
     _spriteCount = (int)_fileNames.size();
     _loadedSprite = 0;
@@ -94,8 +95,8 @@ void LoadingLayer::loadingCallback(cocos2d::Texture2D *texture){
     _loadingBar->setPercent((float)progress);
     //Load complete
     if(_loadedSprite==_spriteCount){
-        //auto scene = MainScene::createScene();
-        //Director::getInstance()->replaceScene(scene);
+        auto scene = MainScene::createScene();
+        Director::getInstance()->replaceScene(scene);
         CCLOG("[Loading Scene]Load complete.");
     }
 }

@@ -3,3 +3,4 @@ UI/MainInfo_Notice.png
 UI/MainUI_Background.png
 UI/MainUI_BTN_Pressed.png
 UI/MainUI_BTN_Normal.png
+UI/MainInfo_Mask.png

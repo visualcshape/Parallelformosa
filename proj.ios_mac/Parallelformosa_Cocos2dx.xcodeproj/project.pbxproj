@@ -107,6 +107,10 @@
 		F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
 		F6B5E34019D9DC43004F1FA6 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
 		F6B5E34119D9DC56004F1FA6 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167219AEE391005046E1 /* libuv.a */; };
+		F6B5E34419DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */; };
+		F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */; };
+		F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */; };
+		F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -355,6 +359,10 @@
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
 		F6B5E33B19D99A69004F1FA6 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = ../Classes/MainScene.h; sourceTree = "<group>"; };
+		F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainUIButtonFactory.cpp; path = ../Classes/MainUIButtonFactory.cpp; sourceTree = "<group>"; };
+		F6B5E34319DA9583004F1FA6 /* MainUIButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainUIButtonFactory.h; path = ../Classes/MainUIButtonFactory.h; sourceTree = "<group>"; };
+		F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainUIInfoModel.cpp; path = ../Classes/MainUIInfoModel.cpp; sourceTree = "<group>"; };
+		F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainUIInfoModel.h; path = ../Classes/MainUIInfoModel.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -485,6 +493,10 @@
 				F69E487119C064C2009717E7 /* NoticeLoading.cpp */,
 				F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */,
 				F6B5E33B19D99A69004F1FA6 /* MainScene.h */,
+				F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */,
+				F6B5E34319DA9583004F1FA6 /* MainUIButtonFactory.h */,
+				F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */,
+				F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -847,12 +859,14 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */,
 				F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */,
+				F6B5E34419DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F69E486C19BF539F009717E7 /* jsoncpp.cpp in Sources */,
 				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				F60EBBFE198AA4C400B1011F /* Observer.cpp in Sources */,
+				F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */,
@@ -886,6 +900,8 @@
 				F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */,
 				F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
+				F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
+				F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,
