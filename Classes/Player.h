@@ -1,7 +1,6 @@
 #pragma once
 #include "cocos2d.h"
 #include "AppMacro.h"
-#include "MapModel.h"
 
 USING_NS_CC;
 
@@ -10,14 +9,11 @@ public:
 	Player();
 	~Player();
 
-	CREATE_FUNC(Player);
-	virtual bool init();
-
-	void putBuilding();
-
+	void init(int uid);
+	
+	CC_SYNTHESIZE(int, _uid, Uid);
 
 private:
-	MapModel *mm;
 	int L_str;
 	int G_mag;
 };

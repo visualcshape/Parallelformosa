@@ -4,6 +4,7 @@
 #include "Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"
+#include "Player.h"
 #include <ctime>
 
 USING_NS_CC;
@@ -55,7 +56,13 @@ bool MapLayer::init(std::string mapName){
 	mm->setPFLayers(_pfLayers);
 	CCLOG(">> %d\n", SZ(_pfLayers));
 
+	Player* pp = new Player();
+	pp->init(rand() % 2 + 1);
+	mm->setPlayer(pp);
 	mm->readMapInfo();
+	mm->setPlayer(pp);
+	
+	
 
 	double tend = clock();
 	double tcost = (double)(tend - tstart) / CLOCKS_PER_SEC;
@@ -66,14 +73,6 @@ bool MapLayer::init(std::string mapName){
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(MapLayer::keyPressed, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 
-	/*
-	//@debug modify label.
-	{
-		DataModel *m = DataModel::getModel();
-		char buffer[70];
-		sprintf(buffer, "map id = %s", m->getMapName().c_str());
-		m->getMyHUDLayer()->getlblBuldingPos()->setString(buffer);
-	}*/
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);

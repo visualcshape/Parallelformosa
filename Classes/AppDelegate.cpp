@@ -63,6 +63,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //run
 	ResourceModel *rm = ResourceModel::getModel();
 	SceneManager::goTitleScreen();
+	srand(time(0));
     return true;
 }
 

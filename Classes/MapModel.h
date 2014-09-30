@@ -2,9 +2,10 @@
 #include "cocos2d.h"
 #include "Subject.h"
 #include "Building.h"
+#include "Player.h"
 
 USING_NS_CC;
-
+class User;
 class MapModel : public Ref, public Subject{
 public:
 	static const int EMPTY_TILE = 54;
@@ -53,7 +54,7 @@ public:
 	//@debug
 	CC_SYNTHESIZE(Label*, _lblCursorPos, lblCursorPos);
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
-	CC_SYNTHESIZE(Label*, _lblBuldingPos, lblBuldingPos);
+	CC_SYNTHESIZE(Label*, _lblPlayerPos, lblPlayerPos);
 
 	//@brief touch event point
 	CC_SYNTHESIZE(Point, _touchOriginLocation, TouchOriginLocation);
@@ -74,6 +75,8 @@ public:
 	CC_SYNTHESIZE(Point, _hudBasePosition, HUDBasePosition);
 	CC_SYNTHESIZE(Size, _mapContent, MapContent);
 
+	CC_SYNTHESIZE(Player*, _player, Player);
+
 	static MapModel* getModel();
 
 protected:
@@ -87,7 +90,7 @@ protected:
 
 
 	//@func internally add building
-	void addBuildingToMap(int ID, MapPoint pos, int level);
+	void addBuildingToMap(int ID, int owner, MapPoint pos, int level);
 
 private:
 
@@ -95,4 +98,5 @@ private:
 	int selID;
 	bool _prevCursurOutside;
 	Vector <Building*> _buildings;
+
 };

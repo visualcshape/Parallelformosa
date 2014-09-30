@@ -44,6 +44,7 @@ ResourceModel::ResourceModel(){
 		GIDTerrain[i] = i;
 	}
 
+	//@var load map
 	strWorldMap = std::string("PFMAP/pfmap_world.tmx");
 	CCASSERT(CCFileUtils::getInstance()->isFileExist(strWorldMap), "Map Resource Loading Fail!!");
 	for (int i = 0; i < TILEMAP_SIZE; i++){
@@ -56,6 +57,18 @@ ResourceModel::ResourceModel(){
 		strTileMap[i] = str;
 	}
 
+	//@var load map
+	for (int i = 1; i <= PALYER_SIZE; i++){
+		char buffer[30];
+		sprintf(buffer, "%d", i);
+		std::string str("PFMAP/PlayerBase/player");
+		str += std::string(buffer);
+		str += std::string(".tmx");
+		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Player Map Resource Loading Fail!!");
+		strPlayerMap[i] = str;
+	}
+
+	//@var load range pic
 	strRangePic = std::string("Range.png");
 	CCASSERT(CCFileUtils::getInstance()->isFileExist(strRangePic), "RangePic Resource Loading Fail!!");
 }
@@ -64,7 +77,7 @@ ResourceModel::~ResourceModel(){
 }
 
 ResourceModel* ResourceModel::getModel(){
-	if (rm_pInstance == NULL)
+	if (rm_pInstance == nullptr)
 		rm_pInstance = new ResourceModel();
 	return rm_pInstance;
 }

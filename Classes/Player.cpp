@@ -7,10 +7,7 @@ Player::Player(){
 Player::~Player(){
 }
 
-bool Player::init(){
-	return true;
-}
+void Player::init(int uid){
+	_uid = uid;
 
-void Player::putBuilding(){
-	
 }

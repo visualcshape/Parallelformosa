@@ -8,6 +8,8 @@ class ResourceModel{
 	static const int CHARACTER_SIZE = 6;
 	static const int TERRAIN_SIZE = 11;
 	static const int TILEMAP_SIZE = 9;
+	static const int PALYER_SIZE = 2;
+
 public:
 	ResourceModel();
 	~ResourceModel();
@@ -20,6 +22,7 @@ public:
 
 	std::string strWorldMap;
 	std::string strTileMap[TILEMAP_SIZE + 1];
+	std::string strPlayerMap[PALYER_SIZE + 1];
 
 	std::string strRangePic;
 

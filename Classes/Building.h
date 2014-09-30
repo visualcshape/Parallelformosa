@@ -9,6 +9,7 @@ public:
 	CREATE_FUNC(Building);
 	virtual bool init();
 
+	int owner;
 	int id;
 	int range;
 	int height;

@@ -32,6 +32,7 @@ void MapModel::init(std::string mapName){
 	_pfLayers.clear(); 
 	_movableSprites.clear();
 	_tileMap = nullptr;
+	_player = nullptr;
 	_prevCursurOutside = false;
 }
 
@@ -82,16 +83,18 @@ void MapModel::addBuilding(Point pos, int level){
 		return;
 	}
 
-	addBuildingToMap(selID + 36, mapCoordForPosition(pos, level), level);
+	addBuildingToMap(selID + 36, _player->getUid(), mapCoordForPosition(pos, level), level);
 }
 
-void MapModel::addBuildingToMap(int ID, MapPoint buildingLoc, int level){
+void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int level){
 	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, level);
 
 	const int TW = _tileMap->getTileSize().width;
 	const int TH = 50;
 
 	Building* target = Building::build(ID - 36);
+
+	target->owner = owner;
 
 	target->setAnchorPoint(Point(0, 0));
 	target->setPosition(Point((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + level * 25 + 75)));
@@ -200,6 +203,11 @@ void MapModel::showAllRange(bool visible){
 }
 
 bool MapModel::tryTouchBegan(){
+	//@debug modify label.
+	char buffer[70];
+	sprintf(buffer, "palyer uid=%d", _player->getUid());
+	getlblPlayerPos()->setString(buffer);
+
 	Sprite * newSprite = NULL;
 	Building* target = NULL;
 	for (int i = 0; i < _movableSprites.size(); i++){
@@ -268,13 +276,19 @@ void MapModel::tryTouchEnded(){
 			for (auto &building : _buildings){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
 				if (coord == building->getCoord() && lr == building->height){
-					if (mapName.compare(rm->strWorldMap) == 0){
-						writeMapInfo();
-						SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
+					CCLOG(">>@ The building belongs %d", building->owner);
+					if (_player->getUid() == building->owner){
+						if (mapName.compare(rm->strWorldMap) == 0){
+							writeMapInfo();
+							SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
+						}
+						else{
+							writeMapInfo();
+							SceneManager::goMapScreen(rm->strWorldMap);
+						}
 					}
 					else{
-						writeMapInfo();
-						SceneManager::goMapScreen(rm->strWorldMap);
+						CCLOG(">>>> This is not your building !!! ");
 					}
 					return;
 				}
@@ -340,7 +354,7 @@ void MapModel::writeMapInfo(){
 	FILE *fp = fopen(filepath.c_str(), "w");
 	CCASSERT(fp != nullptr, "write map info fail");
 	for (auto &building : _buildings)
-		fprintf(fp, "%d %.0f %.0f %d\n", building->id, building->getCoord().x, building->getCoord().y, building->height);
+		fprintf(fp, "%d %.0f %.0f %d %d\n", building->id, building->getCoord().x, building->getCoord().y, building->height, building->owner);
 	fclose(fp);
 }
 
@@ -359,10 +373,10 @@ void MapModel::readMapInfo(){
 
 	CCASSERT(fp != nullptr, "read map info fail");
 
-	int id, x, y, height;
-	while (~fscanf(fp, "%d %d %d %d", &id, &x, &y, &height)){
-		addBuildingToMap(id, MapPoint(x, y), height);
-		CCLOG("info: %d %d %d %d", id, x, y, height);
+	int id, x, y, height, owner;
+	while (~fscanf(fp, "%d %d %d %d %d", &id, &x, &y, &height, &owner)){
+		addBuildingToMap(id, owner, MapPoint(x, y), height);
+		CCLOG("info: %d %d %d %d %d", id, x, y, height, owner);
 	}
 	fclose(fp);
 }

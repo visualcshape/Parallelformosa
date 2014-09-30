@@ -67,10 +67,10 @@ bool HUDLayer::init(){
 	addChild(lblTilePos, -1);
 	mm->setlblTilePos(lblTilePos);
 
-	Label* lblBuldingPos = Label::createWithTTF(config, "bulding id=??", TextHAlignment::LEFT);
-	lblBuldingPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 100));
-	addChild(lblBuldingPos, -1);
-	mm->setlblBuldingPos(lblBuldingPos);
+	Label* lblPlayerPos = Label::createWithTTF(config, "palyer uid=??", TextHAlignment::LEFT);
+	lblPlayerPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 100));
+	addChild(lblPlayerPos, -1);
+	mm->setlblPlayerPos(lblPlayerPos);
 
 	//@var used to manage building range images.
 	auto selGroups = Node::create();
