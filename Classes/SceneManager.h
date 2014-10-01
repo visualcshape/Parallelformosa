@@ -1,5 +1,6 @@
 #pragma once
 #include "cocos2d.h"
+#include "AppMacro.h"
 
 USING_NS_CC;
 
@@ -10,7 +11,7 @@ public:
 
 	static void goTrademarkScreen();
 	static void goTitleScreen();
-	static void goMapScreen(std::string mapName);
+	static void goMapScreen(std::string mapName, HUD_ID status);
 	static void pressKeyCode(EventKeyboard::KeyCode keyCode);
 
 protected:

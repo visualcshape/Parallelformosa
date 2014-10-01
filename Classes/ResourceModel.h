@@ -5,7 +5,7 @@ USING_NS_CC;
 
 class ResourceModel{
 	static const int BUILDING_SIZE = 5;
-	static const int CHARACTER_SIZE = 6;
+	static const int CHARACTER_SIZE = 5;
 	static const int TERRAIN_SIZE = 11;
 	static const int TILEMAP_SIZE = 9;
 	static const int PALYER_SIZE = 2;
@@ -25,6 +25,7 @@ public:
 	std::string strPlayerMap[PALYER_SIZE + 1];
 
 	std::string strRangePic;
+	std::string strHUDPic;
 
 	int GIDBuilding[BUILDING_SIZE + 1];
 	int GIDCharacter[CHARACTER_SIZE + 1];

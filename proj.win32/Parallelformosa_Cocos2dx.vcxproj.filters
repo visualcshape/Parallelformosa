@@ -84,6 +84,12 @@
     <ClCompile Include="..\Classes\Player.cpp">
       <Filter>Classes\MISC</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Troop.cpp">
+      <Filter>Classes\MISC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PFComponent.cpp">
+      <Filter>Classes\MISC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -150,6 +156,12 @@
       <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Player.h">
+      <Filter>Classes\MISC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Troop.h">
+      <Filter>Classes\MISC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PFComponent.h">
       <Filter>Classes\MISC</Filter>
     </ClInclude>
   </ItemGroup>

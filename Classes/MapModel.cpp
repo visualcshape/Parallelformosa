@@ -29,11 +29,13 @@ MapModel* MapModel::getModel(){
 void MapModel::init(std::string mapName){
 	this->mapName = mapName;
 	_buildings.clear();
+	_troops.clear();
 	_pfLayers.clear(); 
 	_movableSprites.clear();
 	_tileMap = nullptr;
 	_player = nullptr;
 	_prevCursurOutside = false;
+	_status = HUD_ID::EMPTY;
 }
 
 void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
@@ -82,8 +84,11 @@ void MapModel::addBuilding(Point pos, int level){
 		CCLOG("Tile Not Buildable");
 		return;
 	}
+	int targetID = 0;
+	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) targetID = selID + 36;
+	if (_status == HUD_ID::ATTACK) targetID = selID + 18;
 
-	addBuildingToMap(selID + 36, _player->getUid(), mapCoordForPosition(pos, level), level);
+	addBuildingToMap(targetID, _player->getUid(), mapCoordForPosition(pos, level), level);
 }
 
 void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int level){
@@ -92,7 +97,10 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	const int TW = _tileMap->getTileSize().width;
 	const int TH = 50;
 
-	Building* target = Building::build(ID - 36);
+	PFComponent *target = nullptr; 
+	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) target = Building::build(ID - 36);
+	if (_status == HUD_ID::ATTACK) target = Troop::addTroop(ID - 18);
+	CCASSERT(target != nullptr, "target != nullptr");
 
 	target->owner = owner;
 
@@ -104,7 +112,9 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
 		_pfLayers.at(target->height)->setTileGID(target->id, Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
 
-	_buildings.pushBack(target);
+	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) _buildings.pushBack((Building*)target);
+	if (_status == HUD_ID::ATTACK) _troops.pushBack((Troop*)target);
+	
 }
 /*@return the highest layer could build, otherwise NONE
  */
@@ -119,8 +129,10 @@ int MapModel::canBuildOnTilePosition(Point pos){
 	}
 	
 	//@var later need to Resoucre Manager
-	Building *target = Building::build(selID);
-
+	PFComponent *target = nullptr;
+	if (_status == HUD_ID::DEFENSE) target = Building::build(selID);
+	if (_status == HUD_ID::ATTACK) target = Building::build(selID);
+	CCASSERT(target != nullptr, "target != nullptr");
 	for (int lr = SZ(_pfLayers) - 1; lr >= 0; lr--){
 		Point buildingLoc = mapCoordForPosition(pos, lr);
 
@@ -209,7 +221,6 @@ bool MapModel::tryTouchBegan(){
 	getlblPlayerPos()->setString(buffer);
 
 	Sprite * newSprite = NULL;
-	Building* target = NULL;
 	for (int i = 0; i < _movableSprites.size(); i++){
 		Sprite* sprite = _movableSprites.at(i);
 		Rect pos_rect = Rect((sprite->getPositionX() - sprite->getContentSize().width / 2),
@@ -280,15 +291,23 @@ void MapModel::tryTouchEnded(){
 					if (_player->getUid() == building->owner){
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							SceneManager::goMapScreen(rm->strTileMap[(int)tileLoc.x / 3]);
+							SceneManager::goMapScreen(rm->strPlayerMap[_player->getUid()], HUD_ID::DEFENSE);
 						}
 						else{
 							writeMapInfo();
-							SceneManager::goMapScreen(rm->strWorldMap);
+							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
 					else{
 						CCLOG(">>>> This is not your building !!! ");
+						if (mapName.compare(rm->strWorldMap) == 0){
+							writeMapInfo();
+							SceneManager::goMapScreen(rm->strPlayerMap[_player->getUid()], HUD_ID::ATTACK);
+						}
+						else{
+							writeMapInfo();
+							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+						}
 					}
 					return;
 				}

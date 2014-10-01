@@ -54,4 +54,5 @@ typedef Vec2 MapPoint;
 #define Y second
 #define MP std::make_pair
 #define FOR(it, c) for( decltype((c).begin()) it = (c).begin(); it != (c).end(); it++)
+enum HUD_ID{ EMPTY = 0, ATTACK = 1, DEFENSE = 2 };
 // }

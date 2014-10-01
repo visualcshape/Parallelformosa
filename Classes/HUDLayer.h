@@ -1,5 +1,6 @@
 #pragma once
 #include "cocos2d.h"
+#include "AppMacro.h"
 #include "BaseLayer.h"
 #include "Building.h"
 #include "Subject.h"
@@ -14,10 +15,10 @@ public:
 	HUDLayer();
 	~HUDLayer();
 
-	virtual bool init();
+	static HUDLayer* create(HUD_ID status);
+	bool init(HUD_ID status);
 
 	virtual void Update(Subject* _subject);
-	CREATE_FUNC(HUDLayer);
 
 	virtual bool onTouchBegan(Touch *touch, Event *event);
 	virtual void onTouchMoved(Touch *touch, Event *event);

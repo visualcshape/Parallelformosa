@@ -9,5 +9,4 @@ Player::~Player(){
 
 void Player::init(int uid){
 	_uid = uid;
-
 }

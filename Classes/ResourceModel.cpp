@@ -71,6 +71,11 @@ ResourceModel::ResourceModel(){
 	//@var load range pic
 	strRangePic = std::string("Range.png");
 	CCASSERT(CCFileUtils::getInstance()->isFileExist(strRangePic), "RangePic Resource Loading Fail!!");
+
+	//@var load hud bar pic
+	strHUDPic = std::string("hud.png");
+	CCASSERT(CCFileUtils::getInstance()->isFileExist(strHUDPic), "HUDBARPic Resource Loading Fail!!");
+
 }
 
 ResourceModel::~ResourceModel(){

@@ -108,7 +108,7 @@ void MenuLayer::settingClickCallback(Ref *pSender){
 
 void MenuLayer::startClickCallback(Ref *pSender){
 	ResourceModel *rm = ResourceModel::getModel();
-	SceneManager::goMapScreen(rm->strWorldMap);
+	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 	CCLOG("enter map");
 	/*******************************************************/
 	/* v0.1.1 just to test maplayer, don't directly login! */

@@ -1,11 +1,12 @@
 #pragma once
 #include "cocos2d.h"
-#include "Subject.h"
 #include "Building.h"
+#include "Subject.h"
 #include "Player.h"
+#include "Troop.h"
 
 USING_NS_CC;
-class User;
+
 class MapModel : public Ref, public Subject{
 public:
 	static const int EMPTY_TILE = 54;
@@ -76,6 +77,7 @@ public:
 	CC_SYNTHESIZE(Size, _mapContent, MapContent);
 
 	CC_SYNTHESIZE(Player*, _player, Player);
+	CC_SYNTHESIZE(HUD_ID, _status, Status);
 
 	static MapModel* getModel();
 
@@ -88,7 +90,6 @@ protected:
 	MapPoint mapCoordForTilePoint(TilePoint tileLoc, int level);
 	TilePoint tileCoordForMapPoint(MapPoint mapLoc, int level);
 
-
 	//@func internally add building
 	void addBuildingToMap(int ID, int owner, MapPoint pos, int level);
 
@@ -98,5 +99,5 @@ private:
 	int selID;
 	bool _prevCursurOutside;
 	Vector <Building*> _buildings;
-
+	Vector <Troop*> _troops;
 };
