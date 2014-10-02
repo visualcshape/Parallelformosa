@@ -8,6 +8,7 @@ bool Troop::init(){
 }
 
 Troop* Troop::addTroop(int TID){
+	CCASSERT(TID >= 1 && TID <= 5, "TID index outside");
 	ResourceModel *rm = ResourceModel::getModel();
 
 	Troop* troop = Troop::create();
@@ -15,6 +16,5 @@ Troop* Troop::addTroop(int TID){
 	troop->addChild(troop->sprite, 0);
 	troop->id = rm->GIDCharacter[TID];
 	troop->occupy = MP(1, 1);
-	CCASSERT(TID >= 1 && TID <= 5, "TID index outside");
 	return troop;
 }

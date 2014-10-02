@@ -97,7 +97,7 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	const int TW = _tileMap->getTileSize().width;
 	const int TH = 50;
 
-	PFComponent *target = nullptr; 
+	PFComponent *target = nullptr;
 	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) target = Building::build(ID - 36);
 	if (_status == HUD_ID::ATTACK) target = Troop::addTroop(ID - 18);
 	CCASSERT(target != nullptr, "target != nullptr");
@@ -131,7 +131,7 @@ int MapModel::canBuildOnTilePosition(Point pos){
 	//@var later need to Resoucre Manager
 	PFComponent *target = nullptr;
 	if (_status == HUD_ID::DEFENSE) target = Building::build(selID);
-	if (_status == HUD_ID::ATTACK) target = Building::build(selID);
+	if (_status == HUD_ID::ATTACK) target = Troop::addTroop(selID);
 	CCASSERT(target != nullptr, "target != nullptr");
 	for (int lr = SZ(_pfLayers) - 1; lr >= 0; lr--){
 		Point buildingLoc = mapCoordForPosition(pos, lr);
@@ -302,7 +302,7 @@ void MapModel::tryTouchEnded(){
 						CCLOG(">>>> This is not your building !!! ");
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							SceneManager::goMapScreen(rm->strPlayerMap[_player->getUid()], HUD_ID::ATTACK);
+							SceneManager::goMapScreen(rm->strPlayerMap[building->owner], HUD_ID::ATTACK);
 						}
 						else{
 							writeMapInfo();
