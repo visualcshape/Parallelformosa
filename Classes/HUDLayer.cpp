@@ -63,7 +63,6 @@ bool HUDLayer::init(HUD_ID status){
 		}
 	}
 	mm->setMovableSprites(_moveableSprites);
-	
 
 	// Draw the background of the game HUD
 	CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565);

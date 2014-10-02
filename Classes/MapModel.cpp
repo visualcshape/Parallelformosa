@@ -35,7 +35,7 @@ void MapModel::init(std::string mapName){
 	_tileMap = nullptr;
 	_player = nullptr;
 	_prevCursurOutside = false;
-	_status = HUD_ID::EMPTY;
+	_status = HUD_ID::DEFENSE;
 }
 
 void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
@@ -85,7 +85,7 @@ void MapModel::addBuilding(Point pos, int level){
 		return;
 	}
 	int targetID = 0;
-	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) targetID = selID + 36;
+	if (_status == HUD_ID::DEFENSE) targetID = selID + 36;
 	if (_status == HUD_ID::ATTACK) targetID = selID + 18;
 
 	addBuildingToMap(targetID, _player->getUid(), mapCoordForPosition(pos, level), level);
@@ -98,7 +98,7 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	const int TH = 50;
 
 	PFComponent *target = nullptr;
-	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) target = Building::build(ID - 36);
+	if (_status == HUD_ID::DEFENSE) target = Building::build(ID - 36);
 	if (_status == HUD_ID::ATTACK) target = Troop::addTroop(ID - 18);
 	CCASSERT(target != nullptr, "target != nullptr");
 
@@ -112,8 +112,8 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
 		_pfLayers.at(target->height)->setTileGID(target->id, Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
 
-	if (_status == HUD_ID::DEFENSE || _status == HUD_ID::EMPTY) _buildings.pushBack((Building*)target);
-	if (_status == HUD_ID::ATTACK) _troops.pushBack((Troop*)target);
+	if (_status == HUD_ID::DEFENSE) _buildings.pushBack((Building*) target);
+	if (_status == HUD_ID::ATTACK) _troops.pushBack((Troop*) target);
 	
 }
 /*@return the highest layer could build, otherwise NONE
@@ -366,6 +366,57 @@ void MapModel::refresh(float dt){
 	}
 }
 
+void MapModel::attackLogic(float dt){
+	for (auto &troop : _troops){
+		auto target = getClosestBuilding(troop);
+
+		if (target != nullptr){
+			Point moveVector = troop->getCoord() - target->getCoord();
+			//float moveAngle = ccpToAngle(moveVector);
+			//float cocosAngle = CC_RADIANS_TO_DEGREES(-1 * moveAngle);
+			CCLOG("moveVector = %.2f\n", moveVector.x);
+			//float rotateSpeed = 0.5 / M_PI;
+			//float rotateDuration = fabs(moveAngle *rotateSpeed);
+			if (moveVector.x > 1) troopMove(troop, 0);
+			if (moveVector.y > 1) troopMove(troop, 1);
+			if (moveVector.x < -1) troopMove(troop, 2);
+			if (moveVector.y < -1) troopMove(troop, 3);
+			//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
+		}
+	}
+}
+
+Building* MapModel::getClosestBuilding(Troop* _troop){
+	Building *closestBuilding = nullptr;
+	double maxDistance = 999999999.0;
+
+	for (auto &building : _buildings){
+		double curDistance = ccpDistance(_troop->getPosition(), building->getPosition());
+
+		if (curDistance < maxDistance){
+			closestBuilding = building;
+			maxDistance = curDistance;
+		}
+	}
+	return closestBuilding;
+}
+
+//@brief later will modify briefly
+void MapModel::troopMove(Troop* _troop, int direction){
+	Point pt = tileCoordForMapPoint(_troop->getCoord(), _troop->height);
+	for (int tr = 0; tr < _troop->occupy.X; tr++) for (int tc = 0; tc < _troop->occupy.Y; tc++)
+		_pfLayers.at(_troop->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
+	switch (direction){
+	case 0:	_troop->goLeft(); break;
+	case 1: _troop->goDown(); break;
+	case 2: _troop->goRight(); break;
+	case 3: _troop->goUp(); break;
+	default: CCASSERT(false, "direction must >= 0 & <= 3");
+	}
+	pt = tileCoordForMapPoint(_troop->getCoord(), _troop->height);
+	for (int tr = 0; tr < _troop->occupy.X; tr++) for (int tc = 0; tc < _troop->occupy.Y; tc++)
+		_pfLayers.at(_troop->height)->setTileGID(_troop->id, Point(pt.x + tr, pt.y - tc * 2));
+}
 //@debug later online
 void MapModel::writeMapInfo(){
 	std::string path = "MapInfo/" + mapName + ".info";

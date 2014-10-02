@@ -27,6 +27,7 @@ public:
 
 	void slide(Vec2 translation);
 	void refresh(float dt);
+	void attack(float dt);
 
 protected:
 

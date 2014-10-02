@@ -29,6 +29,7 @@ public:
 	void tryTouchMoved();
 	void tryTouchEnded();
 	void refresh(float dt);
+	void attackLogic(float dt);
 
 	//@func tilemap
 	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
@@ -47,6 +48,9 @@ public:
 	//@func sync to database (now used update locally)
 	void readMapInfo();
 	void writeMapInfo();
+
+	Building* getClosestBuilding(Troop* _troop);
+	void troopMove(Troop* _troop, int direction);
 
 	CC_SYNTHESIZE(TMXTiledMap*, _tileMap, TileMap);
 	CC_SYNTHESIZE(Vector <TMXLayer*>, _pfLayers, PFLayers);

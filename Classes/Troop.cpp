@@ -1,4 +1,5 @@
 #include "ResourceModel.h"
+#include "MapModel.h"
 #include "Troop.h"
 
 bool Troop::init(){
@@ -17,4 +18,17 @@ Troop* Troop::addTroop(int TID){
 	troop->id = rm->GIDCharacter[TID];
 	troop->occupy = MP(1, 1);
 	return troop;
+}
+
+void Troop::goLeft(){
+	_coord.x--;
+}
+void Troop::goDown(){
+	_coord.y--;
+}
+void Troop::goRight(){
+	_coord.x++;
+}
+void Troop::goUp(){
+	_coord.y++;
 }

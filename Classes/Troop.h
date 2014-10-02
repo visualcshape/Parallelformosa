@@ -2,6 +2,7 @@
 #include "cocos2d.h"
 #include "AppMacro.h"
 #include "PFComponent.h"
+#include "Building.h"
 
 USING_NS_CC;
 
@@ -14,5 +15,8 @@ public:
 	int def;
 
 	static Troop* addTroop(int TID);
-
+	void goLeft();
+	void goDown();
+	void goRight();
+	void goUp();
 };

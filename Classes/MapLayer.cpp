@@ -90,6 +90,11 @@ bool MapLayer::init(std::string mapName){
 
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 	SceneManager::pressKeyCode(keyCode);
+	if (keyCode == EventKeyboard::KeyCode::KEY_A)
+		this->schedule(schedule_selector(MapLayer::attack), 1);
+
+	if (keyCode == EventKeyboard::KeyCode::KEY_Z)
+		this->unschedule(schedule_selector(MapLayer::attack));
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){
@@ -112,4 +117,8 @@ void MapLayer::onTouchEnded(Touch* touch, Event* event){
 
 void MapLayer::refresh(float dt){
 	mm->refresh(dt);
+}
+
+void MapLayer::attack(float dt){
+	mm->attackLogic(dt);
 }
