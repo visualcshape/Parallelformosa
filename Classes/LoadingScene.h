@@ -35,7 +35,20 @@ private:
     int _loadedSprite;
     
     //Start load
-    void _startLoad();
+    void _startLoadUI();
+    void _startLoadWindow();
+    
+    //reset progress parameters such as loadedSprite and string
+    void _resetParameters();
+    
+    //Cal Progress
+    double _calculateProgress();
+    
+    //sprintf
+    std::string _sprintfProgress(std::string text,double progress);
+    
+    //Load complete
+    void _loadComplete();
 protected:
 public:
     LoadingLayer();
@@ -47,7 +60,9 @@ public:
     static LoadingLayer* create();
     
     //loadcallback
-    void loadingCallback(Texture2D* texture);
+    void loadingUICallback(Texture2D* texture);
+    
+    void loadingWindowCallback(Texture2D* texture);
 };
 
 #endif

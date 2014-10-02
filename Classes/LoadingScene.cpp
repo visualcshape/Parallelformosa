@@ -82,11 +82,11 @@ bool LoadingLayer::init(){
     this->addChild(_loadingBar,1);
     
     ret = true;
-    _startLoad();
+    _startLoadUI();
     return ret;
 }
 
-void LoadingLayer::loadingCallback(cocos2d::Texture2D *texture){
+void LoadingLayer::loadingUICallback(cocos2d::Texture2D *texture){
     ++_loadedSprite;
     char displayChar[64];
     double progress = ((double)_loadedSprite/(double)_spriteCount)*100.0;
@@ -95,19 +95,69 @@ void LoadingLayer::loadingCallback(cocos2d::Texture2D *texture){
     _loadingBar->setPercent((float)progress);
     //Load complete
     if(_loadedSprite==_spriteCount){
-        auto scene = MainScene::createScene();
-        Director::getInstance()->replaceScene(scene);
-        CCLOG("[Loading Scene]Load complete.");
+        //LoadWindow
+        _startLoadWindow();
     }
 }
 
-void LoadingLayer::_startLoad(){
+void LoadingLayer::_startLoadUI(){
     auto textureCache = Director::getInstance()->getTextureCache();
     
+    //Load UI
     std::vector<std::string>::iterator it;
     _loadingItemText->setString("Loading UI Components...(0%)");
     for(it = _fileNames.begin() ; it != _fileNames.end() ; it++){
-        textureCache->addImageAsync(*it, CC_CALLBACK_1(LoadingLayer::loadingCallback, this));
+        textureCache->addImageAsync(*it, CC_CALLBACK_1(LoadingLayer::loadingUICallback, this));
+    }
+    
+}
+
+void LoadingLayer::_startLoadWindow(){
+    auto textureCache = Director::getInstance()->getTextureCache();
+    //Load Window
+    _resetParameters();
+    _spriteCount = 1;
+    _loadingItemText->setString("Loading Windows Components...(0%)");
+    textureCache->addImageAsync("UI/MainUI_Windows_Component.png", CC_CALLBACK_1(LoadingLayer::loadingWindowCallback, this));
+
+}
+
+void LoadingLayer::_resetParameters(){
+    _loadedSprite = 0;
+    _spriteCount = 0;
+    _loadingBar->setPercent(0.0f);
+    _loadingItemText->setString("Pending...");
+}
+
+void LoadingLayer::loadingWindowCallback(cocos2d::Texture2D *texture){
+    ++_loadedSprite;
+    //Add to sprite frame cache
+    SpriteFrameCache* cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile("UI/MainUI_Windows_Component.plist", texture);
+    _loadingItemText->setString(_sprintfProgress("Loading Window Components...(%.0f%%)", _calculateProgress()));
+    _loadingBar->setPercent((float)_calculateProgress());
+    
+    //Attention//
+    _loadComplete();
+}
+
+double LoadingLayer::_calculateProgress(){
+    return ((double)_loadedSprite/(double)_spriteCount)*100.0;
+}
+
+std::string LoadingLayer::_sprintfProgress(std::string text,double progress){
+    char ret[64];
+    sprintf(ret, text.c_str(), progress);
+    return ret;
+}
+
+void LoadingLayer::_loadComplete(){
+    if(_loadedSprite==_spriteCount){
+        auto scene = MainScene::createScene();
+        Director::getInstance()->replaceScene(scene);
+        CCLOG("[Loading Scene]Load complete.");
+    }else{
+        CCLOG("Not Loaded completed...");
     }
 }
 /////////////////

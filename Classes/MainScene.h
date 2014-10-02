@@ -14,6 +14,7 @@
 #include "Observer.h"
 #include "Subject.h"
 #include "MainUIInfoModel.h"
+#include "WindowProtocol.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;

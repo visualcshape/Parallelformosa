@@ -44,6 +44,12 @@
 #define NO_CONNECTION 1
 //
 
+//Color define
+#define COLOR_ICE_CREAM_BLUE color3B(166,209,200)
+
+//Rect Define
+#define BASE_WINDOW_INSET_RECT Rect(2,2,124,124)
+
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
 static std::string CONNECTOR_HOST = "";

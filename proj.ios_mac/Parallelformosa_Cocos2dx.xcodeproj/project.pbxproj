@@ -111,6 +111,8 @@
 		F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */; };
 		F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */; };
 		F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */; };
+		F6B5E34C19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */; };
+		F6B5E34D19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -363,6 +365,8 @@
 		F6B5E34319DA9583004F1FA6 /* MainUIButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainUIButtonFactory.h; path = ../Classes/MainUIButtonFactory.h; sourceTree = "<group>"; };
 		F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainUIInfoModel.cpp; path = ../Classes/MainUIInfoModel.cpp; sourceTree = "<group>"; };
 		F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainUIInfoModel.h; path = ../Classes/MainUIInfoModel.h; sourceTree = "<group>"; };
+		F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowProtocol.cpp; path = ../Classes/WindowProtocol.cpp; sourceTree = "<group>"; };
+		F6B5E34B19DC1621004F1FA6 /* WindowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowProtocol.h; path = ../Classes/WindowProtocol.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -497,6 +501,8 @@
 				F6B5E34319DA9583004F1FA6 /* MainUIButtonFactory.h */,
 				F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */,
 				F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */,
+				F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */,
+				F6B5E34B19DC1621004F1FA6 /* WindowProtocol.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -869,6 +875,7 @@
 				F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				F6B5E34C19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */,
 				F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
@@ -906,6 +913,7 @@
 				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				F6B5E34D19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

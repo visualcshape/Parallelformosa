@@ -83,7 +83,10 @@ bool MainMenuLayer::init(){
 }
 
 void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    MainUIInfoModel::getInstance()->setScrollingText("Building...");
+    //Used for test
+    MainUIInfoModel::getInstance()->setScrollingText("Building");
+    WindowProtocol* p = WindowProtocol::create("Buildings", nullptr);
+    addChild(p,100);
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -191,7 +194,7 @@ void MainInfoLayer::Update(Subject *changedSubject){
 
 void MainInfoLayer::_scrollingTextModelChanged(){
     _scrollingLabel->setString(_bindModel->getScrollingText());
-    _scrollingLabel->setPosition(_infoNoticeBackground->getPosition());
+    _scrollingLabel->setPosition(Vec2(_infoNoticeBackground->getPosition().x+_infoNoticeBackground->getContentSize().width,_infoNoticeBackground->getPosition().y));
 }
 
 void MainInfoLayer::_scroll(float delta){

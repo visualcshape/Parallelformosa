@@ -423,7 +423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "LoadingLayer::loadingCallback(cocos2d::Texture2D *texture)"
+            landmarkName = "LoadingLayer::loadingUICallback(cocos2d::Texture2D *texture)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -439,7 +439,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "LoadingLayer::loadingCallback(cocos2d::Texture2D *texture)"
+            landmarkName = "LoadingLayer::loadingUICallback(cocos2d::Texture2D *texture)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -456,6 +456,38 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "MainUIButtonFactory::create(Vec2 position, Widget::ccWidgetTouchCallback callback)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoadingScene.cpp"
+            timestampString = "433875207.06795"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "LoadingLayer::loadingWindowCallback(cocos2d::Texture2D *texture)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/WindowProtocol.cpp"
+            timestampString = "433945916.831673"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "WindowProtocol::init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
