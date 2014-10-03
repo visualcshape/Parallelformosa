@@ -49,8 +49,12 @@ public:
 	void readMapInfo();
 	void writeMapInfo();
 
+	bool canMoveTo(Troop* _troop, int direction);
 	Building* getClosestBuilding(Troop* _troop);
+	Troop* getClosestTroop(Building* _building);
 	void troopMove(Troop* _troop, int direction);
+	void buildingDelete(Building *_building);
+	void troopDelete(Troop *_troop);
 
 	CC_SYNTHESIZE(TMXTiledMap*, _tileMap, TileMap);
 	CC_SYNTHESIZE(Vector <TMXLayer*>, _pfLayers, PFLayers);

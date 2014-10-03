@@ -16,14 +16,16 @@ Building* Building::build(int BID){
 	building->id = rm->GIDBuilding[BID];
 	building->range = 200;
 
-	switch (BID){
-	case 1: building->occupy = MP(1, 1); break;
-	case 2: building->occupy = MP(2, 2); break;
-	case 3: building->occupy = MP(3, 3); break;
-	case 4: building->occupy = MP(2, 1); break;
-	case 5: building->occupy = MP(1, 3); break;
-	default: CCASSERT(false, "BID not found"); break;
-	}
+	const PII OCCUPY[6] = { MP(0, 0), MP(1, 1), MP(2, 2), MP(3, 3), MP(2, 1), MP(1, 3) };
+	const int ATK[6] = { -1, 40, 50, 60, 70, 80 };
+	const int DEF[6] = { -1, 20, 15, 10, 5, 0 };
+	const int HP[6] = { -1, 100, 150, 200, 150, 100 };
+
+	CCASSERT(BID >= 1 && BID <= 5, "BID not found");
+	building->occupy = OCCUPY[BID];
+	building->atk = ATK[BID];
+	building->def = DEF[BID];
+	building->hp = HP[BID];
 
 	return building;
 }

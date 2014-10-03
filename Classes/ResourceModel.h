@@ -4,6 +4,7 @@
 USING_NS_CC;
 
 class ResourceModel{
+public:
 	static const int BUILDING_SIZE = 5;
 	static const int CHARACTER_SIZE = 5;
 	static const int TERRAIN_SIZE = 11;

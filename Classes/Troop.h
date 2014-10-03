@@ -11,8 +11,6 @@ public:
 	CREATE_FUNC(Troop);
 	virtual bool init();
 
-	int atk;
-	int def;
 
 	static Troop* addTroop(int TID);
 	void goLeft();

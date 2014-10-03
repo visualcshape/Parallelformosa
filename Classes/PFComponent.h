@@ -15,6 +15,10 @@ public:
 	PII occupy;
 	Sprite* sprite;
 
+	int atk;
+	int def;
+	int hp;
+
 	CC_SYNTHESIZE(Point, _coord, Coord);
 	CC_SYNTHESIZE(Point, screenPosition, ScreenPosition);
 

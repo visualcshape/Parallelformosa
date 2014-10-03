@@ -17,6 +17,11 @@ Troop* Troop::addTroop(int TID){
 	troop->addChild(troop->sprite, 0);
 	troop->id = rm->GIDCharacter[TID];
 	troop->occupy = MP(1, 1);
+
+	troop->atk = 30;
+	troop->def = 15;
+	troop->hp = 100;
+
 	return troop;
 }
 
