@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include "TrademarkLayer.h"
 #include "LoginTitleLayer.h"
+#include "BattleOverLayer.h"
 #include "MapLayer.h"
 #include "HUDLayer.h"
 #include "ResourceModel.h"
@@ -38,6 +39,12 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	auto hudlayer = HUDLayer::create(status);
 	layer->addChild(hudlayer, 10000);
 
+	SceneManager::go(layer, 0.32f, Color3B::BLACK);
+}
+
+void SceneManager::goBattleOverScreen(std::string strLabel){
+	SceneManager::cleanRunningScreen();
+	Layer* layer = BattleOverLayer::create(strLabel);
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }
 

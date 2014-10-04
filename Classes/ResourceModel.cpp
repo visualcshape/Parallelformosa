@@ -19,16 +19,16 @@ ResourceModel::ResourceModel(){
 	}
 
 	//@var load character
-	for (int i = 1; i <= CHARACTER_SIZE; i++){
+	for (int i = 1; i <= TROOP_SIZE; i++){
 		char buffer[30];
 		sprintf(buffer, "%03d", i);
 		std::string str("PlanetCute/Character");
 		str += std::string(buffer);
 		str += std::string(".png");
 		CCLOG("%s\n", str.c_str());
-		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Character Resource Loading Fail!!");
-		strCharacter[i] = str;
-		GIDCharacter[i] = 18 + i;
+		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Troop Resource Loading Fail!!");
+		strTroop[i] = str;
+		GIDTroop[i] = 18 + i;
 	}
 
 	//@var load terrain
@@ -75,6 +75,13 @@ ResourceModel::ResourceModel(){
 	//@var load hud bar pic
 	strHUDPic = std::string("hud.png");
 	CCASSERT(CCFileUtils::getInstance()->isFileExist(strHUDPic), "HUDBARPic Resource Loading Fail!!");
+
+	//@var setup troop resource cost
+	for (int i = 1; i <= TROOP_SIZE; i++){
+		costLstr[i] = 100 * i;
+		costGmag[i] = 55 * i;
+		costFood[i] = i / 3 + 1;
+	}
 
 }
 

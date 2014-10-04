@@ -90,6 +90,12 @@
     <ClCompile Include="..\Classes\PFComponent.cpp">
       <Filter>Classes\MISC</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\BattleOverLayer.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PlayerModel.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -163,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\PFComponent.h">
       <Filter>Classes\MISC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BattleOverLayer.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlayerModel.h">
+      <Filter>Classes\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

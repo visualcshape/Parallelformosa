@@ -11,10 +11,10 @@ public:
 	CREATE_FUNC(Troop);
 	virtual bool init();
 
-
 	static Troop* addTroop(int TID);
 	void goLeft();
 	void goDown();
 	void goRight();
 	void goUp();
+
 };

@@ -46,7 +46,7 @@ bool HUDLayer::init(HUD_ID status){
 	auto _moveableSprites = mm->getMovableSprites();
 	if (mm->getStatus() == ATTACK){
 		for (int i = 0; i < mm->BAR_ICON; ++i){
-			auto sprite = Sprite::create(rm->strCharacter[i + 1]);
+			auto sprite = Sprite::create(rm->strTroop[i + 1]);
 			float offsetFraction = ((float)(i + 1)) / (mm->BAR_ICON + 1);
 			sprite->setPosition(Point(winSize.width*offsetFraction, 70));
 			addChild(sprite, 1);
@@ -92,6 +92,11 @@ bool HUDLayer::init(HUD_ID status){
 	lblPlayerPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 100));
 	addChild(lblPlayerPos, -1);
 	mm->setlblPlayerPos(lblPlayerPos);
+
+	Label* lblResourcePos = Label::createWithTTF(config, "str = ??,\nmag = ??,\n food = ??,", TextHAlignment::LEFT);
+	lblResourcePos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 600, VisibleRect::getVisibleRect().size.height - 60));
+	addChild(lblResourcePos, -1);
+	mm->setlblResourcePos(lblResourcePos);
 
 	//@var used to manage building range images.
 	auto selGroups = Node::create();

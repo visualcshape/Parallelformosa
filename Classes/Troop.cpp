@@ -13,9 +13,9 @@ Troop* Troop::addTroop(int TID){
 	ResourceModel *rm = ResourceModel::getModel();
 
 	Troop* troop = Troop::create();
-	troop->sprite = Sprite::create(rm->strCharacter[TID]);
+	troop->sprite = Sprite::create(rm->strTroop[TID]);
 	troop->addChild(troop->sprite, 0);
-	troop->id = rm->GIDCharacter[TID];
+	troop->id = rm->GIDTroop[TID];
 	troop->occupy = MP(1, 1);
 
 	troop->atk = 30;

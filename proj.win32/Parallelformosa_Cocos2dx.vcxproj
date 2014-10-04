@@ -137,6 +137,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BaseLayer.cpp" />
+    <ClCompile Include="..\Classes\BattleOverLayer.cpp" />
     <ClCompile Include="..\Classes\Building.cpp" />
     <ClCompile Include="..\Classes\PFComponent.cpp" />
     <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp" />
@@ -150,6 +151,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\MapModel.cpp" />
     <ClCompile Include="..\Classes\Observer.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\PlayerModel.cpp" />
     <ClCompile Include="..\Classes\ResourceModel.cpp" />
     <ClCompile Include="..\Classes\SceneManager.cpp" />
     <ClCompile Include="..\Classes\Subject.cpp" />
@@ -163,6 +165,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacro.h" />
     <ClInclude Include="..\Classes\BaseLayer.h" />
+    <ClInclude Include="..\Classes\BattleOverLayer.h" />
     <ClInclude Include="..\Classes\Building.h" />
     <ClInclude Include="..\Classes\PFComponent.h" />
     <ClInclude Include="..\Classes\CustomLabelMenuItem.h" />
@@ -176,6 +179,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\MapModel.h" />
     <ClInclude Include="..\Classes\Observer.h" />
     <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\PlayerModel.h" />
     <ClInclude Include="..\Classes\ResourceModel.h" />
     <ClInclude Include="..\Classes\SceneManager.h" />
     <ClInclude Include="..\Classes\Subject.h" />

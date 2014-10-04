@@ -6,7 +6,7 @@ USING_NS_CC;
 class ResourceModel{
 public:
 	static const int BUILDING_SIZE = 5;
-	static const int CHARACTER_SIZE = 5;
+	static const int TROOP_SIZE = 5;
 	static const int TERRAIN_SIZE = 11;
 	static const int TILEMAP_SIZE = 9;
 	static const int PALYER_SIZE = 2;
@@ -18,7 +18,7 @@ public:
 	static ResourceModel* getModel();
 
 	std::string strBuilding[BUILDING_SIZE + 1];
-	std::string strCharacter[CHARACTER_SIZE + 1];
+	std::string strTroop[TROOP_SIZE + 1];
 	std::string strTerrain[TERRAIN_SIZE + 1];
 
 	std::string strWorldMap;
@@ -29,8 +29,13 @@ public:
 	std::string strHUDPic;
 
 	int GIDBuilding[BUILDING_SIZE + 1];
-	int GIDCharacter[CHARACTER_SIZE + 1];
+	int GIDTroop[TROOP_SIZE + 1];
 	int GIDTerrain[TERRAIN_SIZE + 1];
+
+	int costLstr[TROOP_SIZE + 1];
+	int costGmag[TROOP_SIZE + 1];
+	int costFood[TROOP_SIZE + 1];
+
 protected:
 	static ResourceModel* rm_pInstance;
 };

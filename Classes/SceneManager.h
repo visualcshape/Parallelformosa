@@ -12,6 +12,7 @@ public:
 	static void goTrademarkScreen();
 	static void goTitleScreen();
 	static void goMapScreen(std::string mapName, HUD_ID status);
+	static void goBattleOverScreen(std::string strLabel);
 	static void pressKeyCode(EventKeyboard::KeyCode keyCode);
 
 protected:

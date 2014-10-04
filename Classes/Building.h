@@ -12,6 +12,7 @@ class Building : public PFComponent {
 public:
 	CREATE_FUNC(Building);
 	virtual bool init();
+	//static Building initWithBuilding(const Building *_building);
 
 	int range;
 	Sprite* selSpriteRange;
