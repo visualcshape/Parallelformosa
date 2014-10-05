@@ -8,6 +8,7 @@
 #include "CCPomeloWrapper.h"
 #include <errno.h>
 #include <queue>
+#include "pthread.h"
 #include "pomelo.h"
 #include "jansson.h"
 
@@ -18,9 +19,9 @@ static CCPomeloWrapper* gPomelo = NULL;
 
 struct _PomeloUser
 {
-#if CCX3
+#if CCX3/*
     _PomeloUser(){ connCB = NULL; reqCB = NULL; ntfCB = NULL; evtCB = NULL; };
-    ~_PomeloUser(){};
+    ~_PomeloUser(){};*/
 
     PomeloAsyncConnCallback connCB; //for async conn
     PomeloReqResultCallback reqCB;  //for request
