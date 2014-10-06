@@ -120,9 +120,6 @@
     <ClCompile Include="..\Classes\MainScene.cpp">
       <Filter>Classes\MISC</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LoginTitleScene.cpp">
-      <Filter>Classes\MISC</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\LoadingScene.cpp">
       <Filter>Classes\MISC</Filter>
     </ClCompile>
@@ -228,9 +225,6 @@
       <Filter>Classes\MISC</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainScene.h">
-      <Filter>Classes\MISC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LoginTitleScene.h">
       <Filter>Classes\MISC</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoadingScene.h">

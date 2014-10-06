@@ -1,58 +1,92 @@
-﻿#include "LoginTitleLayer.h"
-#include "ResourceModel.h"
-#include "DialogueWindowConfirm.h"
-#include "SceneManager.h"
+﻿//
+//  LoginTitleLayer.cpp
+//  Parallelformosa_Cocos2dx
+//
+//  Created by Chi-Chia Sun on 2014/7/28.
+//
+//
+
+#include "LoginTitleLayer.h"
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include <pomelo.h>
-#include "DialogueWindowConfirm.h"
-#include "SceneManager.h"
-#include "ResourceModel.h"
+#include "NoticeManager.h"
+#include "LoadingScene.h"
+#include "NoticeLoading.h"
+#include "LoadingScene.h"
+//
 
-USING_NS_CC;
+
+using namespace cocos2d;
 
 //////////////////////////
 //class LoginTitleLayer //
 //////////////////////////
 
-LoginTitleLayer::LoginTitleLayer(){
+Scene* LoginTitleLayer::createScene()
+{
+	auto scene = Scene::create();
+
+	auto layer = LoginTitleLayer::create();
+
+	scene->addChild(layer);
+
+	return scene;
 }
 
-LoginTitleLayer::~LoginTitleLayer(){
-}
-
-bool LoginTitleLayer::init(){
-	if (!BaseLayer::init()) return false;
+bool LoginTitleLayer::init()
+{
+	//super init first
+	if (!Layer::init())
+	{
+		return false;
+	}
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 visibleOrigin = Director::getInstance()->getVisibleOrigin();
-    
-    //Put item
-	Layer* menuLayer = MenuLayer::create();
-	Layer* infoLayer = InfoLayer::create();
+	Vec2 visibleOrigin = Director::getInstance()->getVisibleOrigin();
 
-    menuLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
-    infoLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
+	//Put item
+	auto backgroundLayer = new BackgroundLayer();
+	auto menuLayer = new MenuLayer();
+	auto infoLayer = new InfoLayer();
 
-    addChild(menuLayer,1);
-    addChild(infoLayer,0);
+	backgroundLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
 
-    return true;
+	menuLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
+
+	infoLayer->setPosition(Vec2(visibleOrigin.x, visibleOrigin.y));
+
+	addChild(backgroundLayer, 0);
+	addChild(menuLayer, 1);
+	addChild(infoLayer, 1);
+
+	//Layer is an autorelease object
+	backgroundLayer->release();
+	menuLayer->release();
+	infoLayer->release();
+
+	//Add notice manager
+	NoticeManager::getInstance()->put("UIDNotFound", "ERROR", Color3B::RED, "UID不存在，重設UID", Color3B::BLACK, nullptr);
+	//
+
+	return true;
+}
+
+///////////////////
+//BackgroundLayer//
+///////////////////
+
+BackgroundLayer::BackgroundLayer()
+{
+
 }
 
 /////////////
 //MenuLayer//
 /////////////
 
-MenuLayer::MenuLayer(){
-    
-}
-MenuLayer::~MenuLayer(){
-}
-
-bool MenuLayer::init(){
-	if (!BaseLayer::init()) return false;
-
+MenuLayer::MenuLayer()
+{
 	m_aboutMenuItemImage = MenuItemImage::create("LoginTitle/about_normal.png", "LoginTitle/about_selected.png", "LoginTitle/about_disabled.png", CC_CALLBACK_1(MenuLayer::aboutClickCallback, this));
 	CC_ASSERT(m_aboutMenuItemImage != NULL);
 	m_aboutMenuItemImage->setAnchorPoint(Vec2(0.0, 1.0));
@@ -96,158 +130,255 @@ bool MenuLayer::init(){
 	m_menuForTransparentSpriteMenuItem = Menu::create(m_transparentStartSprite, NULL);
 	CC_ASSERT(m_menuForTransparentSpriteMenuItem != nullptr);
 	addChild(m_menuForTransparentSpriteMenuItem, 0);
-	return true;
-}
-void MenuLayer::aboutClickCallback(Ref *pSender){
-    
+
 }
 
-void MenuLayer::settingClickCallback(Ref *pSender){
-    
+void MenuLayer::aboutClickCallback(cocos2d::Ref *pSender)
+{
+
 }
 
-void MenuLayer::startClickCallback(Ref *pSender){
-	ResourceModel *rm = ResourceModel::getModel();
-	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
-	CCLOG("enter map");
-	/*******************************************************/
-	/* v0.1.1 just to test maplayer, don't directly login! */
-	/*******************************************************/
+void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
+{
 
-	/////////////////////////////////////////////////////////
-	//CCLOG("Start Login!");
-	//_doLoginWaterFall();
-	/////////////////////////////////////////////////////////
+}
+
+void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
+{
+	CCLOG("Start Login!");
+#if NO_CONNECTION == 0
+	_doLoginWaterFall();
+#else
+	//Go to main scene
+	auto scene = LoadingScene::createScene();
+	Director::getInstance()->replaceScene(scene);
+#endif
 }
 
 //Login waterfall
-void MenuLayer::_doLoginWaterFall(){
-    //new a client
-    pc_client_t* client = pc_client_new();
-    _connectServer(client);
+void MenuLayer::_doLoginWaterFall()
+{
+	//New connect
+	_newConnectServer();
 }
 
-void MenuLayer::_connectServer(pc_client_t* client){
-    const char* ip = GATE_HOST;
-    const int port = GATE_PORT;
-    struct sockaddr_in address;
-    Layer* thisLayer = this;
-    //Notice
-    LoginTitleModel::getInstance()->setBindedLayer(this);
-    //
-    
-    memset(&address, 0, sizeof(struct sockaddr_in));
-    address.sin_family = AF_INET;
-    address.sin_port = htons(port);
-    address.sin_addr.s_addr = inet_addr(ip);
-    
-    if(pc_client_connect(client, &address)){
-		DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184,41,47), "Fail to connect to server", Color3B::BLACK);
-        addChild(pDialogue,100,"Dialogue");
-        std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
-            if(type==ui::Widget::TouchEventType::ENDED){
-                thisLayer->removeChildByName("Dialogue");
-				pDialogue->autorelease();
-            }
-        };
-        pDialogue->addButtonListener(callback);
-        CCLOGERROR("Fail to connect to server.");
-        pc_client_destroy(client);
-        return;
-    }
-    
-    //Print on Console
-    CCLOG("Connect to server.");
-    //pass to next step
-    _sendRequest(client);
+void MenuLayer::_newConnectServer()
+{
+	//test zone
+	NoticeLoading* pLoading = NoticeLoading::create("Connecting...", Color3B::WHITE);
+	addChild(pLoading, 99, "Loading");
+	//pLoading->autorelease();
+	//
+
+	//Timer
+	schedule(schedule_selector(MenuLayer::_timedOut), 5.0f);
+	//
+
+	Layer* thisLayer = this;
+	CCPomeloWrapper::getInstance()->connectAsnyc(GATE_HOST, GATE_PORT, [=](int err){
+		thisLayer->unschedule(schedule_selector(MenuLayer::_timedOut));
+		if (err != 0)
+		{
+			thisLayer->removeChildByName("Loading");
+			pLoading->autorelease();
+			DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Cannot connect to server , please check \nyour network.", Color3B::BLACK);
+			auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
+			{
+				if (type == ui::Widget::TouchEventType::ENDED)
+				{
+					thisLayer->removeChildByTag(DIALAGOUE_TAG);
+					pDialogue->autorelease();
+				}
+			};
+			pDialogue->addButtonListener(cb);
+			thisLayer->addChild(pDialogue, 100, DIALAGOUE_TAG);
+			CCLOG("Connect Failed");
+		}
+		else
+		{
+			CCLOG("Connected!");
+			_newSendRequest();
+		}
+	});
 }
 
-void MenuLayer::_sendRequest(pc_client_t* client){
-    const char* route = "gate.gateHandler.authUID";
-    json_t* msg = json_object();
-    json_t* uid = json_string(LoginTitleModel::getInstance()->getUID().c_str());
-    json_object_set(msg, "uid", uid);
-    //decref
-    json_decref(uid);
-    pc_request_t* req = pc_request_new();
-    pc_request(client, req, route, msg, _onAuthUIDRequestCallback);
+void MenuLayer::_newSendRequest()
+{
+	const char* route = "gate.gateHandler.authUIDAndDispatch";
+	Json::Value msg;
+	Json::FastWriter writer;
+	msg["uid"] = LoginTitleModel::getInstance()->getUID();
+
+	auto cb = std::bind(&MenuLayer::_newOnAuthUIDRequestCallback, this, std::placeholders::_1);
+	CCPomeloWrapper::getInstance()->request(route, writer.write(msg), cb);
 }
 
-void MenuLayer::_onAuthUIDRequestCallback(pc_request_t* req,int status,json_t* resp){
-    if(status==-1){
-        DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B(184, 41, 47), "無法傳送要求至伺服器．", Color3B(0, 0, 0));
-        LoginTitleModel::getInstance()->getBindedLayer()->addChild(pDialogue, 100, "Dialogue");
-        std::function<void(Ref*,ui::Widget::TouchEventType)> callback = [=](Ref* pSender,ui::Widget::TouchEventType type){
-            if(type==ui::Widget::TouchEventType::ENDED)
-            {
-                LoginTitleModel::getInstance()->getBindedLayer()->removeChildByName("Dialogue");
-                pDialogue->release();
-            }
-        };
-        CCLOG("Fail to send request to server");
-    }
-    else if(status==0){
-        char* dumped = json_dumps(resp, 0);
-        CCLOG("Server Response:\n%s",dumped);
-        json_t* unpack = json_object_get(resp, "resp");
-        dumped = json_dumps(unpack, 0);
-        free(dumped);
-        std::string jUID = json_string_value(json_object_get(unpack, "uid"));
-        LoginTitleModel::getInstance()->setUID(jUID);
-    }
-    
-    //release
-    json_t* msg = req->msg;
-    pc_client_t* client = req->client;
-    json_decref(msg);
-    pc_request_destroy(req);
-    CCLOG("Released.");
-    
-    //stop
-    pc_client_stop(client);
+void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result)
+{
+	CCLOG("OnAuthUIDCallback...");
+	Json::Value root;
+	Json::Reader reader;
+	if (reader.parse(result.jsonMsg, root))
+	{
+		CCLOG("Server response :\n %s", root.toStyledString().c_str());
+		if (!root["reps"]){
+			Json::Value resp = root["resp"];
+			std::string type = resp["type"].asString();
+			if (type == "create")
+			{
+				std::string uid = resp["uid"].asString();
+				LoginTitleModel::getInstance()->setUID(uid);
+				_startLodaing(resp);
+			}
+			else if (type == "isExist")
+			{
+				//true
+				if (resp["result"].asBool())
+				{
+					_startLodaing(resp);
+				}
+				else
+				{
+					Layer* thisLayer = this;
+					DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "UID not existed.\nReset UID.", Color3B::BLACK);
+					auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
+					{
+						if (type == ui::Widget::TouchEventType::ENDED)
+						{
+							thisLayer->removeChildByTag(DIALAGOUE_TAG);
+							//remove loading
+							thisLayer->removeChildByName("Loading");
+							pDialogue->autorelease();
+							LoginTitleModel::getInstance()->setUID("0");
+						}
+					};
+					pDialogue->addButtonListener(cb);
+					addChild(pDialogue, 100, DIALAGOUE_TAG);
+					CCPomeloWrapper::getInstance()->stop();
+				}
+			}
+		}
+		else if (root["code"] != nullptr)
+		{
+			if (root["code"].asInt() == 500)
+			{
+				Layer* thisLayer = this;
+				DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Unexpected error occured.", Color3B::BLACK);
+				auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
+				{
+					if (type == ui::Widget::TouchEventType::ENDED)
+					{
+						thisLayer->removeChildByTag(DIALAGOUE_TAG);
+						//remove loading
+						thisLayer->removeChildByName("Loading");
+						pDialogue->autorelease();
+					}
+				};
+				pDialogue->addButtonListener(cb);
+				addChild(pDialogue, 100, DIALAGOUE_TAG);
+				CCPomeloWrapper::getInstance()->stop();
+			}
+		}
+		else
+		{
+			Layer* thisLayer = this;
+			DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Unexpected error occured.", Color3B::BLACK);
+			auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
+			{
+				if (type == ui::Widget::TouchEventType::ENDED)
+				{
+					thisLayer->removeChildByTag(DIALAGOUE_TAG);
+					thisLayer->removeChildByName("Loading");
+					pDialogue->autorelease();
+				}
+			};
+			pDialogue->addButtonListener(cb);
+			addChild(pDialogue, 100, DIALAGOUE_TAG);
+			CCPomeloWrapper::getInstance()->stop();
+		}
+	}
 }
+
+void MenuLayer::_startLodaing(Json::Value resp)
+{
+	CONNECTOR_HOST = resp["connectorHost"].asString();
+	CONNECTOR_PORT = resp["connectorPort"].asInt();
+	CCPomeloWrapper::getInstance()->stop();
+	Scene* pScene = LoadingScene::createScene();
+	auto fadeTransition = TransitionFade::create(0.32f, pScene, Color3B(0, 0, 0));
+	Director::getInstance()->replaceScene(fadeTransition);
+}
+
+void MenuLayer::_timedOut(float delta)
+{
+	unschedule(schedule_selector(MenuLayer::_timedOut));
+	CCLOG("Connect timed out");
+	//stop
+	if (CCPomeloWrapper::getInstance()->status() == CCPomeloStatus::EPomeloConnecting)
+	{
+		CCPomeloWrapper::getInstance()->stop();
+	}
+	//
+	Layer* thisLayer = this;
+	removeChildByName("Loading");
+	DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Connection timed out,configuration may goes wrong.", Color3B::BLACK);
+	auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
+	{
+		if (type == ui::Widget::TouchEventType::ENDED)
+		{
+			thisLayer->removeChildByTag(DIALAGOUE_TAG);
+			pDialogue->autorelease();
+		}
+	};
+	pDialogue->addButtonListener(cb);
+	addChild(pDialogue, 100, DIALAGOUE_TAG);
+}
+
 //
 
-void MenuLayer::loopTouchToStartMenuItemLabel(){
-    Color3B originalColor = m_touchToStartMenuItemLabel->getColor();
-    auto toAction = TintTo::create(.3f, 69, 174, 255);
-    auto recoverAction = TintTo::create(.3f, originalColor.r, originalColor.g, originalColor.b);
-    CallFunc* repeat = CallFunc::create(CC_CALLBACK_0(MenuLayer::loopTouchToStartMenuItemLabel, this));
-    Sequence* sequence = Sequence::create(toAction,DelayTime::create(.3f),recoverAction,repeat, NULL);
-    
-    m_touchToStartMenuItemLabel->runAction(sequence);
+void MenuLayer::loopTouchToStartMenuItemLabel()
+{
+	Color3B originalColor = m_touchToStartMenuItemLabel->getColor();
+	auto toAction = TintTo::create(.3f, 69, 174, 255);
+	auto recoverAction = TintTo::create(.3f, originalColor.r, originalColor.g, originalColor.b);
+	CallFunc* repeat = CallFunc::create(CC_CALLBACK_0(MenuLayer::loopTouchToStartMenuItemLabel, this));
+	Sequence* sequence = Sequence::create(toAction, DelayTime::create(.3f), recoverAction, repeat, NULL);
+
+	m_touchToStartMenuItemLabel->runAction(sequence);
 }
 
 /////////////
 //InfoLayer//
 /////////////
 
-InfoLayer::InfoLayer(){
-    //Add Subject
-    _subject = LoginTitleModel::getInstance();
-    _subject->Attach(this);
-    //TODO : Set Position
-    //TODO : Add child
-    TTFConfig config("fonts/Avenir.ttf",computeFontSize(8*4));
-    m_UIDLabel = Label::createWithTTF(config, "UID:Undefined", TextHAlignment::LEFT);
-    CC_ASSERT(m_UIDLabel!=NULL);
-    m_UIDLabel->setAnchorPoint(Vec2(0.0, 1.0));
-    m_UIDLabel->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x+20,VisibleRect::getVisibleRect().size.height-3));
-    addChild(m_UIDLabel,2);
-    //Notify...
-    _subject->Notify();
+InfoLayer::InfoLayer()
+{
+	//Add Subject
+	_subject = LoginTitleModel::getInstance();
+	_subject->Attach(this);
+	TTFConfig config("fonts/Avenir.ttf", computeFontSize(8 * 4));
+	m_UIDLabel = Label::createWithTTF(config, "UID:Undefined", TextHAlignment::LEFT);
+	CC_ASSERT(m_UIDLabel != NULL);
+	m_UIDLabel->setAnchorPoint(Vec2(0.0, 1.0));
+	m_UIDLabel->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 20, VisibleRect::getVisibleRect().size.height - 3));
+	addChild(m_UIDLabel, 2);
+
+	//Notify...
+	_subject->Notify();
 }
 
-InfoLayer::~InfoLayer(){
-    _subject->Detach(this);
-    _subject = nullptr;
+InfoLayer::~InfoLayer()
+{
+	_subject->Detach(this);
+	_subject = nullptr;
 }
 
-void InfoLayer::Update(Subject* changedSubject){
-    //Update uid
-    if(changedSubject->getTypeName()==LoginTitleModel::getInstance()->getTypeName()){
-        std::string uid = _subject->getUID();
-        m_UIDLabel->setString("UID:"+uid);
-    }
-    return;
+void InfoLayer::Update(Subject* changedSubject)
+{
+	//Update uid
+	if (changedSubject->getTypeName() == LoginTitleModel::getInstance()->getTypeName()){
+		std::string uid = _subject->getUID();
+		m_UIDLabel->setString("UID:" + uid);
+	}
+	return;
 }
