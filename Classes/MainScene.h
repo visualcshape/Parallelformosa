@@ -15,6 +15,7 @@
 #include "Subject.h"
 #include "MainUIInfoModel.h"
 #include "WindowProtocol.h"
+#include "ButtonWithImage.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;

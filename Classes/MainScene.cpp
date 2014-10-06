@@ -90,7 +90,12 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    
+    ButtonWithImage* b = ButtonWithImage::create("UI/BTN.png", "UI/BTN_P.png", "", "UI/BTN_P.png", Widget::TextureResType::LOCAL);
+    b->setPosition(Vec2(480, 320));
+    b->setTitleText("1234");
+    b->setTitleFontName("fonts/Avenir.ttf");
+    b->setTitleColor(Color3B(255, 255, 255));
+    addChild(b,100);
 }
 
 void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){

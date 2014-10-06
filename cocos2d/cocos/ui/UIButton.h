@@ -212,7 +212,7 @@ protected:
     void disabledTextureScaleChangedWithSize();
     
     virtual void adaptRenderers() override;
-    void updateTitleLocation();
+    virtual void updateTitleLocation();
     
     virtual Widget* createCloneInstance() override;
     virtual void copySpecialProperties(Widget* model) override;

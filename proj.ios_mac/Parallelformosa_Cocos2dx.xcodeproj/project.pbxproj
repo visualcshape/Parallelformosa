@@ -102,6 +102,8 @@
 		F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486B19BF539F009717E7 /* jsoncpp.cpp */; };
 		F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
 		F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
+		F6A6ECB419E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
+		F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
 		F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
@@ -113,6 +115,10 @@
 		F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */; };
 		F6B5E34C19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */; };
 		F6B5E34D19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */; };
+		F6B5E35419E02D66004F1FA6 /* BuildingWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35219E02D66004F1FA6 /* BuildingWindow.cpp */; };
+		F6B5E35519E02D66004F1FA6 /* BuildingWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35219E02D66004F1FA6 /* BuildingWindow.cpp */; };
+		F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */; };
+		F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -357,6 +363,8 @@
 		F69E486F19BF544A009717E7 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		F69E487019C064B4009717E7 /* NoticeLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeLoading.h; path = ../Classes/NoticeLoading.h; sourceTree = "<group>"; };
 		F69E487119C064C2009717E7 /* NoticeLoading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeLoading.cpp; path = ../Classes/NoticeLoading.cpp; sourceTree = "<group>"; };
+		F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonWithImage.cpp; path = ../Classes/ButtonWithImage.cpp; sourceTree = "<group>"; };
+		F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonWithImage.h; path = ../Classes/ButtonWithImage.h; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
@@ -367,6 +375,10 @@
 		F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainUIInfoModel.h; path = ../Classes/MainUIInfoModel.h; sourceTree = "<group>"; };
 		F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowProtocol.cpp; path = ../Classes/WindowProtocol.cpp; sourceTree = "<group>"; };
 		F6B5E34B19DC1621004F1FA6 /* WindowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowProtocol.h; path = ../Classes/WindowProtocol.h; sourceTree = "<group>"; };
+		F6B5E35219E02D66004F1FA6 /* BuildingWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuildingWindow.cpp; path = ../Classes/BuildingWindow.cpp; sourceTree = "<group>"; };
+		F6B5E35319E02D66004F1FA6 /* BuildingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingWindow.h; path = ../Classes/BuildingWindow.h; sourceTree = "<group>"; };
+		F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuildingModel.cpp; path = ../Classes/BuildingModel.cpp; sourceTree = "<group>"; };
+		F6B5E35B19E08853004F1FA6 /* BuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingModel.h; path = ../Classes/BuildingModel.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -503,6 +515,12 @@
 				F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */,
 				F6B5E34A19DC1621004F1FA6 /* WindowProtocol.cpp */,
 				F6B5E34B19DC1621004F1FA6 /* WindowProtocol.h */,
+				F6B5E35219E02D66004F1FA6 /* BuildingWindow.cpp */,
+				F6B5E35319E02D66004F1FA6 /* BuildingWindow.h */,
+				F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */,
+				F6B5E35B19E08853004F1FA6 /* BuildingModel.h */,
+				F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */,
+				F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -863,10 +881,12 @@
 				F69E486919BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				F6A6ECB419E166EA0020EFBB /* ButtonWithImage.cpp in Sources */,
 				F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */,
 				F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */,
 				F6B5E34419DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				F6B5E35419E02D66004F1FA6 /* BuildingWindow.cpp in Sources */,
 				F69E486C19BF539F009717E7 /* jsoncpp.cpp in Sources */,
 				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
@@ -883,6 +903,7 @@
 				F69DAB23198544D2004D06E1 /* TrademarkScene.cpp in Sources */,
 				F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */,
 				F69E486519B9D687009717E7 /* LoadingScene.cpp in Sources */,
+				F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
@@ -893,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */,
+				F6B5E35519E02D66004F1FA6 /* BuildingWindow.cpp in Sources */,
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
 				F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */,
@@ -909,6 +931,8 @@
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
+				F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
+				F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */,
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,

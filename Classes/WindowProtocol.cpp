@@ -45,7 +45,7 @@ bool WindowProtocol::init(){
     _baseWindow = Scale9Sprite::createWithSpriteFrameName("WindowBase.psd",BASE_WINDOW_INSET_RECT);
     _baseWindow->setContentSize(Size(850,490-10-10));
     _baseWindow->setAnchorPoint(Vec2(0.0, 1.0));
-    _baseWindow->setPosition(Vec2(55, 490-10));
+    _baseWindow->setPosition(Vec2(55, VisibleRect::getVisibleRect().size.height-60));
     
     //Put base window
     _baseLayout = Layout::create();
@@ -82,9 +82,9 @@ bool WindowProtocol::init(){
     
     //Title text
     LinearLayoutParameter* lpTitleText = LinearLayoutParameter::create();
-    _titleText = Text::create(_titleString, "fonts/Apple LiGothic Medium.ttf", computeFontSize(33));
+    _titleText = Text::create(_titleString, "fonts/Apple LiGothic Medium.ttf", computeFontSize(42));
     CCASSERT(_titleText!=nullptr, "_titletext cannot be null.");
-    _titleText->setColor(Color3B(121,189,154));
+    _titleText->setColor(Color3B(59,134,134));
     _titleText->setPosition(Vec2(_titleLayout->getContentSize().width/2, _titleLayout->getContentSize().height/2));
     lpTitleText->setGravity(LinearLayoutParameter::LinearGravity::CENTER_VERTICAL);
     lpTitleText->setMargin(Margin(_titleLayout->getContentSize().width/2-_titleText->getContentSize().width/2-_closeButton->getContentSize().width, 0, 0, 0));

@@ -20,9 +20,6 @@ USING_NS_CC::extension;
 
 class WindowProtocol : public Layer{
 private:
-    //Layout
-    Layout* _titleLayout;
-    
     //Components
     Scale9Sprite* _baseWindow;
     Button* _closeButton;
@@ -34,6 +31,7 @@ protected:
     std::function<void(Ref*,Widget::TouchEventType)> _closeCallback;
     //layout
     Layout* _baseLayout;
+    Layout* _titleLayout;
 public:
     WindowProtocol(std::string titleText,std::function<void(Ref*,Widget::TouchEventType)> closeCallback);
     ~WindowProtocol();

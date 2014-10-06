@@ -50,6 +50,8 @@
 //Rect Define
 #define BASE_WINDOW_INSET_RECT Rect(2,2,124,124)
 
+//BaseWindow(WindowProtocol) Width
+
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
 static std::string CONNECTOR_HOST = "";
