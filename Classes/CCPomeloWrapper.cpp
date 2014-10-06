@@ -19,15 +19,9 @@ static CCPomeloWrapper* gPomelo = nullptr;
 
 struct _PomeloUser
 {
-<<<<<<< HEAD
 #if CCX3
     _PomeloUser(){ connCB = nullptr; reqCB = nullptr; ntfCB = nullptr; evtCB = nullptr; };
     ~_PomeloUser(){};
-=======
-#if CCX3/*
-    _PomeloUser(){ connCB = nullptr; reqCB = nullptr; ntfCB = nullptr; evtCB = nullptr; };
-    ~_PomeloUser(){};*/
->>>>>>> d48a533a13f76dfe6dee1eb7f35b5f47fde838f2
 
     PomeloAsyncConnCallback connCB; //for async conn
     PomeloReqResultCallback reqCB;  //for request

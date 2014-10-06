@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "376"
-            endingLineNumber = "376"
-            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
-            landmarkType = "5">
+            endingLineNumber = "376">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,9 +28,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "377"
-            endingLineNumber = "377"
-            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
-            landmarkType = "5">
+            endingLineNumber = "377">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,9 +42,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "380"
-            endingLineNumber = "380"
-            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
-            landmarkType = "5">
+            endingLineNumber = "380">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,9 +56,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "381"
-            endingLineNumber = "381"
-            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
-            landmarkType = "5">
+            endingLineNumber = "381">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -296,9 +288,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "InfoLayer::Update(Subject* changedSubject)"
-            landmarkType = "5">
+            endingLineNumber = "382">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -308,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/CCPomeloWrapper.cpp"
-            timestampString = "431950188.183443"
+            timestampString = "434315422.637923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "639"
-            endingLineNumber = "639"
+            startingLineNumber = "633"
+            endingLineNumber = "633"
             landmarkName = "CCPomeloImpl::connect(const char* host, int port)"
             landmarkType = "5">
          </BreakpointContent>
@@ -324,11 +314,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/CCPomeloWrapper.cpp"
-            timestampString = "431950676.869746"
+            timestampString = "434315422.637923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74">
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "CCPomeloNotifyResult::CCPomeloNotifyResult()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -342,9 +334,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "MenuLayer::_timedOut(float delta)"
-            landmarkType = "5">
+            endingLineNumber = "312">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -358,9 +348,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "MenuLayer::_timedOut(float delta)"
-            landmarkType = "5">
+            endingLineNumber = "317">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -374,9 +362,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult&amp; result)"
-            landmarkType = "5">
+            endingLineNumber = "223">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -390,9 +376,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult&amp; result)"
-            landmarkType = "5">
+            endingLineNumber = "224">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
