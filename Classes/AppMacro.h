@@ -77,4 +77,7 @@ typedef Vec2 MapPoint;
 #define FOR(it, c) for( decltype((c).begin()) it = (c).begin(); it != (c).end(); it++)
 enum HUD_ID{ EMPTY = 0, ATTACK = 1, DEFENSE = 2 };
 // }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0dfc44bc226cc8a9e9eba508c2517f98aad2020e
