@@ -1,8 +1,9 @@
 #include "AppDelegate.h"
 #include "AppMacro.h"
-#include "TrademarkScene.h"
 #include "Database.h"
 #include "UtilFunc.h"
+#include "SceneManager.h"
+#include "ResourceModel.h"
 
 USING_NS_CC;
 using namespace std;
@@ -55,14 +56,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
     
     //Reminder : to put scene
-    Scene* pScene = TrademarkScene::createScene();
     
     //Initialize database
     Database::getInstance()->initDatabase();
     
     //run
-    director->runWithScene(pScene);
-
+	ResourceModel *rm = ResourceModel::getModel();
+	SceneManager::goTitleScreen();
+	srand(time(0));
     return true;
 }
 

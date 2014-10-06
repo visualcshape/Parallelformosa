@@ -1,14 +1,7 @@
-//
-//  AppMacro.h
-//  Parallelformosa_Cocos2dx
-//
-//  Created by Chi-Chia Sun on 2014/7/27.
-//
-//
-
-#ifndef Parallelformosa_Cocos2dx_AppMacro_h
-#define Parallelformosa_Cocos2dx_AppMacro_h
+#pragma once
 #include <cocos2d.h>
+
+USING_NS_CC;
 
 #define DESIGN_RESOLUTION_480X320   0
 #define DESIGN_RESOLUTION_960X640   1
@@ -75,4 +68,14 @@ static float computeFontSize(float fontSize)
     return cocos2d::Director::getInstance()->getOpenGLView()->getDesignResolutionSize().width / normalResource.size.width * fontSize;
 }
 
-#endif
+// Personal Macro {
+#define SZ(a) ((a).size())
+typedef std::pair <int, int> PII;
+typedef Vec2 TilePoint;
+typedef Vec2 MapPoint;
+#define X first
+#define Y second
+#define MP std::make_pair
+#define FOR(it, c) for( decltype((c).begin()) it = (c).begin(); it != (c).end(); it++)
+enum HUD_ID{ EMPTY = 0, ATTACK = 1, DEFENSE = 2 };
+// }

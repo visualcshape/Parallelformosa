@@ -1,20 +1,11 @@
-﻿已經開始建置於 2014/8/28 下午 12:49:24。
-     1>節點 3 (Build 目標) 上的專案 "Z:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj"。
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include" /I..\Include /IZ:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\2d\..\..\cocos /IZ:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\2d\..\..\cocos\platform\win32 /IZ:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\2d\..\..\cocos\platform\desktop /IZ:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\2d\..\..\external\glfw3\include\win32 /I"Z:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4251 /analyze- /errorReport:prompt ..\win32\SimpleAudioEngine.cpp
-         SimpleAudioEngine.cpp
-     1>z:\parallelformosa\parallelformosa_cocos2dx\cocos2d\cocos\base\ccutils.h : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-     1>z:\parallelformosa\parallelformosa_cocos2dx\cocos2d\cocos\2d\cclabel.h(276): warning C4244: 'return' : 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-     1>z:\parallelformosa\parallelformosa_cocos2dx\cocos2d\cocos\physics\ccphysicsbody.h : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-     1>z:\parallelformosa\parallelformosa_cocos2dx\cocos2d\cocos\physics\ccphysicsshape.h : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-     1>z:\parallelformosa\parallelformosa_cocos2dx\cocos2d\cocos\2d\ccparticlesystemquad.h : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-     1>z:\parallelformosa\parallelformosa_cocos2dx\cocos2d\cocos\platform\ccsaxparser.h : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"Z:\Parallelformosa\Parallelformosa_Cocos2dx\proj.win32\Debug.win32\libAudio.lib" /NOLOGO Debug.win32\MciPlayer.obj
-         Debug.win32\SimpleAudioEngine.obj
-         CocosDenshion.vcxproj -> Z:\Parallelformosa\Parallelformosa_Cocos2dx\proj.win32\Debug.win32\libAudio.lib
-     1>專案 "Z:\Parallelformosa\Parallelformosa_Cocos2dx\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj" (Build 目標) 建置完成。
-
-建置成功。
-
-經過時間 00:00:39.70
+<<<<<<< HEAD
+﻿  MciPlayer.cpp
+  SimpleAudioEngine.cpp
+d:\git\parallelformosa_g+\cocos2d\cocos\2d\cclabel.h(276): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data (..\win32\SimpleAudioEngine.cpp)
+  CocosDenshion.vcxproj -> D:\Git\Parallelformosa_G+\proj.win32\Debug.win32\libAudio.lib
+=======
+﻿  MciPlayer.cpp
+  SimpleAudioEngine.cpp
+d:\git\parallelformosa_g+\cocos2d\cocos\2d\cclabel.h(276): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data (..\win32\SimpleAudioEngine.cpp)
+  CocosDenshion.vcxproj -> D:\Git\Parallelformosa_G+\proj.win32\Debug.win32\libAudio.lib
+>>>>>>> 0dfc44bc226cc8a9e9eba508c2517f98aad2020e

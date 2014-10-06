@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/.metadata/.plugins/org.eclipse.jdt.core
+334757748.index
+2741727132.index
+2748377739.index
