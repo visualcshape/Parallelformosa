@@ -38,6 +38,50 @@ void Database::initDatabase()
     /**@brief Implement sooner or later*/
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     //Implement later.
+    std::string dbPath = FileUtils::getInstance()->fullPathForFilename("database.sqlite3");
+    dbPath = FileUtils::getInstance()->getWritablePath();
+    dbPath +="/database.sqlite3";
+
+    char firstAccess[16];
+        //First Access?
+    FILE* firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"/First").c_str(), "r");
+   if (firstAccessFile==nullptr)
+   {
+            firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"/First").c_str(), "w");
+            fputs("1", firstAccessFile);
+            fclose(firstAccessFile);
+   }
+   fclose(firstAccessFile);
+
+   std::fstream fin;
+   fin.open((FileUtils::getInstance()->getWritablePath()+"/First").c_str(),std::ios::in);
+   fin.getline(firstAccess, sizeof(firstAccess));
+   fin.close();
+
+        //Copy resource db to document.
+   if(strcmp("1", firstAccess)==0)
+   {
+	   ssize_t size;
+	   const char* data = (char*)FileUtils::getInstance()->getFileData("database.sqlite3", "rb", &size);
+       FILE* file = fopen(dbPath.c_str(), "wb");
+       CC_ASSERT(file!=nullptr);
+       fwrite(data, size, 1, file);
+       fclose(file);
+            //CC_SAFE_DELETE_ARRAY(file);
+            //Re write to first Access file
+#if DB_REWRITE == 1
+       firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "w");
+       strcpy(firstAccess, "1");
+       fputs(firstAccess, firstAccessFile);
+       fclose(firstAccessFile);
+#else
+       firstAccessFile = fopen((FileUtils::getInstance()->getWritablePath()+"First").c_str(), "w");
+       strcpy(firstAccess, "0");
+       fputs(firstAccess, firstAccessFile);
+       fclose(firstAccessFile);
+#endif
+   }
+   result = sqlite3_open(dbPath.c_str(), &_pdb);
 #else   //other
     std::string path=FileUtils::getInstance()->getWritablePath()+"database.sqlite3";
     char firstAccess[16];

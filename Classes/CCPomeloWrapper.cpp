@@ -8,18 +8,19 @@
 #include "CCPomeloWrapper.h"
 #include <errno.h>
 #include <queue>
+#include "pthread.h"
 #include "pomelo.h"
 #include "jansson.h"
 
 using namespace std;
 USING_NS_CC;
 
-static CCPomeloWrapper* gPomelo = NULL;
+static CCPomeloWrapper* gPomelo = nullptr;
 
 struct _PomeloUser
 {
 #if CCX3
-    _PomeloUser(){ connCB = NULL; reqCB = NULL; ntfCB = NULL; evtCB = NULL; };
+    _PomeloUser(){ connCB = nullptr; reqCB = nullptr; ntfCB = nullptr; evtCB = nullptr; };
     ~_PomeloUser(){};
 
     PomeloAsyncConnCallback connCB; //for async conn
@@ -201,7 +202,7 @@ void CCPomeloImpl::dispatchAsyncConnCallback()
         if(mAsyncConnUser == user)  //just in case of stop() called in cb
         {
             delete mAsyncConnUser;
-            mAsyncConnUser = NULL;
+            mAsyncConnUser = nullptr;
         }
     }
 }
@@ -210,7 +211,7 @@ void CCPomeloImpl::dispatchRequestCallbacks()
     _PomeloRequestResult* rst = popReqResult(mStatus == EPomeloConnected);
     if(rst)
     {
-        _PomeloUser* user = NULL;
+        _PomeloUser* user = nullptr;
         
         if(mReqUserMap.find(rst->request) != mReqUserMap.end())
         {
@@ -255,7 +256,7 @@ void CCPomeloImpl::dispatchNotifyCallbacks()
     _PomeloNotifyResult* rst = popNtfResult(mStatus == EPomeloConnected);
     if(rst)
     {
-        _PomeloUser* user = NULL;
+        _PomeloUser* user = nullptr;
         
         if(mNtfUserMap.find(rst->notify) != mNtfUserMap.end())
         {
@@ -314,7 +315,7 @@ void CCPomeloImpl::dispatchEventCallbacks()
         }
         else    //for customized events
         {
-            _PomeloUser* user = NULL;
+            _PomeloUser* user = nullptr;
             
             if(mEventUserMap.find(rst->event) != mEventUserMap.end())
             {
@@ -363,7 +364,7 @@ void CCPomeloImpl::pushEvent(_PomeloEvent* event)
 
 _PomeloRequestResult* CCPomeloImpl::popReqResult(bool lock/* = true*/)
 {
-    _PomeloRequestResult* rst = NULL;
+    _PomeloRequestResult* rst = nullptr;
     if(lock)
         pthread_mutex_lock(&mMutex);
     if (mReqResultQueue.size() > 0)
@@ -377,7 +378,7 @@ _PomeloRequestResult* CCPomeloImpl::popReqResult(bool lock/* = true*/)
 }
 _PomeloNotifyResult* CCPomeloImpl::popNtfResult(bool lock/* = true*/)
 {
-    _PomeloNotifyResult* rst = NULL;
+    _PomeloNotifyResult* rst = nullptr;
     if(lock)
         pthread_mutex_lock(&mMutex);
     if (mNtfResultQueue.size() > 0)
@@ -391,7 +392,7 @@ _PomeloNotifyResult* CCPomeloImpl::popNtfResult(bool lock/* = true*/)
 }
 _PomeloEvent* CCPomeloImpl::popEvent(bool lock/* = true*/)
 {
-    _PomeloEvent* evt = NULL;
+    _PomeloEvent* evt = nullptr;
     if(lock)
         pthread_mutex_lock(&mMutex);
     if (mEventQueue.size() > 0)
@@ -426,7 +427,7 @@ void CCPomeloImpl::connectAsnycCallback(pc_connect_t* conn_req, int status)
         gPomelo->_theMagic->mStatus = EPomeloConnected;
         gPomelo->_theMagic->mAsyncConnStatus = status;
         gPomelo->_theMagic->mAsyncConnDispatchPending = true;
-        gPomelo->_theMagic->mAsyncConn = NULL;
+        gPomelo->_theMagic->mAsyncConn = nullptr;
         
 #if CCX3
         CCDirector::getInstance()->getScheduler()->resumeTarget(gPomelo->_theMagic);
@@ -449,7 +450,7 @@ void CCPomeloImpl::requestCallback(pc_request_t *request, int status, json_t *do
          */
         if(gPomelo->_theMagic->mReqUserMap.find(request) != gPomelo->_theMagic->mReqUserMap.end())
         {
-            char* json = json_dumps(docs, JSON_COMPACT);    //json is NULL
+            char* json = json_dumps(docs, JSON_COMPACT);    //json is nullptr
             _PomeloUser* user = gPomelo->_theMagic->mReqUserMap[request];
             gPomelo->_theMagic->mReqUserMap.erase(request);
             
@@ -578,7 +579,7 @@ void CCPomeloImpl::disconnectedCallback(pc_client_t *client, const char *event, 
     rst->event = event;
     gPomelo->_theMagic->pushEvent(rst);
     
-    free(data); //data === NULL ?? fixme
+    free(data); //data === nullptr ?? fixme
 }
 CCPomeloImpl::~CCPomeloImpl()
 {
@@ -588,15 +589,15 @@ CCPomeloImpl::~CCPomeloImpl()
 
 CCPomeloImpl::CCPomeloImpl()
 :mStatus(EPomeloStopped),
-mClient(NULL),
-mAsyncConnUser(NULL),
+mClient(nullptr),
+mAsyncConnUser(nullptr),
 mAsyncConnDispatchPending(false),
-mAsyncConn(NULL),
+mAsyncConn(nullptr),
 #if CCX3
-mDisconnectCB(NULL)
+mDisconnectCB(nullptr)
 #else
-mDisconnectCbTarget(NULL),
-mDisconnectCbSelector(NULL)
+mDisconnectCbTarget(nullptr),
+mDisconnectCbSelector(nullptr)
 #endif
 {
     //paused by default
@@ -607,7 +608,7 @@ mDisconnectCbSelector(NULL)
 #endif
 
     
-    pthread_mutex_init(&mMutex, NULL);
+    pthread_mutex_init(&mMutex, nullptr);
 }
 
 CCPomeloStatus CCPomeloImpl::status() const
@@ -628,9 +629,9 @@ int CCPomeloImpl::connect(const char* host, int port)
     unsigned long vf_addr_ = inet_addr(host);
     if(vf_addr_ == INADDR_NONE)
     {
-        struct hostent *pHostEnt= NULL;
+        struct hostent *pHostEnt= nullptr;
         pHostEnt = gethostbyname(host);
-        if(pHostEnt != NULL)
+        if(pHostEnt != nullptr)
         {
             vf_addr_ = *((unsigned long*)pHostEnt->h_addr_list[0]);
         }
@@ -646,7 +647,7 @@ int CCPomeloImpl::connect(const char* host, int port)
     if(ret)
     {
         pc_client_destroy(mClient);
-        mClient = NULL;
+        mClient = nullptr;
     }
     else
     {
@@ -678,9 +679,9 @@ int CCPomeloImpl::connectAsnyc(const char* host, int port, const PomeloAsyncConn
     unsigned long vf_addr_ = inet_addr(host);
     if(vf_addr_ == INADDR_NONE)
     {
-        struct hostent *pHostEnt= NULL;
+        struct hostent *pHostEnt= nullptr;
         pHostEnt = gethostbyname(host);
-        if(pHostEnt != NULL)
+        if(pHostEnt != nullptr)
         {
             vf_addr_ = *((unsigned long*)pHostEnt->h_addr_list[0]);
         }
@@ -697,8 +698,8 @@ int CCPomeloImpl::connectAsnyc(const char* host, int port, const PomeloAsyncConn
     {
         pc_connect_req_destroy(mAsyncConn);
         pc_client_destroy(mClient);
-        mClient = NULL;
-        mAsyncConn = NULL;
+        mClient = nullptr;
+        mAsyncConn = nullptr;
     }
     else
     {
@@ -777,9 +778,9 @@ int CCPomeloImpl::connectAsnyc(const char* host, int port, cocos2d::CCObject* pC
     unsigned long vf_addr_ = inet_addr(host);
     if(vf_addr_ == INADDR_NONE)
     {
-        struct hostent *pHostEnt= NULL;
+        struct hostent *pHostEnt= nullptr;
         pHostEnt = gethostbyname(host);
-        if(pHostEnt != NULL)
+        if(pHostEnt != nullptr)
         {
             vf_addr_ = *((unsigned long*)pHostEnt->h_addr_list[0]);
         }
@@ -796,8 +797,8 @@ int CCPomeloImpl::connectAsnyc(const char* host, int port, cocos2d::CCObject* pC
     {
         pc_connect_req_destroy(mAsyncConn);
         pc_client_destroy(mClient);
-        mClient = NULL;
-        mAsyncConn = NULL;
+        mClient = nullptr;
+        mAsyncConn = nullptr;
     }
     else
     {
@@ -940,13 +941,13 @@ void CCPomeloImpl::stop()
                 pc_client_destroy(mClient);
             }
             
-            mAsyncConn = NULL;
-            mClient = NULL;
+            mAsyncConn = nullptr;
+            mClient = nullptr;
             mStatus = EPomeloStopped;   //重置标记
             
             //release resources
             delete mAsyncConnUser;
-            mAsyncConnUser = NULL;
+            mAsyncConnUser = nullptr;
             mAsyncConnDispatchPending = false;
             
             clearReqResource();
@@ -985,7 +986,7 @@ void CCPomeloImpl::clearReqResource()
     }
     mReqUserMap.clear();
     
-    _PomeloRequestResult* reqRst = NULL;
+    _PomeloRequestResult* reqRst = nullptr;
     while((reqRst = popReqResult(false)))
     {
         delete reqRst;
@@ -1009,7 +1010,7 @@ void CCPomeloImpl::clearNtfResource()
     }
     mNtfUserMap.clear();
     
-    _PomeloNotifyResult* rst = NULL;
+    _PomeloNotifyResult* rst = nullptr;
     while((rst = popNtfResult(false)))
     {
         delete rst;
