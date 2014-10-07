@@ -62,7 +62,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     //run
 	ResourceModel *rm = ResourceModel::getModel();
-	SceneManager::goTitleScreen();
+    //SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+    SceneManager::goTrademarkScreen();
 	srand(time(0));
     return true;
 }

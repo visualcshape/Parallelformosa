@@ -37,6 +37,7 @@ private:
     //Start load
     void _startLoadUI();
     void _startLoadWindow();
+    void _startLoadBuildingType();
     
     //reset progress parameters such as loadedSprite and string
     void _resetParameters();
@@ -63,6 +64,8 @@ public:
     void loadingUICallback(Texture2D* texture);
     
     void loadingWindowCallback(Texture2D* texture);
+    
+    void loadingBuildingTypeCallback(Texture2D* texture);
 };
 
 #endif

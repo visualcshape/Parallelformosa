@@ -8,7 +8,11 @@
 #include "CCPomeloWrapper.h"
 #include <errno.h>
 #include <queue>
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
 #include "pthread.h"
+#endif
+
 #include "pomelo.h"
 #include "jansson.h"
 

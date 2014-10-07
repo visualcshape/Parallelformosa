@@ -116,10 +116,20 @@ void LoadingLayer::_startLoadWindow(){
     auto textureCache = Director::getInstance()->getTextureCache();
     //Load Window
     _resetParameters();
-    _spriteCount = 1;
+    //1 for resource 1 for building model.
+    _spriteCount = 2;
     _loadingItemText->setString("Loading Windows Components...(0%)");
     textureCache->addImageAsync("UI/MainUI_Windows_Component.png", CC_CALLBACK_1(LoadingLayer::loadingWindowCallback, this));
 
+}
+
+void LoadingLayer::_startLoadBuildingType()
+{
+    auto textureCache = Director::getInstance()->getTextureCache();
+    _resetParameters();
+    _spriteCount =  1;
+    _loadingItemText->setString("Loading Building Type Components...(0%)");
+    textureCache->addImageAsync("Building/BuildingType.png", CC_CALLBACK_1(LoadingLayer::loadingBuildingTypeCallback, this));
 }
 
 void LoadingLayer::_resetParameters(){
@@ -137,8 +147,25 @@ void LoadingLayer::loadingWindowCallback(cocos2d::Texture2D *texture){
     _loadingItemText->setString(_sprintfProgress("Loading Window Components...(%.0f%%)", _calculateProgress()));
     _loadingBar->setPercent((float)_calculateProgress());
     
+    if(_loadedSprite==_spriteCount)
+    {
+        _startLoadBuildingType();
+    }
+}
+
+void LoadingLayer::loadingBuildingTypeCallback(cocos2d::Texture2D *texture){
+    ++_loadedSprite;
+    
+    SpriteFrameCache* cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile("Building/BuildingType.plist", texture);
+    _loadingItemText->setString(_sprintfProgress("Loading Building Components...(%.0f%%)", _calculateProgress()));
+    _loadingBar->setPercent((float)_calculateProgress());
+    
     //Attention//
-    _loadComplete();
+    if(_loadedSprite==_spriteCount)
+    {
+        _loadComplete();
+    }
 }
 
 double LoadingLayer::_calculateProgress(){

@@ -492,6 +492,7 @@
 		F6A6ED1719E3210D0020EFBB /* TileMap4.tmx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TileMap4.tmx; sourceTree = "<group>"; };
 		F6A6ED1819E3210D0020EFBB /* tmw_desert_spacing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmw_desert_spacing.png; sourceTree = "<group>"; };
 		F6A6ED1919E3210D0020EFBB /* Untitled.tsx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Untitled.tsx; sourceTree = "<group>"; };
+		F6A6ED4019E3A21C0020EFBB /* BuildingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingType.h; path = ../Classes/BuildingType.h; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
 		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
@@ -674,6 +675,7 @@
 				F6B5E35B19E08853004F1FA6 /* BuildingModel.h */,
 				F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */,
 				F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */,
+				F6A6ED4019E3A21C0020EFBB /* BuildingType.h */,
 			);
 			name = Classes;
 			path = ../classes;

@@ -209,6 +209,8 @@ void Database::_insertUserID()
     }
     //if already exist do nothing.
     CCLOG("Database : _insertUserID sucess!");
+    sqlite3_free_table(resultTabel);
+    
 }
 
 sqlite3* Database::getDatabasePointer()

@@ -593,7 +593,8 @@ void MapModel::troopMove(Troop* _troop, int direction){
 //@debug later online
 void MapModel::writeMapInfo(){
 	std::string path = "MapInfo/" + mapName + ".info";
-	std::string filepath = CCFileUtils::getInstance()->fullPathForFilename(path.c_str());	
+	std::string filepath = CCFileUtils::getInstance()->fullPathForFilename(path.c_str());
+    std::string readblePath = FileUtils::getInstance()->getWritablePath();
 	FILE *fp = fopen(filepath.c_str(), "w");
 	CCASSERT(fp != nullptr, "write map info fail");
 	for (auto &building : _buildings)

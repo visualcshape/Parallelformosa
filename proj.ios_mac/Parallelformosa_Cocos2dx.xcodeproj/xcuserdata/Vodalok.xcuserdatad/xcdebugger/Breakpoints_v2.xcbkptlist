@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/CCPomeloWrapper.cpp"
-            timestampString = "434315422.637923"
+            timestampString = "434350041.753526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "633"
-            endingLineNumber = "633"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
             landmarkName = "CCPomeloImpl::connect(const char* host, int port)"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/CCPomeloWrapper.cpp"
-            timestampString = "434315422.637923"
+            timestampString = "434350041.753526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "CCPomeloNotifyResult::CCPomeloNotifyResult()"
             landmarkType = "5">
          </BreakpointContent>
@@ -440,22 +440,6 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "MainUIButtonFactory::create(Vec2 position, Widget::ccWidgetTouchCallback callback)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "433875207.06795"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "LoadingLayer::loadingWindowCallback(cocos2d::Texture2D *texture)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
