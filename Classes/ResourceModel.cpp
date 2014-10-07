@@ -82,7 +82,6 @@ ResourceModel::ResourceModel(){
 		costGmag[i] = 55 * i;
 		costFood[i] = i / 3 + 1;
 	}
-
 }
 
 ResourceModel::~ResourceModel(){

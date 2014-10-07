@@ -61,8 +61,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Database::getInstance()->initDatabase();
     
     //run
+	CCLOG(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> %s\n", FileUtils::getInstance()->getWritablePath().c_str());
+	FILE* fp = fopen((FileUtils::getInstance()->getWritablePath() + "go.png").c_str(), "w");
+	//FileUtils::getInstance()->
+	CCASSERT(fp != nullptr, "suck");
+	
 	ResourceModel *rm = ResourceModel::getModel();
-	SceneManager::goTitleScreen();
+	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 	srand(time(0));
     return true;
 }

@@ -123,6 +123,9 @@
     <ClCompile Include="..\Classes\WindowProtocol.cpp">
       <Filter>Classes\MISC</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ButtonWithImage.cpp">
+      <Filter>Classes\MISC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -231,6 +234,9 @@
       <Filter>Classes\MISC</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\WindowProtocol.h">
+      <Filter>Classes\MISC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ButtonWithImage.h">
       <Filter>Classes\MISC</Filter>
     </ClInclude>
   </ItemGroup>
