@@ -10,32 +10,32 @@
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\type_traits \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cstring \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\string.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\string.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\malloc.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\string.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs_elf.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\android/api-level.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\malloc.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\monetary.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/types.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdint.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/posix_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/stddef.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/compiler.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/posix_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/kernel.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/sysmacros.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\stdint.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/internal_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/syslimits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/page.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/posix_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/stddef.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/compiler.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/posix_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/kernel.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/sysmacros.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\xlocale.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\utility \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\__tuple \
@@ -49,12 +49,12 @@
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\iosfwd \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\wchar.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdio.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdio.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\stdio.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\wctype.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\__functional_base \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\tuple \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cassert \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\assert.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\assert.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\atomic \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\__undef_min_max \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\climits \
@@ -66,8 +66,8 @@
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cwctype \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cctype \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\ctype.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\ctype.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\memory.h
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\ctype.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\memory.h
 
 jni/../../cocos2d/cocos/./../external/ConvertUTF/ConvertUTF.h:
 
@@ -89,57 +89,57 @@ C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cstring:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\string.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\string.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\string.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs_elf.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\android/api-level.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\malloc.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\malloc.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\monetary.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/types.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdint.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\stdint.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/internal_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/syslimits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/page.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/posix_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/posix_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/stddef.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/stddef.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/compiler.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/compiler.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/posix_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/posix_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/kernel.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/kernel.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/sysmacros.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/sysmacros.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\xlocale.h:
 
@@ -167,7 +167,7 @@ C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\wch
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdio.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdio.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\stdio.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\wctype.h:
 
@@ -177,7 +177,7 @@ C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\tuple:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cassert:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\assert.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\assert.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\atomic:
 
@@ -201,6 +201,6 @@ C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libcxx/include\cctype:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\ctype.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\ctype.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\ctype.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\memory.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\memory.h:

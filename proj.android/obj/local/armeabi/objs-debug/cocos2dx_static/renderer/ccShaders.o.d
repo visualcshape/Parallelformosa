@@ -3,28 +3,28 @@
   jni/../../cocos2d/cocos/.\renderer/ccShaders.h \
   jni/../../cocos2d/cocos/./platform/android\CCGL.h \
   jni/../../cocos2d/cocos/.\base/CCPlatformConfig.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2platform.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\KHR/khrplatform.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\GLES2/gl2platform.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\KHR/khrplatform.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs_elf.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\android/api-level.h \
   C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdint.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2ext.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\stdint.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/internal_types.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/limits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/syslimits.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/page.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\GLES2/gl2.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\GLES2/gl2ext.h \
   jni/../../cocos2d/cocos/.\base/CCPlatformMacros.h \
   jni/../../cocos2d/cocos/.\base/ccConfig.h \
   jni/../../cocos2d/cocos/./platform/android\CCPlatformDefine.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/log.h \
+  C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\android/log.h \
   jni/../../cocos2d/cocos/./renderer/ccShader_Position_uColor.frag \
   jni/../../cocos2d/cocos/./renderer/ccShader_Position_uColor.vert \
   jni/../../cocos2d/cocos/./renderer/ccShader_PositionColor.frag \
@@ -57,41 +57,41 @@ jni/../../cocos2d/cocos/./platform/android\CCGL.h:
 
 jni/../../cocos2d/cocos/.\base/CCPlatformConfig.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2platform.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\GLES2/gl2platform.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\KHR/khrplatform.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\KHR/khrplatform.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/cdefs_elf.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\android/api-level.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdint.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\stdint.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\linux/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/internal_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\machine/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\sys/syslimits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\asm/page.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\GLES2/gl2.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2ext.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\GLES2/gl2ext.h:
 
 jni/../../cocos2d/cocos/.\base/CCPlatformMacros.h:
 
@@ -99,7 +99,7 @@ jni/../../cocos2d/cocos/.\base/ccConfig.h:
 
 jni/../../cocos2d/cocos/./platform/android\CCPlatformDefine.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/log.h:
+C:/android-ndk-r9d/platforms/android-9/arch-arm/usr/include\android/log.h:
 
 jni/../../cocos2d/cocos/./renderer/ccShader_Position_uColor.frag:
 
