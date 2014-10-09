@@ -12,6 +12,7 @@
 #include <fstream>
 #include <math.h>
 #include "MainScene.h"
+#include "BuildingModel.h"
 
 Scene* LoadingScene::createScene()
 {
@@ -116,8 +117,7 @@ void LoadingLayer::_startLoadWindow(){
     auto textureCache = Director::getInstance()->getTextureCache();
     //Load Window
     _resetParameters();
-    //1 for resource 1 for building model.
-    _spriteCount = 2;
+    _spriteCount = 1;
     _loadingItemText->setString("Loading Windows Components...(0%)");
     textureCache->addImageAsync("UI/MainUI_Windows_Component.png", CC_CALLBACK_1(LoadingLayer::loadingWindowCallback, this));
 
@@ -127,9 +127,12 @@ void LoadingLayer::_startLoadBuildingType()
 {
     auto textureCache = Director::getInstance()->getTextureCache();
     _resetParameters();
-    _spriteCount =  1;
+    //1 for resource 1 for building model.
+    _spriteCount =  2;
     _loadingItemText->setString("Loading Building Type Components...(0%)");
     textureCache->addImageAsync("Building/BuildingType.png", CC_CALLBACK_1(LoadingLayer::loadingBuildingTypeCallback, this));
+    auto cb = CC_CALLBACK_0(LoadingLayer::loadingBuildingModelCallback, this);
+    BuildingModel::getInstance()->initModelAsync(cb);
 }
 
 void LoadingLayer::_resetParameters(){
@@ -158,14 +161,24 @@ void LoadingLayer::loadingBuildingTypeCallback(cocos2d::Texture2D *texture){
     
     SpriteFrameCache* cache = SpriteFrameCache::getInstance();
     cache->addSpriteFramesWithFile("Building/BuildingType.plist", texture);
-    _loadingItemText->setString(_sprintfProgress("Loading Building Components...(%.0f%%)", _calculateProgress()));
+    _loadingItemText->setString(_sprintfProgress("Loading Building Type Components...(%.0f%%)", _calculateProgress()));
     _loadingBar->setPercent((float)_calculateProgress());
     
+    //Attention
+    _checkLoadComplete();
+    //
+}
+
+void LoadingLayer::loadingBuildingModelCallback()
+{
     //Attention//
-    if(_loadedSprite==_spriteCount)
-    {
-        _loadComplete();
-    }
+    ++_loadedSprite;
+    _loadingItemText->setString(_sprintfProgress("Loading Building Type Components...(%.0f%%)", _calculateProgress()));
+    _loadingBar->setPercent((float)_calculateProgress());
+    
+    //Attention
+    _checkLoadComplete();
+    //
 }
 
 double LoadingLayer::_calculateProgress(){
@@ -185,6 +198,14 @@ void LoadingLayer::_loadComplete(){
         CCLOG("[Loading Scene]Load complete.");
     }else{
         CCLOG("Not Loaded completed...");
+    }
+}
+
+void LoadingLayer::_checkLoadComplete()
+{
+    if(_spriteCount==_loadedSprite)
+    {
+        _loadComplete();
     }
 }
 /////////////////

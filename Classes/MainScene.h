@@ -14,7 +14,7 @@
 #include "Observer.h"
 #include "Subject.h"
 #include "MainUIInfoModel.h"
-#include "WindowProtocol.h"
+#include "BuildingWindow.h"
 #include "ButtonWithImage.h"
 
 USING_NS_CC;

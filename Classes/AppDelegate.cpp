@@ -61,10 +61,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Database::getInstance()->initDatabase();
     
     //run
-	ResourceModel *rm = ResourceModel::getModel();
+	//ResourceModel *rm = ResourceModel::getModel();
     //SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
     SceneManager::goTrademarkScreen();
-	srand(time(0));
+	//srand(time(0));
     return true;
 }
 

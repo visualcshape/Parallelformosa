@@ -42,30 +42,102 @@ void BuildingModel::initModel()
 {
     //sqlite3
     sqlite3* pDB = Database::getInstance()->getDatabasePointer();
-    
-    char** resultTabel;
-    char* pErrMsg;
-    int row,column,result;
-    std::vector<std::string> attributes;
-    std::map<std::string,int> order;
+    int result;
+    char* errMsg;
     
     std::string sql = "select * from BuildingType";
-    result = sqlite3_get_table(pDB, sql.c_str(), &resultTabel, &row, &column, &pErrMsg);
-    CCASSERT(result==SQLITE_OK, pErrMsg);
+    result = sqlite3_exec(pDB, sql.c_str(), BuildingModel::queryResult, nullptr, &errMsg);
+    CCASSERT(result==SQLITE_OK, errMsg);
     
-    //order up
-    for(int i = 0 ; i < column ; i++)
+    return;
+}
+
+int BuildingModel::queryResult(void *para, int columns, char **columnValue, char **columnName)
+{
+    BuildingType tmp;
+    //
+    for(int i = 0 ; i < columns ; i++)
     {
-        order[resultTabel[i]] = i;
-    }
-    
-    //push back to
-    
-    for(int i = column,j = 0 ; i < row ; i++,j++)
-    {
+        std::string columnValueStr = columnValue[i];
+        std::string columnNameStr = columnName[i];
         
-        
-        if(j==column-1)
-            j=-1;
+        if(columnNameStr=="Name")
+        {
+            tmp.name = columnValueStr;
+        }
+        else if(columnNameStr=="ResourceThumb")
+        {
+            tmp.thumbResourceName = columnValueStr;
+        }
+        else if(columnNameStr=="BaseHP")
+        {
+            tmp.baseHP = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="Type")
+        {
+            tmp.type = columnValueStr;
+        }
+        else if(columnNameStr=="Range")
+        {
+            tmp.range = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="FoodCost")
+        {
+            tmp.foodCost = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="GPowerCost")
+        {
+            tmp.gPower = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="LManaCost")
+        {
+            tmp.lMana = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="LevelFactorCost")
+        {
+            tmp.levelFactorCost = atof(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="LevelFactorHP")
+        {
+            tmp.levelFactorHP = atof(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="OcuppyWidth")
+        {
+            tmp.width = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="OcuppyHeight")
+        {
+            tmp.height = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="Description")
+        {
+            tmp.descrption = columnValueStr;
+        }
+        else if(columnNameStr=="Duration")
+        {
+            tmp.duration = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="DurationFactor")
+        {
+            tmp.durationFactor = atof(columnValueStr.c_str());
+        }
+        else
+        {
+            CCASSERT(false, "[DB]Error no such type.");
+        }
     }
+    //push to map
+    BuildingModel::getInstance()->insertIntoMap(tmp.name,tmp);
+    
+    return SQLITE_OK;
+}
+
+void BuildingModel::insertIntoMap(std::string key, BuildingType type)
+{
+    _buildingTypesMap[key] = type;
+}
+
+const std::map<std::string,BuildingType>* BuildingModel::getBuildingModelMap()
+{
+    return &_buildingTypesMap;
 }

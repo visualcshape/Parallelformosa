@@ -72,8 +72,6 @@
 		F646F54919891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F646F54A19891025007519A6 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F646F54819891025007519A6 /* Database.cpp */; };
 		F64E166F19AEE33E005046E1 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E166E19AEE33E005046E1 /* libpomelo.a */; };
-		F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
-		F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA251986538D00474833 /* LoginTitleScene.cpp */; };
 		F696BA2C1986586A00474833 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA2A1986586A00474833 /* VisibleRect.cpp */; };
 		F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA2A1986586A00474833 /* VisibleRect.cpp */; };
 		F696BA5F19877D4100474833 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5C19877D4100474833 /* fonts */; };
@@ -396,8 +394,6 @@
 		F64E166E19AEE33E005046E1 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../libpomelo/build/Default-iphoneos/libpomelo.a"; sourceTree = "<group>"; };
 		F64E167019AEE36A005046E1 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../libpomelo/deps/jansson/build/Default-iphoneos/libjansson.a"; sourceTree = "<group>"; };
 		F64E167219AEE391005046E1 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../libpomelo/deps/uv/build/Default-iphoneos/libuv.a"; sourceTree = "<group>"; };
-		F696BA1A1986415400474833 /* LoginTitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginTitleScene.h; path = ../Classes/LoginTitleScene.h; sourceTree = "<group>"; };
-		F696BA251986538D00474833 /* LoginTitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleScene.cpp; path = ../Classes/LoginTitleScene.cpp; sourceTree = "<group>"; };
 		F696BA2A1986586A00474833 /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VisibleRect.cpp; path = ../Classes/VisibleRect.cpp; sourceTree = "<group>"; };
 		F696BA2B1986586A00474833 /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisibleRect.h; path = ../Classes/VisibleRect.h; sourceTree = "<group>"; };
 		F696BA5C19877D4100474833 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -637,8 +633,6 @@
 				F6A8EDA0198530AB0023CD3D /* AppMacro.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				F696BA1A1986415400474833 /* LoginTitleScene.h */,
-				F696BA251986538D00474833 /* LoginTitleScene.cpp */,
 				F696BA6519879AAC00474833 /* CustomLabelMenuItem.h */,
 				F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */,
 				F646F5451989100E007519A6 /* Database.h */,
@@ -1119,7 +1113,6 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F6B5E35419E02D66004F1FA6 /* BuildingWindow.cpp in Sources */,
 				F69E486C19BF539F009717E7 /* jsoncpp.cpp in Sources */,
-				F696BA261986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F6A6ECDA19E31F340020EFBB /* Building.cpp in Sources */,
 				F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
@@ -1187,7 +1180,6 @@
 				F6A6ECDB19E31F340020EFBB /* Building.cpp in Sources */,
 				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				F6A6ECF319E31F340020EFBB /* Troop.cpp in Sources */,
-				F696BA271986538D00474833 /* LoginTitleScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F6A6ECE119E31F340020EFBB /* MapLayer.cpp in Sources */,
 				F6A6ECD719E31F340020EFBB /* BaseLayer.cpp in Sources */,

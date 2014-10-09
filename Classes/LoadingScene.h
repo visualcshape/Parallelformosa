@@ -50,6 +50,8 @@ private:
     
     //Load complete
     void _loadComplete();
+    
+    void _checkLoadComplete();
 protected:
 public:
     LoadingLayer();
@@ -66,6 +68,8 @@ public:
     void loadingWindowCallback(Texture2D* texture);
     
     void loadingBuildingTypeCallback(Texture2D* texture);
+    
+    void loadingBuildingModelCallback();
 };
 
 #endif

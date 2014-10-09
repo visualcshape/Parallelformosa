@@ -34,7 +34,7 @@ USING_NS_CC;
 #define DIALAGOUE_TAG 999999
 #define DIALOGUE_TAG 999999
 //No connection 0 = false 1 = true will skip connection step at title scene.
-#define NO_CONNECTION 0
+#define NO_CONNECTION 1
 //
 
 //Color define

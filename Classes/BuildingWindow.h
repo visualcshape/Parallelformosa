@@ -13,6 +13,10 @@
 #include <cocos2d.h>
 #include <CocosGUI.h>
 #include "AppMacro.h"
+#include "ButtonWithImage.h"
+#include "BuildingType.h"
+#include "BuildingModel.h"
+#include <map>
 
 USING_NS_CC;
 USING_NS_CC::ui;
@@ -20,8 +24,12 @@ USING_NS_CC::ui;
 class BuildingWindow : public WindowProtocol{
 private:
     std::function<void()> _windowDismissCallback;
-    ui::ScrollView* _scrollView;
     Layout* _buildingMainLayout;
+    Layout* _buildingLeftLayout;
+    Layout* _buildingRightLayout;
+    ListView* _buildingButtonsListView;
+    
+    static float MARGIN;
 protected:
     BuildingWindow(std::string titleText,std::function<void(Ref*,Widget::TouchEventType)> closeCallback,std::function<void()> windowDismissCallback);
 public:
@@ -30,6 +38,8 @@ public:
     static BuildingWindow* create(std::string titleText,std::function<void(Ref*,Widget::TouchEventType)> closeCallback, std::function<void()> windowDismissCallback);
     
     virtual bool init();
+    
+    void buildingButtonCallback(Ref* pSender,Widget::TouchEventType);
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__BuildingWindow__) */

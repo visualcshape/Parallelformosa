@@ -26,11 +26,12 @@ void ButtonWithImage::onSizeChanged(){
 }
 
 void ButtonWithImage::updateTitleLocation(){
+    _titleRenderer->setAnchorPoint(Vec2(0.0, 0.5));
     _titleRenderer->setPosition(Vec2(_thumbnailRenderer->getPosition().x+_thumbnailRenderer->getContentSize().width+2, _contentSize.height*0.5));
 }
 
 void ButtonWithImage::updateThumbnailLocation(){
-    _thumbnailRenderer->setPosition(Vec2(5.0f, _contentSize.height*0.5));
+    _thumbnailRenderer->setPosition(Vec2(5.0f, _contentSize.height*0.5-3));
 }
 
 void ButtonWithImage::initRenderer(){
@@ -95,4 +96,14 @@ void ButtonWithImage::loadThumbnailTexture(const std::string &thumbnail, cocos2d
     updateContentSizeWithTextureSize(_thumbnailTextureSize);
     //No true/false
     //!!
+}
+
+void ButtonWithImage::setKey(std::string key)
+{
+    _key = key;
+}
+
+std::string ButtonWithImage::getKey()
+{
+    return _key;
 }

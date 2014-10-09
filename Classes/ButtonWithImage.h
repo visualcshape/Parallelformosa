@@ -19,6 +19,8 @@ class ButtonWithImage:public Button{
 private:
     std::string _thumbnailFilename;
     TextureResType _thumbnailTexRes;
+    
+    std::string _key;
 protected:
     virtual void onSizeChanged() override;
     virtual void updateTitleLocation() override;
@@ -43,6 +45,10 @@ public:
               TextureResType texType);
     
     void loadThumbnailTexture(const std::string& thumbnail,TextureResType texType);
+    
+    void setKey(std::string key);
+    
+    std::string getKey();
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__ButtonWithImage__) */
