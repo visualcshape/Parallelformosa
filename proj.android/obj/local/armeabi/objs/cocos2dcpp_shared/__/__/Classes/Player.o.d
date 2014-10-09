@@ -316,7 +316,7 @@
   jni/../../cocos2d/cocos/./deprecated/CCBool.h \
   jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h \
   jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h \
-  jni/../../Classes/Player.h jni/../../Classes/AppMacro.h
+  jni/../../Classes/AppMacro.h jni/../../Classes/Player.h
 
 jni/../../Classes/ResourceModel.h:
 
@@ -952,6 +952,6 @@ jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h:
 
 jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h:
 
-jni/../../Classes/Player.h:
-
 jni/../../Classes/AppMacro.h:
+
+jni/../../Classes/Player.h:

@@ -1,7 +1,10 @@
 #pragma once
 #include <cocos2d.h>
+#include <vector>
+#include <algorithm>
 
 USING_NS_CC;
+using namespace std;
 
 #define DESIGN_RESOLUTION_480X320   0
 #define DESIGN_RESOLUTION_960X640   1
@@ -69,7 +72,7 @@ static float computeFontSize(float fontSize)
 }
 
 // Personal Macro {
-#define SZ(a) ((a).size())
+#define SZ(a) ((int)(a).size())
 typedef std::pair <int, int> PII;
 typedef Vec2 TilePoint;
 typedef Vec2 MapPoint;

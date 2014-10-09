@@ -19,6 +19,9 @@
     <Filter Include="Classes\MISC">
       <UniqueIdentifier>{a235d73c-899b-452f-a4af-7eae0194dee3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\IO">
+      <UniqueIdentifier>{09577c01-6b2f-4687-abc4-062a5dcc5ea3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

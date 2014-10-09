@@ -1,5 +1,11 @@
 #include "ResourceModel.h"
 
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+#include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#endif
+
 USING_NS_CC;
 
 ResourceModel* ResourceModel::rm_pInstance;
@@ -91,4 +97,129 @@ ResourceModel* ResourceModel::getModel(){
 	if (rm_pInstance == nullptr)
 		rm_pInstance = new ResourceModel();
 	return rm_pInstance;
+}
+
+void ResourceModel::CreateDownloadedDir(std::string relativePath){
+	string pathToSave = CCFileUtils::getInstance()->getWritablePath();
+	pathToSave += relativePath;
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+	DIR *pDir = NULL;
+	pDir = opendir(pathToSave.c_str());
+	if (!pDir)//The folder does not exist then began to create
+	{
+		mkdir(pathToSave.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
+	}
+#else
+	if ((GetFileAttributesA(pathToSave.c_str())) == INVALID_FILE_ATTRIBUTES) //The Win32 platform
+	{
+		CreateDirectoryA(pathToSave.c_str(), 0);
+	}
+#endif
+}
+
+bool ResourceModel::isFileExist(std::string pFileName){
+	if (!pFileName.c_str()) return false;
+	std::string filePath = CCFileUtils::getInstance()->getWritablePath();
+	filePath += pFileName;
+	FILE *pFp = fopen(filePath.c_str(), "r");
+	CCLOG("%s", filePath.c_str());
+	if (pFp)
+	{
+		fclose(pFp);
+		return true;
+	}
+	return false;
+}
+
+void ResourceModel::copyData(std::string pFileName){
+	std::string strPath = CCFileUtils::getInstance()->fullPathForFilename(pFileName);
+	ssize_t len = 0;
+	unsigned char* data = NULL;
+	data = CCFileUtils::getInstance()->getFileData(strPath.c_str(), "r", &len);
+
+	std::string destPath = CCFileUtils::getInstance()->getWritablePath();
+	destPath += pFileName;
+
+	FILE *pFp = fopen(destPath.c_str(), "w+");
+	fwrite(data, sizeof(char), len, pFp);
+	fclose(pFp);
+	delete[]data;
+	data = NULL;
+}
+
+bool ResourceModel::CreateDirectory(std::string pPath)
+{
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+	mode_t processMask = umask(0); //Linux system setting file permissions
+	int nRet = mkdir(pPath.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
+	umask(processMask);
+	if (nRet != 0 && (errno != EEXIST))
+	{
+		return false;
+	}
+	return true;
+#else
+	BOOL nRet = CreateDirectoryA(pPath.c_str(), NULL);
+	if (!nRet && ERROR_ALREADY_EXISTS != GetLastError())
+	{
+		return false;
+	}
+	return true;
+#endif
+}
+
+vector <string> ResourceModel::DecomposePath(std::string relativePath){
+	int lenPtr = SZ(relativePath) - 1;
+	vector <string> paths;
+	while (lenPtr >= 0){
+		while (lenPtr >= 0 && relativePath.at(lenPtr) != '/')
+			lenPtr--;
+		if (lenPtr > 0)
+			paths.push_back(relativePath.substr(0, lenPtr));
+		lenPtr--;
+	}
+	reverse(paths.begin(), paths.end());
+	return paths;
+}
+
+FILE* ResourceModel::OpenFileR(string relativePath){
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+	if (!isFileExist(relativePath)){
+		vector <string> paths = DecomposePath(relativePath);
+		for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
+			CreateDownloadedDir(paths.at(k));
+		copyData(relativePath);
+	}
+	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
+	FILE* fp = fopen(strPath.c_str(), "r");
+#else
+	std::string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
+	FILE *fp = fopen(fullPath.c_str(), "r");
+
+	//@brief create empty file
+	if (fp == nullptr){
+		fp = fopen(fullPath.c_str(), "w");
+		fclose(fp);
+		fp = fopen(fullPath.c_str(), "r");
+	}
+#endif
+
+	CCASSERT(fp != nullptr, "OpenFileR failed");
+	return fp;
+}
+
+FILE* ResourceModel::OpenFileW(string relativePath){
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+	vector <string> paths = DecomposePath(relativePath);
+	for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
+		CreateDownloadedDir(paths.at(k));
+	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
+	FILE* fp = fopen(strPath.c_str(), "w");
+#else
+	string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
+	FILE *fp = fopen(fullPath.c_str(), "w");
+#endif
+
+	CCASSERT(fp != nullptr, "OpenFileW failed");
+	return fp;
 }

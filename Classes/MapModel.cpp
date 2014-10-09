@@ -592,30 +592,22 @@ void MapModel::troopMove(Troop* _troop, int direction){
 
 //@debug later online
 void MapModel::writeMapInfo(){
-	//std::string path = "MapInfo/" + mapName + ".info";
-	std::string fullPath = CCFileUtils::getInstance()->fullPathFromRelativeFile(mapName + ".info", "MapInfo/");
-	//std::string filePath = dirPath + path;
-	FILE *fp = fopen(fullPath.c_str(), "w");
+	ResourceModel *rm = ResourceModel::getModel();
+	std::string filename = "MapInfo/" + mapName + ".info";
+
+	FILE *fp = rm->OpenFileW(filename);
 	CCASSERT(fp != nullptr, "write map info fail");
+
 	for (auto &building : _buildings)
 		fprintf(fp, "%d %.0f %.0f %d %d\n", building->id, building->getCoord().x, building->getCoord().y, building->height, building->owner);
 	fclose(fp);
 }
 
 void MapModel::readMapInfo(){
-	//std::string path =  + ;
-	std::string fullPath = CCFileUtils::getInstance()->fullPathFromRelativeFile(mapName + ".info", "MapInfo/");
-	//std::string filePath = dirPath + path;
-	CCLOG(fullPath.c_str());
-	FILE *fp = fopen(fullPath.c_str(), "r");
+	ResourceModel *rm = ResourceModel::getModel();
+	std::string filename = "MapInfo/" + mapName + ".info";
 
-	//@brief create empty file
-	if (fp == nullptr){
-		fp = fopen(fullPath.c_str(), "w");
-		fclose(fp);
-		fp = fopen(fullPath.c_str(), "r");
-	}
-
+	FILE *fp = rm->OpenFileR(filename);
 	CCASSERT(fp != nullptr, "read map info fail");
 
 	int id, x, y, height, owner;
@@ -625,7 +617,6 @@ void MapModel::readMapInfo(){
 	}
 	fclose(fp);
 
-	ResourceModel *rm = ResourceModel::getModel();
 	PlayerModel *pm = PlayerModel::getModel();
 	CCLOG(">> _baseBuidling = nullptr => %s", pm->height == -1 ? "Yes" : "No");
 	if (pm->height != -1 && rm->strWorldMap == mapName){

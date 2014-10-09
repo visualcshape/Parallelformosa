@@ -425,7 +425,8 @@
   jni/../../Classes/CCPomeloWrapper.h jni/../../Classes/json.h \
   jni/../../Classes/VisibleRect.h jni/../../Classes/AppMacro.h \
   jni/../../Classes/NoticeManager.h jni/../../Classes/LoadingScene.h \
-  jni/../../Classes/NoticeLoading.h
+  jni/../../Classes/NoticeLoading.h jni/../../Classes/ResourceModel.h \
+  jni/../../Classes/SceneManager.h
 
 jni/../../Classes/LoginTitleLayer.h:
 
@@ -1288,3 +1289,7 @@ jni/../../Classes/NoticeManager.h:
 jni/../../Classes/LoadingScene.h:
 
 jni/../../Classes/NoticeLoading.h:
+
+jni/../../Classes/ResourceModel.h:
+
+jni/../../Classes/SceneManager.h:

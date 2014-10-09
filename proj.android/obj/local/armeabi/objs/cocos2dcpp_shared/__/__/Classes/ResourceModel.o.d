@@ -315,7 +315,14 @@
   jni/../../cocos2d/cocos/./deprecated/CCDouble.h \
   jni/../../cocos2d/cocos/./deprecated/CCBool.h \
   jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h \
-  jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h
+  jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h \
+  jni/../../Classes/AppMacro.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\dirent.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/stat.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/stat.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\endian.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/endian.h \
+  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/endian.h
 
 jni/../../Classes/ResourceModel.h:
 
@@ -950,3 +957,17 @@ jni/../../cocos2d/cocos/./deprecated/CCBool.h:
 jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h:
 
 jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h:
+
+jni/../../Classes/AppMacro.h:
+
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\dirent.h:
+
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/stat.h:
+
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/stat.h:
+
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\endian.h:
+
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/endian.h:
+
+C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/endian.h:

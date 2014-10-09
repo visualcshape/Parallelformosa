@@ -316,8 +316,8 @@
   jni/../../cocos2d/cocos/./deprecated/CCBool.h \
   jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h \
   jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h \
-  jni/../../Classes/MapModel.h jni/../../Classes/Building.h \
-  jni/../../Classes/AppMacro.h jni/../../Classes/PFComponent.h \
+  jni/../../Classes/AppMacro.h jni/../../Classes/MapModel.h \
+  jni/../../Classes/Building.h jni/../../Classes/PFComponent.h \
   jni/../../Classes/Subject.h jni/../../Classes/Observer.h \
   jni/../../Classes/Player.h jni/../../Classes/Troop.h
 
@@ -955,11 +955,11 @@ jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h:
 
 jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h:
 
+jni/../../Classes/AppMacro.h:
+
 jni/../../Classes/MapModel.h:
 
 jni/../../Classes/Building.h:
-
-jni/../../Classes/AppMacro.h:
 
 jni/../../Classes/PFComponent.h:
 

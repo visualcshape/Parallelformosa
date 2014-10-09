@@ -67,7 +67,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	CCASSERT(fp != nullptr, "suck");
 	
 	ResourceModel *rm = ResourceModel::getModel();
-	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+	SceneManager::goTrademarkScreen();
+	//SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 	srand(time(0));
     return true;
 }
