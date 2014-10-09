@@ -85,9 +85,12 @@ bool MainMenuLayer::init(){
 
 void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
     //Used for test
-    MainUIInfoModel::getInstance()->setScrollingText("Building");
-    BuildingWindow* p = BuildingWindow::create("Building", nullptr, nullptr);
-    addChild(p,100);
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        MainUIInfoModel::getInstance()->setScrollingText("Building");
+        BuildingWindow* p = BuildingWindow::create("Building", nullptr, nullptr);
+        addChild(p,100);
+    }
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
