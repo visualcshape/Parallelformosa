@@ -47,6 +47,8 @@ USING_NS_CC;
 
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
+#define TEST_TEXT "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+
 static std::string CONNECTOR_HOST = "";
 static long long CONNECTOR_PORT = 0;
 

@@ -87,9 +87,16 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
     //Used for test
     if(type==Widget::TouchEventType::ENDED)
     {
+        std::string windowName = "BuildingWindow";
         MainUIInfoModel::getInstance()->setScrollingText("Building");
-        BuildingWindow* p = BuildingWindow::create("Building", nullptr, nullptr);
-        addChild(p,100);
+        Layer* thisLayer = this;
+        BuildingWindow* p = BuildingWindow::create("Building", [=](Ref* pSender,Widget::TouchEventType type){
+            if(type==Widget::TouchEventType::ENDED)
+            {
+                thisLayer->removeChildByName(windowName);
+            }
+        }, nullptr);
+        addChild(p,100,windowName);
     }
 }
 
