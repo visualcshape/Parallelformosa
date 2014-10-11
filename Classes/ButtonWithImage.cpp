@@ -9,9 +9,13 @@
 #include "ButtonWithImage.h"
 
 static const int THUMBNAIL_IMAGE_Z = (-1);
+static const int FOCUS_Z = (-2);
+
+const int ButtonWithImage::_kActionTag = 0;
 
 ButtonWithImage::ButtonWithImage():
-_thumbnailRenderer(nullptr){
+_thumbnailRenderer(nullptr),
+_isFocus(false){
     
 }
 
@@ -63,6 +67,7 @@ bool ButtonWithImage::init(const std::string &normalImage, const std::string &se
     
     //load thumbnail texture (orignally from plist)
     loadThumbnailTexture(thumbnailImage, texType);
+    //loadFocusTexture();
     
     return true;
     
@@ -98,6 +103,22 @@ void ButtonWithImage::loadThumbnailTexture(const std::string &thumbnail, cocos2d
     //!!
 }
 
+void ButtonWithImage::loadFocusTexture()
+{
+    //only loaded from plist
+    _focusRenderer = Scale9Sprite::createWithSpriteFrameName("ButtonFocus.png", Rect(6, 6, 100-6*2, 100-6*2));
+    CC_ASSERT(_focusRenderer!=nullptr);
+    _focusRenderer->setContentSize(getContentSize());
+    
+    _focusRenderer->setAnchorPoint(Vec2(0.0f, 0.0f));
+    _focusRenderer->setPosition(Vec2(0, 0));
+    
+    //_focusRenderer->setAnchorPoint(Vec2(0.0f, 0.5f));
+    addProtectedChild(_focusRenderer, FOCUS_Z, -1);
+    //no true/false
+    //!!
+}
+
 void ButtonWithImage::setKey(std::string key)
 {
     _key = key;
@@ -106,4 +127,45 @@ void ButtonWithImage::setKey(std::string key)
 std::string ButtonWithImage::getKey()
 {
     return _key;
+}
+
+void ButtonWithImage::setFocus(bool isFocus)
+{
+    if(isFocus)
+    {
+        _focusRenderer->setVisible(true);
+        focusAction();
+    }
+    else
+    {
+        _focusRenderer->setVisible(false);
+        if(_focusRenderer->getActionByTag(_kActionTag))
+        {
+            _focusRenderer->stopAllActions();
+        }
+        _focusRenderer->setVisible(false);
+    }
+}
+
+void ButtonWithImage::focusAction()
+{
+    float duration = 0.5f;
+    auto actDis = FadeTo::create(duration, 0);
+    auto actApe = FadeTo::create(duration, 255);
+    
+    CallFunc* repeat = CallFunc::create(CC_CALLBACK_0(ButtonWithImage::focusAction, this));
+    Sequence* seq = Sequence::create(actDis,DelayTime::create(0.2f),actApe,repeat, NULL);
+    seq->setTag(_kActionTag);
+    
+    _focusRenderer->runAction(seq);
+}
+
+void ButtonWithImage::setIndex(int index)
+{
+    _index = index;
+}
+
+int ButtonWithImage::getIndex()
+{
+    return _index;
 }

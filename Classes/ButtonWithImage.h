@@ -11,9 +11,11 @@
 
 #include <cocos2d.h>
 #include <CocosGUI.h>
+#include <cocos-ext.h>
 
 USING_NS_CC;
 USING_NS_CC::ui;
+USING_NS_CC_EXT;
 
 class ButtonWithImage:public Button{
 private:
@@ -21,6 +23,10 @@ private:
     TextureResType _thumbnailTexRes;
     
     std::string _key;
+    
+    static const int _kActionTag;
+    
+    int _index;
 protected:
     virtual void onSizeChanged() override;
     virtual void updateTitleLocation() override;
@@ -28,6 +34,8 @@ protected:
     virtual void initRenderer() override;
     Node* _thumbnailRenderer;
     Size _thumbnailTextureSize;
+    Scale9Sprite* _focusRenderer;
+    bool _isFocus;
 public:
     ButtonWithImage();
     ~ButtonWithImage();
@@ -46,9 +54,19 @@ public:
     
     void loadThumbnailTexture(const std::string& thumbnail,TextureResType texType);
     
+    void loadFocusTexture();
+    
     void setKey(std::string key);
     
+    void setIndex(int index);
+    
+    int getIndex();
+    
     std::string getKey();
+    
+    void setFocus(bool isFocus);
+    
+    void focusAction();
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__ButtonWithImage__) */

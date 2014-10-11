@@ -189,6 +189,8 @@
 		F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */; };
 		F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE23198A857D002FAE49 /* Subject.cpp */; };
 		F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE23198A857D002FAE49 /* Subject.cpp */; };
+		F6DEBDC619E9284400F58194 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6DEBDC419E9284400F58194 /* Effect.cpp */; };
+		F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6DEBDC419E9284400F58194 /* Effect.cpp */; };
 		F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */; };
 		F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */; };
 /* End PBXBuildFile section */
@@ -514,6 +516,8 @@
 		F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoginTitleModel.cpp; path = ../Classes/LoginTitleModel.cpp; sourceTree = "<group>"; };
 		F6D4CE22198A856B002FAE49 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = ../Classes/Subject.h; sourceTree = "<group>"; };
 		F6D4CE23198A857D002FAE49 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Subject.cpp; path = ../Classes/Subject.cpp; sourceTree = "<group>"; };
+		F6DEBDC419E9284400F58194 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Effect.cpp; path = ../Classes/Effect.cpp; sourceTree = "<group>"; };
+		F6DEBDC519E9284400F58194 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Effect.h; path = ../Classes/Effect.h; sourceTree = "<group>"; };
 		F6E7B97819A3A044004D6DAF /* DialogueWindowConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogueWindowConfirm.h; path = ../Classes/DialogueWindowConfirm.h; sourceTree = "<group>"; };
 		F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogueWindowConfirm.cpp; path = ../Classes/DialogueWindowConfirm.cpp; sourceTree = "<group>"; };
 		F6F6C05E19812F2B006578B0 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../libpomelo/libjansson.a; sourceTree = "<group>"; };
@@ -670,6 +674,8 @@
 				F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */,
 				F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */,
 				F6A6ED4019E3A21C0020EFBB /* BuildingType.h */,
+				F6DEBDC419E9284400F58194 /* Effect.cpp */,
+				F6DEBDC519E9284400F58194 /* Effect.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1132,6 +1138,7 @@
 				F6A6ECE019E31F340020EFBB /* MapLayer.cpp in Sources */,
 				F6A6ECE819E31F340020EFBB /* PlayerModel.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
+				F6DEBDC619E9284400F58194 /* Effect.cpp in Sources */,
 				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F6A6ECE619E31F340020EFBB /* Player.cpp in Sources */,
@@ -1167,6 +1174,7 @@
 				F6A6ECEF19E31F340020EFBB /* Tower.cpp in Sources */,
 				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
+				F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */,
 				F6A6ECE519E31F340020EFBB /* PFComponent.cpp in Sources */,
 				F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */,

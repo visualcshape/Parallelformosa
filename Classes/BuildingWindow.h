@@ -34,6 +34,8 @@ private:
     ImageView* _rangeIcon;
     ImageView* _foodIcon;
     ImageView* _durationIcon;
+    ImageView* _widthIcon;
+    ImageView* _heightIcon;
     Text* _costTitleText;
     Text* _infoTitleText;
     Text* _descrptionTitleTitleText;
@@ -43,16 +45,34 @@ private:
     Text* _durationValue;
     Text* _rangeValue;
     Text* _foodValue;
+    Text* _widthValue;
+    Text* _heightValue;
     ImageView* _typeIcon;
     Text* _typeValue;
     ui::ScrollView* _descriptionScrollView;
     Text* _descriptionValue;
     
+    ButtonWithImage* _curBTN;
+    
     static float MARGIN;
+    
+    static std::string GLLayoutName;
+    
+    static std::string FDLayoutName;
+    
+    static std::string HRLayoutName;
+    
+    static std::string TLayoutName;
+    
+    static std::string DVLayoutName;
+    
+    static int zOrder;
     
     int _curItem;
     
-    void _initSelectedButton();
+    void _setValue(std::string key);
+    
+    void _refreshLayout();
 protected:
     BuildingWindow(std::string titleText,std::function<void(Ref*,Widget::TouchEventType)> closeCallback,std::function<void(Ref*,Widget::TouchEventType)> buildButtonPressedCallback);
 public:
@@ -62,7 +82,11 @@ public:
     
     virtual bool init();
     
+    void setFocus(int index);
+    
     void buildingButtonCallback(Ref* pSender,Widget::TouchEventType type);
+    
+    ButtonWithImage* getCurButton();
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__BuildingWindow__) */

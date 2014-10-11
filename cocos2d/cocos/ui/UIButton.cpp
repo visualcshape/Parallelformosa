@@ -33,9 +33,9 @@ NS_CC_BEGIN
 
 namespace ui {
 
-static const int NORMAL_RENDERER_Z = (-2);
-static const int PRESSED_RENDERER_Z = (-2);
-static const int DISABLED_RENDERER_Z = (-2);
+static const int NORMAL_RENDERER_Z = (-3);
+static const int PRESSED_RENDERER_Z = (-3);
+static const int DISABLED_RENDERER_Z = (-3);
 static const int TITLE_RENDERER_Z = (0);
     
 IMPLEMENT_CLASS_GUI_INFO(Button)

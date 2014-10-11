@@ -46,6 +46,7 @@ LoadingLayer::LoadingLayer(){
     while(std::getline(fileStream, curLine)){
         _fileNames.push_back(curLine);
     }
+    //pop useless last index
     _fileNames.pop_back();
     inputStream.close();
     _fileNames.shrink_to_fit();
