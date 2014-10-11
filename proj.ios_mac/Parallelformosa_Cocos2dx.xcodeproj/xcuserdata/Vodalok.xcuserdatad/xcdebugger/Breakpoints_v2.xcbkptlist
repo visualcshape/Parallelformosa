@@ -407,7 +407,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "LoadingLayer::loadingUICallback(cocos2d::Texture2D *texture)"
+            landmarkName = "LoadingLayer::init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -423,7 +423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "LoadingLayer::loadingUICallback(cocos2d::Texture2D *texture)"
+            landmarkName = "LoadingLayer::init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -518,9 +518,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "LoadingLayer::_startLoadBuildingType()"
-            landmarkType = "5">
+            endingLineNumber = "132">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -546,13 +544,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "434659130.395657"
+            timestampString = "434660810.648286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
-            landmarkName = "BuildingWindow::buildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type)"
-            landmarkType = "5">
+            startingLineNumber = "342"
+            endingLineNumber = "342">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -562,11 +558,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "434658365.427852"
+            timestampString = "434660810.648286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -578,11 +574,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "434658365.427852"
+            timestampString = "434660810.648286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -594,23 +590,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "434658365.427852"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
-            landmarkName = "BuildingWindow::init()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "434658365.427852"
+            timestampString = "434660810.648286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "273"
@@ -626,11 +606,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "434658365.427852"
+            timestampString = "434660810.648286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "BuildingWindow::init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/BuildingWindow.cpp"
+            timestampString = "434660810.648286"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>

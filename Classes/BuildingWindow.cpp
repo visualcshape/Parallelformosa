@@ -152,7 +152,6 @@ bool BuildingWindow::init(){
     iconsAndTextGLLayout->addChild(_lManaIcon);
     iconsAndTextGLLayout->addChild(_lManaValue);
     
-    
     /////
     
     _foodIcon = ImageView::create("Food.png",Widget::TextureResType::PLIST);
@@ -334,6 +333,9 @@ bool BuildingWindow::init(){
     _baseLayout->addChild(_buildingMainLayout);
     //add to base
     
+    //init selected
+    _initSelectedButton();
+    
     ret = true;
     return ret;
 }
@@ -344,6 +346,18 @@ void BuildingWindow::buildingButtonCallback(cocos2d::Ref *pSender, Widget::Touch
     {
         CCLOG("BTN Touched.");
     }
+}
+
+void BuildingWindow::_initSelectedButton()
+{
+    Button* btn = dynamic_cast<Button*>(_buildingButtonsListView->getItem(0));
+    
+    //GL
+    GLProgram* gl = new GLProgram();
+    
+    //
+    //CC_ASSERT(false);
+    
 }
 
 float BuildingWindow::MARGIN = 2;

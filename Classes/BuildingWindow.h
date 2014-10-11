@@ -51,6 +51,8 @@ private:
     static float MARGIN;
     
     int _curItem;
+    
+    void _initSelectedButton();
 protected:
     BuildingWindow(std::string titleText,std::function<void(Ref*,Widget::TouchEventType)> closeCallback,std::function<void(Ref*,Widget::TouchEventType)> buildButtonPressedCallback);
 public:

@@ -33,13 +33,20 @@ LoadingLayer::LoadingLayer(){
     //Load file list
     std::ifstream inputStream;
     std::string curLine;
+    std::string contents;
+    long fSize = 0;
+    std::string fullPath = FileUtils::getInstance()->fullPathForFilename("UI/MainSceneResourceList.txt");
+    unsigned char* buf = FileUtils::getInstance()->getFileData(fullPath.c_str(),"r",&fSize);
+    contents.append((char*) buf);
+
+    std::istringstream fileStream(contents);
+    //inputStream.open(fullPath.c_str());
+    //CCASSERT(inputStream.is_open(), "Cannot open file UI/MainSceneResourceList.txt");
     
-    inputStream.open(FileUtils::getInstance()->fullPathForFilename("UI/MainSceneResourceList.txt"));
-    CCASSERT(inputStream.is_open(), "Cannot open file UI/MainSceneResourceList.txt");
-    
-    while(std::getline(inputStream, curLine)){
+    while(std::getline(fileStream, curLine)){
         _fileNames.push_back(curLine);
     }
+    _fileNames.pop_back();
     inputStream.close();
     _fileNames.shrink_to_fit();
     _spriteCount = (int)_fileNames.size();

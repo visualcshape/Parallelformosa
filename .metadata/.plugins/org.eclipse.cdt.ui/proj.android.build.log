@@ -1,5 +1,5 @@
-15:39:49 **** Incremental Build of configuration Release for project proj.android ****
-python /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/proj.android/build_native.py -b release all 
+14:47:56 **** Incremental Build of configuration Release for project proj.android ****
+python /Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/proj.android/build_native.py --ndk NDK_DEBUG=1 all 
 Android NDK: WARNING: APP_PLATFORM android-19 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
 Android NDK: WARNING:jni/../../cocos2d/cocos/./Android.mk:cocos2dx_static: LOCAL_LDLIBS is always ignored for static libraries    
 Android NDK: WARNING:jni/../../cocos2d/cocos/platform/android/Android.mk:cocos2dxandroid_static: LOCAL_LDLIBS is always ignored for static libraries    
@@ -13,5 +13,5 @@ make: Entering directory `/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2d
 make: Leaving directory `/Users/Vodalok/Parallelformosa/Parallelformosa_Cocos2dx/proj.android'
 The Selected NDK toolchain version was 4.8 !
 
-15:39:53 Build Finished (took 4s.72ms)
+14:48:00 Build Finished (took 4s.390ms)
 

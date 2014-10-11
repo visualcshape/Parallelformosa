@@ -1,928 +1,0 @@
-Tlibuv
-v6
-r1
-cCheck dependencies
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-cLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/libuv.a normal i386
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
-c0000000053119F8A0000000000000198
-t1393663882
-s408
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/SDKSettings.plist
-c0000000053C8207300000000000003B4
-t1405624435
-s948
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/CoreServices/SystemVersion.plist
-c0000000053C8207A000000000000019E
-t1405624442
-s414
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/libuv.a
-t2
-s0
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o
-t1407942570
-s15876
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o
-t1407942570
-s29648
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o
-t1407942571
-s2228
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o
-t1407942571
-s30956
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o
-t1407942570
-s4360
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o
-t1407942570
-s5076
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o
-t1407942570
-s21844
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o
-t1407942570
-s51820
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o
-t1407942571
-s10936
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o
-t1407942570
-s16316
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o
-t1407942570
-s12280
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o
-t1407942571
-s25396
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o
-t1407942570
-s16640
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o
-t1407942570
-s12964
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o
-t1407942570
-s20972
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o
-t1407942570
-s14772
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o
-t1407942570
-s28716
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o
-t1407942571
-s7372
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o
-t1407942570
-s31468
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o
-t1407942570
-s57736
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o
-t1407942570
-s27072
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o
-t1407942570
-s21400
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o
-t1407942570
-s21444
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o
-t1407942571
-s19632
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o
-t1407942571
-s21996
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o
-t1407942571
-s35412
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o
-t1407942570
-s39184
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv.LinkFileList
-c0000000053EB7FA90000000000000E22
-t1407942569
-s3618
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o
-t1407942570
-s2360
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c
-c0000000053EB7E560000000000001B4F
-t1407942230
-s6991
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c
-c0000000053EB7E56000000000000201E
-t1407942230
-s8222
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c
-c0000000053EB7E560000000000001939
-t1407942230
-s6457
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c
-c0000000053EB7E560000000000003D7F
-t1407942230
-s15743
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c
-c0000000053EB7E560000000000001441
-t1407942230
-s5185
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c
-c0000000053EB7E560000000000002A17
-t1407942230
-s10775
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c
-c0000000053EB7E5600000000000008EF
-t1407942230
-s2287
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c
-c0000000053EB7E560000000000000F06
-t1407942230
-s3846
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c
-c0000000053EB7E5600000000000055DF
-t1407942230
-s21983
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c
-c0000000053EB7E5600000000000025C3
-t1407942230
-s9667
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c
-c0000000053EB7E5600000000000011B1
-t1407942230
-s4529
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c
-c0000000053EB7E560000000000002617
-t1407942230
-s9751
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c
-c0000000053EB7E560000000000001011
-t1407942230
-s4113
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c
-c0000000053EB7E560000000000000D54
-t1407942230
-s3412
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c
-c0000000053EB7E560000000000001B6C
-t1407942230
-s7020
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c
-c0000000053EB7E560000000000000BD3
-t1407942230
-s3027
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c
-c0000000053EB7E560000000000002D9B
-t1407942230
-s11675
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c
-c0000000053EB7E560000000000000B3C
-t1407942230
-s2876
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c
-c0000000053EB7E560000000000002F82
-t1407942230
-s12162
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c
-c0000000053EB7E5600000000000091B1
-t1407942230
-s37297
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c
-c0000000053EB7E560000000000002282
-t1407942230
-s8834
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c
-c0000000053EB7E560000000000002129
-t1407942230
-s8489
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c
-c0000000053EB7E560000000000001ACE
-t1407942230
-s6862
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c
-c0000000053EB7E560000000000000FC8
-t1407942230
-s4040
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c
-c0000000053EB7E56000000000000112C
-t1407942230
-s4396
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c
-c0000000053EB7E56000000000000465A
-t1407942230
-s18010
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c
-c0000000053EB7E560000000000002731
-t1407942230
-s10033
-
-N/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c
-c0000000053EB7E56000000000000099C
-t1407942230
-s2460
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies9e0cd629b79bb941^ea77e129b79bb941^---0#1#1#--18"Check dependencies36"DC20C14D-4959-452C-A174-DB44BA64D8C3-
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.058644
-e429635370.240944
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c178"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o [1msrc/unix/async.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerda200f2ab79bb941^c0e73f2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c0000000000000000^2623"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o [1msrc/unix/async.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/async.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/async.o36"8E4656CE-F17A-457E-A9C4-32E0228637C0-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.105444
-e429635370.351336
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c176"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o [1msrc/unix/core.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler65181b2ab79bb941^d5415a2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c0000000000000000^2617"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o [1msrc/unix/core.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/core.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/core.o36"40B469AF-CD36-4039-9528-6A7807B31DFA-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635371.097175
-e429635371.118926
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c200"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o [1msrc/unix/darwin-proctitle.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler26fe182bb79bb941^de711e2bb79bb941^---0#0#1#-19%DVTDocumentLocation2@83"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c0000000000000000^2689"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o [1msrc/unix/darwin-proctitle.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin-proctitle.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin-proctitle.o36"3086C423-479D-49C5-9D25-8E0707D1BC9B-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635371.035436
-e429635371.270892
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c180"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o [1msrc/unix/darwin.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler6a30092bb79bb941^3e5d452bb79bb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c0000000000000000^2629"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o [1msrc/unix/darwin.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/darwin.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/darwin.o36"F4292387-7F15-49BA-A0FA-C4528F1DBA56-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.138468
-e429635370.252084
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c172"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o [1msrc/unix/dl.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler61a4232ab79bb941^8f50432ab79bb941^---0#0#1#-19%DVTDocumentLocation2@69"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c0000000000000000^2605"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o [1msrc/unix/dl.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/dl.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/dl.o36"3B2B2734-2E41-4EFE-B879-FCCBD3B1FC2F-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.180111
-e429635370.281943
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c178"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o [1msrc/unix/error.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler22382e2ab79bb941^1895482ab79bb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c0000000000000000^2623"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o [1msrc/unix/error.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/error.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/error.o36"295F244B-5386-4C45-A6C5-B94E41AD27A9-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635369.883862
-e429635370.105108
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c177"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o [1msrc/fs-poll.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler0680e229b79bb941^d5e71a2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@69"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c0000000000000000^2625"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o [1msrc/fs-poll.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/fs-poll.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs-poll.o36"47E027D8-1C46-481B-9C3C-FF35B7D86180-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.241242
-e429635370.601518
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c172"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o [1msrc/unix/fs.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler7fdd3d2ab79bb941^0b2a9a2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@69"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c0000000000000000^2605"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o [1msrc/unix/fs.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fs.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fs.o36"4D99380B-958D-45AC-848F-C8C00350C860-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635371.059479
-e429635371.155692
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c184"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o [1msrc/unix/fsevents.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler4d860f2bb79bb941^2bf6272bb79bb941^---0#0#1#-19%DVTDocumentLocation2@75"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c0000000000000000^2641"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o [1msrc/unix/fsevents.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/fsevents.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/fsevents.o36"AB09DAC8-60E9-48E6-87F7-08C30E448FEF-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.252370
-e429635370.372635
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c190"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o [1msrc/unix/getaddrinfo.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler2239412ab79bb941^27a0612ab79bb941^---0#0#1#-19%DVTDocumentLocation2@78"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c0000000000000000^2659"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o [1msrc/unix/getaddrinfo.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/getaddrinfo.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/getaddrinfo.o36"886A0E22-CC09-428A-B69E-AA56D1B6BBFD-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635369.885124
-e429635370.138189
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c171"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o [1msrc/inet.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler4fb1e229b79bb941^6d8e232ab79bb941^---0#0#1#-19%DVTDocumentLocation2@66"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c0000000000000000^2607"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o [1msrc/inet.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/inet.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/inet.o36"9597FA6D-D908-4476-9984-56F2F30FCF6D-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635371.119220
-e429635371.276934
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c180"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o [1msrc/unix/kqueue.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilercf9f1e2bb79bb941^6501472bb79bb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c0000000000000000^2629"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o [1msrc/unix/kqueue.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/kqueue.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/kqueue.o36"2A712F1C-5E04-4C39-8A40-39A8E9153BC9-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.351660
-e429635370.524124
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c192"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o [1msrc/unix/loop-watcher.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerea215a2ab79bb941^a08b862ab79bb941^---0#0#1#-19%DVTDocumentLocation2@79"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c0000000000000000^2665"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o [1msrc/unix/loop-watcher.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop-watcher.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop-watcher.o36"E1DF7F46-E514-479F-86D4-30DB51B7F664-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.282266
-e429635370.392585
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c176"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o [1msrc/unix/loop.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerf65e482ab79bb941^ecf7642ab79bb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c0000000000000000^2617"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o [1msrc/unix/loop.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/loop.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/loop.o36"1D40853C-4B3D-43BB-90CC-F5C63C1767F3-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.372947
-e429635370.541791
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c176"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o [1msrc/unix/pipe.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler94a45f2ab79bb941^16fc8a2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c0000000000000000^2617"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o [1msrc/unix/pipe.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/pipe.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/pipe.o36"CD68D85D-6613-42EF-A045-2DEECFB5DFB5-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.392936
-e429635370.543907
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c176"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o [1msrc/unix/poll.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler7cb4642ab79bb941^70958b2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c0000000000000000^2617"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o [1msrc/unix/poll.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/poll.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/poll.o36"9EB886F5-ED22-4074-9556-6C90DF707E17-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.524443
-e429635370.732697
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c182"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o [1msrc/unix/process.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler5f5c862ab79bb941^e679bc2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@74"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c0000000000000000^2635"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o [1msrc/unix/process.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/process.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/process.o36"AE79CDAB-D807-4795-981F-1F84C1E1AA8C-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.955254
-e429635371.059178
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c186"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o [1msrc/unix/proctitle.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerf8a7f42ab79bb941^41810f2bb79bb941^---0#0#1#-19%DVTDocumentLocation2@76"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c0000000000000000^2647"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o [1msrc/unix/proctitle.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/proctitle.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/proctitle.o36"634785EC-9EE0-4EB4-A1EB-81664C712778-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.542135
-e429635370.866666
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c180"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o [1msrc/unix/signal.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerf8e38a2ab79bb941^5515de2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c0000000000000000^2629"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o [1msrc/unix/signal.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/signal.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/signal.o36"A9A0DE3A-E4A3-4F98-98AC-665F4CE4681D-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.544188
-e429635370.954916
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c180"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o [1msrc/unix/stream.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerc66a8b2ab79bb941^1fbef42ab79bb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c0000000000000000^2629"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o [1msrc/unix/stream.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/stream.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/stream.o36"0ABC6DB3-25CA-49E9-85EC-A2ED1D137FE4-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.601778
-e429635370.788769
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c174"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o [1msrc/unix/tcp.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler56479a2ab79bb941^6ce8ca2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c0000000000000000^2611"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o [1msrc/unix/tcp.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tcp.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tcp.o36"3E28C246-0CE3-4169-BB49-FDA7B6A8F599-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.733024
-e429635370.911316
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c180"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o [1msrc/unix/thread.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilera0c4bb2ab79bb941^c768e92ab79bb941^---0#0#1#-19%DVTDocumentLocation2@73"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c0000000000000000^2629"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o [1msrc/unix/thread.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/thread.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/thread.o36"0BD297A3-F6C5-4E83-B087-6A8D7A7216E7-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.789064
-e429635370.942637
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c188"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o [1msrc/unix/threadpool.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler821aca2ab79bb941^8eaff12ab79bb941^---0#0#1#-19%DVTDocumentLocation2@77"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c0000000000000000^2653"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o [1msrc/unix/threadpool.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/threadpool.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/threadpool.o36"9AF41F2C-09F0-4F37-94D6-3C7FE0F17084-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.867649
-e429635371.096833
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c178"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o [1msrc/unix/timer.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerd53dde2ab79bb941^e717192bb79bb941^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c0000000000000000^2623"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o [1msrc/unix/timer.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/timer.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/timer.o36"7A0B9078-BA74-4E50-A1C8-DB703C467D30-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.911559
-e429635371.035080
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c174"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o [1msrc/unix/tty.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler34bce92ab79bb941^dd40092bb79bb941^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c0000000000000000^2611"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o [1msrc/unix/tty.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/tty.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/tty.o36"F173486B-3110-4966-9648-12B090720269-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635370.942960
-e429635371.164701
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/internal.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c174"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o [1msrc/unix/udp.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler5a81f12ab79bb941^95292a2bb79bb941^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c0000000000000000^2611"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o [1msrc/unix/udp.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/unix/udp.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/udp.o36"EA033D24-8047-4B0D-A126-56B9EA85F63F-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635369.886004
-e429635370.179416
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/tree.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c181"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o [1msrc/uv-common.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler3df3e229b79bb941^29042e2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@71"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c0000000000000000^2637"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o [1msrc/uv-common.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/uv-common.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv-common.o36"9BF4ECD8-20F2-4C17-B2D9-9BD3A9AAACBC-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CCompileC build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
-s429635369.885809
-e429635370.057813
-r1
-xCompileC
-xbuild/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c
-xnormal
-xi386
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-unix.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/ngx-queue.h
-d/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/include/uv-private/uv-darwin.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c177"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o [1msrc/version.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compilerda3be329b79bb941^3ee70e2ab79bb941^---0#0#1#-19%DVTDocumentLocation2@69"file:///Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c0000000000000000^2625"[1mCompileC[0m build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o [1msrc/version.c[0m normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=80 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DHAVE_CONFIG_H -D_DARWIN_USE_64_BIT_INODE=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -Wno-sign-conversion -mios-simulator-version-min=5.0 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/uv.hmap -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/include -Iinclude -Iinclude/uv-private -Isrc -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources/i386 -I/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/DerivedSources -F/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -MMD -MT dependencies -MF /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.d --serialize-diagnostics /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.dia -c /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/src/version.c -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/version.o36"3B7CF3BC-462F-4AF9-B346-F1B353B4E546-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-
-CLibtool /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/libuv.a normal i386
-s429635371.279864
-e429635371.294650
-r1
-xLibtool
-x/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/libuv.a
-xnormal
-xi386
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"[1mLibtool[0m build/Default-iphonesimulator/libuv.a normal i38665"[1mLibtool[0m build/Default-iphonesimulator/libuv.a normal i38698c2472bb79bb941^f7764b2bb79bb941^---0#0#1#--955"[1mLibtool[0m build/Default-iphonesimulator/libuv.a normal i386    cd /Users/Vodalok/Parallelformosa/libpomelo/deps/uv    export IPHONEOS_DEPLOYMENT_TARGET=5.0    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator -filelist /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/uv.build/Default-iphonesimulator/libuv.build/Objects-normal/i386/uv.LinkFileList -o /Users/Vodalok/Parallelformosa/libpomelo/deps/uv/build/Default-iphonesimulator/libuv.a36"0386077F-E4B6-4ABC-BE37-5E332B09297E-
-bC9EF7042-53FF-4117-8F4F-E5F76FAAEF24
-

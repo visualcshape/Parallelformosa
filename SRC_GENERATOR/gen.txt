@@ -14,7 +14,6 @@
 ../../Classes/LoadingScene.cpp \
 ../../Classes/LoginTitleLayer.cpp \
 ../../Classes/LoginTitleModel.cpp \
-../../Classes/LoginTitleScene.cpp \
 ../../Classes/MainScene.cpp \
 ../../Classes/MainUIButtonFactory.cpp \
 ../../Classes/MainUIInfoModel.cpp \

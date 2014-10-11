@@ -1,30 +1,30 @@
 ./obj/local/armeabi/objs-debug/cocos2dx_static/renderer/ccShaders.o: \
   jni/../../cocos2d/cocos/./renderer/ccShaders.cpp \
-  jni/../../cocos2d/cocos/.\renderer/ccShaders.h \
-  jni/../../cocos2d/cocos/./platform/android\CCGL.h \
-  jni/../../cocos2d/cocos/.\base/CCPlatformConfig.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2platform.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\KHR/khrplatform.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h \
-  C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdint.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2ext.h \
-  jni/../../cocos2d/cocos/.\base/CCPlatformMacros.h \
-  jni/../../cocos2d/cocos/.\base/ccConfig.h \
-  jni/../../cocos2d/cocos/./platform/android\CCPlatformDefine.h \
-  C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/log.h \
+  jni/../../cocos2d/cocos/./renderer/ccShaders.h \
+  jni/../../cocos2d/cocos/./platform/android/CCGL.h \
+  jni/../../cocos2d/cocos/./base/CCPlatformConfig.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2platform.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/KHR/khrplatform.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/api-level.h \
+  /Users/Vodalok/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/stdint.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/_types.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/machine/_types.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/limits.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/limits.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/linux/limits.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/machine/internal_types.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/machine/limits.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/syslimits.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/asm/page.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2ext.h \
+  jni/../../cocos2d/cocos/./base/CCPlatformMacros.h \
+  jni/../../cocos2d/cocos/./base/ccConfig.h \
+  jni/../../cocos2d/cocos/./platform/android/CCPlatformDefine.h \
+  /Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h \
   jni/../../cocos2d/cocos/./renderer/ccShader_Position_uColor.frag \
   jni/../../cocos2d/cocos/./renderer/ccShader_Position_uColor.vert \
   jni/../../cocos2d/cocos/./renderer/ccShader_PositionColor.frag \
@@ -51,55 +51,55 @@
   jni/../../cocos2d/cocos/./renderer/ccShader_3D_Color.frag \
   jni/../../cocos2d/cocos/./renderer/ccShader_3D_ColorTex.frag
 
-jni/../../cocos2d/cocos/.\renderer/ccShaders.h:
+jni/../../cocos2d/cocos/./renderer/ccShaders.h:
 
-jni/../../cocos2d/cocos/./platform/android\CCGL.h:
+jni/../../cocos2d/cocos/./platform/android/CCGL.h:
 
-jni/../../cocos2d/cocos/.\base/CCPlatformConfig.h:
+jni/../../cocos2d/cocos/./base/CCPlatformConfig.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2platform.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2platform.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\KHR/khrplatform.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/KHR/khrplatform.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/cdefs_elf.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/api-level.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/api-level.h:
 
-C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include\stdint.h:
+/Users/Vodalok/android-ndk-r9d/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\stdint.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/stdint.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/_types.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/_types.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/machine/_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\limits.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/limits.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\linux/limits.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/linux/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/internal_types.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/machine/internal_types.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\machine/limits.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/machine/limits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\sys/syslimits.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/syslimits.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\asm/page.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/asm/page.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\GLES2/gl2ext.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2ext.h:
 
-jni/../../cocos2d/cocos/.\base/CCPlatformMacros.h:
+jni/../../cocos2d/cocos/./base/CCPlatformMacros.h:
 
-jni/../../cocos2d/cocos/.\base/ccConfig.h:
+jni/../../cocos2d/cocos/./base/ccConfig.h:
 
-jni/../../cocos2d/cocos/./platform/android\CCPlatformDefine.h:
+jni/../../cocos2d/cocos/./platform/android/CCPlatformDefine.h:
 
-C:/android-ndk-r9d/platforms/android-19/arch-arm/usr/include\android/log.h:
+/Users/Vodalok/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h:
 
 jni/../../cocos2d/cocos/./renderer/ccShader_Position_uColor.frag:
 

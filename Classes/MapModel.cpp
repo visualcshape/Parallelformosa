@@ -605,7 +605,7 @@ void MapModel::writeMapInfo(){
 void MapModel::readMapInfo(){
 	std::string path = "MapInfo/" + mapName + ".info";
 	std::string filepath = CCFileUtils::getInstance()->fullPathForFilename(path.c_str());
-	CCLOG(filepath.c_str());
+	CCLOG("%s",filepath.c_str());
 	FILE *fp = fopen(filepath.c_str(), "r");
 
 	//@brief create empty file

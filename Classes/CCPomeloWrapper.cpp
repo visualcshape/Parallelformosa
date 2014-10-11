@@ -9,7 +9,7 @@
 #include <errno.h>
 #include <queue>
 
-#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+#if ((CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)||(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID))
 #include "pthread.h"
 #endif
 

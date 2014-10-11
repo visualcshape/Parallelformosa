@@ -10,7 +10,10 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
-LOCAL_SRC_FILES := ../../Classes/AppDelegate.cpp \
+LOCAL_SHARED_LIBRARIES := libcutil
+
+LOCAL_SRC_FILES := hellocpp/main.cpp \
+../../Classes/AppDelegate.cpp \
 ../../Classes/BaseLayer.cpp \
 ../../Classes/BattleOverLayer.cpp \
 ../../Classes/Building.cpp \
@@ -26,7 +29,6 @@ LOCAL_SRC_FILES := ../../Classes/AppDelegate.cpp \
 ../../Classes/LoadingScene.cpp \
 ../../Classes/LoginTitleLayer.cpp \
 ../../Classes/LoginTitleModel.cpp \
-../../Classes/LoginTitleScene.cpp \
 ../../Classes/MainScene.cpp \
 ../../Classes/MainUIButtonFactory.cpp \
 ../../Classes/MainUIInfoModel.cpp \
@@ -49,6 +51,7 @@ LOCAL_SRC_FILES := ../../Classes/AppDelegate.cpp \
 ../../Classes/WindowProtocol.cpp \
 ../../Classes/jsoncpp.cpp \
 
+
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../cocos2d/cocos/ui \
 					$(LOCAL_PATH)/../../libpomelo/include \
@@ -56,11 +59,12 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../libpomelo/deps/uv/include \
 					$(LOCAL_PATH)/../../libpomelo/deps/uv/uv-private \
 					$(LOCAL_PATH)/../../cocos2d/extensions \
-					$(LOCAL_PATH)/../../cocos2d/external/sqlite3/include/
+					$(LOCAL_PATH)/../../cocos2d/external/sqlite3/ \
+					system/core/include/cutils \
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
-LOCAL_WHOLE_STATIC_LIBRARIES += box2d_static
+#LOCAL_WHOLE_STATIC_LIBRARIES += box2d_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosbuilder_static
 LOCAL_WHOLE_STATIC_LIBRARIES += spine_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocostudio_static
