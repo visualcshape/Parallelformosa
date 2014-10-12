@@ -190,7 +190,15 @@ bool MapModel::isTileInsideLayer(Point checkTileLoc, int level){
 	if (checkTileLoc.y >= _pfLayers.at(level)->getLayerSize().height) return false;
 	return true;
 }
-
+bool MapModel::isCoordInsideLayer(MapPoint checkCoordLoc, int level){
+	if (level < 0) return false;/*
+	if (checkCoordLoc.x < 0) return false;
+	if (checkCoordLoc.x >= MAP_X_MAX) return false;
+	if (checkCoordLoc.y < 0) return false;
+	if (checkCoordLoc.y >= MAP_Y_MAX) return false;*/
+	return isTileInsideLayer(tileCoordForMapPoint(checkCoordLoc, level), level);
+	return true;
+}
 Point MapModel::boundLayerPos(Point newPos){
 	Size winSize = Director::getInstance()->getWinSize();
 	Point retval = newPos;
@@ -425,53 +433,144 @@ void MapModel::troopDelete(Troop *target){
 }
 
 
-bool MapModel::canMoveTo(Troop* _troop, int direction){
+bool MapModel::canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset){
+	int lr = height;
 
-	switch (direction){
-	case 0:	_troop->goLeft(); break;
-	case 1: _troop->goDown(); break;
-	case 2: _troop->goRight(); break;
-	case 3: _troop->goUp(); break;
-	default: CCASSERT(false, "direction must >= 0 & <= 3");
+	if (lr + heightOffset >= 0 && lr + heightOffset < SZ(_pfLayers)){
+		checkMapLoc.x += OFFX[dir];
+		checkMapLoc.x += OFFY[dir];
+
+		if (!isCoordInsideLayer(checkMapLoc, height + heightOffset)) return false;
+		if (!isCoordInsideLayer(checkMapLoc, height - 1 + heightOffset)) return false;
+
+		auto current = _pfLayers.at(lr + heightOffset)->getTileGIDAt(tileCoordForMapPoint(checkMapLoc, lr + heightOffset));
+		auto below = _pfLayers.at(lr - 1 + heightOffset)->getTileGIDAt(tileCoordForMapPoint(checkMapLoc, lr - 1 + heightOffset));
+		if (below == EMPTY_TILE) return false;
+		//CCLOG("belowGID = %d, currentGID = %d\n", below, current);
+
+		if (current == EMPTY_TILE){
+			Value props = _tileMap->getPropertiesForGID(below);
+			if (!props.isNull()){
+				ValueMap map = props.asValueMap();
+				int type_int = 0;
+				if (map.size() == 0)
+					type_int = 0;
+				else
+					type_int = map.at("walkable").asInt();
+				if (1 == type_int)
+					return true;
+			}
+		}
 	}
 
-	CCASSERT(_troop->height > 0, "should _troop->height > 0");
-	int lr = _troop->height;
-	auto current = _pfLayers.at(lr)->getTileGIDAt(tileCoordForMapPoint(_troop->getCoord(), lr));
-	auto below = _pfLayers.at(lr - 1)->getTileGIDAt(tileCoordForMapPoint(_troop->getCoord(), lr - 1));
-	CCLOG("belowGID = %d, currentGID = %d\n", below, current);
-
-	//@brief recover
-	switch ((direction + 2) % 4){
-	case 0:	_troop->goLeft(); break;
-	case 1: _troop->goDown(); break;
-	case 2: _troop->goRight(); break;
-	case 3: _troop->goUp(); break;
-	default: CCASSERT(false, "direction must >= 0 & <= 3");
-	}
-	if (current == EMPTY_TILE && below != EMPTY_TILE) return true;
 	return false;
+}
+
+
+PII MapModel::findAttackPath(Troop* troop){
+	int dp[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
+	PII rec[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
+	memset(dp, -1, sizeof(dp));
+	for (auto &building : _buildings){
+		for (int tr = 0; tr < building->occupy.X; tr++) for (int tc = 0; tc < building->occupy.Y; tc++)
+			dp[(int)building->getCoord().x + tr][(int)building->getCoord().y + tc][building->height] = INF;
+		//CCLOG("%.0f %.0f %d\n", building->getCoord().x, building->getCoord().y, building->height);
+	}
+	queue <Vec3> Q;
+	Vec3 start = Vec3(troop->getCoord().x, troop->getCoord().y, troop->height);
+	Q.push(start);
+	dp[(int)start.x][(int)start.y][(int)start.z] = 0;
+	//CCLOG("%.0f %.0f %.0f\n", start.x, start.y, start.z);
+	while (!Q.empty()){
+		Vec3 now = Q.front(); Q.pop();
+		for (int k = 0; k < 4; k++)	for (int hofs = 1; hofs >= -1; hofs--){
+			Vec3 ntp = now;
+			ntp.x += OFFX[k];
+			ntp.y += OFFY[k];
+			ntp.z = now.z + hofs;
+			if (dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] == INF){
+				Vec3 backend = now;
+				int startdir = NO;
+				int starthofs = 0;
+				while (backend != start){
+					int revdir = rec[(int)backend.x][(int)backend.y][(int)backend.z].X;
+					int revhofs = rec[(int)backend.x][(int)backend.y][(int)backend.z].Y;
+					backend.x -= OFFX[revdir];
+					backend.y -= OFFY[revdir];
+					startdir = revdir;
+					backend.z -= revhofs;
+					starthofs = revhofs;
+				}
+				return MP(startdir, starthofs);
+			}
+			//if (!isCoordInsideLayer(MapPoint(ntp.x, ntp.y), ntp.z)) continue;
+			if (!isCoordInsideLayer(MapPoint(ntp.x, ntp.y), ntp.z - 1)) continue;
+			//auto current = _pfLayers.at(ntp.z)->getTileGIDAt(tileCoordForMapPoint(MapPoint(ntp.x, ntp.y), ntp.z));
+			auto below = _pfLayers.at(ntp.z - 1)->getTileGIDAt(tileCoordForMapPoint(MapPoint(ntp.x, ntp.y), ntp.z - 1));
+			if (below == EMPTY_TILE) continue;
+			Value props = _tileMap->getPropertiesForGID(below);
+			if (!props.isNull()){
+				ValueMap map = props.asValueMap();
+				int type_int = 0;
+				if (map.size() == 0)
+					type_int = 0;
+				else
+					type_int = map.at("walkable").asInt();
+				if (1 != type_int)
+					break;
+			}
+			//CCASSERT(ntp.z - 1 >= 0, "ntp.z - 1 >= 0");
+			if (canMoveTo(MapPoint(now.x, now.y), now.z, k, hofs) && dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] == -1){
+				dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] = dp[(int)now.x][(int)now.y][(int)now.z] + 1;
+				rec[(int)ntp.x][(int)ntp.y][(int)ntp.z] = MP(k, hofs);
+				Q.push(ntp);
+			}
+		}
+	}
+	return MP(NO, 0);
+}
+
+void MapModel::commandAttack(float dt){
+	auto _tmp_troops = _troops;
+	for (auto &troop : _tmp_troops) troop->attackLogic(dt);
 }
 
 void MapModel::attackLogic(float dt){
 	auto _tmp_buildings = _buildings;
 	auto _tmp_troops = _troops;
+
 	for (auto &troop : _tmp_troops){
 		auto target = getClosestBuilding(troop);
 
 		if (target != nullptr){
-			Point moveVector = troop->getCoord() - target->getCoord();
-			if (moveVector.x > 1 && canMoveTo(troop, 0)) troopMove(troop, 0);
-			if (moveVector.y > 1 && canMoveTo(troop, 1)) troopMove(troop, 1);
-			if (moveVector.x < -1 && canMoveTo(troop, 2)) troopMove(troop, 2);
-			if (moveVector.y < -1 && canMoveTo(troop, 3)) troopMove(troop, 3);
-
 			bool could_attack = false;
 			for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
 				Point pt = Point(target->getCoord().x + tr, target->getCoord().y + tc);
 				Point dist = pt - troop->getCoord();
 				if (MAX(abs(dist.x), abs(dist.y)) <= 1) could_attack = true;
 			}
+
+			if (!could_attack){
+				CCLOG("target = %.0f %.0f\n", target->getCoord().x, target->getCoord().y);
+
+				PII goEvent = findAttackPath(troop);
+				int goDir = goEvent.X;
+				int gohofs = goEvent.Y;
+				if (goDir != NO){
+					CCLOG(">> goDir = %d, gohofs = %d\n", goDir, gohofs);
+					//if (canMoveTo(troop->getCoord(), troop->height, goDir, gohofs)){
+					troopMove(troop, goDir, gohofs);
+					//}
+				}
+			}
+			//CCLOG(">>>>>> %.0f %.0f %.0f\n", troop->getCoord().x, troop->getCoord().y, troop->height);
+			/*
+			Point moveVector = troop->getCoord() - target->getCoord();
+			if (moveVector.x > 1 && canMoveTo(troop, DIRECTION::LEFT)) troopMove(troop, DIRECTION::LEFT);
+			if (moveVector.y > 1 && canMoveTo(troop, DIRECTION::DOWN)) troopMove(troop, DIRECTION::DOWN);
+			if (moveVector.x < -1 && canMoveTo(troop, DIRECTION::RIGHT)) troopMove(troop, DIRECTION::RIGHT);
+			if (moveVector.y < -1 && canMoveTo(troop, DIRECTION::UP)) troopMove(troop, DIRECTION::UP);*/
+
 			//float moveAngle = ccpToAngle(moveVector);
 			//float cocosAngle = CC_RADIANS_TO_DEGREES(-1 * moveAngle);
 			//CCLOG("moveVector = %.2f\n", moveVector.x);
@@ -542,7 +641,7 @@ Building* MapModel::getClosestBuilding(Troop* _troop){
 	Building *closestBuilding = nullptr;
 	double maxDistance = 999999999.0;
 
-	for (auto &building : _buildings) if(building->height == _troop->height){
+	for (auto &building : _buildings){
 		double curDistance = ccpDistance(_troop->getCoord(), building->getCoord());
 
 		if (curDistance < maxDistance){
@@ -557,7 +656,7 @@ Troop* MapModel::getClosestTroop(Building* _building){
 	Troop *closestTroop = nullptr;
 	double maxDistance = 999999999.0;
 
-	for (auto &troop : _troops) if (troop->height == _building->height){
+	for (auto &troop : _troops){
 		for (int tr = 0; tr < _building->occupy.X; tr++) for (int tc = 0; tc < _building->occupy.Y; tc++){
 			Point pt = _building->getCoord();
 			double curDistance = ccpDistance(troop->getCoord(), Point(pt.x + tr, pt.y + tc));
@@ -572,18 +671,13 @@ Troop* MapModel::getClosestTroop(Building* _building){
 }
 
 //@brief later will modify briefly
-void MapModel::troopMove(Troop* _troop, int direction){
+void MapModel::troopMove(Troop* _troop, int dir, int heightOffset){
+	if (dir == NO) return;
 	Point pt = tileCoordForMapPoint(_troop->getCoord(), _troop->height);
 	for (int tr = 0; tr < _troop->occupy.X; tr++) for (int tc = 0; tc < _troop->occupy.Y; tc++)
 		_pfLayers.at(_troop->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
 
-	switch (direction){
-	case 0:	_troop->goLeft(); break;
-	case 1: _troop->goDown(); break;
-	case 2: _troop->goRight(); break;
-	case 3: _troop->goUp(); break;
-	default: CCASSERT(false, "direction must >= 0 & <= 3");
-	}
+	_troop->go(dir, heightOffset);
 
 	pt = tileCoordForMapPoint(_troop->getCoord(), _troop->height);
 	for (int tr = 0; tr < _troop->occupy.X; tr++) for (int tc = 0; tc < _troop->occupy.Y; tc++)
@@ -629,4 +723,8 @@ void MapModel::readMapInfo(){
 		pm->height = -1;
 	}
 	CCLOG(">> _baseBuidling = nullptr => %s", pm->height == -1 ? "Yes" : "No");
+}
+
+void MapModel::go(int dir){
+	return;
 }

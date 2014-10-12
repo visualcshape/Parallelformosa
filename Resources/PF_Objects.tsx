@@ -4,36 +4,43 @@
  <tile id="0">
   <properties>
    <property name="buildable" value="1"/>
+   <property name="walkable" value="1"/>
   </properties>
  </tile>
  <tile id="1">
   <properties>
    <property name="buildable" value="0"/>
+   <property name="walkable" value="1"/>
   </properties>
  </tile>
  <tile id="2">
   <properties>
    <property name="buildable" value="1"/>
+   <property name="walkable" value="1"/>
   </properties>
  </tile>
  <tile id="3">
   <properties>
    <property name="buildable" value="1"/>
+   <property name="walkable" value="1"/>
   </properties>
  </tile>
  <tile id="4">
   <properties>
    <property name="buildable" value="0"/>
+   <property name="walkable" value="0"/>
   </properties>
  </tile>
  <tile id="5">
   <properties>
    <property name="buildable" value="1"/>
+   <property name="walkable" value="1"/>
   </properties>
  </tile>
  <tile id="6">
   <properties>
    <property name="buildable" value="1"/>
+   <property name="walkable" value="1"/>
   </properties>
  </tile>
 </tileset>

@@ -10,6 +10,7 @@ USING_NS_CC;
 class MapModel : public Ref, public Subject{
 public:
 	static const int EMPTY_TILE = 54;
+
 	static const int GREEN_MARK = 55;
 	static const int RED_MARK = 56;
 	static const int EMPTY_MARK = 57;
@@ -30,11 +31,15 @@ public:
 	void tryTouchEnded();
 	void refresh(float dt);
 	void attackLogic(float dt);
+	void commandAttack(float dt);
 
 	//@func tilemap
 	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
-	int canBuildOnTilePosition(Point pos);
+	int canBuildOnTilePosition(Point pos); 
+	//int canWalkOnTilePosition(MapPoint checkMapLoc);
 	bool isTileInsideLayer(Point checkTileLoc, int level);
+	bool isCoordInsideLayer(Point checkTileLoc, int level);
+	PII findAttackPath(Troop* troop);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
@@ -49,10 +54,10 @@ public:
 	void readMapInfo();
 	void writeMapInfo();
 
-	bool canMoveTo(Troop* _troop, int direction);
+	bool canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset);
+	void troopMove(Troop* _troop, int dir, int heightOffset);
 	Building* getClosestBuilding(Troop* _troop);
 	Troop* getClosestTroop(Building* _building);
-	void troopMove(Troop* _troop, int direction);
 	void buildingDelete(Building *_building);
 	void troopDelete(Troop *_troop);
 
@@ -65,7 +70,6 @@ public:
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 	CC_SYNTHESIZE(Label*, _lblPlayerPos, lblPlayerPos);
 	CC_SYNTHESIZE(Label*, _lblResourcePos, lblResourcePos);
-	
 
 	//@brief touch event point
 	CC_SYNTHESIZE(Point, _touchOriginLocation, TouchOriginLocation);
@@ -102,9 +106,9 @@ protected:
 
 	//@func internally add building
 	void addBuildingToMap(int ID, int owner, MapPoint pos, int level);
+	void go(int dir);
 
 private:
-
 	std::string mapName;
 	int selID;
 	bool _prevCursurOutside;

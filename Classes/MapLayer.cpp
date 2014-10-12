@@ -91,7 +91,7 @@ bool MapLayer::init(std::string mapName){
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 	SceneManager::pressKeyCode(keyCode);
 	if (keyCode == EventKeyboard::KeyCode::KEY_A)
-		this->schedule(schedule_selector(MapLayer::attack), 1);
+		this->schedule(schedule_selector(MapLayer::attack), 0.2f);
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_Z)
 		this->unschedule(schedule_selector(MapLayer::attack));
@@ -120,5 +120,6 @@ void MapLayer::refresh(float dt){
 }
 
 void MapLayer::attack(float dt){
-	mm->attackLogic(dt);
+	//mm->attackLogic(dt);
+	mm->commandAttack(dt);
 }

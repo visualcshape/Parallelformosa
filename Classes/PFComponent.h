@@ -6,6 +6,9 @@ USING_NS_CC;
 
 class PFComponent : public Sprite {
 public:
+	PFComponent();
+	~PFComponent();
+
 	CREATE_FUNC(PFComponent);
 	virtual bool init();
 
@@ -20,6 +23,6 @@ public:
 	int hp;
 
 	CC_SYNTHESIZE(Point, _coord, Coord);
-	CC_SYNTHESIZE(Point, screenPosition, ScreenPosition);
+	//CC_SYNTHESIZE(Point, screenPosition, ScreenPosition);
 
 };
