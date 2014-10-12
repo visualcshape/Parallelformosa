@@ -4,7 +4,7 @@
 
 USING_NS_CC;
 
-class ResourceModel{
+class ResourceModel :public Ref{
 public:
 	static const int BUILDING_SIZE = 5;
 	static const int TROOP_SIZE = 5;

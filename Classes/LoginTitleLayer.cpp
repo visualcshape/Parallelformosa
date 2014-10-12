@@ -18,7 +18,6 @@
 #include "SceneManager.h"
 //
 
-
 using namespace cocos2d;
 
 //////////////////////////

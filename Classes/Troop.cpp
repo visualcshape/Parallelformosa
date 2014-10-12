@@ -32,13 +32,11 @@ Troop* Troop::addTroop(int TID){
 	return troop;
 }
 
-void Troop::attackLogic(float dt){
+void Troop::attackLogic(){
 	MapModel *mm = MapModel::getModel();
 	auto target = mm->getClosestBuilding(this);
 
 	if (target != nullptr){
-
-
 		bool could_attack = false;
 		for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
 			Point pt = Point(target->getCoord().x + tr, target->getCoord().y + tc);
@@ -97,8 +95,8 @@ void Troop::attackLogic(float dt){
 
 			if (target->hp <= 0){
 				mm->buildingDelete(target);
-				mm->getPlayer()->L_str += 1000;
-				mm->getPlayer()->G_mag += 1000;
+				mm->getAtkPlayer()->L_str += 1000;
+				mm->getAtkPlayer()->G_mag += 1000;
 			}
 
 			//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));

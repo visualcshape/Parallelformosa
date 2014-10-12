@@ -5,6 +5,7 @@
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include "Player.h"
+#include "PlayerModel.h"
 #include <ctime>
 
 USING_NS_CC;
@@ -56,13 +57,7 @@ bool MapLayer::init(std::string mapName){
 	mm->setPFLayers(_pfLayers);
 	CCLOG(">> %d\n", SZ(_pfLayers));
 
-	Player* pp = new Player();
-	pp->init(rand() % 2 + 1);
-	mm->setPlayer(pp);
 	mm->readMapInfo();
-	mm->setPlayer(pp);
-	
-	
 
 	double tend = clock();
 	double tcost = (double)(tend - tstart) / CLOCKS_PER_SEC;
@@ -85,6 +80,8 @@ bool MapLayer::init(std::string mapName){
 
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(MapLayer::refresh), mm->REFRESH_RATE);
+	this->schedule(schedule_selector(MapLayer::ccdebug), 2.0f);
+
 	return true;
 }
 
@@ -95,6 +92,11 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_Z)
 		this->unschedule(schedule_selector(MapLayer::attack));
+
+	if (keyCode == EventKeyboard::KeyCode::KEY_C)
+		MapModel::getModel()->getCurPlayer()->setUID(1);
+	if (keyCode == EventKeyboard::KeyCode::KEY_V)
+		MapModel::getModel()->getCurPlayer()->setUID(2);
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){
@@ -119,7 +121,10 @@ void MapLayer::refresh(float dt){
 	mm->refresh(dt);
 }
 
+void MapLayer::ccdebug(float dt){
+	mm->ccdebug(dt);
+}
 void MapLayer::attack(float dt){
 	//mm->attackLogic(dt);
-	mm->commandAttack(dt);
+	mm->commandAttack();
 }

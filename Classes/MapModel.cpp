@@ -17,6 +17,9 @@ MapModel* MapModel::mm_pInstance;
 
 MapModel::MapModel(){
 	CCLOG("MapModel construct");
+	_curPlayer = new PlayerModel();
+
+	_atkPlayer = _defPlayer = _curPlayer;
 }
 
 MapModel::~MapModel(){
@@ -31,15 +34,17 @@ MapModel* MapModel::getModel(){
 
 void MapModel::init(std::string mapName){
 	CCLOG("MapModel init");
-	this->mapName = mapName;
+	this->mapName = mapName; 
 	_buildings.clear();
 	_troops.clear();
 	_pfLayers.clear(); 
 	_movableSprites.clear();
 	_tileMap = nullptr;
-	_player = nullptr;
 	_prevCursurOutside = false;
 	_status = HUD_ID::DEFENSE;
+	_curPlayer->init();
+	_atkPlayer->init();
+	_defPlayer->init();
 }
 
 void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
@@ -92,7 +97,27 @@ void MapModel::addBuilding(Point pos, int level){
 	if (_status == HUD_ID::DEFENSE) targetID = selID + 36;
 	if (_status == HUD_ID::ATTACK) targetID = selID + 18;
 
-	addBuildingToMap(targetID, _player->getUid(), mapCoordForPosition(pos, level), level);
+	addBuildingToMap(targetID, _curPlayer->getUID(), mapCoordForPosition(pos, level), level);
+}
+
+void MapModel::mapAddBuilding(Building* building){
+	_buildings.pushBack((Building*)building);
+	if (building->owner == _curPlayer->getUID())
+		_curPlayer->addBuilding((Building*)building);
+	else if (building->owner == _atkPlayer->getUID())
+		_atkPlayer->addBuilding((Building*)building);
+	else if (building->owner == _defPlayer->getUID())
+		_defPlayer->addBuilding((Building*)building);
+}
+
+void MapModel::mapAddTroop(Troop* troop){
+	_troops.pushBack((Troop*) troop);
+	if (troop->owner == _curPlayer->getUID())
+		_curPlayer->addTroop((Troop*)troop);
+	else if (troop->owner == _atkPlayer->getUID())
+		_atkPlayer->addTroop((Troop*)troop);
+	else if (troop->owner == _defPlayer->getUID())
+		_defPlayer->addTroop((Troop*)troop);
 }
 
 void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int level){
@@ -116,9 +141,11 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
 		_pfLayers.at(target->height)->setTileGID(target->id, Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
 
-	if (_status == HUD_ID::DEFENSE) _buildings.pushBack((Building*) target);
-	if (_status == HUD_ID::ATTACK) _troops.pushBack((Troop*) target);
-	
+	if (_status == HUD_ID::DEFENSE)
+		mapAddBuilding((Building*)target);
+
+	if (_status == HUD_ID::ATTACK)
+		mapAddTroop((Troop*)target);
 }
 /*@return the highest layer could build, otherwise NONE
  */
@@ -227,10 +254,6 @@ void MapModel::showAllRange(bool visible){
 }
 
 bool MapModel::tryTouchBegan(){
-	//@debug modify label.
-	char buffer[70];
-	sprintf(buffer, "palyer uid=%d", _player->getUid());
-	getlblPlayerPos()->setString(buffer);
 
 	Sprite * newSprite = NULL;
 	for (int i = 0; i < _movableSprites.size(); i++){
@@ -301,28 +324,33 @@ void MapModel::tryTouchEnded(){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
 				if (coord == building->getCoord() && lr == building->height){
 					CCLOG(">>@ The building belongs %d", building->owner);
-					if (_player->getUid() == building->owner){
+					if (_curPlayer->getUID() == building->owner){
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							SceneManager::goMapScreen(rm->strPlayerMap[_player->getUid()], HUD_ID::DEFENSE);
+							_atkPlayer = _defPlayer = _curPlayer;
+							SceneManager::goMapScreen(rm->strPlayerMap[building->owner], HUD_ID::DEFENSE);
 						}
 						else{
 							writeMapInfo();
+							_atkPlayer = _defPlayer = _curPlayer;
 							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
 					else{
 						CCLOG(">>>> This is not your building !!! ");
-						PlayerModel *pm = PlayerModel::getModel();
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							pm->height = building->height;
-							pm->coord = building->getCoord();
-							CCLOG(">!> _baseBuidling = nullptr => %s", pm->height == -1 ? "Yes" : "No");
+							_curPlayer->height = building->height;
+							_curPlayer->coord = building->getCoord();
+							_atkPlayer = _curPlayer;
+							_defPlayer = new PlayerModel();
+							_defPlayer->setUID(building->owner);
+							CCLOG(">!> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
 							SceneManager::goMapScreen(rm->strPlayerMap[building->owner], HUD_ID::ATTACK);
 						}
 						else{
 							writeMapInfo();
+							_atkPlayer = _defPlayer = _curPlayer;
 							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
@@ -340,9 +368,9 @@ void MapModel::tryTouchEnded(){
 
 		if (!backgroundRect.containsPoint(_touchLocation)){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
-			if (~isBuildableLevel && _player->canAddTroop(selID)){
+			if (~isBuildableLevel && _curPlayer->canAddTroop(selID)){
 				addBuilding(_touchLocationInGameLayer, isBuildableLevel);
-				_player->consumeResource(selID);
+				_curPlayer->consumeResource(selID);
 			}
 		}
 
@@ -373,12 +401,21 @@ void MapModel::slide(Vec2 translation){
 	Notify();
 }
 
+void MapModel::ccdebug(float dt){
+	CCLOG("buildings atk:%d def:%d, cur:%d\n", SZ(_atkPlayer->getBuildings()), SZ(_defPlayer->getBuildings()), SZ(_curPlayer->getBuildings()));
+	CCLOG("troops atk:%d def:%d, cur:%d\n", SZ(_atkPlayer->getTroops()), SZ(_defPlayer->getTroops()), SZ(_curPlayer->getTroops()));
+}
 void MapModel::refresh(float dt){
-
+	//@debug modify label.
+		{
+			char buffer[70];
+			sprintf(buffer, "player uid= atk:%d def:%d cur:%d", _atkPlayer->getUID(), _defPlayer->getUID(), _curPlayer->getUID());
+			getlblPlayerPos()->setString(buffer);
+		}
 	//@debug modify label
 	{
 		char buffer[80];
-		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", _player->L_str, _player->G_mag, _player->food);
+		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", _curPlayer->L_str, _curPlayer->G_mag, _curPlayer->food);
 		getlblResourcePos()->setString(buffer);
 	}
 
@@ -395,43 +432,30 @@ void MapModel::refresh(float dt){
 
 	for (int i = 0; i < SZ(_movableSprites); i++){
 		auto troop = _movableSprites.at(i);
-		if (_player->canAddTroop(i + 1))
+		if (_curPlayer->canAddTroop(i + 1))
 			troop->setOpacity(255);
 		else
 			troop->setOpacity(20);
 	}
-
-	PlayerModel *pm = PlayerModel::getModel();
 	//if (pm->_baseBuilding != nullptr)
 	//	CCLOG(">>target : height=%d, coord=(%.0f, %.0f)", pm->_baseBuilding->height, pm->_baseBuilding->getCoord().x, pm-//>_baseBuilding->getCoord().y);
 }
 
 void MapModel::buildingDelete(Building *target){
-	for (auto itr = _buildings.begin(); itr != _buildings.end(); itr++){
-		CCLOG("itr : height=%d, coord=(%.0f, %.0f)", (*itr)->height, (*itr)->getCoord().x, (*itr)->getCoord().y);
-		if ((*itr)->height == target->height && (*itr)->getCoord() == target->getCoord()){
-			CCLOG("delete building");
-			Point pt = tileCoordForMapPoint(target->getCoord(), target->height);
-			for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
-				_pfLayers.at(target->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
-			_buildings.erase(itr);
-			break;
-		}
-	}
+	Point pt = tileCoordForMapPoint(target->getCoord(), target->height);
+	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
+		_pfLayers.at(target->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
+	_defPlayer->removeBuilding(target);
+	_buildings.eraseObject(target);
 }
 
 void MapModel::troopDelete(Troop *target){
-	for (auto itr = _troops.begin(); itr != _troops.end(); itr++){
-		if ((*itr)->height == target->height && (*itr)->getCoord() == target->getCoord()){
-			Point pt = tileCoordForMapPoint(target->getCoord(), target->height);
-			for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
-				_pfLayers.at(target->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
-			_troops.erase(itr);
-			break;
-		}
-	}
+	Point pt = tileCoordForMapPoint(target->getCoord(), target->height);
+	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
+		_pfLayers.at(target->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
+	_atkPlayer->removeTroop(target);
+	_troops.eraseObject(target);
 }
-
 
 bool MapModel::canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset){
 	int lr = height;
@@ -466,12 +490,12 @@ bool MapModel::canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOf
 	return false;
 }
 
-
 PII MapModel::findAttackPath(Troop* troop){
+	CCLOG("GOOOOOOOOOOOOOOOO");
 	int dp[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
 	PII rec[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
 	memset(dp, -1, sizeof(dp));
-	for (auto &building : _buildings){
+	for (auto &building : _defPlayer->getBuildings()){
 		for (int tr = 0; tr < building->occupy.X; tr++) for (int tc = 0; tc < building->occupy.Y; tc++)
 			dp[(int)building->getCoord().x + tr][(int)building->getCoord().y + tc][building->height] = INF;
 		//CCLOG("%.0f %.0f %d\n", building->getCoord().x, building->getCoord().y, building->height);
@@ -524,19 +548,22 @@ PII MapModel::findAttackPath(Troop* troop){
 				dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] = dp[(int)now.x][(int)now.y][(int)now.z] + 1;
 				rec[(int)ntp.x][(int)ntp.y][(int)ntp.z] = MP(k, hofs);
 				Q.push(ntp);
+				break;
 			}
 		}
 	}
 	return MP(NO, 0);
 }
 
-void MapModel::commandAttack(float dt){
-	auto _tmp_troops = _troops;
-	for (auto &troop : _tmp_troops) troop->attackLogic(dt);
+void MapModel::commandAttack(){
+	_atkPlayer = _curPlayer;
+	_curPlayer->commandAttack();
+	_defPlayer->commandAttack();
+	CCLOG("attack mode activate!!!!");
 }
 
-void MapModel::attackLogic(float dt){
-	auto _tmp_buildings = _buildings;
+void MapModel::attackLogic(){
+	/*
 	auto _tmp_troops = _troops;
 
 	for (auto &troop : _tmp_troops){
@@ -564,12 +591,12 @@ void MapModel::attackLogic(float dt){
 				}
 			}
 			//CCLOG(">>>>>> %.0f %.0f %.0f\n", troop->getCoord().x, troop->getCoord().y, troop->height);
-			/*
+			
 			Point moveVector = troop->getCoord() - target->getCoord();
 			if (moveVector.x > 1 && canMoveTo(troop, DIRECTION::LEFT)) troopMove(troop, DIRECTION::LEFT);
 			if (moveVector.y > 1 && canMoveTo(troop, DIRECTION::DOWN)) troopMove(troop, DIRECTION::DOWN);
 			if (moveVector.x < -1 && canMoveTo(troop, DIRECTION::RIGHT)) troopMove(troop, DIRECTION::RIGHT);
-			if (moveVector.y < -1 && canMoveTo(troop, DIRECTION::UP)) troopMove(troop, DIRECTION::UP);*/
+			if (moveVector.y < -1 && canMoveTo(troop, DIRECTION::UP)) troopMove(troop, DIRECTION::UP);
 
 			//float moveAngle = ccpToAngle(moveVector);
 			//float cocosAngle = CC_RADIANS_TO_DEGREES(-1 * moveAngle);
@@ -586,8 +613,8 @@ void MapModel::attackLogic(float dt){
 
 				if (target->hp <= 0){
 					buildingDelete(target);
-					_player->L_str += 1000;
-					_player->G_mag += 1000;
+					_atkPlayer->L_str += 1000;
+					_atkPlayer->G_mag += 1000;
 				}
 
 				//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
@@ -595,53 +622,21 @@ void MapModel::attackLogic(float dt){
 		}
 	}
 	
-	for (auto &building : _tmp_buildings){
-		auto target = getClosestTroop(building);
-
-		if (target != nullptr){
-			bool could_attack = false;
-
-			for (int tr = 0; tr < building->occupy.X; tr++) for (int tc = 0; tc < building->occupy.Y; tc++){
-				Point pt = Point(building->getCoord().x + tr, building->getCoord().y + tc);
-				Point moveVector = pt - target->getCoord();
-				if (MAX(abs(moveVector.x), abs(moveVector.y)) <= 1) could_attack = true;
-			}
-
-			if (could_attack){
-				//float moveAngle = ccpToAngle(moveVector);
-				//float cocosAngle = CC_RADIANS_TO_DEGREES(-1 * moveAngle);
-
-				//float rotateSpeed = 0.5 / M_PI;
-				//float rotateDuration = fabs(moveAngle *rotateSpeed);
-
-				//attack troop
-				CCLOG("building attack");
-				target->hp -= MAX(0, building->atk - target->def);
-				CCLOG("attack : hp = %d, atk = %d, def = %d\n", building->hp, building->atk, building->def);
-				CCLOG("defend : hp = %d, atk = %d, def = %d\n", target->hp, target->atk, target->def);
-
-				if (target->hp <= 0) troopDelete(target);
-
-				//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
-			}
-		}
-	}
-
-	PlayerModel *pm = PlayerModel::getModel();
+	
 	if (_buildings.empty()) //attack win
 		SceneManager::goBattleOverScreen("ATTACK WIN!!");
 	else if (_troops.empty()){// defense win
-		pm->height = -1;
+		_atkPlayer->height = -1;
 		SceneManager::goBattleOverScreen("DEFENSE WIN!!");
 	}
-	CCLOG("attack mode is now on");
+	CCLOG("attack mode is now on");*/
 }
 
 Building* MapModel::getClosestBuilding(Troop* _troop){
 	Building *closestBuilding = nullptr;
 	double maxDistance = 999999999.0;
 
-	for (auto &building : _buildings){
+	for (auto &building : _defPlayer->getBuildings()){
 		double curDistance = ccpDistance(_troop->getCoord(), building->getCoord());
 
 		if (curDistance < maxDistance){
@@ -656,7 +651,7 @@ Troop* MapModel::getClosestTroop(Building* _building){
 	Troop *closestTroop = nullptr;
 	double maxDistance = 999999999.0;
 
-	for (auto &troop : _troops){
+	for (auto &troop : _atkPlayer->getTroops()){
 		for (int tr = 0; tr < _building->occupy.X; tr++) for (int tc = 0; tc < _building->occupy.Y; tc++){
 			Point pt = _building->getCoord();
 			double curDistance = ccpDistance(troop->getCoord(), Point(pt.x + tr, pt.y + tc));
@@ -711,18 +706,17 @@ void MapModel::readMapInfo(){
 	}
 	fclose(fp);
 
-	PlayerModel *pm = PlayerModel::getModel();
-	CCLOG(">> _baseBuidling = nullptr => %s", pm->height == -1 ? "Yes" : "No");
-	if (pm->height != -1 && rm->strWorldMap == mapName){
+	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
+	if (_curPlayer->height != -1 && rm->strWorldMap == mapName){
 		CCLOG(">> after win, delete basebuilding");
 		//pm->_baseBuilding->sett
 		Building* tmp = Building::build(1);
-		tmp->height = pm->height;
-		tmp->setCoord(pm->coord);
+		tmp->height = _curPlayer->height;
+		tmp->setCoord(_curPlayer->coord);
 		buildingDelete(tmp);
-		pm->height = -1;
+		_curPlayer->height = -1;
 	}
-	CCLOG(">> _baseBuidling = nullptr => %s", pm->height == -1 ? "Yes" : "No");
+	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
 }
 
 void MapModel::go(int dir){

@@ -16,7 +16,7 @@ public:
 
 	static Troop* addTroop(int TID);
 	void go(int dir, int ohfs);
-	void attackLogic(float dt);
+	void attackLogic();
 
 private:
 	void goLeft();

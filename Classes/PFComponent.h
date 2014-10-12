@@ -13,7 +13,7 @@ public:
 	virtual bool init();
 
 	int id;
-	int owner;
+	int owner; //uid
 	int height;
 	PII occupy;
 	Sprite* sprite;
