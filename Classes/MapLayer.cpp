@@ -4,7 +4,6 @@
 #include "Building.h"
 #include "SceneManager.h"
 #include "AppMacro.h"
-#include "Player.h"
 #include "PlayerModel.h"
 #include <ctime>
 

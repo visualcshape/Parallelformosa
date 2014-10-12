@@ -15,6 +15,12 @@ public:
 public:
 	ResourceModel();
 	~ResourceModel();
+	void LoadBuildings();
+	void LoadTroops();
+	void LoadTerrains();
+	void LoadTilemaps();
+	void LoadPlayers();
+	void LoadMISC();
 
 	static ResourceModel* getModel();
 	vector <string> DecomposePath(string relativePath);

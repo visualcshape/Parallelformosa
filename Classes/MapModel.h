@@ -7,7 +7,7 @@
 
 USING_NS_CC;
 
-class MapModel : public Ref, public Subject{
+class MapModel : public Ref, public ScreenSubject{
 public:
 	static const int EMPTY_TILE = 54;
 

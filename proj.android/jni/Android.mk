@@ -26,9 +26,17 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/DialogueWindow.cpp \
 ../../Classes/DialogueWindowConfirm.cpp \
 ../../Classes/HUDLayer.cpp \
+<<<<<<< HEAD
 ../../Classes/LoadingScene.cpp \
 ../../Classes/LoginTitleLayer.cpp \
 ../../Classes/LoginTitleModel.cpp \
+=======
+../../Classes/jsoncpp.cpp \
+../../Classes/LoadingScene.cpp \
+../../Classes/LoginTitleLayer.cpp \
+../../Classes/LoginTitleModel.cpp \
+../../Classes/LoginTitleScene.cpp \
+>>>>>>> v0.2.1
 ../../Classes/MainScene.cpp \
 ../../Classes/MainUIButtonFactory.cpp \
 ../../Classes/MainUIInfoModel.cpp \
@@ -48,19 +56,31 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/Troop.cpp \
 ../../Classes/UtilFunc.cpp \
 ../../Classes/VisibleRect.cpp \
+<<<<<<< HEAD
 ../../Classes/WindowProtocol.cpp \
 ../../Classes/jsoncpp.cpp \
 
+=======
+../../Classes/WindowProtocol.cpp
+>>>>>>> v0.2.1
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../cocos2d/cocos/ui \
+					$(LOCAL_PATH)/../../cocos2d/extensions \
+					$(LOCAL_PATH)/../../cocos2d/external/sqlite3/include\
+					$(LOCAL_PATH)/../../cocos2d/external \
 					$(LOCAL_PATH)/../../libpomelo/include \
 					$(LOCAL_PATH)/../../libpomelo/deps/jansson/src \
 					$(LOCAL_PATH)/../../libpomelo/deps/uv/include \
+<<<<<<< HEAD
 					$(LOCAL_PATH)/../../libpomelo/deps/uv/uv-private \
 					$(LOCAL_PATH)/../../cocos2d/extensions \
 					$(LOCAL_PATH)/../../cocos2d/external/sqlite3/ \
 					system/core/include/cutils \
+=======
+					$(LOCAL_PATH)/../../libpomelo/deps/uv/uv-private
+#					$(LOCAL_PATH)/../../libpthread/include
+>>>>>>> v0.2.1
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
@@ -79,11 +99,11 @@ include $(BUILD_SHARED_LIBRARY)
 $(call import-module,libpomelo)
 $(call import-module,sqlite3)
 $(call import-module,.)
-$(call import-module,audio/android)
-$(call import-module,Box2D)
-$(call import-module,editor-support/cocosbuilder)
-$(call import-module,editor-support/spine)
-$(call import-module,editor-support/cocostudio)
-$(call import-module,network)
+# $(call import-module,audio/android)
+# $(call import-module,Box2D)
+# $(call import-module,editor-support/cocosbuilder)
+# $(call import-module,editor-support/spine)
+# $(call import-module,editor-support/cocostudio)
+# $(call import-module,network)
 $(call import-module,extensions)
 $(call import-module,ui)

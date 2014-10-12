@@ -11,6 +11,18 @@ USING_NS_CC;
 ResourceModel* ResourceModel::rm_pInstance;
 
 ResourceModel::ResourceModel(){
+}
+
+ResourceModel::~ResourceModel(){
+}
+
+ResourceModel* ResourceModel::getModel(){
+	if (rm_pInstance == nullptr)
+		rm_pInstance = new ResourceModel();
+	return rm_pInstance;
+}
+
+void ResourceModel::LoadBuildings(){
 	//@var load building
 	for (int i = 1; i <= BUILDING_SIZE; i++){
 		char buffer[30];
@@ -23,7 +35,9 @@ ResourceModel::ResourceModel(){
 		strBuilding[i] = str;
 		GIDBuilding[i] = 36 + i;
 	}
+}
 
+void ResourceModel::LoadTroops(){
 	//@var load character
 	for (int i = 1; i <= TROOP_SIZE; i++){
 		char buffer[30];
@@ -36,7 +50,9 @@ ResourceModel::ResourceModel(){
 		strTroop[i] = str;
 		GIDTroop[i] = 18 + i;
 	}
+}
 
+void ResourceModel::LoadTerrains(){
 	//@var load terrain
 	for (int i = 1; i <= TERRAIN_SIZE; i++){
 		char buffer[30];
@@ -49,7 +65,9 @@ ResourceModel::ResourceModel(){
 		strTerrain[i] = str;
 		GIDTerrain[i] = i;
 	}
+}
 
+void ResourceModel::LoadTilemaps(){
 	//@var load map
 	strWorldMap = std::string("PFMAP/pfmap_world.tmx");
 	CCASSERT(CCFileUtils::getInstance()->isFileExist(strWorldMap), "Map Resource Loading Fail!!");
@@ -62,7 +80,9 @@ ResourceModel::ResourceModel(){
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Map Resource Loading Fail!!");
 		strTileMap[i] = str;
 	}
+}
 
+void ResourceModel::LoadPlayers(){
 	//@var load map
 	for (int i = 1; i <= PALYER_SIZE; i++){
 		char buffer[30];
@@ -73,7 +93,9 @@ ResourceModel::ResourceModel(){
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Player Map Resource Loading Fail!!");
 		strPlayerMap[i] = str;
 	}
+}
 
+void ResourceModel::LoadMISC(){
 	//@var load range pic
 	strRangePic = std::string("Range.png");
 	CCASSERT(CCFileUtils::getInstance()->isFileExist(strRangePic), "RangePic Resource Loading Fail!!");
@@ -88,15 +110,6 @@ ResourceModel::ResourceModel(){
 		costGmag[i] = 55 * i;
 		costFood[i] = i / 3 + 1;
 	}
-}
-
-ResourceModel::~ResourceModel(){
-}
-
-ResourceModel* ResourceModel::getModel(){
-	if (rm_pInstance == nullptr)
-		rm_pInstance = new ResourceModel();
-	return rm_pInstance;
 }
 
 void ResourceModel::CreateDownloadedDir(std::string relativePath){
