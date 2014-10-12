@@ -40,7 +40,7 @@ bool HUDLayer::init(HUD_ID status){
 	mm->setHUDBasePosition(getPosition());
 	mm->setStatus(status);
 	Size winSize = CCDirector::getInstance()->getWinSize();
-
+	/*
 	// Load the images of the buildings we'll have and draw them to the game HUD layer
 	ResourceModel *rm = ResourceModel::getModel();
 	auto _moveableSprites = mm->getMovableSprites();
@@ -71,7 +71,7 @@ bool HUDLayer::init(HUD_ID status){
 	_background->setAnchorPoint(Point(0, 0));
 	CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_Default);
 	addChild(_background, 0);
-	mm->setBackground(_background);
+	mm->setBackground(_background);*/
 	
 	mm->setSelSprite(nullptr);
 
@@ -130,7 +130,6 @@ bool HUDLayer::onTouchBegan(Touch *touch, Event *event){
 void HUDLayer::onTouchMoved(Touch* touch, Event* event){
 	mm->setOldTouchLocation(convertToNodeSpace(touch->getPreviousLocation()));
 	mm->setTouchLocation(convertTouchToNodeSpace(touch));
-
 }
 
 void HUDLayer::onTouchEnded(Touch* touch, Event* event){

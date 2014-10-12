@@ -26,4 +26,6 @@ protected:
     Observer();
 };
 
+class ScreenObserver: public Observer{
+};
 #endif

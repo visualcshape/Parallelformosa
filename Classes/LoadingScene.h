@@ -37,8 +37,9 @@ private:
     //Start load
     void _startLoadUI();
     void _startLoadWindow();
-    void _startLoadBuildingType();
-    
+	void _startLoadBuildingType();;
+	void _startLoadMISC();
+
     //reset progress parameters such as loadedSprite and string
     void _resetParameters();
     

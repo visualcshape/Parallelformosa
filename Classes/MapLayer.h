@@ -8,7 +8,7 @@
 
 USING_NS_CC;
 
-class MapLayer : public BaseLayer, public Observer{
+class MapLayer : public BaseLayer, public ScreenObserver{
 
 public:
 	MapLayer();

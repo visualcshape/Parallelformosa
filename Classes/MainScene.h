@@ -16,6 +16,7 @@
 #include "MainUIInfoModel.h"
 #include "BuildingWindow.h"
 #include "ButtonWithImage.h"
+#include "MapModel.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -29,39 +30,45 @@ public:
 };
 
 //menu ui
-class MainMenuLayer : public Layer{
+class MainMenuLayer : public Layer, public Observer{
 private:
-    Layout* _mainLayout;
-    Button* _buildingButton;
-    Button* _unitButton;
-    Button* _statusButton;
-    Button* _itemButton;
-    Button* _alliesButton;
-    
-    //----Other----//
-    Button* _optionButton;
+	Layout* _mainLayout;
+	Button* _buildingButton;
+	Button* _unitButton;
+	Button* _statusButton;
+	Button* _itemButton;
+	Button* _alliesButton;
+
+	//----Other----//
+	Button* _optionButton;
 protected:
 public:
-    virtual bool init();
-    
-    MainMenuLayer();
-    
-    void BuildingButtonCallback(Ref* pSender,Widget::TouchEventType type);
-    void UnitButtonCallback(Ref* pSender,Widget::TouchEventType type);
-    
-    void ItemButtonCallback(Ref* pSender,Widget::TouchEventType type);
-    
-    void StatusButtonCallback(Ref* pSender,Widget::TouchEventType type);
-    
-    void AlliesButtonCallback(Ref* pSender,Widget::TouchEventType type);
-    
-    void OptionButtonCallback(Ref* pSender,Widget::TouchEventType type);
-    
-    CREATE_FUNC(MainMenuLayer);
+	virtual bool init();
+	virtual void Update(Subject* _subject);
+
+	MainMenuLayer();
+	~MainMenuLayer();
+
+	void gogo();
+	void BuildingButtonCallback(Ref* pSender, Widget::TouchEventType type);
+	void UnitButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	void ItemButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	void StatusButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	void AlliesButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	void OptionButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	CREATE_FUNC(MainMenuLayer);
+
+private:
+	MapModel *mm;
 };
 
 //infomation (Upper)
-class MainInfoLayer : public Layer,public Observer{
+class MainInfoLayer : public Layer, public Observer{
 private:
     //Data
     MainUIInfoModel* _bindModel;
@@ -82,6 +89,9 @@ public:
     
     virtual void Update(Subject* changedSubject);
     
-    CREATE_FUNC(MainInfoLayer);
+	CREATE_FUNC(MainInfoLayer);
+
+private:
+	MapModel *mm;
 };
 #endif /* defined(__Parallelformosa_Cocos2dx__MainScene__) */

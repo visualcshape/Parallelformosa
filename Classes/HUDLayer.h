@@ -9,7 +9,7 @@
 
 USING_NS_CC;
 
-class HUDLayer : public BaseLayer, public Observer{
+class HUDLayer : public BaseLayer, public ScreenObserver{
 
 public:
 	HUDLayer();
