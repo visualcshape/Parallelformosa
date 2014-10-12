@@ -2,14 +2,15 @@
 #include "cocos2d.h"
 #include "Building.h"
 #include "Subject.h"
-#include "Player.h"
 #include "Troop.h"
+#include "PlayerModel.h"
 
 USING_NS_CC;
 
 class MapModel : public Ref, public Subject{
 public:
 	static const int EMPTY_TILE = 54;
+
 	static const int GREEN_MARK = 55;
 	static const int RED_MARK = 56;
 	static const int EMPTY_MARK = 57;
@@ -29,12 +30,17 @@ public:
 	void tryTouchMoved();
 	void tryTouchEnded();
 	void refresh(float dt);
-	void attackLogic(float dt);
+	void ccdebug(float dt);
+	void attackLogic();
+	void commandAttack();
 
 	//@func tilemap
 	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
-	int canBuildOnTilePosition(Point pos);
+	int canBuildOnTilePosition(Point pos); 
+	//int canWalkOnTilePosition(MapPoint checkMapLoc);
 	bool isTileInsideLayer(Point checkTileLoc, int level);
+	bool isCoordInsideLayer(Point checkTileLoc, int level);
+	PII findAttackPath(Troop* troop);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
@@ -49,12 +55,16 @@ public:
 	void readMapInfo();
 	void writeMapInfo();
 
-	bool canMoveTo(Troop* _troop, int direction);
+	bool canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset);
+	void troopMove(Troop* _troop, int dir, int heightOffset);
 	Building* getClosestBuilding(Troop* _troop);
 	Troop* getClosestTroop(Building* _building);
-	void troopMove(Troop* _troop, int direction);
 	void buildingDelete(Building *_building);
 	void troopDelete(Troop *_troop);
+
+	void mapAddBuilding(Building* building);
+	void mapAddTroop(Troop* troop);
+
 
 	CC_SYNTHESIZE(TMXTiledMap*, _tileMap, TileMap);
 	CC_SYNTHESIZE(Vector <TMXLayer*>, _pfLayers, PFLayers);
@@ -65,7 +75,6 @@ public:
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 	CC_SYNTHESIZE(Label*, _lblPlayerPos, lblPlayerPos);
 	CC_SYNTHESIZE(Label*, _lblResourcePos, lblResourcePos);
-	
 
 	//@brief touch event point
 	CC_SYNTHESIZE(Point, _touchOriginLocation, TouchOriginLocation);
@@ -86,8 +95,11 @@ public:
 	CC_SYNTHESIZE(Point, _hudBasePosition, HUDBasePosition);
 	CC_SYNTHESIZE(Size, _mapContent, MapContent);
 
-	CC_SYNTHESIZE(Player*, _player, Player);
 	CC_SYNTHESIZE(HUD_ID, _status, Status);
+
+	CC_SYNTHESIZE(PlayerModel*, _curPlayer, CurPlayer);
+	CC_SYNTHESIZE(PlayerModel*, _atkPlayer, AtkPlayer);
+	CC_SYNTHESIZE(PlayerModel*, _defPlayer, DefPlayer);
 
 	static MapModel* getModel();
 
@@ -102,12 +114,12 @@ protected:
 
 	//@func internally add building
 	void addBuildingToMap(int ID, int owner, MapPoint pos, int level);
+	void go(int dir);
 
 private:
-
 	std::string mapName;
 	int selID;
-	bool _prevCursurOutside;
+	bool _prevCursurOutside; 
 	Vector <Building*> _buildings;
 	Vector <Troop*> _troops;
 };

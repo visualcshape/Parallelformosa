@@ -14,8 +14,9 @@
 #include "LoadingScene.h"
 #include "NoticeLoading.h"
 #include "LoadingScene.h"
+#include "ResourceModel.h"
+#include "SceneManager.h"
 //
-
 
 using namespace cocos2d;
 
@@ -149,9 +150,12 @@ void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 #if NO_CONNECTION == 0
 	_doLoginWaterFall();
 #else
+	ResourceModel *rm = ResourceModel::getModel();
+	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 	//Go to main scene
+	/*
 	auto scene = LoadingScene::createScene();
-	Director::getInstance()->replaceScene(scene);
+	Director::getInstance()->replaceScene(scene);*/
 #endif
 }
 

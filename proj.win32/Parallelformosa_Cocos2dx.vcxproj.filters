@@ -19,6 +19,12 @@
     <Filter Include="Classes\MISC">
       <UniqueIdentifier>{a235d73c-899b-452f-a4af-7eae0194dee3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\UI">
+      <UniqueIdentifier>{b91ac54f-7d8f-401c-b98e-89ba05d6fce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Network">
+      <UniqueIdentifier>{77de6ddd-89e3-42a9-bda4-ed1484cc99b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,9 +87,6 @@
     <ClCompile Include="..\Classes\MapLayer.cpp">
       <Filter>Classes\Controller &amp; View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Player.cpp">
-      <Filter>Classes\MISC</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Troop.cpp">
       <Filter>Classes\MISC</Filter>
     </ClCompile>
@@ -96,32 +99,38 @@
     <ClCompile Include="..\Classes\PlayerModel.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CCPomeloWrapper.cpp">
-      <Filter>Classes\MISC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\jsoncpp.cpp">
-      <Filter>Classes\MISC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LoadingScene.cpp">
-      <Filter>Classes\MISC</Filter>
+    <ClCompile Include="..\Classes\MainUIButtonFactory.cpp">
+      <Filter>Classes\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainUIInfoModel.cpp">
-      <Filter>Classes\MISC</Filter>
+      <Filter>Classes\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MainScene.cpp">
-      <Filter>Classes\MISC</Filter>
+    <ClCompile Include="..\Classes\ButtonWithImage.cpp">
+      <Filter>Classes\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MainUIButtonFactory.cpp">
-      <Filter>Classes\MISC</Filter>
+    <ClCompile Include="..\Classes\BattleModel.cpp">
+      <Filter>Classes\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\NoticeManager.cpp">
-      <Filter>Classes\MISC</Filter>
+    <ClCompile Include="..\Classes\CCPomeloWrapper.cpp">
+      <Filter>Classes\Network</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\NoticeLoading.cpp">
-      <Filter>Classes\MISC</Filter>
+    <ClCompile Include="..\Classes\jsoncpp.cpp">
+      <Filter>Classes\Network</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\WindowProtocol.cpp">
-      <Filter>Classes\MISC</Filter>
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoadingScene.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScene.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NoticeLoading.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NoticeManager.cpp">
+      <Filter>Classes\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,9 +197,6 @@
     <ClInclude Include="..\Classes\MapLayer.h">
       <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Player.h">
-      <Filter>Classes\MISC</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Troop.h">
       <Filter>Classes\MISC</Filter>
     </ClInclude>
@@ -203,35 +209,41 @@
     <ClInclude Include="..\Classes\PlayerModel.h">
       <Filter>Classes\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CCPomeloWrapper.h">
-      <Filter>Classes\MISC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\json-forwards.h">
-      <Filter>Classes\MISC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LoadingScene.h">
-      <Filter>Classes\MISC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\json.h">
-      <Filter>Classes\MISC</Filter>
+    <ClInclude Include="..\Classes\MainUIInfoModel.h">
+      <Filter>Classes\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainUIButtonFactory.h">
-      <Filter>Classes\MISC</Filter>
+      <Filter>Classes\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainUIInfoModel.h">
-      <Filter>Classes\MISC</Filter>
+    <ClInclude Include="..\Classes\ButtonWithImage.h">
+      <Filter>Classes\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainScene.h">
-      <Filter>Classes\MISC</Filter>
+    <ClInclude Include="..\Classes\BattleModel.h">
+      <Filter>Classes\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\NoticeLoading.h">
-      <Filter>Classes\MISC</Filter>
+    <ClInclude Include="..\Classes\CCPomeloWrapper.h">
+      <Filter>Classes\Network</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\NoticeManager.h">
-      <Filter>Classes\MISC</Filter>
+    <ClInclude Include="..\Classes\json.h">
+      <Filter>Classes\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\json-forwards.h">
+      <Filter>Classes\Network</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\WindowProtocol.h">
-      <Filter>Classes\MISC</Filter>
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoadingScene.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScene.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoticeLoading.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoticeManager.h">
+      <Filter>Classes\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -137,8 +137,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BaseLayer.cpp" />
+    <ClCompile Include="..\Classes\BattleModel.cpp" />
     <ClCompile Include="..\Classes\BattleOverLayer.cpp" />
     <ClCompile Include="..\Classes\Building.cpp" />
+    <ClCompile Include="..\Classes\ButtonWithImage.cpp" />
     <ClCompile Include="..\Classes\CCPomeloWrapper.cpp" />
     <ClCompile Include="..\Classes\jsoncpp.cpp" />
     <ClCompile Include="..\Classes\LoadingScene.cpp" />
@@ -158,7 +160,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\MapLayer.cpp" />
     <ClCompile Include="..\Classes\MapModel.cpp" />
     <ClCompile Include="..\Classes\Observer.cpp" />
-    <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\PlayerModel.cpp" />
     <ClCompile Include="..\Classes\ResourceModel.cpp" />
     <ClCompile Include="..\Classes\SceneManager.cpp" />
@@ -174,8 +175,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacro.h" />
     <ClInclude Include="..\Classes\BaseLayer.h" />
+    <ClInclude Include="..\Classes\BattleModel.h" />
     <ClInclude Include="..\Classes\BattleOverLayer.h" />
     <ClInclude Include="..\Classes\Building.h" />
+    <ClInclude Include="..\Classes\ButtonWithImage.h" />
     <ClInclude Include="..\Classes\CCPomeloWrapper.h" />
     <ClInclude Include="..\Classes\json-forwards.h" />
     <ClInclude Include="..\Classes\json.h" />
@@ -196,7 +199,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\MapLayer.h" />
     <ClInclude Include="..\Classes\MapModel.h" />
     <ClInclude Include="..\Classes\Observer.h" />
-    <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\PlayerModel.h" />
     <ClInclude Include="..\Classes\ResourceModel.h" />
     <ClInclude Include="..\Classes\SceneManager.h" />
