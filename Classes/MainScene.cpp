@@ -135,16 +135,10 @@ void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
 void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
-		this->removeChildByName("BuildingWindow");
-		Button* sender = dynamic_cast<Button*>(pSender);
-		CC_ASSERT(sender!=nullptr);
-
-		BuildingWindow* p = dynamic_cast<BuildingWindow*>(sender->getParent()->getParent()->getParent()->getParent()->getParent());
-		CC_ASSERT(p!=nullptr);
-
-		ID = p->getCurButton()->getBID();
-		CCLOG(">>>>>> ID = %d\n", ID);
-
+        BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
+        int ID = p->getCurButton()->getBID();
+        
+        this->removeChildByName("BuildingWindow");
 		//@brief later modify
 		MapModel::getModel()->clickToAddBuildingCursor(ID);
 	}
