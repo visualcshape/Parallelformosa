@@ -253,8 +253,24 @@ void MapModel::showAllRange(bool visible){
 	}
 }
 
-bool MapModel::tryTouchBegan(){
+void MapModel::clickToAddBuildingCursor(int BID){
+	ResourceModel *rm = ResourceModel::getModel();
 
+	_selSprite = Sprite::create(rm->strBuilding[BID]);
+
+	_selSpriteRange = Sprite::create(rm->strRangePic);
+	_selSpriteRange->setScale(4);
+
+	_selGroups->addChild(_selSpriteRange);
+	_selGroups->addChild(_selSprite);
+	_selGroups->setPosition(_touchLocation);
+
+	selID = BID;
+	showAllRange(true);
+}
+
+bool MapModel::tryTouchBegan(){
+	/*
 	Sprite * newSprite = NULL;
 	for (int i = 0; i < _movableSprites.size(); i++){
 		Sprite* sprite = _movableSprites.at(i);
@@ -280,7 +296,7 @@ bool MapModel::tryTouchBegan(){
 			selID = i + 1;
 			showAllRange(true);
 		}
-	}
+	}*/
 	return true;
 }
 
@@ -361,18 +377,18 @@ void MapModel::tryTouchEnded(){
 	}
 
 	if (_selSprite){
-		Rect backgroundRect = Rect(_background->getPositionX(),
+		/*Rect backgroundRect = Rect(_background->getPositionX(),
 			_background->getPositionY(),
 			_background->getContentSize().width,
-			_background->getContentSize().height);
+			_background->getContentSize().height);*/
 
-		if (!backgroundRect.containsPoint(_touchLocation)){
+		//if (!backgroundRect.containsPoint(_touchLocation)){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
 			if (~isBuildableLevel && _curPlayer->canAddTroop(selID)){
 				addBuilding(_touchLocationInGameLayer, isBuildableLevel);
 				_curPlayer->consumeResource(selID);
 			}
-		}
+		//}
 
 		_selGroups->removeAllChildren();
 		_selSprite = NULL;

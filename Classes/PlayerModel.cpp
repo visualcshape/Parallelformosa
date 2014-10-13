@@ -33,6 +33,9 @@ void PlayerModel::consumeResource(int TID){
 	G_mag -= rm->costGmag[TID];;
 	food -= rm->costFood[TID];;
 }
+void PlayerModel::changeUID(int uid){
+
+}
 
 void PlayerModel::addBuilding(Building* building){
 	_buildings.pushBack(building);

@@ -188,7 +188,6 @@ void LoadingLayer::_startLoadMISC(){
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 
-	//for (long long i = 0; i < 10000000000000LL; i++);
 	_loadComplete();
 }
 

@@ -25,6 +25,9 @@
     <Filter Include="Classes\Network">
       <UniqueIdentifier>{77de6ddd-89e3-42a9-bda4-ed1484cc99b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Command">
+      <UniqueIdentifier>{9d400e78-a744-4b4f-a08b-c7cfa7a6a7eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -139,6 +142,30 @@
       <Filter>Classes\Network</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDResource.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDState.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Command.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDMove.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UnitTypeModel.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDAnimation.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDCountdown.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UnitWindow.cpp">
       <Filter>Classes\UI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -264,6 +291,30 @@
       <Filter>Classes\Network</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\CustomLabelMenuItem.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDResource.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDState.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Command.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDMove.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UnitTypeModel.h">
+      <Filter>Classes\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDAnimation.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDCountdown.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UnitWindow.h">
       <Filter>Classes\UI</Filter>
     </ClInclude>
   </ItemGroup>

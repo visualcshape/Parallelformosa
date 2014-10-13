@@ -34,6 +34,8 @@ public:
 	void attackLogic();
 	void commandAttack();
 
+	void clickToAddBuildingCursor(int BID);
+
 	//@func tilemap
 	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
 	int canBuildOnTilePosition(Point pos); 

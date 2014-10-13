@@ -15,6 +15,8 @@ public:
 	bool canAddTroop(int TID);
 	void consumeResource(int TID);
 
+	void changeUID(int uid);
+
 	//void writePlayerInfo();
 	//void readPlayerInfo();
 
@@ -36,4 +38,6 @@ public:
 	int food;
 
 private:
+	void loadData();
+	void saveData();
 };

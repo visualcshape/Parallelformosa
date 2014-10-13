@@ -144,6 +144,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\BuildingWindow.cpp" />
     <ClCompile Include="..\Classes\ButtonWithImage.cpp" />
     <ClCompile Include="..\Classes\CCPomeloWrapper.cpp" />
+    <ClCompile Include="..\Classes\CMDAnimation.cpp" />
+    <ClCompile Include="..\Classes\CMDCountdown.cpp" />
+    <ClCompile Include="..\Classes\CMDMove.cpp" />
+    <ClCompile Include="..\Classes\CMDResource.cpp" />
+    <ClCompile Include="..\Classes\CMDState.cpp" />
+    <ClCompile Include="..\Classes\Command.cpp" />
     <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp" />
     <ClCompile Include="..\Classes\Database.cpp" />
     <ClCompile Include="..\Classes\DialogueWindow.cpp" />
@@ -169,6 +175,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Subject.cpp" />
     <ClCompile Include="..\Classes\TrademarkLayer.cpp" />
     <ClCompile Include="..\Classes\Troop.cpp" />
+    <ClCompile Include="..\Classes\UnitTypeModel.cpp" />
+    <ClCompile Include="..\Classes\UnitWindow.cpp" />
     <ClCompile Include="..\Classes\UtilFunc.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="..\Classes\WindowProtocol.cpp" />
@@ -186,6 +194,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\BuildingWindow.h" />
     <ClInclude Include="..\Classes\ButtonWithImage.h" />
     <ClInclude Include="..\Classes\CCPomeloWrapper.h" />
+    <ClInclude Include="..\Classes\CMDAnimation.h" />
+    <ClInclude Include="..\Classes\CMDCountdown.h" />
+    <ClInclude Include="..\Classes\CMDMove.h" />
+    <ClInclude Include="..\Classes\CMDResource.h" />
+    <ClInclude Include="..\Classes\CMDState.h" />
+    <ClInclude Include="..\Classes\Command.h" />
     <ClInclude Include="..\Classes\CustomLabelMenuItem.h" />
     <ClInclude Include="..\Classes\Database.h" />
     <ClInclude Include="..\Classes\DialogueWindow.h" />
@@ -212,6 +226,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Subject.h" />
     <ClInclude Include="..\Classes\TrademarkLayer.h" />
     <ClInclude Include="..\Classes\Troop.h" />
+    <ClInclude Include="..\Classes\UnitTypeModel.h" />
+    <ClInclude Include="..\Classes\UnitWindow.h" />
     <ClInclude Include="..\Classes\UtilFunc.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />
     <ClInclude Include="..\Classes\WindowProtocol.h" />
