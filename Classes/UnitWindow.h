@@ -30,6 +30,7 @@ private:
     Layout* _rightUnitLayout;
     
     ListView* _unitButtonListView;
+    
 protected:
     UnitWindow(string titleText,function<void(Ref*,Widget::TouchEventType)> closeCallback,function<void(Ref*,Widget::TouchEventType)> trainButtonPressedCallback);
 public:

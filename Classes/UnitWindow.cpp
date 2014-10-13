@@ -121,7 +121,7 @@ bool UnitWindow::init()
     Size upperEachLayoutSize(_rightUnitLayout->getContentSize().width,rightMainBlockUpper.height/7);
     Size downEachLaoutSize(_rightUnitLayout->getContentSize().width,rightMainBlockDown.height/2);
     
-    
+    //Title
     
     //////////////
     //Main
