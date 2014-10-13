@@ -1,11 +1,1 @@
-<<<<<<< HEAD
-﻿  MciPlayer.cpp
-  SimpleAudioEngine.cpp
-d:\git\parallelformosa_g+\cocos2d\cocos\2d\cclabel.h(276): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data (..\win32\SimpleAudioEngine.cpp)
-  CocosDenshion.vcxproj -> D:\Git\Parallelformosa_G+\proj.win32\Debug.win32\libAudio.lib
-=======
-﻿  MciPlayer.cpp
-  SimpleAudioEngine.cpp
-d:\git\parallelformosa_g+\cocos2d\cocos\2d\cclabel.h(276): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data (..\win32\SimpleAudioEngine.cpp)
-  CocosDenshion.vcxproj -> D:\Git\Parallelformosa_G+\proj.win32\Debug.win32\libAudio.lib
->>>>>>> 0dfc44bc226cc8a9e9eba508c2517f98aad2020e
+﻿  CocosDenshion.vcxproj -> D:\Git\Parallelformosa_G+\proj.win32\Debug.win32\libAudio.lib

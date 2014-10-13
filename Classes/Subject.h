@@ -18,6 +18,7 @@
  */
 
 class Observer;
+class ScreenObserver;
 
 class Subject
 {
@@ -35,5 +36,10 @@ private:
     std::list<Observer*>* _observers;
 };
 
+
+class ScreenSubject : public Subject{
+private:
+	std::list<ScreenObserver*>* _observers;
+};
 
 #endif

@@ -114,16 +114,12 @@
 		F6A6ECE319E31F340020EFBB /* MapModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECC419E31F340020EFBB /* MapModel.cpp */; };
 		F6A6ECE419E31F340020EFBB /* PFComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECC619E31F340020EFBB /* PFComponent.cpp */; };
 		F6A6ECE519E31F340020EFBB /* PFComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECC619E31F340020EFBB /* PFComponent.cpp */; };
-		F6A6ECE619E31F340020EFBB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECC819E31F340020EFBB /* Player.cpp */; };
-		F6A6ECE719E31F340020EFBB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECC819E31F340020EFBB /* Player.cpp */; };
 		F6A6ECE819E31F340020EFBB /* PlayerModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECCA19E31F340020EFBB /* PlayerModel.cpp */; };
 		F6A6ECE919E31F340020EFBB /* PlayerModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECCA19E31F340020EFBB /* PlayerModel.cpp */; };
 		F6A6ECEA19E31F340020EFBB /* ResourceModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECCC19E31F340020EFBB /* ResourceModel.cpp */; };
 		F6A6ECEB19E31F340020EFBB /* ResourceModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECCC19E31F340020EFBB /* ResourceModel.cpp */; };
 		F6A6ECEC19E31F340020EFBB /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECCE19E31F340020EFBB /* SceneManager.cpp */; };
 		F6A6ECED19E31F340020EFBB /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECCE19E31F340020EFBB /* SceneManager.cpp */; };
-		F6A6ECEE19E31F340020EFBB /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECD019E31F340020EFBB /* Tower.cpp */; };
-		F6A6ECEF19E31F340020EFBB /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECD019E31F340020EFBB /* Tower.cpp */; };
 		F6A6ECF019E31F340020EFBB /* TrademarkLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECD219E31F340020EFBB /* TrademarkLayer.cpp */; };
 		F6A6ECF119E31F340020EFBB /* TrademarkLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECD219E31F340020EFBB /* TrademarkLayer.cpp */; };
 		F6A6ECF219E31F340020EFBB /* Troop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECD419E31F340020EFBB /* Troop.cpp */; };
@@ -145,27 +141,16 @@
 		F6A6ED2819E3210D0020EFBB /* ortho-test1.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0319E3210C0020EFBB /* ortho-test1.png */; };
 		F6A6ED2919E3210D0020EFBB /* ortho-test1P200.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0419E3210C0020EFBB /* ortho-test1P200.png */; };
 		F6A6ED2A19E3210D0020EFBB /* OurMap(config).tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0519E3210C0020EFBB /* OurMap(config).tmx */; };
-		F6A6ED2B19E3210D0020EFBB /* PF Objects.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0619E3210C0020EFBB /* PF Objects.png */; };
-		F6A6ED2C19E3210D0020EFBB /* PF Objects.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0719E3210C0020EFBB /* PF Objects.tsx */; };
 		F6A6ED2D19E3210D0020EFBB /* PFMAP in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0819E3210D0020EFBB /* PFMAP */; };
 		F6A6ED2E19E3210D0020EFBB /* PlanetCute in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0919E3210D0020EFBB /* PlanetCute */; };
-		F6A6ED2F19E3210D0020EFBB /* PlanetCute PNG in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0A19E3210D0020EFBB /* PlanetCute PNG */; };
 		F6A6ED3019E3210D0020EFBB /* Range.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0B19E3210D0020EFBB /* Range.png */; };
 		F6A6ED3119E3210D0020EFBB /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0C19E3210D0020EFBB /* terrain.png */; };
 		F6A6ED3219E3210D0020EFBB /* test.info in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0D19E3210D0020EFBB /* test.info */; };
-		F6A6ED3319E3210D0020EFBB /* TestMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0E19E3210D0020EFBB /* TestMap.tmx */; };
-		F6A6ED3419E3210D0020EFBB /* TestMap2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0F19E3210D0020EFBB /* TestMap2.tmx */; };
-		F6A6ED3519E3210D0020EFBB /* TestMap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1019E3210D0020EFBB /* TestMap3.tmx */; };
-		F6A6ED3619E3210D0020EFBB /* TestMap4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1119E3210D0020EFBB /* TestMap4.tmx */; };
-		F6A6ED3719E3210D0020EFBB /* TestMap5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1219E3210D0020EFBB /* TestMap5.tmx */; };
-		F6A6ED3819E3210D0020EFBB /* TestMap6.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1319E3210D0020EFBB /* TestMap6.tmx */; };
-		F6A6ED3919E3210D0020EFBB /* TestMap8.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1419E3210D0020EFBB /* TestMap8.tmx */; };
 		F6A6ED3A19E3210D0020EFBB /* TestTileset.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1519E3210D0020EFBB /* TestTileset.tsx */; };
 		F6A6ED3B19E3210D0020EFBB /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1619E3210D0020EFBB /* TileMap.tmx */; };
 		F6A6ED3C19E3210D0020EFBB /* TileMap4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1719E3210D0020EFBB /* TileMap4.tmx */; };
 		F6A6ED3D19E3210D0020EFBB /* tmw_desert_spacing.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1819E3210D0020EFBB /* tmw_desert_spacing.png */; };
 		F6A6ED3E19E3210D0020EFBB /* Untitled.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1919E3210D0020EFBB /* Untitled.tsx */; };
-		F6B133F119AA4C77002981C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6B133F019AA4C77002981C6 /* README.md */; };
 		F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
 		F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */; };
 		F6B5E34019D9DC43004F1FA6 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64E167019AEE36A005046E1 /* libjansson.a */; };
@@ -444,16 +429,12 @@
 		F6A6ECC519E31F340020EFBB /* MapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapModel.h; path = ../Classes/MapModel.h; sourceTree = "<group>"; };
 		F6A6ECC619E31F340020EFBB /* PFComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PFComponent.cpp; path = ../Classes/PFComponent.cpp; sourceTree = "<group>"; };
 		F6A6ECC719E31F340020EFBB /* PFComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFComponent.h; path = ../Classes/PFComponent.h; sourceTree = "<group>"; };
-		F6A6ECC819E31F340020EFBB /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../Classes/Player.cpp; sourceTree = "<group>"; };
-		F6A6ECC919E31F340020EFBB /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Classes/Player.h; sourceTree = "<group>"; };
 		F6A6ECCA19E31F340020EFBB /* PlayerModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerModel.cpp; path = ../Classes/PlayerModel.cpp; sourceTree = "<group>"; };
 		F6A6ECCB19E31F340020EFBB /* PlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerModel.h; path = ../Classes/PlayerModel.h; sourceTree = "<group>"; };
 		F6A6ECCC19E31F340020EFBB /* ResourceModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceModel.cpp; path = ../Classes/ResourceModel.cpp; sourceTree = "<group>"; };
 		F6A6ECCD19E31F340020EFBB /* ResourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceModel.h; path = ../Classes/ResourceModel.h; sourceTree = "<group>"; };
 		F6A6ECCE19E31F340020EFBB /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = ../Classes/SceneManager.cpp; sourceTree = "<group>"; };
 		F6A6ECCF19E31F340020EFBB /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneManager.h; path = ../Classes/SceneManager.h; sourceTree = "<group>"; };
-		F6A6ECD019E31F340020EFBB /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tower.cpp; path = ../Classes/Tower.cpp; sourceTree = "<group>"; };
-		F6A6ECD119E31F340020EFBB /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tower.h; path = ../Classes/Tower.h; sourceTree = "<group>"; };
 		F6A6ECD219E31F340020EFBB /* TrademarkLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TrademarkLayer.cpp; path = ../Classes/TrademarkLayer.cpp; sourceTree = "<group>"; };
 		F6A6ECD319E31F340020EFBB /* TrademarkLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrademarkLayer.h; path = ../Classes/TrademarkLayer.h; sourceTree = "<group>"; };
 		F6A6ECD419E31F340020EFBB /* Troop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Troop.cpp; path = ../Classes/Troop.cpp; sourceTree = "<group>"; };
@@ -498,7 +479,6 @@
 		F6A6ED1919E3210D0020EFBB /* Untitled.tsx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Untitled.tsx; sourceTree = "<group>"; };
 		F6A6ED4019E3A21C0020EFBB /* BuildingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingType.h; path = ../Classes/BuildingType.h; sourceTree = "<group>"; };
 		F6A8EDA0198530AB0023CD3D /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacro.h; path = ../Classes/AppMacro.h; sourceTree = "<group>"; };
-		F6B133F019AA4C77002981C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
 		F6B5E33B19D99A69004F1FA6 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = ../Classes/MainScene.h; sourceTree = "<group>"; };
 		F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainUIButtonFactory.cpp; path = ../Classes/MainUIButtonFactory.cpp; sourceTree = "<group>"; };
@@ -625,16 +605,12 @@
 				F6A6ECC519E31F340020EFBB /* MapModel.h */,
 				F6A6ECC619E31F340020EFBB /* PFComponent.cpp */,
 				F6A6ECC719E31F340020EFBB /* PFComponent.h */,
-				F6A6ECC819E31F340020EFBB /* Player.cpp */,
-				F6A6ECC919E31F340020EFBB /* Player.h */,
 				F6A6ECCA19E31F340020EFBB /* PlayerModel.cpp */,
 				F6A6ECCB19E31F340020EFBB /* PlayerModel.h */,
 				F6A6ECCC19E31F340020EFBB /* ResourceModel.cpp */,
 				F6A6ECCD19E31F340020EFBB /* ResourceModel.h */,
 				F6A6ECCE19E31F340020EFBB /* SceneManager.cpp */,
 				F6A6ECCF19E31F340020EFBB /* SceneManager.h */,
-				F6A6ECD019E31F340020EFBB /* Tower.cpp */,
-				F6A6ECD119E31F340020EFBB /* Tower.h */,
 				F6A6ECD219E31F340020EFBB /* TrademarkLayer.cpp */,
 				F6A6ECD319E31F340020EFBB /* TrademarkLayer.h */,
 				F6A6ECD419E31F340020EFBB /* Troop.cpp */,
@@ -728,7 +704,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				F6B133F019AA4C77002981C6 /* README.md */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -1056,21 +1031,11 @@
 				F6A6ED2819E3210D0020EFBB /* ortho-test1.png in Resources */,
 				F6A6ED2919E3210D0020EFBB /* ortho-test1P200.png in Resources */,
 				F6A6ED2A19E3210D0020EFBB /* OurMap(config).tmx in Resources */,
-				F6A6ED2B19E3210D0020EFBB /* PF Objects.png in Resources */,
-				F6A6ED2C19E3210D0020EFBB /* PF Objects.tsx in Resources */,
 				F6A6ED2D19E3210D0020EFBB /* PFMAP in Resources */,
 				F6A6ED2E19E3210D0020EFBB /* PlanetCute in Resources */,
-				F6A6ED2F19E3210D0020EFBB /* PlanetCute PNG in Resources */,
 				F6A6ED3019E3210D0020EFBB /* Range.png in Resources */,
 				F6A6ED3119E3210D0020EFBB /* terrain.png in Resources */,
 				F6A6ED3219E3210D0020EFBB /* test.info in Resources */,
-				F6A6ED3319E3210D0020EFBB /* TestMap.tmx in Resources */,
-				F6A6ED3419E3210D0020EFBB /* TestMap2.tmx in Resources */,
-				F6A6ED3519E3210D0020EFBB /* TestMap3.tmx in Resources */,
-				F6A6ED3619E3210D0020EFBB /* TestMap4.tmx in Resources */,
-				F6A6ED3719E3210D0020EFBB /* TestMap5.tmx in Resources */,
-				F6A6ED3819E3210D0020EFBB /* TestMap6.tmx in Resources */,
-				F6A6ED3919E3210D0020EFBB /* TestMap8.tmx in Resources */,
 				F6A6ED3A19E3210D0020EFBB /* TestTileset.tsx in Resources */,
 				F6A6ED3B19E3210D0020EFBB /* TileMap.tmx in Resources */,
 				F6A6ED3C19E3210D0020EFBB /* TileMap4.tmx in Resources */,
@@ -1088,7 +1053,6 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				F696BA6B1987B8F600474833 /* Shaders in Resources */,
-				F6B133F119AA4C77002981C6 /* README.md in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
@@ -1160,8 +1124,6 @@
 				F6DEBDC619E9284400F58194 /* Effect.cpp in Sources */,
 				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				F6A6ECE619E31F340020EFBB /* Player.cpp in Sources */,
-				F6A6ECEE19E31F340020EFBB /* Tower.cpp in Sources */,
 				F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */,
 				F6A6ECE219E31F340020EFBB /* MapModel.cpp in Sources */,
 				F69E486519B9D687009717E7 /* LoadingScene.cpp in Sources */,
@@ -1186,7 +1148,6 @@
 				F6FD119319EABD8300189826 /* LayoutFactory.cpp in Sources */,
 				F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */,
-				F6A6ECE719E31F340020EFBB /* Player.cpp in Sources */,
 				F6A6ECE319E31F340020EFBB /* MapModel.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				F6A6ECE919E31F340020EFBB /* PlayerModel.cpp in Sources */,
@@ -1194,7 +1155,6 @@
 				F6A6ECEB19E31F340020EFBB /* ResourceModel.cpp in Sources */,
 				F6A6ECED19E31F340020EFBB /* SceneManager.cpp in Sources */,
 				F6FD118F19EA815F00189826 /* UnitWindow.cpp in Sources */,
-				F6A6ECEF19E31F340020EFBB /* Tower.cpp in Sources */,
 				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */,

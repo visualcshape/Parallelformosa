@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="38" tilewidth="61" tileheight="25">
- <tileset firstgid="1" source="PF Objects.tsx"/>
+ <tileset firstgid="1" source="PF_Objects.tsx"/>
  <tileset firstgid="55" source="mark.tsx"/>
  <layer name="PF Layer 0" width="25" height="38">
   <data>

@@ -5,6 +5,7 @@
 #include "MapLayer.h"
 #include "HUDLayer.h"
 #include "ResourceModel.h"
+#include "MainScene.h"
 
 USING_NS_CC;
 
@@ -35,9 +36,16 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	SceneManager::cleanRunningScreen();
 	Layer* layer = MapLayer::create(mapName);
 
+	//@brief bind mainUIlayer
+	auto mainMenuUILayer = MainMenuLayer::create();
+	layer->addChild(mainMenuUILayer, 10000);
+	auto mainMenuInfoLayer = MainInfoLayer::create();
+	layer->addChild(mainMenuInfoLayer, 10001);
+
+	
 	//@brief bind HUDlayer
 	auto hudlayer = HUDLayer::create(status);
-	layer->addChild(hudlayer, 10000);
+	layer->addChild(hudlayer, 20000);
 
 	SceneManager::go(layer, 0.32f, Color3B::BLACK);
 }

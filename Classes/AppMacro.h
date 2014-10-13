@@ -1,7 +1,11 @@
 #pragma once
 #include <cocos2d.h>
+#include <vector>
+#include <algorithm>
+#include <bitset>
 
 USING_NS_CC;
+using namespace std;
 
 #define DESIGN_RESOLUTION_480X320   0
 #define DESIGN_RESOLUTION_960X640   1
@@ -71,7 +75,7 @@ static float computeFontSize(float fontSize)
 }
 
 // Personal Macro {
-#define SZ(a) ((a).size())
+#define SZ(a) ((int)(a).size())
 typedef std::pair <int, int> PII;
 typedef Vec2 TilePoint;
 typedef Vec2 MapPoint;
@@ -80,4 +84,11 @@ typedef Vec2 MapPoint;
 #define MP std::make_pair
 #define FOR(it, c) for( decltype((c).begin()) it = (c).begin(); it != (c).end(); it++)
 enum HUD_ID{ EMPTY = 0, ATTACK = 1, DEFENSE = 2 };
+enum { LEFT = 0, DOWN = 1, RIGHT = 2, UP = 3 , NO = 4};
+static const int OFFX[] = { -1, 0, 1, 0 };
+static const int OFFY[] = { 0, -1, 0, 1 };
+#define MAP_MAX_SIZE 35
+#define MAP_X_MAX 25
+#define MAP_Y_MAX 16
+#define INF 1023456789
 // }

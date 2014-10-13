@@ -77,7 +77,6 @@ public:
 	CREATE_FUNC(MenuLayer);
 };
 
-
 class InfoLayer :public cocos2d::Layer, public Observer
 {
 private:

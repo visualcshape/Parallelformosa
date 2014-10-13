@@ -1,5 +1,12 @@
 #include "ResourceModel.h"
 #include "Building.h"
+#include "MapModel.h"
+
+Building::Building(){
+}
+
+Building::~Building(){
+}
 
 bool Building::init(){
 	if (!Sprite::init())
@@ -29,10 +36,30 @@ Building* Building::build(int BID){
 
 	return building;
 }
-/*
-Building Building::initWithBuilding(const Building *_building){
-	Building* newCopy = Building::build(_building->id - 36);
-	newCopy->_coord = _building->_coord;
-	newCopy->height = _building->height;
-	return *newCopy;
-}*/
+
+void Building::attackLogic(){
+	MapModel *mm = MapModel::getModel();
+	auto target = mm->getClosestTroop(this);
+
+	if (target != nullptr){
+		bool could_attack = false;
+
+		for (int tr = 0; tr < occupy.X; tr++) for (int tc = 0; tc < occupy.Y; tc++){
+			Point pt = Point(getCoord().x + tr, getCoord().y + tc);
+			Point moveVector = pt - target->getCoord();
+			if (MAX(abs(moveVector.x), abs(moveVector.y)) <= 1) could_attack = true;
+		}
+
+		if (could_attack){
+			//attack troop
+			CCLOG("building attack");
+			target->hp -= MAX(0, atk - target->def);
+			CCLOG("attack : hp = %d, atk = %d, def = %d\n", hp, atk, def);
+			CCLOG("defend : hp = %d, atk = %d, def = %d\n", target->hp, target->atk, target->def);
+
+			if (target->hp <= 0) mm->troopDelete(target);
+
+			//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
+		}
+	}
+}

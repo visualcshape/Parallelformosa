@@ -39,7 +39,7 @@ private:
     void _startLoadWindow();
     void _startLoadBuildingType();
     void _startLoadUnitType();
-    
+	void _startLoadMISC();
     //reset progress parameters such as loadedSprite and string
     void _resetParameters();
     

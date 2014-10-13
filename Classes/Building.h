@@ -7,16 +7,17 @@
 USING_NS_CC;
 
 class Building : public PFComponent {
-	
-	
 public:
+	Building();
+	~Building();
+
 	CREATE_FUNC(Building);
 	virtual bool init();
-	//static Building initWithBuilding(const Building *_building);
 
 	int range;
 	Sprite* selSpriteRange;
 
 	static Building* build(int BID);
+	void attackLogic();
 
 };

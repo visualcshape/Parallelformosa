@@ -1,9 +1,10 @@
 #pragma once
 #include "cocos2d.h"
+#include "AppMacro.h"
 
 USING_NS_CC;
 
-class ResourceModel{
+class ResourceModel :public Ref{
 public:
 	static const int BUILDING_SIZE = 5;
 	static const int TROOP_SIZE = 5;
@@ -14,19 +15,28 @@ public:
 public:
 	ResourceModel();
 	~ResourceModel();
+	void LoadBuildings();
+	void LoadTroops();
+	void LoadTerrains();
+	void LoadTilemaps();
+	void LoadPlayers();
+	void LoadMISC();
 
 	static ResourceModel* getModel();
+	vector <string> DecomposePath(string relativePath);
+	FILE* OpenFileR(string relativePath);
+	FILE* OpenFileW(string relativePath);
 
-	std::string strBuilding[BUILDING_SIZE + 1];
-	std::string strTroop[TROOP_SIZE + 1];
-	std::string strTerrain[TERRAIN_SIZE + 1];
+	string strBuilding[BUILDING_SIZE + 1];
+	string strTroop[TROOP_SIZE + 1];
+	string strTerrain[TERRAIN_SIZE + 1];
 
-	std::string strWorldMap;
-	std::string strTileMap[TILEMAP_SIZE + 1];
-	std::string strPlayerMap[PALYER_SIZE + 1];
+	string strWorldMap;
+	string strTileMap[TILEMAP_SIZE + 1];
+	string strPlayerMap[PALYER_SIZE + 1];
 
-	std::string strRangePic;
-	std::string strHUDPic;
+	string strRangePic;
+	string strHUDPic;
 
 	int GIDBuilding[BUILDING_SIZE + 1];
 	int GIDTroop[TROOP_SIZE + 1];
@@ -38,4 +48,10 @@ public:
 
 protected:
 	static ResourceModel* rm_pInstance;
+
+private:
+	void CreateDownloadedDir(string relativePath);
+	bool isFileExist(string pFileName);
+	void copyData(string pFileName);
+	bool CreateDirectory(string pPath);
 };

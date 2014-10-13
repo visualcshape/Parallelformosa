@@ -29,7 +29,16 @@ Scene* MainScene::createScene(){
 //Main menu ui Layer//
 //////////////////////
 MainMenuLayer::MainMenuLayer(){
-    
+	CCLOG("MainMenuLayer construct");
+	mm = MapModel::getModel();
+	mm->Attach(this);
+}
+
+MainMenuLayer::~MainMenuLayer(){
+	CCLOG("MainMenuLayer destruct");
+	mm->Detach(this);
+	mm = nullptr;
+	removeAllChildren();
 }
 
 bool MainMenuLayer::init(){
@@ -83,21 +92,26 @@ bool MainMenuLayer::init(){
     return ret;
 }
 
+void MainMenuLayer::Update(Subject* _subject){
+	setPosition(mm->getHUDBasePosition());
+}
+
 void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    if(type==Widget::TouchEventType::ENDED)
-    {
-        std::string buildingStr = "BuildingWindow";
-        BuildingWindow* p = BuildingWindow::create("Building", [=](Ref* pSender,Widget::TouchEventType type){
-        if(type==Widget::TouchEventType::ENDED)
-        {
-            this->removeChildByName(buildingStr);
-        }
-        }, nullptr);
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-        p->retain();
+	//Used for test
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		std::string windowName = "BuildingWindow";
+		MainUIInfoModel::getInstance()->setScrollingText("Building");
+		Layer* thisLayer = this;
+		BuildingWindow* p = BuildingWindow::create("Building", [=](Ref* pSender, Widget::TouchEventType type){
+			if (type == Widget::TouchEventType::ENDED)
+				thisLayer->removeChildByName(windowName);
+		}, CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback,this));
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+		p->retain();
 #endif
-        addChild(p,100,buildingStr);
-    }
+		addChild(p, 100, windowName);
+	}
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -107,9 +121,14 @@ void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
         addChild(p,100);
     }
 }
-
 void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		this->removeChildByName("BuildingWindow");
+
+		//@brief later modify
+		MapModel::getModel()->tryTouchBegan();
+	}
 }
 
 void MainMenuLayer::StatusButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -128,16 +147,21 @@ void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEve
 ///////////////////
 //Main Info Layer//
 ///////////////////
-
 MainInfoLayer::MainInfoLayer(){
-    
+	CCLOG("MainInfoLayer construct");
+	mm = MapModel::getModel();
+	mm->Attach(this);
 }
 
 MainInfoLayer::~MainInfoLayer(){
-    if(_bindModel!=nullptr){
-        _bindModel->Detach(this);
-        _bindModel = nullptr;
-    }
+	CCLOG("MainMenuLayer destruct");
+	mm->Detach(this);
+	mm = nullptr;
+	removeAllChildren();
+	if (_bindModel != nullptr){
+		_bindModel->Detach(this);
+		_bindModel = nullptr;
+	}
 }
 
 bool MainInfoLayer::init(){
@@ -194,17 +218,23 @@ bool MainInfoLayer::init(){
 
 void MainInfoLayer::Update(Subject *changedSubject){
     MainUIInfoModel* changedModel = dynamic_cast<MainUIInfoModel*>(changedSubject);
-    CCASSERT(changedModel!=nullptr, "ChangedModel cannot be null.");
-    
-    switch (changedModel->getChagedData()) {
-        case MainUIInfoModel::SCROLLING_TEXT:
-            _scrollingTextModelChanged();
-            break;
-        case MainUIInfoModel::NONE:
-            break;
-        default:
-            break;
-    }
+    //CCASSERT(changedModel!=nullptr, "ChangedModel cannot be null.");
+	if (changedModel != nullptr)
+	{
+		switch (changedModel->getChagedData()) {
+		case MainUIInfoModel::SCROLLING_TEXT:
+			_scrollingTextModelChanged();
+			break;
+		case MainUIInfoModel::NONE:
+			break;
+		default:
+			break;
+		}
+	}
+	if (mm != nullptr)
+	{
+		setPosition(mm->getHUDBasePosition());
+	}
 }
 
 void MainInfoLayer::_scrollingTextModelChanged(){
