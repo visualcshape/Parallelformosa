@@ -119,14 +119,14 @@ void ButtonWithImage::loadFocusTexture()
     //!!
 }
 
-void ButtonWithImage::setBID(int key)
+void ButtonWithImage::setID(int id)
 {
-    _bid = key;
+    _id = id;
 }
 
-int ButtonWithImage::getBID()
+int ButtonWithImage::getID()
 {
-    return _bid;
+    return _id;
 }
 
 void ButtonWithImage::setFocus(bool isFocus)

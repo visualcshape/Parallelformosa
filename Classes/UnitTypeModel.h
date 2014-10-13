@@ -35,6 +35,7 @@ typedef struct UnitType
     string description;
     int atk;
     int def;
+    int id;
 }UnitType;
 
 
