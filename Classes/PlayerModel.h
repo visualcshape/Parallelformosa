@@ -24,6 +24,15 @@ public:
 	CC_SYNTHESIZE(Vector <Building*>, _buildings, Buildings);
 	CC_SYNTHESIZE(Vector <Troop*>, _troops, Troops);
 
+	CC_SYNTHESIZE(int, _Lstr, Lstr);
+	CC_SYNTHESIZE(int, _Gmag, Gmag);
+	CC_SYNTHESIZE(int, _food, Food);
+
+	//@resource
+	void gainLstr(int value);
+	void gainGmag(int value);
+	void gainFood(int value);
+
 	void addBuilding(Building* building);
 	void addTroop(Troop* troop);
 	void removeBuilding(Building* building);
@@ -33,11 +42,8 @@ public:
 	int height;
 	Point coord;
 
-	int L_str;
-	int G_mag;
-	int food;
 
 private:
-	void loadData();
-	void saveData();
+	void readPlayerInfo();
+	void writePlayerInfo();
 };

@@ -95,8 +95,8 @@ void Troop::attackLogic(){
 
 			if (target->hp <= 0){
 				mm->buildingDelete(target);
-				mm->getAtkPlayer()->L_str += 1000;
-				mm->getAtkPlayer()->G_mag += 1000;
+				mm->getAtkPlayer()->gainLstr(1000);
+				mm->getAtkPlayer()->gainGmag(1000);
 			}
 
 			//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));

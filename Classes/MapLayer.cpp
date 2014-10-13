@@ -93,9 +93,9 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 		this->unschedule(schedule_selector(MapLayer::attack));
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		MapModel::getModel()->getCurPlayer()->setUID(1);
+		MapModel::getModel()->getCurPlayer()->changeUID(1);
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
-		MapModel::getModel()->getCurPlayer()->setUID(2);
+		MapModel::getModel()->getCurPlayer()->changeUID(2);
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){

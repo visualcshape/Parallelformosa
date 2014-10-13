@@ -1,40 +1,60 @@
 #include "PlayerModel.h"
+#include <iostream>
 
 USING_NS_CC;
 
 
 PlayerModel::PlayerModel(){
 	_uid = rand() % 2 + 1;
-	L_str = G_mag = 3000;
-	food = 30;
+	_Lstr = _Gmag = 3000;
+	_food = 30;
 	init();
 }
 
 PlayerModel::~PlayerModel(){
+	writePlayerInfo();
 }
 
 void PlayerModel::init(){
 	height = -1;
 	_buildings.clear();
 	_troops.clear();
+	readPlayerInfo();
 }
 
 bool PlayerModel::canAddTroop(int TID){
 	ResourceModel *rm = ResourceModel::getModel();
-	return L_str >= rm->costLstr[TID] &&
-		G_mag >= rm->costGmag[TID] &&
-		food >= rm->costFood[TID];
+	return _Lstr >= rm->costLstr[TID] &&
+		_Gmag >= rm->costGmag[TID] &&
+		_food >= rm->costFood[TID];
 }
 
 void PlayerModel::consumeResource(int TID){
 	ResourceModel *rm = ResourceModel::getModel();
 
-	L_str -= rm->costLstr[TID];
-	G_mag -= rm->costGmag[TID];;
-	food -= rm->costFood[TID];;
+	_Lstr -= rm->costLstr[TID];
+	_Gmag -= rm->costGmag[TID];;
+	_food -= rm->costFood[TID];;
 }
 void PlayerModel::changeUID(int uid){
+	writePlayerInfo();
+	_uid = uid;
+	readPlayerInfo();
+}
 
+void PlayerModel::gainLstr(int value){
+	_Lstr += value;
+	_Lstr = max(_Lstr, 0);
+}
+
+void PlayerModel::gainGmag(int value){
+	_Gmag += value;
+	_Gmag = max(_Gmag, 0);
+}
+
+void PlayerModel::gainFood(int value){
+	_food += value;
+	_food = max(_food, 0);
 }
 
 void PlayerModel::addBuilding(Building* building){
@@ -61,51 +81,52 @@ void PlayerModel::commandAttack(){
 	for (auto &building : _tmp_buildings)
 		building->attackLogic();
 }
-/*
-void PlayerModel::writePlayerInfo(){
-	ResourceModel *rm = ResourceModel::getModel();
-
-	char buffer[1000];
-	sprintf(buffer, "%d", _uid);
-	string prefix = "player" + string(buffer);
-	std::string filename = "MapInfo/" + prefix + "/" + rm->strWorldMap + ".info";
-
-	FILE *fp = rm->OpenFileW(filename);
-	CCASSERT(fp != nullptr, "write player info fail");
-
-	for (auto &building : _buildings)
-		fprintf(fp, "%d %.0f %.0f %d %d\n", building->id, building->getCoord().x, building->getCoord().y, building->height);
-	fclose(fp);
-}
 
 void PlayerModel::readPlayerInfo(){
 	ResourceModel *rm = ResourceModel::getModel();
-
 	char buffer[1000];
 	sprintf(buffer, "%d", _uid);
-	string prefix = "player" + string(buffer);
-	std::string filename = "MapInfo/" + prefix + "/" + rm->strWorldMap + ".info";
+	string playerName = "player" + string(buffer);
+	string filename = "PlayerInfo/" + playerName + ".info";
+
+	//@brief new acccount
+	if (!rm->isFileExist(filename))
+		writePlayerInfo();
+
+	FILE *fp = rm->OpenFileR(filename);
+
+	fscanf(fp, "%d %d %d", &_Lstr, &_Gmag, &_food);
+	fscanf(fp, "%s", buffer);
+	CCLOG("player %d info: %d %d %d => %s", _uid, _Lstr, _Gmag, _food, buffer);
+	
+	int year, month, day, hour, min, sec;
+	sscanf(buffer, "%d-%d-%d_%d:%d:%d", &year, &month, &day, &hour, &min, &sec);
+
+	time_t _time = time(NULL);
+	tm prev = rm->makeSystemTime(year, month, day, hour, min, sec);
+	tm now = *localtime(&_time);
+
+
+	int difSec = (int)difftime(mktime(&now), mktime(&prev));
+	gainLstr(difSec * 6);
+	gainGmag(difSec * 6);
+	gainFood(difSec * 6);
+	writePlayerInfo();
+
+	fclose(fp);
+}
+
+void PlayerModel::writePlayerInfo(){
+	ResourceModel *rm = ResourceModel::getModel();
+	char buffer[1000];
+	sprintf(buffer, "%d", _uid);
+	string playerName = "player" + string(buffer);
+	string filename = "PlayerInfo/" + playerName + ".info";
 
 	FILE *fp = rm->OpenFileW(filename);
-	CCASSERT(fp != nullptr, "write player info fail");
+	CCASSERT(fp != nullptr, "read map info fail");
 
-	int id, x, y, height;
-	while (~fscanf(fp, "%d %d %d %d %d", &id, &x, &y, &height)){
-		addBuildingToMap(id, MapPoint(x, y), height);
-		CCLOG("info: %d %d %d %d %d", id, x, y, height, owner);
-	}
+	fprintf(fp, "%d %d %d\n", _Lstr, _Gmag, _food);
+	fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
 	fclose(fp);
-
-	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
-	if (_curPlayer->height != -1 && rm->strWorldMap == mapName){
-		CCLOG(">> after win, delete basebuilding");
-		//pm->_baseBuilding->sett
-		Building* tmp = Building::build(1);
-		tmp->height = _curPlayer->height;
-		tmp->setCoord(_curPlayer->coord);
-		buildingDelete(tmp);
-		_curPlayer->height = -1;
-	}
-	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
 }
-*/

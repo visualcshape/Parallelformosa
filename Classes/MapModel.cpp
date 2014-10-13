@@ -431,7 +431,7 @@ void MapModel::refresh(float dt){
 	//@debug modify label
 	{
 		char buffer[80];
-		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", _curPlayer->L_str, _curPlayer->G_mag, _curPlayer->food);
+		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", _curPlayer->getLstr(), _curPlayer->getGmag(), _curPlayer->getFood());
 		getlblResourcePos()->setString(buffer);
 	}
 
