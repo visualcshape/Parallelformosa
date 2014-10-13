@@ -1,4 +1,4 @@
-#include "CMDAnimation.h"
+#include "command.h"
 
 USING_NS_CC;
 
@@ -14,4 +14,5 @@ void CMDAnimation::init(){
 }
 
 void CMDAnimation::execute(){
+	CCLOG("CMDAnimation::execute()");
 }

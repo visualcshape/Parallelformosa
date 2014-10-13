@@ -1,4 +1,4 @@
-#include "CMDCountdown.h"
+#include "command.h"
 
 USING_NS_CC;
 
@@ -14,4 +14,5 @@ void CMDCountdown::init(){
 }
 
 void CMDCountdown::execute(){
+	CCLOG("CMDCountdown::execute()");
 }

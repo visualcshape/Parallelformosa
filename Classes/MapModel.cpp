@@ -10,6 +10,7 @@
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include <ctime>
+#include "CMD.h"
 
 USING_NS_CC;
 
@@ -217,6 +218,7 @@ bool MapModel::isTileInsideLayer(Point checkTileLoc, int level){
 	if (checkTileLoc.y >= _pfLayers.at(level)->getLayerSize().height) return false;
 	return true;
 }
+
 bool MapModel::isCoordInsideLayer(MapPoint checkCoordLoc, int level){
 	if (level < 0) return false;/*
 								if (checkCoordLoc.x < 0) return false;
@@ -226,6 +228,7 @@ bool MapModel::isCoordInsideLayer(MapPoint checkCoordLoc, int level){
 	return isTileInsideLayer(tileCoordForMapPoint(checkCoordLoc, level), level);
 	return true;
 }
+
 Point MapModel::boundLayerPos(Point newPos){
 	Size winSize = Director::getInstance()->getWinSize();
 	Point retval = newPos;
@@ -327,7 +330,6 @@ void MapModel::tryTouchMoved(){
 	}
 }
 
-
 void MapModel::tryTouchEnded(){
 	ResourceModel *rm = ResourceModel::getModel();
 
@@ -396,7 +398,6 @@ void MapModel::tryTouchEnded(){
 
 		showAllRange(false);
 	}
-
 }
 
 bool MapModel::outsideBordor(Size contentSize, Point pos){
@@ -420,6 +421,10 @@ void MapModel::slide(Vec2 translation){
 void MapModel::ccdebug(float dt){
 	CCLOG("buildings atk:%d def:%d, cur:%d\n", SZ(_atkPlayer->getBuildings()), SZ(_defPlayer->getBuildings()), SZ(_curPlayer->getBuildings()));
 	CCLOG("troops atk:%d def:%d, cur:%d\n", SZ(_atkPlayer->getTroops()), SZ(_defPlayer->getTroops()), SZ(_curPlayer->getTroops()));
+}
+
+void MapModel::produce(float dt){
+	_curPlayer->produce(dt);
 }
 void MapModel::refresh(float dt){
 	//@debug modify label.

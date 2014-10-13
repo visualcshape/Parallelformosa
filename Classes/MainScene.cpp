@@ -183,7 +183,8 @@ bool MainInfoLayer::init(){
     
     if(!Layer::init())
         return false;
-    
+
+	mm->setHUDBasePosition(getPosition());
     //Bind with model
     _bindModel = MainUIInfoModel::getInstance();
     _bindModel->Attach(this);

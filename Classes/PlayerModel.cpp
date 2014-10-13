@@ -1,13 +1,11 @@
 #include "PlayerModel.h"
-#include <iostream>
+#include "command.h"
+#include "CommandModel.h"
 
 USING_NS_CC;
 
-
 PlayerModel::PlayerModel(){
 	_uid = rand() % 2 + 1;
-	_Lstr = _Gmag = 3000;
-	_food = 30;
 	init();
 }
 
@@ -15,11 +13,22 @@ PlayerModel::~PlayerModel(){
 	writePlayerInfo();
 }
 
-void PlayerModel::init(){
+bool PlayerModel::init(){
+	if (!Layer::init())
+		return false;
 	height = -1;
 	_buildings.clear();
 	_troops.clear();
+	_Lstr = _Gmag = 3000;
+	_food = 30;
 	readPlayerInfo();
+
+	return true;
+}
+
+void PlayerModel::produce(float dt){
+	CMDResource::order(this, 6, 6, 6)->execute();
+	//CommandModel::getModel()->AddCommand(CMDResource::order(this, 6, 6, 6));
 }
 
 bool PlayerModel::canAddTroop(int TID){
@@ -36,6 +45,7 @@ void PlayerModel::consumeResource(int TID){
 	_Gmag -= rm->costGmag[TID];;
 	_food -= rm->costFood[TID];;
 }
+
 void PlayerModel::changeUID(int uid){
 	writePlayerInfo();
 	_uid = uid;

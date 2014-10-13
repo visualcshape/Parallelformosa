@@ -144,15 +144,6 @@
     <ClCompile Include="..\Classes\CustomLabelMenuItem.cpp">
       <Filter>Classes\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CMDResource.cpp">
-      <Filter>Classes\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\CMDState.cpp">
-      <Filter>Classes\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Command.cpp">
-      <Filter>Classes\Command</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\CMDMove.cpp">
       <Filter>Classes\Command</Filter>
     </ClCompile>
@@ -167,6 +158,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\UnitWindow.cpp">
       <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMD.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDResource.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CommandModel.cpp">
+      <Filter>Classes\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -293,12 +293,6 @@
     <ClInclude Include="..\Classes\CustomLabelMenuItem.h">
       <Filter>Classes\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CMDResource.h">
-      <Filter>Classes\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\CMDState.h">
-      <Filter>Classes\Command</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Command.h">
       <Filter>Classes\Command</Filter>
     </ClInclude>
@@ -316,6 +310,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\UnitWindow.h">
       <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMD.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDResource.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CommandModel.h">
+      <Filter>Classes\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

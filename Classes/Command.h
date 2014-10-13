@@ -1,13 +1,6 @@
 #pragma once
-#include "cocos2d.h"
-
-USING_NS_CC;
-
-class Command :public Ref{
-
-public:
-	Command();
-	~Command();
-
-	virtual void execute() = 0;
-};
+#include "CMD.h"
+#include "CMDAnimation.h"
+#include "CMDCountdown.h"
+#include "CMDMove.h"
+#include "CMDResource.h"

@@ -1,10 +1,10 @@
 #pragma once
 #include "cocos2d.h"
-#include "Command.h"
+#include "CMD.h"
 
 USING_NS_CC;
 
-class CMDCountdown :public Command{
+class CMDCountdown :public CMD{
 
 public:
 	CMDCountdown();

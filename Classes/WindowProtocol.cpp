@@ -82,7 +82,7 @@ bool WindowProtocol::init(){
     
     //Title text
     LinearLayoutParameter* lpTitleText = LinearLayoutParameter::create();
-    _titleText = Text::create(_titleString, "fonts/Apple LiGothic Medium.ttf", computeFontSize(42));
+    _titleText = Text::create(_titleString, "fonts/Apple_LiGothic_Medium.ttf", computeFontSize(42));
     CCASSERT(_titleText!=nullptr, "_titletext cannot be null.");
     _titleText->setColor(Color3B(59,134,134));
     _titleText->setPosition(Vec2(_titleLayout->getContentSize().width/2, _titleLayout->getContentSize().height/2));

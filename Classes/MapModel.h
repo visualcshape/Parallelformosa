@@ -4,10 +4,11 @@
 #include "Subject.h"
 #include "Troop.h"
 #include "PlayerModel.h"
+#include "CMD.h"
 
 USING_NS_CC;
 
-class MapModel : public Ref, public ScreenSubject{
+class MapModel : public Layer, public ScreenSubject{
 public:
 	static const int EMPTY_TILE = 54;
 
@@ -17,6 +18,7 @@ public:
 
 	const float SLIDE_RATE = 25.0f;
 	const float REFRESH_RATE = 0.03f;
+	const float PRODUCE_RATE = 1.0f;
 	static const int BORDER_PIXEL = 40;
 	static const int BAR_ICON = 5;
 
@@ -29,13 +31,16 @@ public:
 	bool tryTouchBegan();
 	void tryTouchMoved();
 	void tryTouchEnded();
+
 	void refresh(float dt);
 	void ccdebug(float dt);
+	void produce(float dt);
+
 	void attackLogic();
 	void commandAttack();
 
 	void clickToAddBuildingCursor(int BID);
-
+	
 	//@func tilemap
 	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
 	int canBuildOnTilePosition(Point pos); 

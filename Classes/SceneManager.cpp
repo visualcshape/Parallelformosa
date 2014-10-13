@@ -6,6 +6,7 @@
 #include "HUDLayer.h"
 #include "ResourceModel.h"
 #include "MainScene.h"
+#include "CommandModel.h"
 
 USING_NS_CC;
 
@@ -69,6 +70,7 @@ void SceneManager::go(Layer* layer, float duration, Color3B cr){
 Scene* SceneManager::wrap(Layer* layer){
 	Scene* newScene = Scene::create();
 	newScene->addChild(layer);
+	layer->schedule(schedule_selector(CommandModel::execute), EXECUTE_RATE);
 	return newScene;
 }
 

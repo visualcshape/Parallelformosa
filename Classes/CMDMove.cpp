@@ -1,4 +1,4 @@
-#include "CMDMove.h"
+#include "command.h"
 
 USING_NS_CC;
 
@@ -14,4 +14,5 @@ void CMDMove::init(){
 }
 
 void CMDMove::execute(){
+	CCLOG("CMDMove::execute()");
 }

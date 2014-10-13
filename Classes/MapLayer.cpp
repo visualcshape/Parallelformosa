@@ -79,7 +79,8 @@ bool MapLayer::init(std::string mapName){
 
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(MapLayer::refresh), mm->REFRESH_RATE);
-	this->schedule(schedule_selector(MapLayer::ccdebug), 2.0f);
+	this->schedule(schedule_selector(MapLayer::produce), mm->PRODUCE_RATE);
+	this->schedule(schedule_selector(MapLayer::ccdebug), 5.0f);
 
 	return true;
 }
@@ -123,6 +124,11 @@ void MapLayer::refresh(float dt){
 void MapLayer::ccdebug(float dt){
 	mm->ccdebug(dt);
 }
+
+void MapLayer::produce(float dt){
+	mm->produce(dt);
+}
+
 void MapLayer::attack(float dt){
 	//mm->attackLogic(dt);
 	mm->commandAttack();

@@ -1,15 +1,23 @@
 #pragma once
 #include "cocos2d.h"
-#include "Command.h"
+#include "CMD.h"
+#include "PlayerModel.h"
 
 USING_NS_CC;
 
-class CMDResource :public Command{
+class CMDResource :public CMD{
 
 public:
 	CMDResource();
 	~CMDResource();
 
-	void init();
-	void execute();
+	static CMDResource* order(PlayerModel* player, int Lstr, int Gmag, int food);
+
+	virtual void execute();
+
+private:
+	PlayerModel* _player;
+	int _Lstr;
+	int _Gmag;
+	int _food;
 };
