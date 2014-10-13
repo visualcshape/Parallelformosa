@@ -121,6 +121,10 @@ int BuildingModel::queryResult(void *para, int columns, char **columnValue, char
         {
             tmp.durationFactor = atof(columnValueStr.c_str());
         }
+        else if(columnNameStr=="ID")
+        {
+            tmp.bid = atoi(columnValueStr.c_str());
+        }
         else
         {
             CCASSERT(false, "[DB]Error no such type.");

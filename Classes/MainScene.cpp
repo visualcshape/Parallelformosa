@@ -84,12 +84,28 @@ bool MainMenuLayer::init(){
 }
 
 void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    BuildingWindow* p = BuildingWindow::create("Building", nullptr, nullptr);
-    addChild(p,100);
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        std::string buildingStr = "BuildingWindow";
+        BuildingWindow* p = BuildingWindow::create("Building", [=](Ref* pSender,Widget::TouchEventType type){
+        if(type==Widget::TouchEventType::ENDED)
+        {
+            this->removeChildByName(buildingStr);
+        }
+        }, nullptr);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        p->retain();
+#endif
+        addChild(p,100,buildingStr);
+    }
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        UnitWindow* p = UnitWindow::create("Unit", nullptr, nullptr);
+        addChild(p,100);
+    }
 }
 
 void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){

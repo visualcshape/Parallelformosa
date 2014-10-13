@@ -13,6 +13,7 @@
 #include <math.h>
 #include "MainScene.h"
 #include "BuildingModel.h"
+#include "UnitTypeModel.h"
 
 Scene* LoadingScene::createScene()
 {
@@ -36,16 +37,22 @@ LoadingLayer::LoadingLayer(){
     std::string contents;
     long fSize = 0;
     std::string fullPath = FileUtils::getInstance()->fullPathForFilename("UI/MainSceneResourceList.txt");
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
     unsigned char* buf = FileUtils::getInstance()->getFileData(fullPath.c_str(),"r",&fSize);
     contents.append((char*) buf);
 
     std::istringstream fileStream(contents);
-    //inputStream.open(fullPath.c_str());
-    //CCASSERT(inputStream.is_open(), "Cannot open file UI/MainSceneResourceList.txt");
     
     while(std::getline(fileStream, curLine)){
         _fileNames.push_back(curLine);
     }
+#else
+    inputStream.open(fullPath.c_str());
+    CCASSERT(inputStream.is_open(), "Cannot open file UI/MainSceneResourceList.txt");
+    while(std::getline(inputStream, curLine)){
+        _fileNames.push_back(curLine);
+    }
+#endif
     //pop useless last index
     _fileNames.pop_back();
     inputStream.close();
@@ -143,6 +150,21 @@ void LoadingLayer::_startLoadBuildingType()
     BuildingModel::getInstance()->initModelAsync(cb);
 }
 
+void LoadingLayer::_startLoadUnitType()
+{
+    _resetParameters();
+    //1 for resource 1 fot unit type model.
+    TextureCache* cache = Director::getInstance()->getTextureCache();
+    cache->addImageAsync("Unit/UnitType.png", CC_CALLBACK_1(LoadingLayer::loadingUnitTypeTextureCallback, this));
+    _spriteCount = 2;
+    _loadingItemText->setString("Loading Unit Type Components...(0%)");
+    //loading tetxure
+    //
+    
+    auto initModelCallback = CC_CALLBACK_0(LoadingLayer::loadingUnitTypeModelCallback, this);
+    UnitTypeModel::getInstance()->initModelAsync(initModelCallback);
+}
+
 void LoadingLayer::_resetParameters(){
     _loadedSprite = 0;
     _spriteCount = 0;
@@ -173,7 +195,10 @@ void LoadingLayer::loadingBuildingTypeCallback(cocos2d::Texture2D *texture){
     _loadingBar->setPercent((float)_calculateProgress());
     
     //Attention
-    _checkLoadComplete();
+    if(_loadedSprite==_spriteCount)
+    {
+        _startLoadUnitType();
+    }
     //
 }
 
@@ -184,9 +209,34 @@ void LoadingLayer::loadingBuildingModelCallback()
     _loadingItemText->setString(_sprintfProgress("Loading Building Type Components...(%.0f%%)", _calculateProgress()));
     _loadingBar->setPercent((float)_calculateProgress());
     
+    if(_loadedSprite==_spriteCount)
+    {
+        //Next step
+        _startLoadUnitType();
+    }
+}
+
+void LoadingLayer::loadingUnitTypeTextureCallback(Texture2D* texture)
+{
+    ++_loadedSprite;
+    SpriteFrameCache* cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile("Unit/UnitType.plist", texture);
+    _loadingItemText->setString(_sprintfProgress("Loading Unit Type Components...(%.0f%%)", _calculateProgress()));
+    _loadingBar->setPercent((float)_calculateProgress());
+    
+    
     //Attention
     _checkLoadComplete();
-    //
+}
+
+void LoadingLayer::loadingUnitTypeModelCallback()
+{
+    ++_loadedSprite;
+    _loadingItemText->setString(_sprintfProgress("Loading Unit Type Components...(%.0f%%)", _calculateProgress()));
+    _loadingBar->setPercent((float)_calculateProgress());
+    
+    //Attention
+    _checkLoadComplete();
 }
 
 double LoadingLayer::_calculateProgress(){

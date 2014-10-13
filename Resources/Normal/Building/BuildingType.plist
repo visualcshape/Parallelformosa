@@ -82,6 +82,32 @@
                 <key>sourceSize</key>
                 <string>{30,34}</string>
             </dict>
+            <key>GreenButton.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{410,2},{100,100}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,100}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
+            <key>GreenButtonPressed.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{512,2},{100,100}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,100}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
             <key>Health.png</key>
             <dict>
                 <key>frame</key>
@@ -134,6 +160,32 @@
                 <key>sourceSize</key>
                 <string>{30,30}</string>
             </dict>
+            <key>RedButton.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{614,2},{100,100}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,100}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
+            <key>RedButtonPressed.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{716,2},{100,100}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,100}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
             <key>Type.png</key>
             <dict>
                 <key>frame</key>
@@ -159,58 +211,6 @@
                 <string>{{1,0},{28,30}}</string>
                 <key>sourceSize</key>
                 <string>{30,30}</string>
-            </dict>
-            <key>buildButtonBaseDefense_Normal.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{410,2},{100,100}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{100,100}}</string>
-                <key>sourceSize</key>
-                <string>{100,100}</string>
-            </dict>
-            <key>buildButtonBaseDefense_Pressed.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{512,2},{100,100}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{100,100}}</string>
-                <key>sourceSize</key>
-                <string>{100,100}</string>
-            </dict>
-            <key>buildButtonBaseNormal_Normal.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{614,2},{100,100}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{100,100}}</string>
-                <key>sourceSize</key>
-                <string>{100,100}</string>
-            </dict>
-            <key>buildButtonBaseNormal_Pressed.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{716,2},{100,100}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{100,100}}</string>
-                <key>sourceSize</key>
-                <string>{100,100}</string>
             </dict>
             <key>duration.png</key>
             <dict>
@@ -274,7 +274,7 @@
             <key>size</key>
             <string>{1152,104}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ec54ad0222d84e79ebb256ea88c0abe7:cd4df4af873baef8d9e947a75d0e4218:922f7060aa0c6ba6cb2aa07093917049$</string>
+            <string>$TexturePacker:SmartUpdate:51017946a8fb4baf2f53f78827ec6c4c:04865473322aa34da7cb5c1c04b040f6:922f7060aa0c6ba6cb2aa07093917049$</string>
             <key>textureFileName</key>
             <string>BuildingType.png</string>
         </dict>

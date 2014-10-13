@@ -119,14 +119,14 @@ void ButtonWithImage::loadFocusTexture()
     //!!
 }
 
-void ButtonWithImage::setKey(std::string key)
+void ButtonWithImage::setBID(int key)
 {
-    _key = key;
+    _bid = key;
 }
 
-std::string ButtonWithImage::getKey()
+int ButtonWithImage::getBID()
 {
-    return _key;
+    return _bid;
 }
 
 void ButtonWithImage::setFocus(bool isFocus)
@@ -168,4 +168,14 @@ void ButtonWithImage::setIndex(int index)
 int ButtonWithImage::getIndex()
 {
     return _index;
+}
+
+void ButtonWithImage::setKey(std::string key)
+{
+    _key = key;
+}
+
+std::string ButtonWithImage::getKey()
+{
+    return _key;
 }

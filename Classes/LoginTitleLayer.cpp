@@ -221,7 +221,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 	if (reader.parse(result.jsonMsg, root))
 	{
 		CCLOG("Server response :\n %s", root.toStyledString().c_str());
-		if (!root["reps"]){
+		if (!root["resp"]){
 			Json::Value resp = root["resp"];
 			std::string type = resp["type"].asString();
 			if (type == "create")

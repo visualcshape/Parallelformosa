@@ -27,6 +27,7 @@ typedef struct BuildingType{
     std::string descrption;
     int duration;
     float durationFactor;
+    int bid;
 }BuildingType;
 
 #endif /* defined(__Parallelformosa_Cocos2dx__BuildingType__) */

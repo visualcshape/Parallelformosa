@@ -193,6 +193,12 @@
 		F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6DEBDC419E9284400F58194 /* Effect.cpp */; };
 		F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */; };
 		F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */; };
+		F6FD118819EA27F100189826 /* UnitTypeModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FD118619EA27F100189826 /* UnitTypeModel.cpp */; };
+		F6FD118919EA27F100189826 /* UnitTypeModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FD118619EA27F100189826 /* UnitTypeModel.cpp */; };
+		F6FD118E19EA815F00189826 /* UnitWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FD118C19EA815F00189826 /* UnitWindow.cpp */; };
+		F6FD118F19EA815F00189826 /* UnitWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FD118C19EA815F00189826 /* UnitWindow.cpp */; };
+		F6FD119219EABD8300189826 /* LayoutFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FD119019EABD8300189826 /* LayoutFactory.cpp */; };
+		F6FD119319EABD8300189826 /* LayoutFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6FD119019EABD8300189826 /* LayoutFactory.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -523,6 +529,12 @@
 		F6F6C05E19812F2B006578B0 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../libpomelo/libjansson.a; sourceTree = "<group>"; };
 		F6F6C05F19812F2B006578B0 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = ../../libpomelo/libpomelo.a; sourceTree = "<group>"; };
 		F6F6C06019812F2B006578B0 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = ../../libpomelo/libuv.a; sourceTree = "<group>"; };
+		F6FD118619EA27F100189826 /* UnitTypeModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnitTypeModel.cpp; path = ../Classes/UnitTypeModel.cpp; sourceTree = "<group>"; };
+		F6FD118719EA27F100189826 /* UnitTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitTypeModel.h; path = ../Classes/UnitTypeModel.h; sourceTree = "<group>"; };
+		F6FD118C19EA815F00189826 /* UnitWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnitWindow.cpp; path = ../Classes/UnitWindow.cpp; sourceTree = "<group>"; };
+		F6FD118D19EA815F00189826 /* UnitWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitWindow.h; path = ../Classes/UnitWindow.h; sourceTree = "<group>"; };
+		F6FD119019EABD8300189826 /* LayoutFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LayoutFactory.cpp; path = ../Classes/LayoutFactory.cpp; sourceTree = "<group>"; };
+		F6FD119119EABD8300189826 /* LayoutFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayoutFactory.h; path = ../Classes/LayoutFactory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -676,6 +688,12 @@
 				F6A6ED4019E3A21C0020EFBB /* BuildingType.h */,
 				F6DEBDC419E9284400F58194 /* Effect.cpp */,
 				F6DEBDC519E9284400F58194 /* Effect.h */,
+				F6FD118619EA27F100189826 /* UnitTypeModel.cpp */,
+				F6FD118719EA27F100189826 /* UnitTypeModel.h */,
+				F6FD118C19EA815F00189826 /* UnitWindow.cpp */,
+				F6FD118D19EA815F00189826 /* UnitWindow.h */,
+				F6FD119019EABD8300189826 /* LayoutFactory.cpp */,
+				F6FD119119EABD8300189826 /* LayoutFactory.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1128,6 +1146,7 @@
 				F6A6ECEC19E31F340020EFBB /* SceneManager.cpp in Sources */,
 				F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6A6ECDC19E31F340020EFBB /* HUDLayer.cpp in Sources */,
+				F6FD119219EABD8300189826 /* LayoutFactory.cpp in Sources */,
 				F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				F6A6ECD819E31F340020EFBB /* BattleOverLayer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
@@ -1149,6 +1168,8 @@
 				F6A6ECF219E31F340020EFBB /* Troop.cpp in Sources */,
 				F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
+				F6FD118E19EA815F00189826 /* UnitWindow.cpp in Sources */,
+				F6FD118819EA27F100189826 /* UnitTypeModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1183,7 @@
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
 				F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */,
+				F6FD119319EABD8300189826 /* LayoutFactory.cpp in Sources */,
 				F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */,
 				F6A6ECE719E31F340020EFBB /* Player.cpp in Sources */,
@@ -1171,6 +1193,7 @@
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,
 				F6A6ECEB19E31F340020EFBB /* ResourceModel.cpp in Sources */,
 				F6A6ECED19E31F340020EFBB /* SceneManager.cpp in Sources */,
+				F6FD118F19EA815F00189826 /* UnitWindow.cpp in Sources */,
 				F6A6ECEF19E31F340020EFBB /* Tower.cpp in Sources */,
 				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
@@ -1182,6 +1205,7 @@
 				F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
 				F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
+				F6FD118919EA27F100189826 /* UnitTypeModel.cpp in Sources */,
 				F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */,
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F6A6ECDF19E31F340020EFBB /* LoginTitleLayer.cpp in Sources */,

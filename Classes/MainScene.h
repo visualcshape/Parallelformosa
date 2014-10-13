@@ -16,6 +16,7 @@
 #include "MainUIInfoModel.h"
 #include "BuildingWindow.h"
 #include "ButtonWithImage.h"
+#include "UnitWindow.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;

@@ -82,17 +82,18 @@ bool BuildingWindow::init(){
         ButtonWithImage* btn = nullptr;
         if(itr->second.type=="Normal")
         {
-            btn = ButtonWithImage::create("buildButtonBaseNormal_Normal.png", "buildButtonBaseNormal_Pressed.png", "ButtonDisabled.png", itr->second.thumbResourceName, Widget::TextureResType::PLIST);
+            btn = ButtonWithImage::create("GreenButton.png", "GreenButtonPressed.png", "ButtonDisabled.png", itr->second.thumbResourceName, Widget::TextureResType::PLIST);
             btn->setName("NormalButton");
         }
         else if(itr->second.type=="Defense")
         {
-            btn = ButtonWithImage::create("buildButtonBaseDefense_Normal.png", "buildButtonBaseDefense_Pressed.png", "ButtonDisabled.png", itr->second.thumbResourceName, Widget::TextureResType::PLIST);
+            btn = ButtonWithImage::create("RedButton.png", "RedButtonPressed.png", "ButtonDisabled.png", itr->second.thumbResourceName, Widget::TextureResType::PLIST);
             btn->setName("DefenseButton");
         }
         CCASSERT(btn!=nullptr, "Button cannot be null.");
         //color
         btn->setTitleText(itr->second.name);
+        btn->setBID(itr->second.bid);
         btn->setKey(itr->second.name);
         btn->setTitleFontName("fonts/Silom.ttf");
         btn->setTitleFontSize(computeFontSize(24));
