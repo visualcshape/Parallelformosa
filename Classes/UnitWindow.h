@@ -25,11 +25,45 @@ class UnitWindow:public WindowProtocol
 private:
     std::function<void(Ref*,Widget::TouchEventType)> _trainButtonPressedCallback;
     
+    static string _buttonName;
+    static int _buttonZOrder;
+    
     Layout* _unitMainLayout;
     Layout* _leftUnitLayout;
     Layout* _rightUnitLayout;
     
+    //Cost
+    Text* _gPowerValue;
+    Text* _lManaValue;
+    Text* _foodValue;
+    Text* _durationValue;
+    
+    //Info
+    Text* _hpValue;
+    Text* _rangeValue;
+    Text* _typeValue;
+    Text* _atkValue;
+    Text* _defValue;
+    
+    ui::ScrollView* _descriptionScrollView;
+    Text* _descriptionValue;
+    
     ListView* _unitButtonListView;
+    
+    Button* _plusButton;
+    Button* _minusButton;
+    Button* _trainButton;
+    Text* _amounts;
+    
+    int _curAmt;
+    
+    ButtonWithImage* _curButton;
+    
+    void _updateValues(string key);
+    
+    void _setFocus(int index);
+    
+    void _refreshLayout();
 protected:
     UnitWindow(string titleText,function<void(Ref*,Widget::TouchEventType)> closeCallback,function<void(Ref*,Widget::TouchEventType)> trainButtonPressedCallback);
 public:
@@ -39,7 +73,13 @@ public:
     
     virtual bool init();
     
+    int getCurrentAmount();
+    
     void UnitButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
+    
+    void PlusButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
+    
+    void MinusButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
     
     //set focus not now
 };

@@ -22,7 +22,7 @@ private:
     std::string _thumbnailFilename;
     TextureResType _thumbnailTexRes;
     
-    int _bid;
+    int _id;
     
     static const int _kActionTag;
     
@@ -58,13 +58,13 @@ public:
     
     void loadFocusTexture();
     
-    void setBID(int bid);
+    void setID(int id);
     
     void setIndex(int index);
     
     int getIndex();
     
-    int getBID();
+    int getID();
     
     void setKey(std::string key);
     

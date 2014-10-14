@@ -93,7 +93,7 @@ bool BuildingWindow::init(){
         CCASSERT(btn!=nullptr, "Button cannot be null.");
         //color
         btn->setTitleText(itr->second.name);
-        btn->setBID(itr->second.bid);
+        btn->setID(itr->second.bid);
         btn->setKey(itr->second.name);
         btn->setTitleFontName("fonts/Silom.ttf");
         btn->setTitleFontSize(computeFontSize(24));

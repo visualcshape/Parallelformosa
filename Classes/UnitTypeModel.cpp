@@ -122,6 +122,10 @@ int UnitTypeModel::queryResultCallback(void *para, int columns, char **columnVal
         {
             tmp.def = atoi(columnValueStr.c_str());
         }
+        else if(columnNameStr=="ID")
+        {
+            tmp.id = atoi(columnValueStr.c_str());
+        }
         else
         {
             CC_ASSERT(false);
