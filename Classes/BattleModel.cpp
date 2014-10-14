@@ -2,7 +2,9 @@
 #include "jansson.h"
 #include <pomelo.h>
 #include "CCPomeloWrapper.h"
+#include "MapModel.h"
 #include "json.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -61,4 +63,18 @@ void BattleModel::sendRequest(Vector <Troop*> troops){
 
 		msg.append(info);
 	}
+}
+
+void BattleModel::timePass(){
+	_countdown--;
+	char buffer[70];
+	sprintf(buffer, "time remain: %d", _countdown);
+	MapModel::getModel()->getlblCountdownPos()->setString(buffer);
+	if (_countdown == 0)
+		battleOver();
+}
+
+void BattleModel::battleOver(){
+	MapModel::getModel()->getAtkPlayer()->height = -1;
+	SceneManager::goBattleOverScreen("DEFENSE WIN!!");
 }

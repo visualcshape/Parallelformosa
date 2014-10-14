@@ -15,8 +15,11 @@ public:
 
 	void sendRequest(Vector <Building*> buildings);
 	void sendRequest(Vector <Troop*> troops);
+	
+	void timePass();
+	void battleOver();
 
-
+	CC_SYNTHESIZE(int, _countdown, Countdown);
 
 protected:
 	static BattleModel* bm_pInstance;

@@ -82,6 +82,7 @@ public:
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 	CC_SYNTHESIZE(Label*, _lblPlayerPos, lblPlayerPos);
 	CC_SYNTHESIZE(Label*, _lblResourcePos, lblResourcePos);
+	CC_SYNTHESIZE(Label*, _lblCountdownPos, lblCountdownPos);
 
 	//@brief touch event point
 	CC_SYNTHESIZE(Point, _touchOriginLocation, TouchOriginLocation);

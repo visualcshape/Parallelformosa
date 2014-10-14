@@ -13,6 +13,13 @@ CMDCountdown::~CMDCountdown(){
 void CMDCountdown::init(){
 }
 
+CMDCountdown* CMDCountdown::order(BattleModel* battle){
+	CMDCountdown* cmdCountdown = new CMDCountdown();
+	cmdCountdown->_battle = battle;
+	return cmdCountdown;
+}
+
 void CMDCountdown::execute(){
 	CCLOG("CMDCountdown::execute()");
+	_battle->timePass();
 }

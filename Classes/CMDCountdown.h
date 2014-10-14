@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "CMD.h"
+#include "BattleModel.h"
 
 USING_NS_CC;
 
@@ -10,6 +11,10 @@ public:
 	CMDCountdown();
 	~CMDCountdown();
 
+	static CMDCountdown* order(BattleModel* battle);
 	void init();
-	void execute();
+	virtual void execute();
+
+private:
+	BattleModel* _battle;
 };

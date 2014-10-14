@@ -10,7 +10,7 @@
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include <ctime>
-#include "CMD.h"
+#include "Command.h"
 
 USING_NS_CC;
 
@@ -581,6 +581,7 @@ void MapModel::commandAttack(){
 	_curPlayer->commandAttack();
 	_defPlayer->commandAttack();
 	CCLOG("attack mode activate!!!!");
+	CMDCountdown::order(BattleModel::getModel())->execute();
 }
 
 void MapModel::attackLogic(){
