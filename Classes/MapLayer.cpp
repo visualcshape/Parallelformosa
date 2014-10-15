@@ -3,6 +3,7 @@
 #include "MapModel.h"
 #include "Building.h"
 #include "SceneManager.h"
+#include "PlayerManager.h"
 #include "AppMacro.h"
 #include "PlayerModel.h"
 #include "BattleModel.h"
@@ -90,9 +91,8 @@ bool MapLayer::init(std::string mapName){
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 	SceneManager::pressKeyCode(keyCode);
 	if (keyCode == EventKeyboard::KeyCode::KEY_A){
-		BattleModel::getModel()->setCountdown(60);
-		BattleModel::getModel()->setupBattle(mm->getAtkPlayer(), mm->getDefPlayer(), mm);
-		BattleModel::getModel()->simulateBattle();
+		BattleModel::getModel()->setupBattle(mm, true);
+		BattleModel::getModel()->startBattle();
 		this->schedule(schedule_selector(MapLayer::attack), 0.2f);
 	}
 
@@ -101,9 +101,9 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 		CMDFileStream::getInstance()->execute();
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		MapModel::getModel()->getCurPlayer()->changeUID(1);
+		PlayerManager::getInstance()->getCurPlayer()->changeUID(1);
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
-		MapModel::getModel()->getCurPlayer()->changeUID(2);
+		PlayerManager::getInstance()->getCurPlayer()->changeUID(2);
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){
@@ -137,7 +137,5 @@ void MapLayer::produce(float dt){
 }
 
 void MapLayer::attack(float dt){
-	//mm->attackLogic(dt);
 	CMDCountdown::order(BattleModel::getModel())->execute();
-	//BattleModel::getModel()->doBattle();
 }

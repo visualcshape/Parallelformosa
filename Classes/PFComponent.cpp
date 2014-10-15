@@ -2,6 +2,7 @@
 #include "PFComponent.h"
 #include "MapModel.h"
 #include "Command.h"
+#include "PlayerManager.h"
 
 PFComponent::PFComponent(){
 }
@@ -40,10 +41,10 @@ bool PFComponent::canAtttack(PFComponent* target){
 
 bool PFComponent::tryToAttack(){
 	PlayerModel* targetPlayer = nullptr;
-	if (_owner == MapModel::getModel()->getAtkPlayer()->getUID())
-		targetPlayer = MapModel::getModel()->getDefPlayer();
+	if (_owner == PlayerManager::getInstance()->getAtkPlayer()->getUID())
+		targetPlayer = PlayerManager::getInstance()->getDefPlayer();
 	else
-		targetPlayer = MapModel::getModel()->getAtkPlayer();
+		targetPlayer = PlayerManager::getInstance()->getAtkPlayer();
 
 	CC_ASSERT(targetPlayer != nullptr);
 

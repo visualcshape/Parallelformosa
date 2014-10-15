@@ -5,6 +5,7 @@
 #include "MapModel.h"
 #include "json.h"
 #include "SceneManager.h"
+#include "PlayerManager.h"
 #include "PlayerModel.h"
 #include "Command.h"
 
@@ -24,10 +25,9 @@ BattleModel* BattleModel::getModel(){
 	return bm_pInstance;
 }
 
-void BattleModel::setupBattle(PlayerModel* atkPlayer, PlayerModel* defPlayer, MapModel* mapModel){
-	_atkPlayer = atkPlayer;
-	_defPlayer = defPlayer;
+void BattleModel::setupBattle(MapModel* mapModel, bool isSimulation){
 	_mapModel = mapModel;
+	_isSimulation = isSimulation;
 }
 
 void BattleModel::sendRequest(Vector <Building*> buildings){
@@ -79,46 +79,73 @@ void BattleModel::timePass(){
 	sprintf(buffer, "time remain: %d", _countdown);
 	MapModel::getModel()->getlblCountdownPos()->setString(buffer);
 
-	_atkPlayer->commandAttack();
-	_defPlayer->commandAttack();
-	CCLOG("attack mode activate!!!!");
+	PlayerManager::getInstance()->getAtkPlayer()->commandAttack();
+	PlayerManager::getInstance()->getDefPlayer()->commandAttack();
 
 	if (_countdown == 0)
-		battleOver(_defPlayer);
-	else if (_atkPlayer->getTroops().empty())
-		battleOver(_defPlayer);
-	else if (_defPlayer->getBuildings().empty())
-		battleOver(_atkPlayer);
+		battleOver(PlayerManager::getInstance()->getDefPlayer());
+	else if (PlayerManager::getInstance()->getAtkPlayer()->getTroops().empty())
+		battleOver(PlayerManager::getInstance()->getDefPlayer());
+	else if (PlayerManager::getInstance()->getDefPlayer()->getBuildings().empty())
+		battleOver(PlayerManager::getInstance()->getAtkPlayer());
 }
 
 void BattleModel::battleOver(PlayerModel* winPlayer){
+	CCLOG("BattleModel::battleOver");
 	if (CMDFileStream::getInstance()->isStreamOn())
 		CMDFileStream::getInstance()->execute();
 
-	if (winPlayer->getUID() == _atkPlayer->getUID()){
-		SceneManager::goBattleOverScreen("ATTACK WIN!!");
-	}
-	else if (winPlayer->getUID() == _defPlayer->getUID()){
-		_atkPlayer->height = -1;
-		SceneManager::goBattleOverScreen("DEFENSE WIN!!");
+	if (_isSimulation){
+		_isSimulation = false;
+
+		PlayerManager::getInstance()->getAtkPlayer()->init();
+		PlayerManager::getInstance()->getDefPlayer()->init();
+
+		PlayerManager::getInstance()->getAtkPlayer()->readPlayerInfo(true);
+		PlayerManager::getInstance()->getDefPlayer()->readPlayerInfo(true);
+		_mapModel->readMapInfo(true);
 	}
 	else{
-		CCASSERT(false, "so, ... who win?!");
+		if (winPlayer->getUID() == PlayerManager::getInstance()->getAtkPlayer()->getUID()){
+			SceneManager::goBattleOverScreen("ATTACK WIN!!");
+		}
+		else if (winPlayer->getUID() == PlayerManager::getInstance()->getDefPlayer()->getUID()){
+			PlayerManager::getInstance()->getAtkPlayer()->height = -1;
+			SceneManager::goBattleOverScreen("DEFENSE WIN!!");
+		}
+		else{
+			CCASSERT(false, "so, ... who win?!");
+		}
 	}
 }
 
-void BattleModel::simulateBattle(){
-	//PlayerModel* copyOfAtkPlayer = PlayerModel::initWithPlayer(_atkPlayer);
-	//PlayerModel* copyOfDefPlayer = PlayerModel::initWithPlayer(_defPlayer);
-	_atkPlayer->writePlayerInfo(true);
-	_defPlayer->writePlayerInfo(true);
-	_mapModel->writeMapInfo(true);
+void BattleModel::startBattle(){
+	_countdown = 60;
+	if (_isSimulation){
+		PlayerManager::getInstance()->getAtkPlayer()->writePlayerInfo(true);
+		PlayerManager::getInstance()->getDefPlayer()->writePlayerInfo(true);
+		_mapModel->writeMapInfo(true);
 
-	CMDFileStream::getInstance()->OpenStream(_mapModel->getMapName() + ".cmd");
-	
-
+		CMDFileStream::getInstance()->OpenStream(_mapModel->getMapName() + ".cmd");
+	}
 }
 
-void BattleModel::doBattle(){
-	_mapModel->commandAttack();
+void BattleModel::readCommandConfig(){
+	ResourceModel *rm = ResourceModel::getModel();
+	string filename = "CommandInfo/" + _mapModel->getMapName() + ".cmd";
+	FILE* fp = rm->OpenFileR(filename);
+
+	CCASSERT(fp != nullptr, "readCommandConfig fail");
+
+	char buffer[1000];
+	while (~fscanf(fp, "%s", buffer)){
+		if (strcmp(buffer, "CMDState") == 0){
+
+		}
+		else if (strcmp(buffer, "CMDMove") == 0){
+
+		}
+	}
+	sprintf(buffer, "CMDState troop %d %d %d\n", pcp->getOwner(), pcp->getOID(), _adjustHp);
+	sprintf(buffer, "CMDMove troop %d %d %d %d\n", _troop->getOwner(), _troop->getOID(), _dir, _hofs);
 }

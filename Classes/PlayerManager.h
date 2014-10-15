@@ -10,11 +10,12 @@ public:
 	PlayerManager();
 	~PlayerManager();
 
-	//static PlayerModel* changePlayer(int uid);
+	static PlayerManager* getInstance();
 
+	CC_SYNTHESIZE(PlayerModel*, _curPlayer, CurPlayer);
+	CC_SYNTHESIZE(PlayerModel*, _atkPlayer, AtkPlayer);
+	CC_SYNTHESIZE(PlayerModel*, _defPlayer, DefPlayer);
 
 private:
-	static PlayerModel* _curPlayer;
-	static PlayerModel* _atkPlayer;
-	static PlayerModel* _defPlayer;
+	static PlayerManager* pmr_pInstance;
 };

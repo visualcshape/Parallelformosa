@@ -102,10 +102,6 @@ public:
 
 	CC_SYNTHESIZE(HUD_ID, _status, Status);
 
-	CC_SYNTHESIZE(PlayerModel*, _curPlayer, CurPlayer);
-	CC_SYNTHESIZE(PlayerModel*, _atkPlayer, AtkPlayer);
-	CC_SYNTHESIZE(PlayerModel*, _defPlayer, DefPlayer);
-
 	static MapModel* getModel();
 
 	//@func tilemap of coord transformation system.

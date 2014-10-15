@@ -27,7 +27,7 @@ void CMDFileStream::init(){
 void CMDFileStream::OpenStream(string relativePath){
 	if (_fp != nullptr)
 		closeStream();
-	_fp = ResourceModel::getModel()->OpenFileW("CommandInfo/" + relativePath);
+	_fp = ResourceModel::getModel()->OpenFileW(relativePath);
 	_text = "";
 }
 

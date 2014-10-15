@@ -7,6 +7,12 @@ USING_NS_CC;
 
 PlayerModel::PlayerModel(){
 	_uid = rand() % 2 + 1;
+	init();
+}
+
+PlayerModel::PlayerModel(int uid){
+	_uid = uid;
+	init();
 }
 
 PlayerModel::~PlayerModel(){
@@ -157,7 +163,7 @@ void PlayerModel::readPlayerInfo(bool backup){
 		filename += ".backup";
 	//@brief new acccount
 	if (!rm->isFileExist(filename))
-		writePlayerInfo();
+		writePlayerInfo(backup);
 
 	FILE *fp = rm->OpenFileR(filename);
 
@@ -176,7 +182,7 @@ void PlayerModel::readPlayerInfo(bool backup){
 	gainLstr(difSec * 6);
 	gainGmag(difSec * 6);
 	gainFood(difSec * 6);
-
+	/*
 	while (~fscanf(fp, "%s", buffer)){
 		if (strcmp(buffer, "troop") == 0){
 			int oid, tid, x, y, z;
@@ -190,10 +196,10 @@ void PlayerModel::readPlayerInfo(bool backup){
 		else {
 			CCASSERT(false, "player info type not sure?!");
 		}
-	}
+	}*/
 
 	//@brief Write back
-	writePlayerInfo();
+	writePlayerInfo(backup);
 
 	fclose(fp);
 }
@@ -217,10 +223,11 @@ void PlayerModel::writePlayerInfo(bool backup){
 	//@brief save logout time
 	fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
 
+	/*
 	//@brief save troops info
 	for (auto &troop : _troops){
 		fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
-	}
+	}*/
 
 	/*
 	//@brief save buildings info

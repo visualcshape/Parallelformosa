@@ -11,6 +11,7 @@
 #include "AppMacro.h"
 #include <ctime>
 #include "Command.h"
+#include "PlayerManager.h"
 
 USING_NS_CC;
 
@@ -18,9 +19,6 @@ MapModel* MapModel::mm_pInstance;
 
 MapModel::MapModel(){
 	CCLOG("MapModel construct");
-	_curPlayer = new PlayerModel();
-
-	_atkPlayer = _defPlayer = _curPlayer;
 }
 
 MapModel::~MapModel(){
@@ -43,9 +41,9 @@ void MapModel::init(std::string mapName){
 	_tileMap = nullptr;
 	_prevCursurOutside = false;
 	_status = HUD_ID::DEFENSE;
-	_curPlayer->init();
-	_atkPlayer->init();
-	_defPlayer->init();
+	PlayerManager::getInstance()->getCurPlayer()->init();
+	PlayerManager::getInstance()->getAtkPlayer()->init();
+	PlayerManager::getInstance()->getDefPlayer()->init();
 }
 
 void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
@@ -98,27 +96,28 @@ void MapModel::addBuilding(Point pos, int level){
 	if (_status == HUD_ID::DEFENSE) targetID = selID + 36;
 	if (_status == HUD_ID::ATTACK) targetID = selID + 18;
 
-	addBuildingToMap(targetID, _curPlayer->getUID(), mapCoordForPosition(pos, level), level);
+	addBuildingToMap(targetID, PlayerManager::getInstance()->getCurPlayer()->getUID(), mapCoordForPosition(pos, level), level);
 }
 
 void MapModel::mapAddBuilding(Building* building){
+	CCLOG("MapModel::mapAddBuilding");
 	_buildings.pushBack((Building*)building);
-	if (building->getOwner() == _curPlayer->getUID())
-		_curPlayer->addBuilding((Building*)building);
-	else if (building->getOwner() == _atkPlayer->getUID())
-		_atkPlayer->addBuilding((Building*)building);
-	else if (building->getOwner() == _defPlayer->getUID())
-		_defPlayer->addBuilding((Building*)building);
+	if (building->getOwner() == PlayerManager::getInstance()->getCurPlayer()->getUID())
+		PlayerManager::getInstance()->getCurPlayer()->addBuilding((Building*)building);
+	else if (building->getOwner() == PlayerManager::getInstance()->getAtkPlayer()->getUID())
+		PlayerManager::getInstance()->getAtkPlayer()->addBuilding((Building*)building);
+	else if (building->getOwner() == PlayerManager::getInstance()->getDefPlayer()->getUID())
+		PlayerManager::getInstance()->getDefPlayer()->addBuilding((Building*)building);
 }
 
 void MapModel::mapAddTroop(Troop* troop){
 	_troops.pushBack((Troop*)troop);
-	if (troop->getOwner() == _curPlayer->getUID())
-		_curPlayer->addTroop((Troop*)troop);
-	else if (troop->getOwner() == _atkPlayer->getUID())
-		_atkPlayer->addTroop((Troop*)troop);
-	else if (troop->getOwner() == _defPlayer->getUID())
-		_defPlayer->addTroop((Troop*)troop);
+	if (troop->getOwner() == PlayerManager::getInstance()->getCurPlayer()->getUID())
+		PlayerManager::getInstance()->getCurPlayer()->addTroop((Troop*)troop);
+	else if (troop->getOwner() == PlayerManager::getInstance()->getAtkPlayer()->getUID())
+		PlayerManager::getInstance()->getAtkPlayer()->addTroop((Troop*)troop);
+	else if (troop->getOwner() == PlayerManager::getInstance()->getDefPlayer()->getUID())
+		PlayerManager::getInstance()->getDefPlayer()->addTroop((Troop*)troop);
 }
 
 void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int z){
@@ -128,8 +127,14 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int z){
 	const int TH = 50;
 
 	PFComponent *target = nullptr;
+	/*
 	if (_status == HUD_ID::DEFENSE) target = Building::build(ID - 36);
 	if (_status == HUD_ID::ATTACK) target = Troop::addTroop(ID - 18);
+	*/
+	if (ID > 36)
+		target = Building::build(ID - 36);
+	else if (ID > 18)
+		target = Troop::addTroop(ID - 18);
 	CCASSERT(target != nullptr, "target != nullptr");
 
 	target->setOwner(owner);
@@ -142,11 +147,17 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int z){
 	for (int tr = 0; tr < target->getOccupy().X; tr++) for (int tc = 0; tc < target->getOccupy().Y; tc++)
 		_pfLayers.at(target->getZ())->setTileGID(target->getID(), Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
 
-	if (_status == HUD_ID::DEFENSE)
+	if (ID > 36)
 		mapAddBuilding((Building*)target);
+	else if (ID > 18)
+		mapAddTroop((Troop*)target);
+	/*
+	if (_status == HUD_ID::DEFENSE)
+	mapAddBuilding((Building*)target);
 
 	if (_status == HUD_ID::ATTACK)
-		mapAddTroop((Troop*)target);
+	mapAddTroop((Troop*)target);
+	*/
 }
 /*@return the highest layer could build, otherwise NONE
 */
@@ -327,6 +338,7 @@ void MapModel::tryTouchMoved(){
 }
 
 void MapModel::tryTouchEnded(){
+	CCLOG("MapModel::tryTouchEnded()");
 	ResourceModel *rm = ResourceModel::getModel();
 
 	//@brief just click once
@@ -338,15 +350,17 @@ void MapModel::tryTouchEnded(){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
 				if (coord == building->getCoord() && lr == building->getZ()){
 					CCLOG(">>@ The building belongs %d", building->getOwner());
-					if (_curPlayer->getUID() == building->getOwner()){
+					if (PlayerManager::getInstance()->getCurPlayer()->getUID() == building->getOwner()){
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							_atkPlayer = _defPlayer = _curPlayer;
+							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
 							SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::DEFENSE);
 						}
 						else{
 							writeMapInfo();
-							_atkPlayer = _defPlayer = _curPlayer;
+							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
 							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
@@ -354,17 +368,18 @@ void MapModel::tryTouchEnded(){
 						CCLOG(">>>> This is not your building !!! ");
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							_curPlayer->height = building->getZ();
-							_curPlayer->coord = building->getCoord();
-							_atkPlayer = _curPlayer;
-							_defPlayer = new PlayerModel();
-							_defPlayer->setUID(building->getOwner());
-							CCLOG(">!> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
+							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+							PlayerManager::getInstance()->getCurPlayer()->height = building->getZ();
+							PlayerManager::getInstance()->getCurPlayer()->coord = building->getCoord();
+
+							PlayerManager::getInstance()->setDefPlayer(new PlayerModel(building->getOwner()));
+							CCLOG(">!> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
 							SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::ATTACK);
 						}
 						else{
 							writeMapInfo();
-							_atkPlayer = _defPlayer = _curPlayer;
+							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
 							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
@@ -382,9 +397,9 @@ void MapModel::tryTouchEnded(){
 
 		//if (!backgroundRect.containsPoint(_touchLocation)){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
-			if (~isBuildableLevel && _curPlayer->canAddTroop(selID)){
+			if (~isBuildableLevel && PlayerManager::getInstance()->getCurPlayer()->canAddTroop(selID)){
 				addBuilding(_touchLocationInGameLayer, isBuildableLevel);
-				_curPlayer->consumeResource(selID);
+				PlayerManager::getInstance()->getCurPlayer()->consumeResource(selID);
 			}
 		//}
 
@@ -415,25 +430,25 @@ void MapModel::slide(Vec2 translation){
 }
 
 void MapModel::ccdebug(float dt){
-	CCLOG("buildings atk:%d def:%d, cur:%d\n", SZ(_atkPlayer->getBuildings()), SZ(_defPlayer->getBuildings()), SZ(_curPlayer->getBuildings()));
-	CCLOG("troops atk:%d def:%d, cur:%d\n", SZ(_atkPlayer->getTroops()), SZ(_defPlayer->getTroops()), SZ(_curPlayer->getTroops()));
+	CCLOG("buildings atk:%d def:%d, cur:%d\n", SZ(PlayerManager::getInstance()->getAtkPlayer()->getBuildings()), SZ(PlayerManager::getInstance()->getDefPlayer()->getBuildings()), SZ(PlayerManager::getInstance()->getCurPlayer()->getBuildings()));
+	CCLOG("troops atk:%d def:%d, cur:%d\n", SZ(PlayerManager::getInstance()->getAtkPlayer()->getTroops()), SZ(PlayerManager::getInstance()->getDefPlayer()->getTroops()), SZ(PlayerManager::getInstance()->getCurPlayer()->getTroops()));
 }
 
 void MapModel::produce(float dt){
-	_curPlayer->produce(dt);
+	PlayerManager::getInstance()->getCurPlayer()->produce(dt);
 }
 
 void MapModel::refresh(float dt){
 	//@debug modify label.
 		{
 			char buffer[70];
-			sprintf(buffer, "player uid= atk:%d def:%d cur:%d", _atkPlayer->getUID(), _defPlayer->getUID(), _curPlayer->getUID());
+			sprintf(buffer, "player uid= atk:%d def:%d cur:%d", PlayerManager::getInstance()->getAtkPlayer()->getUID(), PlayerManager::getInstance()->getDefPlayer()->getUID(), PlayerManager::getInstance()->getCurPlayer()->getUID());
 			getlblPlayerPos()->setString(buffer);
 		}
 	//@debug modify label
 	{
 		char buffer[80];
-		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", _curPlayer->getLstr(), _curPlayer->getGmag(), _curPlayer->getFood());
+		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", PlayerManager::getInstance()->getCurPlayer()->getLstr(), PlayerManager::getInstance()->getCurPlayer()->getGmag(), PlayerManager::getInstance()->getCurPlayer()->getFood());
 		getlblResourcePos()->setString(buffer);
 	}
 
@@ -450,7 +465,7 @@ void MapModel::refresh(float dt){
 
 	for (int i = 0; i < SZ(_movableSprites); i++){
 		auto troop = _movableSprites.at(i);
-		if (_curPlayer->canAddTroop(i + 1))
+		if (PlayerManager::getInstance()->getCurPlayer()->canAddTroop(i + 1))
 			troop->setOpacity(255);
 		else
 			troop->setOpacity(20);
@@ -460,14 +475,14 @@ void MapModel::refresh(float dt){
 void MapModel::buildingDelete(Building *target){
 	CC_ASSERT(target != nullptr);
 	setTileGID(target->getCoord(), target->getZ(), target->getOccupy().X, target->getOccupy().Y, EMPTY_TILE);
-	_defPlayer->removeBuilding(target);
+	PlayerManager::getInstance()->getDefPlayer()->removeBuilding(target);
 	_buildings.eraseObject(target);
 }
 
 void MapModel::troopDelete(Troop *target){
 	CC_ASSERT(target != nullptr);
 	setTileGID(target->getCoord(), target->getZ(), target->getOccupy().X, target->getOccupy().Y, EMPTY_TILE);
-	_atkPlayer->removeTroop(target);
+	PlayerManager::getInstance()->getAtkPlayer()->removeTroop(target);
 	_troops.eraseObject(target);
 }
 
@@ -497,9 +512,9 @@ bool MapModel::canMoveTo(MapPoint checkMapLoc, int z){
 }
 
 void MapModel::commandAttack(){
-	//_atkPlayer = _curPlayer;
+	//PlayerManager::getInstance()->getAtkPlayer() = _curPlayer;
 	//_curPlayer->commandAttack();
-	//_defPlayer->commandAttack();
+	//PlayerManager::getInstance()->getDefPlayer()->commandAttack();
 	//CCLOG("attack mode activate!!!!");
 	CMDCountdown::order(BattleModel::getModel())->execute();
 }
@@ -555,8 +570,8 @@ void MapModel::attackLogic(){
 
 	if (target->hp <= 0){
 	buildingDelete(target);
-	_atkPlayer->L_str += 1000;
-	_atkPlayer->G_mag += 1000;
+	PlayerManager::getInstance()->getAtkPlayer()->L_str += 1000;
+	PlayerManager::getInstance()->getAtkPlayer()->G_mag += 1000;
 	}
 
 	//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
@@ -568,7 +583,7 @@ void MapModel::attackLogic(){
 	if (_buildings.empty()) //attack win
 	SceneManager::goBattleOverScreen("ATTACK WIN!!");
 	else if (_troops.empty()){// defense win
-	_atkPlayer->height = -1;
+	PlayerManager::getInstance()->getAtkPlayer()->height = -1;
 	SceneManager::goBattleOverScreen("DEFENSE WIN!!");
 	}
 	CCLOG("attack mode is now on");*/
@@ -578,7 +593,7 @@ Building* MapModel::getClosestBuilding(Troop* _troop){
 	Building *closestBuilding = nullptr;
 	double maxDistance = 999999999.0;
 
-	for (auto &building : _defPlayer->getBuildings()){
+	for (auto &building : PlayerManager::getInstance()->getDefPlayer()->getBuildings()){
 		double curDistance = ccpDistance(_troop->getCoord(), building->getCoord());
 
 		if (curDistance < maxDistance){
@@ -593,7 +608,7 @@ Troop* MapModel::getClosestTroop(Building* _building){
 	Troop *closestTroop = nullptr;
 	double maxDistance = 999999999.0;
 
-	for (auto &troop : _atkPlayer->getTroops()){
+	for (auto &troop : PlayerManager::getInstance()->getAtkPlayer()->getTroops()){
 		for (int tr = 0; tr < _building->getOccupy().X; tr++) for (int tc = 0; tc < _building->getOccupy().Y; tc++){
 			Point pt = _building->getCoord();
 			double curDistance = ccpDistance(troop->getCoord(), Point(pt.x + tr, pt.y + tc));
@@ -630,6 +645,12 @@ void MapModel::writeMapInfo(bool backup){
 
 	for (auto &building : _buildings)
 		fprintf(fp, "%d %.0f %.0f %d %d\n", building->getID(), building->getCoord().x, building->getCoord().y, building->getZ(), building->getOwner());
+
+	if (backup){
+		for (auto &troop : _troops)
+			fprintf(fp, "%d %.0f %.0f %d %d\n", troop->getID(), troop->getCoord().x, troop->getCoord().y, troop->getZ(), troop->getOwner());
+	}
+
 	fclose(fp);
 }
 
@@ -645,20 +666,23 @@ void MapModel::readMapInfo(bool backup){
 
 	int id, x, y, height, owner;
 	while (~fscanf(fp, "%d %d %d %d %d", &id, &x, &y, &height, &owner)){
-		addBuildingToMap(id, owner, MapPoint(x, y), height);
 		CCLOG("info: %d %d %d %d %d", id, x, y, height, owner);
+		addBuildingToMap(id, owner, MapPoint(x, y), height);
 	}
+
 	fclose(fp);
 
-	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
-	if (_curPlayer->height != -1 && rm->strWorldMap == mapName){
+	/*
+	CCLOG(">> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
+	if (PlayerManager::getInstance()->getCurPlayer()->height != -1 && rm->strWorldMap == mapName){
 		CCLOG(">> after win, delete basebuilding");
 		//pm->_baseBuilding->sett
 		Building* tmp = Building::build(1);
-		tmp->setZ(_curPlayer->height);
-		tmp->setCoord(_curPlayer->coord);
+		tmp->setZ(PlayerManager::getInstance()->getCurPlayer()->height);
+		tmp->setCoord(PlayerManager::getInstance()->getCurPlayer()->coord);
 		buildingDelete(tmp);
-		_curPlayer->height = -1;
+		PlayerManager::getInstance()->getCurPlayer()->height = -1;
 	}
-	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
+	CCLOG(">> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
+	*/
 }

@@ -15,9 +15,8 @@ public:
 
 	static BattleModel* getModel();
 
-	void setupBattle(PlayerModel* atkPlayer, PlayerModel* defPlayer, MapModel* mapModel);
-	void simulateBattle();
-	void doBattle();
+	void setupBattle(MapModel* mapModel, bool isSimulation);
+	void startBattle();
 
 	void sendRequest(Vector <Building*> buildings);
 	void sendRequest(Vector <Troop*> troops);
@@ -26,12 +25,13 @@ public:
 	void battleOver(PlayerModel* winPlayer);
 
 	CC_SYNTHESIZE(int, _countdown, Countdown);
-	CC_SYNTHESIZE(PlayerModel*, _atkPlayer, AtkPlayer);
-	CC_SYNTHESIZE(PlayerModel*, _defPlayer, DefPlayer);
 
 protected:
 	static BattleModel* bm_pInstance;
+	void readCommandConfig();
 
 private:
 	MapModel* _mapModel;
+	bool _isSimulation;
+	//bool _is
 };

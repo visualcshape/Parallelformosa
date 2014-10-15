@@ -2,6 +2,7 @@
 #include "MapModel.h"
 #include "Troop.h"
 #include "Command.h"
+#include "PlayerManager.h"
 
 Troop::Troop(){
 }
@@ -137,9 +138,8 @@ void Troop::attackLogic(){
 
 bool Troop::buildAttackPath(){
 	CCLOG("Troop::buildAttackPath()");
-	MapModel *mm = MapModel::getModel();
-	CC_ASSERT(mm->getDefPlayer() != nullptr);
-	if (SZ(mm->getDefPlayer()->getBuildings()) == 0)
+	CC_ASSERT(PlayerManager::getInstance()->getDefPlayer() != nullptr);
+	if (SZ(PlayerManager::getInstance()->getDefPlayer()->getBuildings()) == 0)
 		return false;
 
 	int dp[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
@@ -147,7 +147,7 @@ bool Troop::buildAttackPath(){
 	PFComponent* tar[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
 
 	memset(dp, -1, sizeof(dp));
-	for (auto &building : mm->getDefPlayer()->getBuildings()){
+	for (auto &building : PlayerManager::getInstance()->getDefPlayer()->getBuildings()){
 		for (int tr = 0; tr < building->getOccupy().X; tr++) for (int tc = 0; tc < building->getOccupy().Y; tc++){
 			dp[(int)building->getCoord().x + tr][(int)building->getCoord().y + tc][building->getZ()] = INF;
 			tar[(int)building->getCoord().x + tr][(int)building->getCoord().y + tc][building->getZ()] = building;
@@ -159,6 +159,7 @@ bool Troop::buildAttackPath(){
 	Q.push(start);
 	dp[(int)start.x][(int)start.y][(int)start.z] = 0;
 
+	MapModel *mm = MapModel::getModel();
 	while (!Q.empty()){
 		Vec3 now = Q.front(); Q.pop();
 		for (int k = 0; k < 4; k++)	for (int hofs = 1; hofs >= -1; hofs--){

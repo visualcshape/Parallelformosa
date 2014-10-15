@@ -11,6 +11,7 @@ class PlayerModel :public Ref{
 
 public:
 	PlayerModel();
+	PlayerModel(int uid);
 	~PlayerModel();
 
 	void init();
