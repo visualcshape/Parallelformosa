@@ -110,7 +110,7 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 		p->retain();
 #endif
-		ID = p->getCurButton()->getBID();
+		ID = p->getCurButton()->getID();
 		addChild(p, 100, windowName);
 	}
 }
@@ -136,7 +136,7 @@ void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
 	if (type == Widget::TouchEventType::ENDED)
 	{
         BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
-        int ID = p->getCurButton()->getBID();
+        int ID = p->getCurButton()->getID();
         
         this->removeChildByName("BuildingWindow");
 

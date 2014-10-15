@@ -7,6 +7,7 @@
 #include "PlayerModel.h"
 #include "BattleModel.h"
 #include <ctime>
+#include "Command.h"
 
 USING_NS_CC;
 
@@ -90,12 +91,15 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 	SceneManager::pressKeyCode(keyCode);
 	if (keyCode == EventKeyboard::KeyCode::KEY_A){
 		BattleModel::getModel()->setCountdown(60);
+		BattleModel::getModel()->setupBattle(mm->getAtkPlayer(), mm->getDefPlayer(), mm);
+		BattleModel::getModel()->simulateBattle();
 		this->schedule(schedule_selector(MapLayer::attack), 0.2f);
 	}
 
-	if (keyCode == EventKeyboard::KeyCode::KEY_Z)
+	if (keyCode == EventKeyboard::KeyCode::KEY_Z){
 		this->unschedule(schedule_selector(MapLayer::attack));
-
+		CMDFileStream::getInstance()->execute();
+	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_C)
 		MapModel::getModel()->getCurPlayer()->changeUID(1);
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
@@ -134,6 +138,6 @@ void MapLayer::produce(float dt){
 
 void MapLayer::attack(float dt){
 	//mm->attackLogic(dt);
-	mm->commandAttack();
-	
+	CMDCountdown::order(BattleModel::getModel())->execute();
+	//BattleModel::getModel()->doBattle();
 }

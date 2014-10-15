@@ -13,11 +13,10 @@ public:
 
 	CREATE_FUNC(Building);
 	virtual bool init();
-
-	int range;
-	Sprite* selSpriteRange;
-
 	static Building* build(int BID);
+
 	void attackLogic();
 
+	CC_SYNTHESIZE(int, _range, Range);
+	CC_SYNTHESIZE(Sprite*, _selSpriteRange, SelSpriteRange);	
 };

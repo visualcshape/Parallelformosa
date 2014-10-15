@@ -28,6 +28,9 @@
     <Filter Include="Classes\Command">
       <UniqueIdentifier>{9d400e78-a744-4b4f-a08b-c7cfa7a6a7eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Manager">
+      <UniqueIdentifier>{248eeb90-f969-4fa4-9d68-d2b42ded0c1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -108,12 +111,6 @@
     <ClCompile Include="..\Classes\Observer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SceneManager.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\NoticeManager.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\jsoncpp.cpp">
       <Filter>Classes\Network</Filter>
     </ClCompile>
@@ -165,8 +162,23 @@
     <ClCompile Include="..\Classes\CMDResource.cpp">
       <Filter>Classes\Command</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CommandModel.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\LayoutFactory.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDState.cpp">
+      <Filter>Classes\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NoticeManager.cpp">
+      <Filter>Classes\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SceneManager.cpp">
+      <Filter>Classes\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PlayerManager.cpp">
+      <Filter>Classes\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CMDFileStream.cpp">
+      <Filter>Classes\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,12 +263,6 @@
     <ClInclude Include="..\Classes\Observer.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SceneManager.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\NoticeManager.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\json.h">
       <Filter>Classes\Network</Filter>
     </ClInclude>
@@ -317,8 +323,23 @@
     <ClInclude Include="..\Classes\CMDResource.h">
       <Filter>Classes\Command</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CommandModel.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\LayoutFactory.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDState.h">
+      <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoticeManager.h">
+      <Filter>Classes\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneManager.h">
+      <Filter>Classes\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlayerManager.h">
+      <Filter>Classes\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CMDFileStream.h">
+      <Filter>Classes\Command</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

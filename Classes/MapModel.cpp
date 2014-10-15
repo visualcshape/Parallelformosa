@@ -103,26 +103,26 @@ void MapModel::addBuilding(Point pos, int level){
 
 void MapModel::mapAddBuilding(Building* building){
 	_buildings.pushBack((Building*)building);
-	if (building->owner == _curPlayer->getUID())
+	if (building->getOwner() == _curPlayer->getUID())
 		_curPlayer->addBuilding((Building*)building);
-	else if (building->owner == _atkPlayer->getUID())
+	else if (building->getOwner() == _atkPlayer->getUID())
 		_atkPlayer->addBuilding((Building*)building);
-	else if (building->owner == _defPlayer->getUID())
+	else if (building->getOwner() == _defPlayer->getUID())
 		_defPlayer->addBuilding((Building*)building);
 }
 
 void MapModel::mapAddTroop(Troop* troop){
 	_troops.pushBack((Troop*)troop);
-	if (troop->owner == _curPlayer->getUID())
+	if (troop->getOwner() == _curPlayer->getUID())
 		_curPlayer->addTroop((Troop*)troop);
-	else if (troop->owner == _atkPlayer->getUID())
+	else if (troop->getOwner() == _atkPlayer->getUID())
 		_atkPlayer->addTroop((Troop*)troop);
-	else if (troop->owner == _defPlayer->getUID())
+	else if (troop->getOwner() == _defPlayer->getUID())
 		_defPlayer->addTroop((Troop*)troop);
 }
 
-void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int level){
-	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, level);
+void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int z){
+	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, z);
 
 	const int TW = _tileMap->getTileSize().width;
 	const int TH = 50;
@@ -132,15 +132,15 @@ void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int lev
 	if (_status == HUD_ID::ATTACK) target = Troop::addTroop(ID - 18);
 	CCASSERT(target != nullptr, "target != nullptr");
 
-	target->owner = owner;
+	target->setOwner(owner);
 
 	target->setAnchorPoint(Point(0, 0));
-	target->setPosition(Point((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + level * 25 + 75)));
+	target->setPosition(Point((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + z * 25 + 75)));
 	target->setCoord(buildingLoc);
-	target->height = level;
+	target->setZ(z);
 
-	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
-		_pfLayers.at(target->height)->setTileGID(target->id, Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
+	for (int tr = 0; tr < target->getOccupy().X; tr++) for (int tc = 0; tc < target->getOccupy().Y; tc++)
+		_pfLayers.at(target->getZ())->setTileGID(target->getID(), Point(tileBuildingLoc.x + tr, tileBuildingLoc.y - tc * 2));
 
 	if (_status == HUD_ID::DEFENSE)
 		mapAddBuilding((Building*)target);
@@ -171,7 +171,7 @@ int MapModel::canBuildOnTilePosition(Point pos){
 		//@procedure check for no tiles on the tile.
 		bool noTileOnDirectly = true;
 		if (lr < SZ(_pfLayers) - 1){
-			for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
+			for (int tr = 0; tr < target->getOccupy().X; tr++) for (int tc = 0; tc < target->getOccupy().Y; tc++){
 				for (int offset = 0; offset <= 1; offset++){
 					Point checkTileLoc = Point(TileLoc.x + tr, TileLoc.y - tc * 2 + offset);
 					if (isTileInsideLayer(checkTileLoc, lr)){
@@ -184,7 +184,7 @@ int MapModel::canBuildOnTilePosition(Point pos){
 		if (!noTileOnDirectly) continue;
 
 		int couldTileCnt = 0;
-		for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
+		for (int tr = 0; tr < target->getOccupy().X; tr++) for (int tc = 0; tc < target->getOccupy().Y; tc++){
 			for (int offset = 1; offset <= 2; offset++){
 				Point checkTileLoc = Point(TileLoc.x + tr, TileLoc.y - tc * 2 + offset);
 				if (isTileInsideLayer(checkTileLoc, lr)){
@@ -206,12 +206,14 @@ int MapModel::canBuildOnTilePosition(Point pos){
 				}
 			}
 		}
-		if (couldTileCnt == target->occupy.X*target->occupy.Y) return lr + 1;
+		if (couldTileCnt == target->getOccupy().X*target->getOccupy().Y) return lr + 1;
 	}
 	return -1;
 }
 
 bool MapModel::isTileInsideLayer(Point checkTileLoc, int level){
+	if (level < 0) return false;
+	if (level >= SZ(_pfLayers)) return false;
 	if (checkTileLoc.x < 0) return false;
 	if (checkTileLoc.x >= _pfLayers.at(level)->getLayerSize().width) return false;
 	if (checkTileLoc.y < 0) return false;
@@ -220,13 +222,7 @@ bool MapModel::isTileInsideLayer(Point checkTileLoc, int level){
 }
 
 bool MapModel::isCoordInsideLayer(MapPoint checkCoordLoc, int level){
-	if (level < 0) return false;/*
-								if (checkCoordLoc.x < 0) return false;
-								if (checkCoordLoc.x >= MAP_X_MAX) return false;
-								if (checkCoordLoc.y < 0) return false;
-								if (checkCoordLoc.y >= MAP_Y_MAX) return false;*/
 	return isTileInsideLayer(tileCoordForMapPoint(checkCoordLoc, level), level);
-	return true;
 }
 
 Point MapModel::boundLayerPos(Point newPos){
@@ -340,13 +336,13 @@ void MapModel::tryTouchEnded(){
 		for (int lr = 5; lr >= 0; lr--){
 			for (auto &building : _buildings){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
-				if (coord == building->getCoord() && lr == building->height){
-					CCLOG(">>@ The building belongs %d", building->owner);
-					if (_curPlayer->getUID() == building->owner){
+				if (coord == building->getCoord() && lr == building->getZ()){
+					CCLOG(">>@ The building belongs %d", building->getOwner());
+					if (_curPlayer->getUID() == building->getOwner()){
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
 							_atkPlayer = _defPlayer = _curPlayer;
-							SceneManager::goMapScreen(rm->strPlayerMap[building->owner], HUD_ID::DEFENSE);
+							SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::DEFENSE);
 						}
 						else{
 							writeMapInfo();
@@ -358,13 +354,13 @@ void MapModel::tryTouchEnded(){
 						CCLOG(">>>> This is not your building !!! ");
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
-							_curPlayer->height = building->height;
+							_curPlayer->height = building->getZ();
 							_curPlayer->coord = building->getCoord();
 							_atkPlayer = _curPlayer;
 							_defPlayer = new PlayerModel();
-							_defPlayer->setUID(building->owner);
+							_defPlayer->setUID(building->getOwner());
 							CCLOG(">!> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
-							SceneManager::goMapScreen(rm->strPlayerMap[building->owner], HUD_ID::ATTACK);
+							SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::ATTACK);
 						}
 						else{
 							writeMapInfo();
@@ -426,6 +422,7 @@ void MapModel::ccdebug(float dt){
 void MapModel::produce(float dt){
 	_curPlayer->produce(dt);
 }
+
 void MapModel::refresh(float dt){
 	//@debug modify label.
 		{
@@ -458,129 +455,52 @@ void MapModel::refresh(float dt){
 		else
 			troop->setOpacity(20);
 	}
-	//if (pm->_baseBuilding != nullptr)
-	//	CCLOG(">>target : height=%d, coord=(%.0f, %.0f)", pm->_baseBuilding->height, pm->_baseBuilding->getCoord().x, pm-//>_baseBuilding->getCoord().y);
 }
 
 void MapModel::buildingDelete(Building *target){
-	Point pt = tileCoordForMapPoint(target->getCoord(), target->height);
-	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
-		_pfLayers.at(target->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
+	CC_ASSERT(target != nullptr);
+	setTileGID(target->getCoord(), target->getZ(), target->getOccupy().X, target->getOccupy().Y, EMPTY_TILE);
 	_defPlayer->removeBuilding(target);
 	_buildings.eraseObject(target);
 }
 
 void MapModel::troopDelete(Troop *target){
-	Point pt = tileCoordForMapPoint(target->getCoord(), target->height);
-	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++)
-		_pfLayers.at(target->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
+	CC_ASSERT(target != nullptr);
+	setTileGID(target->getCoord(), target->getZ(), target->getOccupy().X, target->getOccupy().Y, EMPTY_TILE);
 	_atkPlayer->removeTroop(target);
 	_troops.eraseObject(target);
 }
 
-bool MapModel::canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset){
-	int lr = height;
+bool MapModel::canMoveTo(MapPoint checkMapLoc, int z){
+	if (!isCoordInsideLayer(checkMapLoc, z)) return false;
+	if (!isCoordInsideLayer(checkMapLoc, z - 1)) return false;
 
-	if (lr + heightOffset >= 0 && lr + heightOffset < SZ(_pfLayers)){
-		checkMapLoc.x += OFFX[dir];
-		checkMapLoc.x += OFFY[dir];
+	auto current = getTileGIDAt(checkMapLoc, z);
+	auto below = getTileGIDAt(checkMapLoc, z - 1);
 
-		if (!isCoordInsideLayer(checkMapLoc, height + heightOffset)) return false;
-		if (!isCoordInsideLayer(checkMapLoc, height - 1 + heightOffset)) return false;
+	if (current != EMPTY_TILE) return false;
+	if (below == EMPTY_TILE) return false;
 
-		auto current = _pfLayers.at(lr + heightOffset)->getTileGIDAt(tileCoordForMapPoint(checkMapLoc, lr + heightOffset));
-		auto below = _pfLayers.at(lr - 1 + heightOffset)->getTileGIDAt(tileCoordForMapPoint(checkMapLoc, lr - 1 + heightOffset));
-		if (below == EMPTY_TILE) return false;
-		//CCLOG("belowGID = %d, currentGID = %d\n", below, current);
-
-		if (current == EMPTY_TILE){
-			Value props = _tileMap->getPropertiesForGID(below);
-			if (!props.isNull()){
-				ValueMap map = props.asValueMap();
-				int type_int = 0;
-				if (map.size() == 0)
-					type_int = 0;
-				else
-					type_int = map.at("walkable").asInt();
-				if (1 == type_int)
-					return true;
-			}
-		}
+	Value props = _tileMap->getPropertiesForGID(below);
+	if (!props.isNull()){
+		ValueMap map = props.asValueMap();
+		int type_int = 0;
+		if (map.size() == 0)
+			type_int = 0;
+		else
+			type_int = map.at("walkable").asInt();
+		if (1 == type_int)
+			return true;
 	}
 
 	return false;
 }
 
-PII MapModel::findAttackPath(Troop* troop){
-	CCLOG("GOOOOOOOOOOOOOOOO");
-	int dp[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
-	PII rec[MAP_MAX_SIZE][MAP_MAX_SIZE][MAP_MAX_SIZE];
-	memset(dp, -1, sizeof(dp));
-	for (auto &building : _defPlayer->getBuildings()){
-		for (int tr = 0; tr < building->occupy.X; tr++) for (int tc = 0; tc < building->occupy.Y; tc++)
-			dp[(int)building->getCoord().x + tr][(int)building->getCoord().y + tc][building->height] = INF;
-		//CCLOG("%.0f %.0f %d\n", building->getCoord().x, building->getCoord().y, building->height);
-	}
-	queue <Vec3> Q;
-	Vec3 start = Vec3(troop->getCoord().x, troop->getCoord().y, troop->height);
-	Q.push(start);
-	dp[(int)start.x][(int)start.y][(int)start.z] = 0;
-	//CCLOG("%.0f %.0f %.0f\n", start.x, start.y, start.z);
-	while (!Q.empty()){
-		Vec3 now = Q.front(); Q.pop();
-		for (int k = 0; k < 4; k++)	for (int hofs = 1; hofs >= -1; hofs--){
-			Vec3 ntp = now;
-			ntp.x += OFFX[k];
-			ntp.y += OFFY[k];
-			ntp.z = now.z + hofs;
-			if (dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] == INF){
-				Vec3 backend = now;
-				int startdir = NO;
-				int starthofs = 0;
-				while (backend != start){
-					int revdir = rec[(int)backend.x][(int)backend.y][(int)backend.z].X;
-					int revhofs = rec[(int)backend.x][(int)backend.y][(int)backend.z].Y;
-					backend.x -= OFFX[revdir];
-					backend.y -= OFFY[revdir];
-					startdir = revdir;
-					backend.z -= revhofs;
-					starthofs = revhofs;
-				}
-				return MP(startdir, starthofs);
-			}
-			//if (!isCoordInsideLayer(MapPoint(ntp.x, ntp.y), ntp.z)) continue;
-			if (!isCoordInsideLayer(MapPoint(ntp.x, ntp.y), ntp.z - 1)) continue;
-			//auto current = _pfLayers.at(ntp.z)->getTileGIDAt(tileCoordForMapPoint(MapPoint(ntp.x, ntp.y), ntp.z));
-			auto below = _pfLayers.at(ntp.z - 1)->getTileGIDAt(tileCoordForMapPoint(MapPoint(ntp.x, ntp.y), ntp.z - 1));
-			if (below == EMPTY_TILE) continue;
-			Value props = _tileMap->getPropertiesForGID(below);
-			if (!props.isNull()){
-				ValueMap map = props.asValueMap();
-				int type_int = 0;
-				if (map.size() == 0)
-					type_int = 0;
-				else
-					type_int = map.at("walkable").asInt();
-				if (1 != type_int)
-					break;
-			}
-			//CCASSERT(ntp.z - 1 >= 0, "ntp.z - 1 >= 0");
-			if (canMoveTo(MapPoint(now.x, now.y), now.z, k, hofs) && dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] == -1){
-				dp[(int)ntp.x][(int)ntp.y][(int)ntp.z] = dp[(int)now.x][(int)now.y][(int)now.z] + 1;
-				rec[(int)ntp.x][(int)ntp.y][(int)ntp.z] = MP(k, hofs);
-				Q.push(ntp);
-				break;
-			}
-		}
-	}
-	return MP(NO, 0);
-}
-
 void MapModel::commandAttack(){
-	_atkPlayer = _curPlayer;
-	_curPlayer->commandAttack();
-	_defPlayer->commandAttack();
-	CCLOG("attack mode activate!!!!");
+	//_atkPlayer = _curPlayer;
+	//_curPlayer->commandAttack();
+	//_defPlayer->commandAttack();
+	//CCLOG("attack mode activate!!!!");
 	CMDCountdown::order(BattleModel::getModel())->execute();
 }
 
@@ -674,7 +594,7 @@ Troop* MapModel::getClosestTroop(Building* _building){
 	double maxDistance = 999999999.0;
 
 	for (auto &troop : _atkPlayer->getTroops()){
-		for (int tr = 0; tr < _building->occupy.X; tr++) for (int tc = 0; tc < _building->occupy.Y; tc++){
+		for (int tr = 0; tr < _building->getOccupy().X; tr++) for (int tc = 0; tc < _building->getOccupy().Y; tc++){
 			Point pt = _building->getCoord();
 			double curDistance = ccpDistance(troop->getCoord(), Point(pt.x + tr, pt.y + tc));
 
@@ -687,36 +607,38 @@ Troop* MapModel::getClosestTroop(Building* _building){
 	return closestTroop;
 }
 
-//@brief later will modify briefly
-void MapModel::troopMove(Troop* _troop, int dir, int heightOffset){
-	if (dir == NO) return;
-	Point pt = tileCoordForMapPoint(_troop->getCoord(), _troop->height);
-	for (int tr = 0; tr < _troop->occupy.X; tr++) for (int tc = 0; tc < _troop->occupy.Y; tc++)
-		_pfLayers.at(_troop->height)->setTileGID(EMPTY_TILE, Point(pt.x + tr, pt.y - tc * 2));
+void MapModel::setTileGID(MapPoint mpt, int z, int xlen, int ylen, int GID){
+	Point pt = tileCoordForMapPoint(mpt, z);
+	for (int tr = 0; tr < xlen; tr++) for (int tc = 0; tc < ylen; tc++)
+		_pfLayers.at(z)->setTileGID(GID, Point(pt.x + tr, pt.y - tc * 2));
+}
 
-	_troop->go(dir, heightOffset);
-
-	pt = tileCoordForMapPoint(_troop->getCoord(), _troop->height);
-	for (int tr = 0; tr < _troop->occupy.X; tr++) for (int tc = 0; tc < _troop->occupy.Y; tc++)
-		_pfLayers.at(_troop->height)->setTileGID(_troop->id, Point(pt.x + tr, pt.y - tc * 2));
+uint32_t MapModel::getTileGIDAt(MapPoint mpt, int z){
+	return _pfLayers.at(z)->getTileGIDAt(tileCoordForMapPoint(mpt, z));
 }
 
 //@debug later online
-void MapModel::writeMapInfo(){
+void MapModel::writeMapInfo(bool backup){
 	ResourceModel *rm = ResourceModel::getModel();
-	std::string filename = "MapInfo/" + mapName + ".info";
+	string filename = "MapInfo/" + mapName + ".info";
+
+	if (backup) 
+		filename += ".backup";
 
 	FILE *fp = rm->OpenFileW(filename);
 	CCASSERT(fp != nullptr, "write map info fail");
 
 	for (auto &building : _buildings)
-		fprintf(fp, "%d %.0f %.0f %d %d\n", building->id, building->getCoord().x, building->getCoord().y, building->height, building->owner);
+		fprintf(fp, "%d %.0f %.0f %d %d\n", building->getID(), building->getCoord().x, building->getCoord().y, building->getZ(), building->getOwner());
 	fclose(fp);
 }
 
-void MapModel::readMapInfo(){
+void MapModel::readMapInfo(bool backup){
 	ResourceModel *rm = ResourceModel::getModel();
-	std::string filename = "MapInfo/" + mapName + ".info";
+	string filename = "MapInfo/" + mapName + ".info";
+
+	if (backup)
+		filename += ".backup";
 
 	FILE *fp = rm->OpenFileR(filename);
 	CCASSERT(fp != nullptr, "read map info fail");
@@ -733,14 +655,10 @@ void MapModel::readMapInfo(){
 		CCLOG(">> after win, delete basebuilding");
 		//pm->_baseBuilding->sett
 		Building* tmp = Building::build(1);
-		tmp->height = _curPlayer->height;
+		tmp->setZ(_curPlayer->height);
 		tmp->setCoord(_curPlayer->coord);
 		buildingDelete(tmp);
 		_curPlayer->height = -1;
 	}
 	CCLOG(">> _baseBuidling = nullptr => %s", _curPlayer->height == -1 ? "Yes" : "No");
-}
-
-void MapModel::go(int dir){
-	return;
 }

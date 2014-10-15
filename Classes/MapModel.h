@@ -42,12 +42,11 @@ public:
 	void clickToAddBuildingCursor(int BID);
 	
 	//@func tilemap
-	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
+	void loadLayers(Vector <TMXLayer*> &tileLayers, string prefix);
 	int canBuildOnTilePosition(Point pos); 
 	//int canWalkOnTilePosition(MapPoint checkMapLoc);
-	bool isTileInsideLayer(Point checkTileLoc, int level);
-	bool isCoordInsideLayer(Point checkTileLoc, int level);
-	PII findAttackPath(Troop* troop);
+	bool isTileInsideLayer(MapPoint checkTileLoc, int level);
+	bool isCoordInsideLayer(MapPoint checkMapLoc, int level);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
@@ -59,11 +58,10 @@ public:
 	void showAllRange(bool visible);
 
 	//@func sync to database (now used update locally)
-	void readMapInfo();
-	void writeMapInfo();
+	void readMapInfo(bool backup = false);
+	void writeMapInfo(bool backup = false);
 
-	bool canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset);
-	void troopMove(Troop* _troop, int dir, int heightOffset);
+	bool canMoveTo(MapPoint checkMapLoc, int z);
 	Building* getClosestBuilding(Troop* _troop);
 	Troop* getClosestTroop(Building* _building);
 	void buildingDelete(Building *_building);
@@ -71,7 +69,6 @@ public:
 
 	void mapAddBuilding(Building* building);
 	void mapAddTroop(Troop* troop);
-
 
 	CC_SYNTHESIZE(TMXTiledMap*, _tileMap, TileMap);
 	CC_SYNTHESIZE(Vector <TMXLayer*>, _pfLayers, PFLayers);
@@ -111,21 +108,24 @@ public:
 
 	static MapModel* getModel();
 
+	//@func tilemap of coord transformation system.
+	TilePoint tileCoordForPosition(Point position);
+	MapPoint mapCoordForPosition(Point position, int z);
+	MapPoint mapCoordForTilePoint(TilePoint tileLoc, int z);
+	TilePoint tileCoordForMapPoint(MapPoint mapLoc, int z);
+
+	void setTileGID(MapPoint mpt, int z, int xlen, int ylen, int GID);
+	uint32_t getTileGIDAt(MapPoint mpt, int z);
+
 protected:
 	static MapModel * mm_pInstance;
 
-	//@func tilemap of coord transformation system.
-	TilePoint tileCoordForPosition(Point position);
-	MapPoint mapCoordForPosition(Point position, int level);
-	MapPoint mapCoordForTilePoint(TilePoint tileLoc, int level);
-	TilePoint tileCoordForMapPoint(MapPoint mapLoc, int level);
-
 	//@func internally add building
-	void addBuildingToMap(int ID, int owner, MapPoint pos, int level);
-	void go(int dir);
+	void addBuildingToMap(int ID, int owner, MapPoint pos, int z);
+
+	CC_SYNTHESIZE(string, mapName, MapName);
 
 private:
-	std::string mapName;
 	int selID;
 	bool _prevCursurOutside; 
 	Vector <Building*> _buildings;

@@ -93,4 +93,6 @@ static const int OFFY[] = { 0, -1, 0, 1 };
 #define INF 1023456789
 
 #define EXECUTE_RATE 1.0f
+#define PLAYER_MAX_TROOPS 10000
+#define PLAYER_MAX_BUILDINGS 1000
 // }
