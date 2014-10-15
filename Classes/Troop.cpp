@@ -53,16 +53,11 @@ void Troop::attackLogic(){
 		if (!buildAttackPath())
 			return;
 	}
-	
-	if (!_moves.empty()){
-		_moves.back()->execute();
-		_moves.popBack();
-	}
 
-	if (!_states.empty()){
-		_states.back()->execute();
+	if (!_moves.empty() && _moves.back()->execute())
+		_moves.popBack();
+	if (!_states.empty() && _states.back()->execute())
 		_states.popBack();
-	}
 
 	tryToAttack();
 	/*
@@ -135,6 +130,17 @@ void Troop::attackLogic(){
 		}
 	}*/
 }
+void Troop::replayLogic(){
+	MapModel *mm = MapModel::getModel();
+	if (isDead()){
+		mm->troopDelete(this);
+		return;
+	}
+	if (!_moves.empty() && _moves.front()->execute())
+		_moves.erase(_moves.begin());
+	if (!_states.empty() && _states.front()->execute())
+		_states.erase(_states.begin());
+}
 
 bool Troop::buildAttackPath(){
 	CCLOG("Troop::buildAttackPath()");
@@ -180,7 +186,7 @@ bool Troop::buildAttackPath(){
 					backend.x -= OFFX[revdir];
 					backend.y -= OFFY[revdir];
 					backend.z -= revhofs;
-					_moves.pushBack(CMDMove::order(this, revdir, revhofs));
+					_moves.pushBack(CMDMove::order(0, this, revdir, revhofs));
 				}
 				return true;
 			}
@@ -212,6 +218,10 @@ bool Troop::buildAttackPath(){
 		}
 	}
 	return false;
+}
+
+void Troop::AddCMDMove(CMD* cmdMove){
+	_moves.pushBack(cmdMove);
 }
 
 void Troop::go(int dir, int ohfs){

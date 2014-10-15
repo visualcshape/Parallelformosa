@@ -38,6 +38,11 @@ public:
 	void removeTroop(Troop* troop);
 
 	void commandAttack();
+	void replay();
+
+	void addCMDStateToTroop(int timing, int oid, int adjustHp);
+	void addCMDStateToBuilding(int timing, int oid, int adjustHp);
+	void addCMDMoveToTroop(int timing, int oid, int dir, int hofs);
 
 	CC_SYNTHESIZE(int, _uid, UID);
 	CC_SYNTHESIZE(Vector <Building*>, _buildings, Buildings);

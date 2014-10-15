@@ -78,3 +78,14 @@ void Building::attackLogic(){
 		}
 	}*/
 }
+
+void Building::replayLogic(){
+	MapModel *mm = MapModel::getModel();
+	if (isDead()){
+		mm->buildingDelete(this);
+		return;
+	}
+
+	if (!_states.empty() && _states.front()->execute())
+		_states.erase(_states.begin());
+}

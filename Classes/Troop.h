@@ -17,7 +17,9 @@ public:
 	static Troop* addTroop(int TID);
 	void go(int dir, int ohfs);
 
+	void AddCMDMove(CMD* cmdMove);
 	void attackLogic();
+	void replayLogic();
 	bool buildAttackPath();
 
 protected:

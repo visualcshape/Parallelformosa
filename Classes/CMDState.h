@@ -11,10 +11,10 @@ public:
 	CMDState();
 	~CMDState();
 
-	static CMDState* order(PFComponent* pfComponent, int adjustHp);
+	static CMDState* order(int timing, PFComponent* pfComponent, int adjustHp);
 
 	void init();
-	virtual void execute();
+	virtual bool execute();
 
 private:
 	PFComponent* _pfComponent;

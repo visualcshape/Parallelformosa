@@ -9,5 +9,8 @@ public:
 	CMD();
 	~CMD();
 
-	virtual void execute() = 0;
+	virtual bool execute() = 0;
+
+protected:
+	int _timing;
 };

@@ -120,6 +120,16 @@ void PlayerModel::commandAttack(){
 		building->attackLogic();
 }
 
+void PlayerModel::replay(){
+	auto _tmp_troops = _troops;
+	auto _tmp_buildings = _buildings;
+	for (auto &troop : _tmp_troops)
+		troop->replayLogic();
+	for (auto &building : _tmp_buildings)
+		building->replayLogic();
+
+}
+
 int PlayerModel::getProperTroopOID(){
 	for (int oid = 0; oid < PLAYER_MAX_TROOPS; oid++) if (!usedTroopOID[oid]){
 		return oid;
@@ -151,6 +161,31 @@ bool PlayerModel::canAddBuilding(Building* target){
 	}
 	return true;
 
+}
+
+void PlayerModel::addCMDStateToTroop(int timing, int oid, int adjustHp){
+	CCLOG("addCMDStateToTroop");
+	for (auto &troop : _troops) if (troop->getOID() == oid){
+		troop->AddCMDState(CMDState::order(timing, troop, adjustHp));
+		return;
+	}
+	CC_ASSERT(false, "didn't find proper troop with oid = %d", oid);
+}
+void PlayerModel::addCMDStateToBuilding(int timing, int oid, int adjustHp){
+	CCLOG("addCMDStateToBuilding");
+	for (auto &building : _buildings) if (building->getOID() == oid){
+		building->AddCMDState(CMDState::order(timing, building, adjustHp));
+		return;
+	}
+	CC_ASSERT(false, "didn't find proper building with oid = %d", oid);
+}
+void PlayerModel::addCMDMoveToTroop(int timing, int oid, int dir, int hofs){
+	CCLOG("addCMDMoveToTroop");
+	for (auto &troop : _troops) if (troop->getOID() == oid){
+		troop->AddCMDMove(CMDMove::order(timing, troop, dir, hofs));
+		return;
+	}
+	CC_ASSERT(false, "didn't find proper troop with oid = %d", oid);
 }
 
 void PlayerModel::readPlayerInfo(bool backup){
