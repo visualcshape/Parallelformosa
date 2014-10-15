@@ -240,7 +240,8 @@ void LoadingLayer::_sendRequest()
     
     sqlite3* pDB = Database::getInstance()->getDatabasePointer();
     //get uid
-    string sql = "";
+    string sql = "select * from User";
+    string uid = "";
     
     instance->request(route.c_str(), "", CC_CALLBACK_1(LoadingLayer::_requestCallback, this));
     
@@ -248,6 +249,12 @@ void LoadingLayer::_sendRequest()
 
 void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
 {
+    
+}
+
+int LoadingLayer::_uidQueryCallback(void* para)
+{
+    
 }
 
 void LoadingLayer::_resetParameters(){

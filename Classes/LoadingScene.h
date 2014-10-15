@@ -62,7 +62,10 @@ private:
     //Load complete
     void _loadComplete();
     
-    void _checkLoadComplete();
+    //sql callback
+    static int _uidQueryCallback();
+    
+    void _checkLoadComplete(void);
 protected:
 public:
     LoadingLayer();
