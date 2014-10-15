@@ -86,7 +86,7 @@ public:
     
     void buildingButtonCallback(Ref* pSender,Widget::TouchEventType type);
     
-    ButtonWithImage* getCurButton();
+    virtual ButtonWithImage* getCurButton() override;
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__BuildingWindow__) */

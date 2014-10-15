@@ -22,11 +22,12 @@ public:
     
     //set
     void setUID(std::string uid);
-    void setBindedLayer(cocos2d::Layer* layer);
     
     //get
     std::string getUID();
-    cocos2d::Layer* getBindedLayer();
+    
+    //sqlite3 cb
+    static int _getUIDCallback(void* para,int columns,char**columnValue,char**columnName);
 protected:
     LoginTitleModel();
 private:

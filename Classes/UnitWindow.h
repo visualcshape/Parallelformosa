@@ -75,12 +75,15 @@ public:
     
     int getCurrentAmount();
     
+    ButtonWithImage* getCurrentButton();
+    
     void UnitButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
     
     void PlusButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
     
     void MinusButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
     
+    virtual ButtonWithImage* getCurButton() override;
     //set focus not now
 };
 

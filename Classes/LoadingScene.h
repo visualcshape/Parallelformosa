@@ -11,9 +11,14 @@
 
 #include <cocos2d.h>
 #include <CocosGUI.h>
+#include "CCPomeloWrapper.h"
+#include "ConnectingSign.h"
+#include "json.h"
+#include "Database.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
+using namespace std;
 
 class LoadingScene : public Layer
 {
@@ -41,7 +46,12 @@ private:
     void _startLoadUnitType();
 	void _startLoadMISC();
     //reset progress parameters such as loadedSprite and string
+    void _startConnectServer();
     void _resetParameters();
+    
+    //network
+    void _sendRequest();
+    void _requestCallback(const CCPomeloRequestResult& result);
     
     //Cal Progress
     double _calculateProgress();

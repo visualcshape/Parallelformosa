@@ -12,7 +12,7 @@
 #include <pomelo.h>
 #include "NoticeManager.h"
 #include "LoadingScene.h"
-#include "NoticeLoading.h"
+#include "ConnectingSign.h"
 #include "LoadingScene.h"
 #include "ResourceModel.h"
 #include "SceneManager.h"
@@ -167,12 +167,9 @@ void MenuLayer::_doLoginWaterFall()
 
 void MenuLayer::_newConnectServer()
 {
-	//test zone
-	NoticeLoading* pLoading = NoticeLoading::create("Connecting...", Color3B::WHITE);
-	addChild(pLoading, 99, "Loading");
-	//pLoading->autorelease();
-	//
-
+    ConnectingSign* sign = ConnectingSign::create("Connecting...", Color3B(59, 134, 134));
+    addChild(sign,100,"Connecting");
+    
 	//Timer
 	schedule(schedule_selector(MenuLayer::_timedOut), 5.0f);
 	//
@@ -182,8 +179,7 @@ void MenuLayer::_newConnectServer()
 		thisLayer->unschedule(schedule_selector(MenuLayer::_timedOut));
 		if (err != 0)
 		{
-			thisLayer->removeChildByName("Loading");
-			pLoading->autorelease();
+            this->removeChildByName("Connecting");
 			DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Cannot connect to server , please check \nyour network.", Color3B::BLACK);
 			auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
 			{
@@ -231,14 +227,14 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 			{
 				std::string uid = resp["uid"].asString();
 				LoginTitleModel::getInstance()->setUID(uid);
-				_startLodaing(resp);
+				_startLoading(resp);
 			}
 			else if (type == "isExist")
 			{
 				//true
 				if (resp["result"].asBool())
 				{
-					_startLodaing(resp);
+					_startLoading(resp);
 				}
 				else
 				{
@@ -250,7 +246,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 						{
 							thisLayer->removeChildByTag(DIALAGOUE_TAG);
 							//remove loading
-							thisLayer->removeChildByName("Loading");
+							thisLayer->removeChildByName("Connecting");
 							pDialogue->autorelease();
 							LoginTitleModel::getInstance()->setUID("0");
 						}
@@ -273,7 +269,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 					{
 						thisLayer->removeChildByTag(DIALAGOUE_TAG);
 						//remove loading
-						thisLayer->removeChildByName("Loading");
+						thisLayer->removeChildByName("Connecting");
 						pDialogue->autorelease();
 					}
 				};
@@ -291,7 +287,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 				if (type == ui::Widget::TouchEventType::ENDED)
 				{
 					thisLayer->removeChildByTag(DIALAGOUE_TAG);
-					thisLayer->removeChildByName("Loading");
+					thisLayer->removeChildByName("Connecting");
 					pDialogue->autorelease();
 				}
 			};
@@ -302,7 +298,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 	}
 }
 
-void MenuLayer::_startLodaing(Json::Value resp)
+void MenuLayer::_startLoading(Json::Value resp)
 {
 	CONNECTOR_HOST = resp["connectorHost"].asString();
 	CONNECTOR_PORT = resp["connectorPort"].asInt();
@@ -323,7 +319,7 @@ void MenuLayer::_timedOut(float delta)
 	}
 	//
 	Layer* thisLayer = this;
-	removeChildByName("Loading");
+	removeChildByName("Connecting");
 	DialogueWindowConfirm* pDialogue = DialogueWindowConfirm::create("Error", Color3B::RED, "Connection timed out,configuration may goes wrong.", Color3B::BLACK);
 	auto cb = [=](Ref* pSender, ui::Widget::TouchEventType type)
 	{

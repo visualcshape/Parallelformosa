@@ -114,3 +114,8 @@ bool WindowProtocol::init(){
     ret = true;
     return ret;
 }
+
+ButtonWithImage* WindowProtocol::getCurButton()
+{
+    return nullptr;
+}

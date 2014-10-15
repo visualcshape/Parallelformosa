@@ -165,6 +165,8 @@
 		F6B5E35519E02D66004F1FA6 /* BuildingWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35219E02D66004F1FA6 /* BuildingWindow.cpp */; };
 		F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */; };
 		F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */; };
+		F6C1C62C19EEBD97001F9532 /* ConnectingSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */; };
+		F6C1C62D19EEBD97001F9532 /* ConnectingSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -491,6 +493,8 @@
 		F6B5E35319E02D66004F1FA6 /* BuildingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingWindow.h; path = ../Classes/BuildingWindow.h; sourceTree = "<group>"; };
 		F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuildingModel.cpp; path = ../Classes/BuildingModel.cpp; sourceTree = "<group>"; };
 		F6B5E35B19E08853004F1FA6 /* BuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingModel.h; path = ../Classes/BuildingModel.h; sourceTree = "<group>"; };
+		F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectingSign.cpp; path = ../Classes/ConnectingSign.cpp; sourceTree = "<group>"; };
+		F6C1C62B19EEBD97001F9532 /* ConnectingSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectingSign.h; path = ../Classes/ConnectingSign.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -670,6 +674,8 @@
 				F6FD118D19EA815F00189826 /* UnitWindow.h */,
 				F6FD119019EABD8300189826 /* LayoutFactory.cpp */,
 				F6FD119119EABD8300189826 /* LayoutFactory.h */,
+				F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */,
+				F6C1C62B19EEBD97001F9532 /* ConnectingSign.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1130,6 +1136,7 @@
 				F6A6ECF219E31F340020EFBB /* Troop.cpp in Sources */,
 				F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
+				F6C1C62C19EEBD97001F9532 /* ConnectingSign.cpp in Sources */,
 				F6FD118E19EA815F00189826 /* UnitWindow.cpp in Sources */,
 				F6FD118819EA27F100189826 /* UnitTypeModel.cpp in Sources */,
 			);
@@ -1159,6 +1166,7 @@
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */,
 				F6A6ECE519E31F340020EFBB /* PFComponent.cpp in Sources */,
+				F6C1C62D19EEBD97001F9532 /* ConnectingSign.cpp in Sources */,
 				F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
 				F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */,
 				F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */,

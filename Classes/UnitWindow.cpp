@@ -546,3 +546,8 @@ void UnitWindow::_refreshLayout()
         (*lItr)->updateSizeAndPosition();
     }
 }
+
+ButtonWithImage* UnitWindow::getCurButton()
+{
+    return _curButton;
+}

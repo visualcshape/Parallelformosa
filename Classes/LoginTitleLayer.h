@@ -59,7 +59,7 @@ private:
 	void _newConnectServer();
 	void _newSendRequest();
 	void _newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result);
-	void _startLodaing(Json::Value resp);
+	void _startLoading(Json::Value resp);
 
 	void _timedOut(float delta);
 	//

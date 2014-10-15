@@ -13,6 +13,7 @@
 #include <CocosGUI.h>
 #include <cocos-ext.h>
 #include "VisibleRect.h"
+#include "ButtonWithImage.h"
 
 USING_NS_CC;
 USING_NS_CC::ui;
@@ -40,6 +41,7 @@ public:
     
     static WindowProtocol* create(std::string titleText,std::function<void(Ref*,Widget::TouchEventType)> closeCallback);
     
+    virtual ButtonWithImage* getCurButton();
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__WindowProtocol__) */

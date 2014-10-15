@@ -189,7 +189,7 @@ void LoadingLayer::_startLoadMISC(){
 	_loadingBar->setPercent((float)_calculateProgress());
 
 	//for (long long i = 0; i < 10000000000000LL; i++);
-	_loadComplete();
+    _startConnectServer();
 }
 
 void LoadingLayer::_startLoadUnitType()
@@ -197,14 +197,57 @@ void LoadingLayer::_startLoadUnitType()
     _resetParameters();
     //1 for resource 1 fot unit type model.
     TextureCache* cache = Director::getInstance()->getTextureCache();
-    cache->addImageAsync("Unit/UnitType.png", CC_CALLBACK_1(LoadingLayer::loadingUnitTypeTextureCallback, this));
-    _spriteCount = 2;
+        _spriteCount = 2;
     _loadingItemText->setString("Loading Unit Type Components...(0%)");
+    cache->addImageAsync("Unit/UnitType.png", CC_CALLBACK_1(LoadingLayer::loadingUnitTypeTextureCallback, this));
     //loading tetxure
     //
     
     auto initModelCallback = CC_CALLBACK_0(LoadingLayer::loadingUnitTypeModelCallback, this);
     UnitTypeModel::getInstance()->initModelAsync(initModelCallback);
+}
+
+void LoadingLayer::_startConnectServer()
+{
+    ConnectingSign* sign = ConnectingSign::create("Connect To Server...", Color3B(59, 134, 134));
+    addChild(sign,10,"Sign");
+    
+    _resetParameters();
+    CCPomeloWrapper* instance = CCPomeloWrapper::getInstance();
+    CC_ASSERT(CONNECTOR_HOST!="");
+    CC_ASSERT(CONNECTOR_PORT!=0);
+    instance->connectAsnyc(CONNECTOR_HOST.c_str(), (int)CONNECTOR_PORT, [=](int err){
+        if(err!=0)
+        {
+            //back to title use assert first
+            CCLOG("Connect failure...");
+        }
+        else
+        {
+            CCLOG("Connect successfully.");
+            _sendRequest();
+        }
+    });
+}
+
+void LoadingLayer::_sendRequest()
+{
+    std::string route = "connector.entryHandler.entry";
+    auto instance = CCPomeloWrapper::getInstance();
+    
+    Json::Value msg;
+    Json::FastWriter writer;
+    
+    sqlite3* pDB = Database::getInstance()->getDatabasePointer();
+    //get uid
+    string sql = "";
+    
+    instance->request(route.c_str(), "", CC_CALLBACK_1(LoadingLayer::_requestCallback, this));
+    
+}
+
+void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
+{
 }
 
 void LoadingLayer::_resetParameters(){
@@ -268,7 +311,10 @@ void LoadingLayer::loadingUnitTypeTextureCallback(Texture2D* texture)
     
     if (_loadedSprite == _spriteCount)
     {
-        _startLoadMISC();
+        CallFunc* f = CallFunc::create(CC_CALLBACK_0(LoadingLayer::_startLoadMISC, this));
+        Sequence* seq = Sequence::create(DelayTime::create(1.0f), f,NULL);
+        this->runAction(seq);
+        //_startLoadMISC();
     }
 }
 
@@ -276,12 +322,15 @@ void LoadingLayer::loadingUnitTypeModelCallback()
 {
 	//Attention//
 	++_loadedSprite;
-	_loadingItemText->setString(_sprintfProgress("Loading Building Type Components...(%.0f%%)", _calculateProgress()));
+	_loadingItemText->setString(_sprintfProgress("Loading Unit Type Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 
 	if (_loadedSprite == _spriteCount)
 	{
-		_startLoadMISC();
+        CallFunc* f = CallFunc::create(CC_CALLBACK_0(LoadingLayer::_startLoadMISC, this));
+        Sequence* seq = Sequence::create(DelayTime::create(1.0f), f,NULL);
+        this->runAction(seq);
+		//_startLoadMISC();
 	}
 }
 

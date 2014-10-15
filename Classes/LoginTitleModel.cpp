@@ -24,16 +24,26 @@ LoginTitleModel* LoginTitleModel::getInstance()
 
 LoginTitleModel::LoginTitleModel()
 {
-    char** table;
     char* pErrMsg;
-    int column,row;
+    sqlite3* pDB = Database::getInstance()->getDatabasePointer();
     
-    int result = sqlite3_get_table(Database::getInstance()->getDatabasePointer(), "select ID from User", &table, &row, &column, &pErrMsg);
+    int result = sqlite3_exec(pDB, "select * from User", LoginTitleModel::_getUIDCallback, this, &pErrMsg);
     CCASSERT(result==SQLITE_OK, pErrMsg);
     
-    _uid = table[1];
-    
     _typeName = "LoginTitleModel";
+}
+
+int LoginTitleModel::_getUIDCallback(void *para, int columns, char **columnValue, char **columnName)
+{
+    LoginTitleModel* modelPointer = static_cast<LoginTitleModel*>(para);
+    for(int i = 0 ; i < columns ; i++)
+    {
+        if(std::string(columnName[i])=="ID")
+        {
+            modelPointer->_uid = columnValue[i];
+        }
+    }
+    return SQLITE_OK;
 }
 
 void LoginTitleModel::setUID(std::string uid)
@@ -59,9 +69,3 @@ std::string LoginTitleModel::getUID()
 {
     return _uid;
 }
-
-/* ==============================================================*/
-/* !!!!!!! below are nonsense, just to avoid link error. !!!!!!! */
-/* ==============================================================*/
-void LoginTitleModel::setBindedLayer(cocos2d::Layer* layer){}
-cocos2d::Layer* LoginTitleModel::getBindedLayer(){return NULL;}
