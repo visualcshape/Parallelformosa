@@ -63,7 +63,6 @@ private:
     void _loadComplete();
     
     //sql callback
-    static int _uidQueryCallback();
     
     void _checkLoadComplete(void);
 protected:

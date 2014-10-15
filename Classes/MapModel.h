@@ -4,10 +4,11 @@
 #include "Subject.h"
 #include "Troop.h"
 #include "PlayerModel.h"
+#include "CMD.h"
 
 USING_NS_CC;
 
-class MapModel : public Ref, public ScreenSubject{
+class MapModel : public Layer, public ScreenSubject{
 public:
 	static const int EMPTY_TILE = 54;
 
@@ -17,6 +18,7 @@ public:
 
 	const float SLIDE_RATE = 25.0f;
 	const float REFRESH_RATE = 0.03f;
+	const float PRODUCE_RATE = 1.0f;
 	static const int BORDER_PIXEL = 40;
 	static const int BAR_ICON = 5;
 
@@ -29,18 +31,22 @@ public:
 	bool tryTouchBegan();
 	void tryTouchMoved();
 	void tryTouchEnded();
+
 	void refresh(float dt);
 	void ccdebug(float dt);
+	void produce(float dt);
+
 	void attackLogic();
 	void commandAttack();
 
+	void clickToAddBuildingCursor(int BID);
+	
 	//@func tilemap
-	void loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix);
+	void loadLayers(Vector <TMXLayer*> &tileLayers, string prefix);
 	int canBuildOnTilePosition(Point pos); 
 	//int canWalkOnTilePosition(MapPoint checkMapLoc);
-	bool isTileInsideLayer(Point checkTileLoc, int level);
-	bool isCoordInsideLayer(Point checkTileLoc, int level);
-	PII findAttackPath(Troop* troop);
+	bool isTileInsideLayer(MapPoint checkTileLoc, int level);
+	bool isCoordInsideLayer(MapPoint checkMapLoc, int level);
 
 	//@func screen
 	Point boundLayerPos(Point newPos);
@@ -52,11 +58,10 @@ public:
 	void showAllRange(bool visible);
 
 	//@func sync to database (now used update locally)
-	void readMapInfo();
-	void writeMapInfo();
+	void readMapInfo(bool backup = false);
+	void writeMapInfo(bool backup = false);
 
-	bool canMoveTo(MapPoint checkMapLoc, int height, int dir, int heightOffset);
-	void troopMove(Troop* _troop, int dir, int heightOffset);
+	bool canMoveTo(MapPoint checkMapLoc, int z);
 	Building* getClosestBuilding(Troop* _troop);
 	Troop* getClosestTroop(Building* _building);
 	void buildingDelete(Building *_building);
@@ -64,7 +69,6 @@ public:
 
 	void mapAddBuilding(Building* building);
 	void mapAddTroop(Troop* troop);
-
 
 	CC_SYNTHESIZE(TMXTiledMap*, _tileMap, TileMap);
 	CC_SYNTHESIZE(Vector <TMXLayer*>, _pfLayers, PFLayers);
@@ -75,6 +79,7 @@ public:
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 	CC_SYNTHESIZE(Label*, _lblPlayerPos, lblPlayerPos);
 	CC_SYNTHESIZE(Label*, _lblResourcePos, lblResourcePos);
+	CC_SYNTHESIZE(Label*, _lblCountdownPos, lblCountdownPos);
 
 	//@brief touch event point
 	CC_SYNTHESIZE(Point, _touchOriginLocation, TouchOriginLocation);
@@ -97,27 +102,26 @@ public:
 
 	CC_SYNTHESIZE(HUD_ID, _status, Status);
 
-	CC_SYNTHESIZE(PlayerModel*, _curPlayer, CurPlayer);
-	CC_SYNTHESIZE(PlayerModel*, _atkPlayer, AtkPlayer);
-	CC_SYNTHESIZE(PlayerModel*, _defPlayer, DefPlayer);
-
 	static MapModel* getModel();
+
+	//@func tilemap of coord transformation system.
+	TilePoint tileCoordForPosition(Point position);
+	MapPoint mapCoordForPosition(Point position, int z);
+	MapPoint mapCoordForTilePoint(TilePoint tileLoc, int z);
+	TilePoint tileCoordForMapPoint(MapPoint mapLoc, int z);
+
+	void setTileGID(MapPoint mpt, int z, int xlen, int ylen, int GID);
+	uint32_t getTileGIDAt(MapPoint mpt, int z);
 
 protected:
 	static MapModel * mm_pInstance;
 
-	//@func tilemap of coord transformation system.
-	TilePoint tileCoordForPosition(Point position);
-	MapPoint mapCoordForPosition(Point position, int level);
-	MapPoint mapCoordForTilePoint(TilePoint tileLoc, int level);
-	TilePoint tileCoordForMapPoint(MapPoint mapLoc, int level);
-
 	//@func internally add building
-	void addBuildingToMap(int ID, int owner, MapPoint pos, int level);
-	void go(int dir);
+	void addBuildingToMap(int ID, int owner, MapPoint pos, int z);
+
+	CC_SYNTHESIZE(string, mapName, MapName);
 
 private:
-	std::string mapName;
 	int selID;
 	bool _prevCursurOutside; 
 	Vector <Building*> _buildings;

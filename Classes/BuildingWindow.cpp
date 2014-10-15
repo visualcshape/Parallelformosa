@@ -392,7 +392,7 @@ void BuildingWindow::setFocus(int index)
         _curBTN->setFocus(false);
     btn->setFocus(true);
     _curBTN = btn;
-    
+
     _setValue(btn->getKey());
 }
 

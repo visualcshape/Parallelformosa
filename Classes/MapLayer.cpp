@@ -3,9 +3,12 @@
 #include "MapModel.h"
 #include "Building.h"
 #include "SceneManager.h"
+#include "PlayerManager.h"
 #include "AppMacro.h"
 #include "PlayerModel.h"
+#include "BattleModel.h"
 #include <ctime>
+#include "Command.h"
 
 USING_NS_CC;
 
@@ -79,23 +82,28 @@ bool MapLayer::init(std::string mapName){
 
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(MapLayer::refresh), mm->REFRESH_RATE);
-	this->schedule(schedule_selector(MapLayer::ccdebug), 2.0f);
+	this->schedule(schedule_selector(MapLayer::ccdebug), 5.0f);
+	this->schedule(schedule_selector(MapLayer::produce), mm->PRODUCE_RATE);
 
 	return true;
 }
 
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 	SceneManager::pressKeyCode(keyCode);
-	if (keyCode == EventKeyboard::KeyCode::KEY_A)
+	if (keyCode == EventKeyboard::KeyCode::KEY_A){
+		BattleModel::getModel()->setupBattle(mm, true);
+		BattleModel::getModel()->startBattle();
 		this->schedule(schedule_selector(MapLayer::attack), 0.2f);
+	}
 
-	if (keyCode == EventKeyboard::KeyCode::KEY_Z)
+	if (keyCode == EventKeyboard::KeyCode::KEY_Z){
 		this->unschedule(schedule_selector(MapLayer::attack));
-
+		CMDFileStream::getInstance()->execute();
+	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		MapModel::getModel()->getCurPlayer()->setUID(1);
+		PlayerManager::getInstance()->getCurPlayer()->changeUID(1);
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
-		MapModel::getModel()->getCurPlayer()->setUID(2);
+		PlayerManager::getInstance()->getCurPlayer()->changeUID(2);
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){
@@ -123,7 +131,11 @@ void MapLayer::refresh(float dt){
 void MapLayer::ccdebug(float dt){
 	mm->ccdebug(dt);
 }
+
+void MapLayer::produce(float dt){
+	mm->produce(dt);
+}
+
 void MapLayer::attack(float dt){
-	//mm->attackLogic(dt);
-	mm->commandAttack();
+	CMDCountdown::order(BattleModel::getModel())->execute();
 }

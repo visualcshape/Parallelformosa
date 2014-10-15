@@ -41,7 +41,6 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	layer->addChild(mainMenuUILayer, 10000);
 	auto mainMenuInfoLayer = MainInfoLayer::create();
 	layer->addChild(mainMenuInfoLayer, 10001);
-
 	
 	//@brief bind HUDlayer
 	auto hudlayer = HUDLayer::create(status);
@@ -59,9 +58,8 @@ void SceneManager::goBattleOverScreen(std::string strLabel){
 void SceneManager::go(Layer* layer, float duration, Color3B cr){
 	Director* director = Director::getInstance();
 	Scene *newScene = SceneManager::wrap(layer);
-	if (director->getRunningScene()){
+	if (director->getRunningScene())
 		director->replaceScene(TransitionFade::create(duration, newScene, cr));
-	}
 	else
 		director->runWithScene(newScene);
 }
@@ -69,6 +67,7 @@ void SceneManager::go(Layer* layer, float duration, Color3B cr){
 Scene* SceneManager::wrap(Layer* layer){
 	Scene* newScene = Scene::create();
 	newScene->addChild(layer);
+
 	return newScene;
 }
 

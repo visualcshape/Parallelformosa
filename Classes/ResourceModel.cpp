@@ -22,6 +22,41 @@ ResourceModel* ResourceModel::getModel(){
 	return rm_pInstance;
 }
 
+string ResourceModel::getSystemTimeString(){
+	struct tm *tm;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+	time_t timep;
+	time(&timep);
+	tm = localtime(&timep);
+#else  
+	struct cc_timeval now;
+	CCTime::gettimeofdayCocos2d(&now, NULL);
+	tm = localtime(&now.tv_sec);
+#endif  
+	int year = tm->tm_year + 1900;
+	int month = tm->tm_mon + 1;
+	int day = tm->tm_mday;
+	int hour = tm->tm_hour;
+	int min = tm->tm_min;
+	int sec = tm->tm_sec;
+
+	char buffer[1000];
+	sprintf(buffer, "%04d-%02d-%02d_%02d:%02d:%02d", year, month, day, hour, min, sec);
+
+	return string(buffer);
+}
+
+tm ResourceModel::makeSystemTime(int year, int month, int day, int hour, int min, int sec){
+	tm tmp;
+	tmp.tm_year = year - 1900;
+	tmp.tm_mon = month - 1;
+	tmp.tm_mday = day;
+	tmp.tm_hour = hour;
+	tmp.tm_min = min;
+	tmp.tm_sec = sec;
+	return tmp;
+}
+
 void ResourceModel::LoadBuildings(){
 	//@var load building
 	for (int i = 1; i <= BUILDING_SIZE; i++){
@@ -113,9 +148,9 @@ void ResourceModel::LoadMISC(){
 }
 
 void ResourceModel::CreateDownloadedDir(std::string relativePath){
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	string pathToSave = CCFileUtils::getInstance()->getWritablePath();
 	pathToSave += relativePath;
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	DIR *pDir = NULL;
 	pDir = opendir(pathToSave.c_str());
 	if (!pDir)//The folder does not exist then began to create
@@ -123,6 +158,7 @@ void ResourceModel::CreateDownloadedDir(std::string relativePath){
 		mkdir(pathToSave.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
 	}
 #else
+	string pathToSave = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
 	if ((GetFileAttributesA(pathToSave.c_str())) == INVALID_FILE_ATTRIBUTES) //The Win32 platform
 	{
 		CreateDirectoryA(pathToSave.c_str(), 0);
@@ -132,8 +168,12 @@ void ResourceModel::CreateDownloadedDir(std::string relativePath){
 
 bool ResourceModel::isFileExist(std::string pFileName){
 	if (!pFileName.c_str()) return false;
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	std::string filePath = CCFileUtils::getInstance()->getWritablePath();
 	filePath += pFileName;
+#else
+	std::string filePath = CCFileUtils::getInstance()->fullPathForFilename(pFileName);
+#endif
 	FILE *pFp = fopen(filePath.c_str(), "r");
 	CCLOG("%s", filePath.c_str());
 	if (pFp)
@@ -160,27 +200,6 @@ void ResourceModel::copyData(std::string pFileName){
 	data = NULL;
 }
 
-bool ResourceModel::CreateDirectory(std::string pPath)
-{
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
-	mode_t processMask = umask(0); //Linux system setting file permissions
-	int nRet = mkdir(pPath.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
-	umask(processMask);
-	if (nRet != 0 && (errno != EEXIST))
-	{
-		return false;
-	}
-	return true;
-#else
-	BOOL nRet = CreateDirectoryA(pPath.c_str(), NULL);
-	if (!nRet && ERROR_ALREADY_EXISTS != GetLastError())
-	{
-		return false;
-	}
-	return true;
-#endif
-}
-
 vector <string> ResourceModel::DecomposePath(std::string relativePath){
 	int lenPtr = SZ(relativePath) - 1;
 	vector <string> paths;
@@ -196,13 +215,16 @@ vector <string> ResourceModel::DecomposePath(std::string relativePath){
 }
 
 FILE* ResourceModel::OpenFileR(string relativePath){
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	if (!isFileExist(relativePath)){
 		vector <string> paths = DecomposePath(relativePath);
 		for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
 			CreateDownloadedDir(paths.at(k));
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 		copyData(relativePath);
+#endif
 	}
+
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
 	FILE* fp = fopen(strPath.c_str(), "r");
 #else
@@ -222,10 +244,11 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 }
 
 FILE* ResourceModel::OpenFileW(string relativePath){
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	vector <string> paths = DecomposePath(relativePath);
 	for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
 		CreateDownloadedDir(paths.at(k));
+
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
 	FILE* fp = fopen(strPath.c_str(), "w");
 #else

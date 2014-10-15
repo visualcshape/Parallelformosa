@@ -22,10 +22,15 @@ public:
 	void LoadPlayers();
 	void LoadMISC();
 
+	string getSystemTimeString();
+	tm makeSystemTime(int year, int month, int day, int hour, int min, int sec);
+
 	static ResourceModel* getModel();
 	vector <string> DecomposePath(string relativePath);
+
 	FILE* OpenFileR(string relativePath);
 	FILE* OpenFileW(string relativePath);
+	bool isFileExist(string pFileName);
 
 	string strBuilding[BUILDING_SIZE + 1];
 	string strTroop[TROOP_SIZE + 1];
@@ -51,7 +56,5 @@ protected:
 
 private:
 	void CreateDownloadedDir(string relativePath);
-	bool isFileExist(string pFileName);
 	void copyData(string pFileName);
-	bool CreateDirectory(string pPath);
 };

@@ -2,7 +2,7 @@
 #include "cocos2d.h"
 #include "AppMacro.h"
 #include "PFComponent.h"
-#include "Building.h"
+#include "CMD.h"
 
 USING_NS_CC;
 
@@ -16,11 +16,17 @@ public:
 
 	static Troop* addTroop(int TID);
 	void go(int dir, int ohfs);
-	void attackLogic();
 
-private:
+	void attackLogic();
+	bool buildAttackPath();
+
+protected:
 	void goLeft();
 	void goDown();
 	void goRight();
 	void goUp();
+
+private:
+	PFComponent* _target;
+	Vector <CMD*> _moves;
 };

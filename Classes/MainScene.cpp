@@ -110,24 +110,38 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 		p->retain();
 #endif
+		ID = p->getCurButton()->getID();
 		addChild(p, 100, windowName);
 	}
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    if(type==Widget::TouchEventType::ENDED)
-    {
-        UnitWindow* p = UnitWindow::create("Unit", nullptr, nullptr);
-        addChild(p,100);
-    }
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		std::string windowName = "UnitWindow";
+		MainUIInfoModel::getInstance()->setScrollingText("Unit");
+		Layer* thisLayer = this;
+		UnitWindow* p = UnitWindow::create("Unit", [=](Ref* pSender, Widget::TouchEventType type){
+			if (type == Widget::TouchEventType::ENDED)
+				thisLayer->removeChildByName(windowName);
+		}, nullptr);
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+		p->retain();
+#endif	
+		addChild(p, 100, windowName);
+	}
 }
+
 void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
-		this->removeChildByName("BuildingWindow");
+        BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
+        int ID = p->getCurButton()->getID();
+        
+        this->removeChildByName("BuildingWindow");
 
 		//@brief later modify
-		MapModel::getModel()->tryTouchBegan();
+		MapModel::getModel()->clickToAddBuildingCursor(ID);
 	}
 }
 
@@ -169,7 +183,8 @@ bool MainInfoLayer::init(){
     
     if(!Layer::init())
         return false;
-    
+
+	mm->setHUDBasePosition(getPosition());
     //Bind with model
     _bindModel = MainUIInfoModel::getInstance();
     _bindModel->Attach(this);

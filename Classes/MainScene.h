@@ -66,6 +66,7 @@ public:
 
 private:
 	MapModel *mm;
+	int ID;
 };
 
 //infomation (Upper)
