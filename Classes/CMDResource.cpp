@@ -18,9 +18,10 @@ CMDResource* CMDResource::order(PlayerModel* player, int Lstr, int Gmag, int foo
 	return cmdResource;
 }
 
-void CMDResource::execute(){
+bool CMDResource::execute(){
 	CCLOG("CMDResource::execute()");
 	_player->gainLstr(_Lstr);
 	_player->gainGmag(_Gmag);
 	_player->gainFood(_food);
+	return true;
 }

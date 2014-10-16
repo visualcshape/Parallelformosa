@@ -13,6 +13,7 @@ CMDAnimation::~CMDAnimation(){
 void CMDAnimation::init(){
 }
 
-void CMDAnimation::execute(){
+bool CMDAnimation::execute(){
 	CCLOG("CMDAnimation::execute()");
+	return true;
 }

@@ -16,6 +16,7 @@ public:
 	static Building* build(int BID);
 
 	void attackLogic();
+	void replayLogic();
 
 	CC_SYNTHESIZE(int, _range, Range);
 	CC_SYNTHESIZE(Sprite*, _selSpriteRange, SelSpriteRange);	

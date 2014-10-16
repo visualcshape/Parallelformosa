@@ -28,6 +28,7 @@ BattleModel* BattleModel::getModel(){
 void BattleModel::setupBattle(MapModel* mapModel, bool isSimulation){
 	_mapModel = mapModel;
 	_isSimulation = isSimulation;
+	_isReplay = false;
 }
 
 void BattleModel::sendRequest(Vector <Building*> buildings){
@@ -79,8 +80,15 @@ void BattleModel::timePass(){
 	sprintf(buffer, "time remain: %d", _countdown);
 	MapModel::getModel()->getlblCountdownPos()->setString(buffer);
 
-	PlayerManager::getInstance()->getAtkPlayer()->commandAttack();
-	PlayerManager::getInstance()->getDefPlayer()->commandAttack();
+	if (_isReplay){
+		CCLOG("replay");
+		PlayerManager::getInstance()->getAtkPlayer()->replay();
+		PlayerManager::getInstance()->getDefPlayer()->replay();
+	}
+	else{
+		PlayerManager::getInstance()->getAtkPlayer()->commandAttack();
+		PlayerManager::getInstance()->getDefPlayer()->commandAttack();
+	}
 
 	if (_countdown == 0)
 		battleOver(PlayerManager::getInstance()->getDefPlayer());
@@ -95,6 +103,7 @@ void BattleModel::battleOver(PlayerModel* winPlayer){
 	if (CMDFileStream::getInstance()->isStreamOn())
 		CMDFileStream::getInstance()->execute();
 
+	_isReplay = false;
 	if (_isSimulation){
 		_isSimulation = false;
 
@@ -104,8 +113,12 @@ void BattleModel::battleOver(PlayerModel* winPlayer){
 		PlayerManager::getInstance()->getAtkPlayer()->readPlayerInfo(true);
 		PlayerManager::getInstance()->getDefPlayer()->readPlayerInfo(true);
 		_mapModel->readMapInfo(true);
+
+		readCommandConfig();
+		_isReplay = true;
+		startBattle();
 	}
-	else{
+	if(!_isReplay){
 		if (winPlayer->getUID() == PlayerManager::getInstance()->getAtkPlayer()->getUID()){
 			SceneManager::goBattleOverScreen("ATTACK WIN!!");
 		}
@@ -126,7 +139,7 @@ void BattleModel::startBattle(){
 		PlayerManager::getInstance()->getDefPlayer()->writePlayerInfo(true);
 		_mapModel->writeMapInfo(true);
 
-		CMDFileStream::getInstance()->OpenStream(_mapModel->getMapName() + ".cmd");
+		CMDFileStream::getInstance()->OpenStream("CommandInfo/" + _mapModel->getMapName() + ".cmd");
 	}
 }
 
@@ -137,13 +150,35 @@ void BattleModel::readCommandConfig(){
 
 	CCASSERT(fp != nullptr, "readCommandConfig fail");
 
-	char buffer[1000];
-	while (~fscanf(fp, "%s", buffer)){
+	auto atkPlayer = PlayerManager::getInstance()->getAtkPlayer();
+	auto defPlayer = PlayerManager::getInstance()->getDefPlayer();
+	int timing;
+	while (~fscanf(fp, "%d", &timing)){
+		char buffer[1000];
+		fscanf(fp, "%s", buffer);
 		if (strcmp(buffer, "CMDState") == 0){
-
+			int owner, oid, adjustHp;
+			fscanf(fp, "%s %d %d %d", buffer, &owner, &oid, &adjustHp);
+			if (strcmp(buffer, "troop") == 0){
+				if (owner == atkPlayer->getUID())
+					atkPlayer->addCMDStateToTroop(timing, oid, adjustHp);
+				else if (owner == defPlayer->getUID())
+					defPlayer->addCMDStateToTroop(timing, oid, adjustHp);
+			}
+			else if (strcmp(buffer, "building") == 0){
+				if (owner == atkPlayer->getUID())
+					atkPlayer->addCMDStateToBuilding(timing, oid, adjustHp);
+				else if (owner == defPlayer->getUID())
+					defPlayer->addCMDStateToBuilding(timing, oid, adjustHp);
+			}
 		}
 		else if (strcmp(buffer, "CMDMove") == 0){
-
+			int owner, oid, dir, hofs;
+			fscanf(fp, "%*s %d %d %d %d", &owner, &oid, &dir, &hofs);
+			if (owner == atkPlayer->getUID())
+				atkPlayer->addCMDMoveToTroop(timing, oid, dir, hofs);
+			else if (owner == defPlayer->getUID())
+				defPlayer->addCMDMoveToTroop(timing, oid, dir, hofs);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 #include "ResourceModel.h"
 #include "Building.h"
 #include "MapModel.h"
+#include "BuildingModel.h"
 
 Building::Building(){
 }
@@ -30,6 +31,15 @@ Building* Building::build(int BID){
 	const int ATK[6] = { -1, 30, 40, 50, 60, 70 };
 	const int DEF[6] = { -1, 20, 15, 10, 5, 0 };
 	const int HP[6] = { -1, 100, 150, 200, 150, 100 };
+
+	/*auto itr = BuildingModel::getInstance()->getBuildingModelMap()->find(key);
+
+	_gPowerValue->setString(std::to_string(itr->second.gPower));
+	_lManaValue->setString(std::to_string(itr->second.lMana));
+	_foodValue->setString(std::to_string(itr->second.foodCost));
+	_healthValue->setString(std::to_string(itr->second.baseHP));
+	_typeValue->setString(itr->second.type);
+	_descriptionValue->setString(itr->second.descrption);*/
 
 	building->_occupy = OCCUPY[BID];
 	building->_atk = ATK[BID];
@@ -77,4 +87,15 @@ void Building::attackLogic(){
 			//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
 		}
 	}*/
+}
+
+void Building::replayLogic(){
+	MapModel *mm = MapModel::getModel();
+	if (isDead()){
+		mm->buildingDelete(this);
+		return;
+	}
+
+	if (!_states.empty() && _states.front()->execute())
+		_states.erase(_states.begin());
 }

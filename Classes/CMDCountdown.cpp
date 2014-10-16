@@ -19,7 +19,8 @@ CMDCountdown* CMDCountdown::order(BattleModel* battle){
 	return cmdCountdown;
 }
 
-void CMDCountdown::execute(){
-	CCLOG("CMDCountdown::execute()");
+bool CMDCountdown::execute(){
+	CCLOG("========= CMDCountdown::execute()");
 	_battle->timePass();
+	return true;
 }

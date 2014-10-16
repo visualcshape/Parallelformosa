@@ -53,7 +53,7 @@ bool PFComponent::tryToAttack(){
 	//@brief attack defendant buildings
 	for (auto &target : targetPlayer->getBuildings()){
 		if (canAtttack(target)){
-			target->AddCMDState(CMDState::order(target, -MAX(0, _atk - target->getDef())));
+			target->AddCMDState(CMDState::order(0, target, -MAX(0, _atk - target->getDef())));
 			beenAttack = true;
 		}
 	}
@@ -61,7 +61,7 @@ bool PFComponent::tryToAttack(){
 	//@brief attack defendant troops
 	for (auto &target : targetPlayer->getTroops()){
 		if (canAtttack(target)){
-			target->AddCMDState(CMDState::order(target, -MAX(0, _atk - target->getDef())));
+			target->AddCMDState(CMDState::order(0, target, -MAX(0, _atk - target->getDef())));
 			beenAttack = true;
 		}
 	}

@@ -11,5 +11,5 @@ public:
 	~CMDAnimation();
 
 	void init();
-	void execute();
+	virtual bool execute();
 };

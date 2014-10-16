@@ -13,7 +13,7 @@ public:
 
 	static CMDCountdown* order(BattleModel* battle);
 	void init();
-	virtual void execute();
+	virtual bool execute();
 
 private:
 	BattleModel* _battle;

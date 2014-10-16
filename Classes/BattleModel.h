@@ -33,5 +33,5 @@ protected:
 private:
 	MapModel* _mapModel;
 	bool _isSimulation;
-	//bool _is
+	bool _isReplay;
 };
