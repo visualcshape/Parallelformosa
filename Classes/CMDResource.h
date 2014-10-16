@@ -13,7 +13,7 @@ public:
 
 	static CMDResource* order(PlayerModel* player, int Lstr, int Gmag, int food);
 
-	virtual void execute();
+	virtual bool execute();
 
 private:
 	PlayerModel* _player;

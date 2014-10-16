@@ -11,10 +11,10 @@ public:
 	CMDMove();
 	~CMDMove();
 
-	static CMDMove* order(Troop* troop, int dir, int hofs);
+	static CMDMove* order(int timing, Troop* troop, int dir, int hofs);
 
 	void init();
-	virtual void execute();
+	virtual bool execute();
 
 private:
 	Troop* _troop;

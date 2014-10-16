@@ -18,7 +18,7 @@ public:
 	void append(string str);
 
 	void init();
-	virtual void execute();
+	virtual bool execute();
 	bool isStreamOn();
 
 protected:

@@ -635,7 +635,7 @@ uint32_t MapModel::getTileGIDAt(MapPoint mpt, int z){
 //@debug later online
 void MapModel::writeMapInfo(bool backup){
 	ResourceModel *rm = ResourceModel::getModel();
-	string filename = "MapInfo/" + mapName + ".info";
+	string filename = mapName + ".info";
 
 	if (backup) 
 		filename += ".backup";
@@ -656,7 +656,7 @@ void MapModel::writeMapInfo(bool backup){
 
 void MapModel::readMapInfo(bool backup){
 	ResourceModel *rm = ResourceModel::getModel();
-	string filename = "MapInfo/" + mapName + ".info";
+	string filename = mapName + ".info";
 
 	if (backup)
 		filename += ".backup";

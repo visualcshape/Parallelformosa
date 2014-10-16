@@ -46,9 +46,10 @@ void CMDFileStream::append(string str){
 	_text += str;
 }
 
-void CMDFileStream::execute(){
-	if (_fp == nullptr) return;
+bool CMDFileStream::execute(){
+	if (_fp == nullptr) return false;
 	CCLOG("CMDFileStream::execute()");
 	fprintf(_fp, _text.c_str());
 	closeStream();
+	return true;
 }

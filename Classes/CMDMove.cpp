@@ -15,17 +15,21 @@ void CMDMove::init(){
 
 }
 
-CMDMove* CMDMove::order(Troop* troop, int dir, int hofs){
+CMDMove* CMDMove::order(int timing, Troop* troop, int dir, int hofs){
 	CMDMove* cmdMove = new CMDMove();
 	cmdMove->_troop = troop;
 	cmdMove->_dir = dir;
 	cmdMove->_hofs = hofs;
+	cmdMove->_timing = timing;
 	return cmdMove;
 }
 
-void CMDMove::execute(){
-	CCLOG("CMDMove::execute()");
-	if (_dir == NO) return;
+bool CMDMove::execute(){
+	CCLOG(">> CMDMove::execute()");
+	if (_timing > 0 && _timing != BattleModel::getModel()->getCountdown())
+		return false;
+	if (_dir == NO)
+		return true;
 	MapModel *mm = MapModel::getModel();
 	mm->setTileGID(_troop->getCoord(), _troop->getZ(), _troop->getOccupy().X, _troop->getOccupy().Y, mm->EMPTY_TILE);
 	_troop->go(_dir, _hofs);
@@ -33,7 +37,8 @@ void CMDMove::execute(){
 
 	if (CMDFileStream::getInstance()->isStreamOn()){
 		char buffer[1000];
-		sprintf(buffer, "CMDMove troop %d %d %d %d\n", _troop->getOwner(), _troop->getOID(), _dir, _hofs);
+		sprintf(buffer, "%d CMDMove troop %d %d %d %d\n", BattleModel::getModel()->getCountdown(), _troop->getOwner(), _troop->getOID(), _dir, _hofs);
 		CMDFileStream::getInstance()->append(buffer);
 	}
+	return true;
 }
