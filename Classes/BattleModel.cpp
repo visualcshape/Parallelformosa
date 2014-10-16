@@ -146,6 +146,4 @@ void BattleModel::readCommandConfig(){
 
 		}
 	}
-	sprintf(buffer, "CMDState troop %d %d %d\n", pcp->getOwner(), pcp->getOID(), _adjustHp);
-	sprintf(buffer, "CMDMove troop %d %d %d %d\n", _troop->getOwner(), _troop->getOID(), _dir, _hofs);
 }

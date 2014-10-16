@@ -15,10 +15,25 @@
 #include "ConnectingSign.h"
 #include "json.h"
 #include "Database.h"
+#include "globalVariable.h"
+#include <fstream>
+#include "PlayerManager.h"
+#include <future>
+/*
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include <curl/include/ios/curl/curl.h>
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include <curl/include/android/curl/curl.h>
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+#include <curl/include/win32/curl/curl.h>
+#endif
+*/
+#include <HttpClient.h>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
 using namespace std;
+using namespace cocos2d::network;
 
 class LoadingScene : public Layer
 {
@@ -38,6 +53,10 @@ private:
     std::vector<std::string> _fileNames;
     int _spriteCount;
     int _loadedSprite;
+    string _uid;
+    string _downloadPath;
+    string _fileName;
+    
     
     //Start load
     void _startLoadUI();
@@ -52,6 +71,9 @@ private:
     //network
     void _sendRequest();
     void _requestCallback(const CCPomeloRequestResult& result);
+    void _downloadInfoFile(string downloadPath,Json::Value user);
+    
+    void onHttpRequestComplete(HttpClient* sender,HttpResponse* resp);
     
     //Cal Progress
     double _calculateProgress();
@@ -63,8 +85,14 @@ private:
     void _loadComplete();
     
     //sql callback
+    static int _uidQueryCallback(void* para,int columns,char** columnValue,char** columnName);
     
+    //
     void _checkLoadComplete(void);
+    
+    //sync sqlite3
+    void _writeUserToDB(Json::Value user);
+    
 protected:
 public:
     LoadingLayer();

@@ -24,15 +24,15 @@ ResourceModel* ResourceModel::getModel(){
 
 string ResourceModel::getSystemTimeString(){
 	struct tm *tm;
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)  
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 	time_t timep;
 	time(&timep);
 	tm = localtime(&timep);
-#else  
-	struct cc_timeval now;
-	CCTime::gettimeofdayCocos2d(&now, NULL);
-	tm = localtime(&now.tv_sec);
-#endif  
+//#else
+	//struct cc_timeval now;
+	//CCTime::gettimeofdayCocos2d(&now, NULL);
+	//tm = localtime(&now.tv_sec);
+//#endif
 	int year = tm->tm_year + 1900;
 	int month = tm->tm_mon + 1;
 	int day = tm->tm_mday;

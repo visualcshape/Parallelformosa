@@ -2,6 +2,7 @@
 #include "cocos2d.h"
 #include "AppMacro.h"
 
+
 USING_NS_CC;
 
 class ResourceModel :public Ref{

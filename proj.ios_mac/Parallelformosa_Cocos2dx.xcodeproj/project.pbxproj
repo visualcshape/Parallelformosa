@@ -167,6 +167,26 @@
 		F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B5E35A19E08853004F1FA6 /* BuildingModel.cpp */; };
 		F6C1C62C19EEBD97001F9532 /* ConnectingSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */; };
 		F6C1C62D19EEBD97001F9532 /* ConnectingSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */; };
+		F6C1C64319EEDEE7001F9532 /* BattleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63019EEDEE7001F9532 /* BattleModel.cpp */; };
+		F6C1C64419EEDEE7001F9532 /* BattleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63019EEDEE7001F9532 /* BattleModel.cpp */; };
+		F6C1C64519EEDEE7001F9532 /* CMD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63219EEDEE7001F9532 /* CMD.cpp */; };
+		F6C1C64619EEDEE7001F9532 /* CMD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63219EEDEE7001F9532 /* CMD.cpp */; };
+		F6C1C64719EEDEE7001F9532 /* CMDAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63419EEDEE7001F9532 /* CMDAnimation.cpp */; };
+		F6C1C64819EEDEE7001F9532 /* CMDAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63419EEDEE7001F9532 /* CMDAnimation.cpp */; };
+		F6C1C64919EEDEE7001F9532 /* CMDCountdown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63619EEDEE7001F9532 /* CMDCountdown.cpp */; };
+		F6C1C64A19EEDEE7001F9532 /* CMDCountdown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63619EEDEE7001F9532 /* CMDCountdown.cpp */; };
+		F6C1C64B19EEDEE7001F9532 /* CMDFileStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63819EEDEE7001F9532 /* CMDFileStream.cpp */; };
+		F6C1C64C19EEDEE7001F9532 /* CMDFileStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63819EEDEE7001F9532 /* CMDFileStream.cpp */; };
+		F6C1C64D19EEDEE7001F9532 /* CMDMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63A19EEDEE7001F9532 /* CMDMove.cpp */; };
+		F6C1C64E19EEDEE7001F9532 /* CMDMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63A19EEDEE7001F9532 /* CMDMove.cpp */; };
+		F6C1C64F19EEDEE7001F9532 /* CMDResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63C19EEDEE7001F9532 /* CMDResource.cpp */; };
+		F6C1C65019EEDEE7001F9532 /* CMDResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63C19EEDEE7001F9532 /* CMDResource.cpp */; };
+		F6C1C65119EEDEE7001F9532 /* CMDState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63E19EEDEE7001F9532 /* CMDState.cpp */; };
+		F6C1C65219EEDEE7001F9532 /* CMDState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C63E19EEDEE7001F9532 /* CMDState.cpp */; };
+		F6C1C65319EEDEE7001F9532 /* PlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C64119EEDEE7001F9532 /* PlayerManager.cpp */; };
+		F6C1C65419EEDEE7001F9532 /* PlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C64119EEDEE7001F9532 /* PlayerManager.cpp */; };
+		F6C1C65719EF00ED001F9532 /* globalVariable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C65519EF00ED001F9532 /* globalVariable.cpp */; };
+		F6C1C65819EF00ED001F9532 /* globalVariable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C65519EF00ED001F9532 /* globalVariable.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -495,6 +515,27 @@
 		F6B5E35B19E08853004F1FA6 /* BuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildingModel.h; path = ../Classes/BuildingModel.h; sourceTree = "<group>"; };
 		F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectingSign.cpp; path = ../Classes/ConnectingSign.cpp; sourceTree = "<group>"; };
 		F6C1C62B19EEBD97001F9532 /* ConnectingSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectingSign.h; path = ../Classes/ConnectingSign.h; sourceTree = "<group>"; };
+		F6C1C63019EEDEE7001F9532 /* BattleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BattleModel.cpp; path = ../Classes/BattleModel.cpp; sourceTree = "<group>"; };
+		F6C1C63119EEDEE7001F9532 /* BattleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BattleModel.h; path = ../Classes/BattleModel.h; sourceTree = "<group>"; };
+		F6C1C63219EEDEE7001F9532 /* CMD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMD.cpp; path = ../Classes/CMD.cpp; sourceTree = "<group>"; };
+		F6C1C63319EEDEE7001F9532 /* CMD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMD.h; path = ../Classes/CMD.h; sourceTree = "<group>"; };
+		F6C1C63419EEDEE7001F9532 /* CMDAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMDAnimation.cpp; path = ../Classes/CMDAnimation.cpp; sourceTree = "<group>"; };
+		F6C1C63519EEDEE7001F9532 /* CMDAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDAnimation.h; path = ../Classes/CMDAnimation.h; sourceTree = "<group>"; };
+		F6C1C63619EEDEE7001F9532 /* CMDCountdown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMDCountdown.cpp; path = ../Classes/CMDCountdown.cpp; sourceTree = "<group>"; };
+		F6C1C63719EEDEE7001F9532 /* CMDCountdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDCountdown.h; path = ../Classes/CMDCountdown.h; sourceTree = "<group>"; };
+		F6C1C63819EEDEE7001F9532 /* CMDFileStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMDFileStream.cpp; path = ../Classes/CMDFileStream.cpp; sourceTree = "<group>"; };
+		F6C1C63919EEDEE7001F9532 /* CMDFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDFileStream.h; path = ../Classes/CMDFileStream.h; sourceTree = "<group>"; };
+		F6C1C63A19EEDEE7001F9532 /* CMDMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMDMove.cpp; path = ../Classes/CMDMove.cpp; sourceTree = "<group>"; };
+		F6C1C63B19EEDEE7001F9532 /* CMDMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDMove.h; path = ../Classes/CMDMove.h; sourceTree = "<group>"; };
+		F6C1C63C19EEDEE7001F9532 /* CMDResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMDResource.cpp; path = ../Classes/CMDResource.cpp; sourceTree = "<group>"; };
+		F6C1C63D19EEDEE7001F9532 /* CMDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDResource.h; path = ../Classes/CMDResource.h; sourceTree = "<group>"; };
+		F6C1C63E19EEDEE7001F9532 /* CMDState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMDState.cpp; path = ../Classes/CMDState.cpp; sourceTree = "<group>"; };
+		F6C1C63F19EEDEE7001F9532 /* CMDState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDState.h; path = ../Classes/CMDState.h; sourceTree = "<group>"; };
+		F6C1C64019EEDEE7001F9532 /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Command.h; path = ../Classes/Command.h; sourceTree = "<group>"; };
+		F6C1C64119EEDEE7001F9532 /* PlayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerManager.cpp; path = ../Classes/PlayerManager.cpp; sourceTree = "<group>"; };
+		F6C1C64219EEDEE7001F9532 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerManager.h; path = ../Classes/PlayerManager.h; sourceTree = "<group>"; };
+		F6C1C65519EF00ED001F9532 /* globalVariable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = globalVariable.cpp; path = ../Classes/globalVariable.cpp; sourceTree = "<group>"; };
+		F6C1C65619EF00ED001F9532 /* globalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globalVariable.h; path = ../Classes/globalVariable.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -593,6 +634,25 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F6C1C63019EEDEE7001F9532 /* BattleModel.cpp */,
+				F6C1C63119EEDEE7001F9532 /* BattleModel.h */,
+				F6C1C63219EEDEE7001F9532 /* CMD.cpp */,
+				F6C1C63319EEDEE7001F9532 /* CMD.h */,
+				F6C1C63419EEDEE7001F9532 /* CMDAnimation.cpp */,
+				F6C1C63519EEDEE7001F9532 /* CMDAnimation.h */,
+				F6C1C63619EEDEE7001F9532 /* CMDCountdown.cpp */,
+				F6C1C63719EEDEE7001F9532 /* CMDCountdown.h */,
+				F6C1C63819EEDEE7001F9532 /* CMDFileStream.cpp */,
+				F6C1C63919EEDEE7001F9532 /* CMDFileStream.h */,
+				F6C1C63A19EEDEE7001F9532 /* CMDMove.cpp */,
+				F6C1C63B19EEDEE7001F9532 /* CMDMove.h */,
+				F6C1C63C19EEDEE7001F9532 /* CMDResource.cpp */,
+				F6C1C63D19EEDEE7001F9532 /* CMDResource.h */,
+				F6C1C63E19EEDEE7001F9532 /* CMDState.cpp */,
+				F6C1C63F19EEDEE7001F9532 /* CMDState.h */,
+				F6C1C64019EEDEE7001F9532 /* Command.h */,
+				F6C1C64119EEDEE7001F9532 /* PlayerManager.cpp */,
+				F6C1C64219EEDEE7001F9532 /* PlayerManager.h */,
 				F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */,
 				F6A6ECB919E31F340020EFBB /* BaseLayer.h */,
 				F6A6ECBA19E31F340020EFBB /* BattleOverLayer.cpp */,
@@ -676,6 +736,8 @@
 				F6FD119119EABD8300189826 /* LayoutFactory.h */,
 				F6C1C62A19EEBD97001F9532 /* ConnectingSign.cpp */,
 				F6C1C62B19EEBD97001F9532 /* ConnectingSign.h */,
+				F6C1C65519EF00ED001F9532 /* globalVariable.cpp */,
+				F6C1C65619EF00ED001F9532 /* globalVariable.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1096,28 +1158,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C1C64519EEDEE7001F9532 /* CMD.cpp in Sources */,
 				F69E486919BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F6A6ECB419E166EA0020EFBB /* ButtonWithImage.cpp in Sources */,
 				F69E486119B77665009717E7 /* NoticeManager.cpp in Sources */,
+				F6C1C64319EEDEE7001F9532 /* BattleModel.cpp in Sources */,
 				F6A6ECE419E31F340020EFBB /* PFComponent.cpp in Sources */,
 				F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */,
+				F6C1C64719EEDEE7001F9532 /* CMDAnimation.cpp in Sources */,
+				F6C1C64D19EEDEE7001F9532 /* CMDMove.cpp in Sources */,
 				F6B5E34419DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				F6B5E35419E02D66004F1FA6 /* BuildingWindow.cpp in Sources */,
 				F69E486C19BF539F009717E7 /* jsoncpp.cpp in Sources */,
+				F6C1C64919EEDEE7001F9532 /* CMDCountdown.cpp in Sources */,
 				F698767619A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
+				F6C1C65119EEDEE7001F9532 /* CMDState.cpp in Sources */,
 				F6A6ECDA19E31F340020EFBB /* Building.cpp in Sources */,
 				F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */,
+				F6C1C64B19EEDEE7001F9532 /* CMDFileStream.cpp in Sources */,
 				F6A6ECD619E31F340020EFBB /* BaseLayer.cpp in Sources */,
 				F60EBBFE198AA4C400B1011F /* Observer.cpp in Sources */,
 				F6A6ECDE19E31F340020EFBB /* LoginTitleLayer.cpp in Sources */,
 				F6A6ECEC19E31F340020EFBB /* SceneManager.cpp in Sources */,
 				F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6A6ECDC19E31F340020EFBB /* HUDLayer.cpp in Sources */,
+				F6C1C64F19EEDEE7001F9532 /* CMDResource.cpp in Sources */,
 				F6FD119219EABD8300189826 /* LayoutFactory.cpp in Sources */,
 				F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */,
+				F6C1C65319EEDEE7001F9532 /* PlayerManager.cpp in Sources */,
 				F6A6ECD819E31F340020EFBB /* BattleOverLayer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				F6A6ECEA19E31F340020EFBB /* ResourceModel.cpp in Sources */,
@@ -1127,6 +1198,7 @@
 				F6A6ECE019E31F340020EFBB /* MapLayer.cpp in Sources */,
 				F6A6ECE819E31F340020EFBB /* PlayerModel.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
+				F6C1C65719EF00ED001F9532 /* globalVariable.cpp in Sources */,
 				F6DEBDC619E9284400F58194 /* Effect.cpp in Sources */,
 				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -1146,22 +1218,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C1C64619EEDEE7001F9532 /* CMD.cpp in Sources */,
 				F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */,
+				F6C1C65219EEDEE7001F9532 /* CMDState.cpp in Sources */,
 				F6B5E35519E02D66004F1FA6 /* BuildingWindow.cpp in Sources */,
 				F6A6ECDD19E31F340020EFBB /* HUDLayer.cpp in Sources */,
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
 				F60EBBFF198AA4C400B1011F /* Observer.cpp in Sources */,
+				F6C1C64A19EEDEE7001F9532 /* CMDCountdown.cpp in Sources */,
 				F69E486219B77665009717E7 /* NoticeManager.cpp in Sources */,
 				F6FD119319EABD8300189826 /* LayoutFactory.cpp in Sources */,
+				F6C1C65819EF00ED001F9532 /* globalVariable.cpp in Sources */,
 				F6B5E33D19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */,
 				F6A6ECE319E31F340020EFBB /* MapModel.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				F6A6ECE919E31F340020EFBB /* PlayerModel.cpp in Sources */,
 				F646F54A19891025007519A6 /* Database.cpp in Sources */,
+				F6C1C64C19EEDEE7001F9532 /* CMDFileStream.cpp in Sources */,
 				F6A6ECEB19E31F340020EFBB /* ResourceModel.cpp in Sources */,
+				F6C1C64E19EEDEE7001F9532 /* CMDMove.cpp in Sources */,
 				F6A6ECED19E31F340020EFBB /* SceneManager.cpp in Sources */,
 				F6FD118F19EA815F00189826 /* UnitWindow.cpp in Sources */,
+				F6C1C65019EEDEE7001F9532 /* CMDResource.cpp in Sources */,
 				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */,
@@ -1172,6 +1251,7 @@
 				F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */,
 				F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
+				F6C1C65419EEDEE7001F9532 /* PlayerManager.cpp in Sources */,
 				F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
 				F6FD118919EA27F100189826 /* UnitTypeModel.cpp in Sources */,
 				F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */,
@@ -1182,7 +1262,9 @@
 				F6A6ECF319E31F340020EFBB /* Troop.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				F6A6ECE119E31F340020EFBB /* MapLayer.cpp in Sources */,
+				F6C1C64419EEDEE7001F9532 /* BattleModel.cpp in Sources */,
 				F6A6ECD719E31F340020EFBB /* BaseLayer.cpp in Sources */,
+				F6C1C64819EEDEE7001F9532 /* CMDAnimation.cpp in Sources */,
 				F6B5E34D19DC1621004F1FA6 /* WindowProtocol.cpp in Sources */,
 				F6A6ECF119E31F340020EFBB /* TrademarkLayer.cpp in Sources */,
 				F6A6ECD919E31F340020EFBB /* BattleOverLayer.cpp in Sources */,

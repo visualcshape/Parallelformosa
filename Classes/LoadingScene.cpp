@@ -213,9 +213,9 @@ void LoadingLayer::_startConnectServer()
     
     _resetParameters();
     CCPomeloWrapper* instance = CCPomeloWrapper::getInstance();
-    CC_ASSERT(CONNECTOR_HOST!="");
-    CC_ASSERT(CONNECTOR_PORT!=0);
-    instance->connectAsnyc(CONNECTOR_HOST.c_str(), (int)CONNECTOR_PORT, [=](int err){
+    CC_ASSERT((GlobalVariable::getInstance()->getConnectorHost())!="");
+    CC_ASSERT(GlobalVariable::getInstance()->getConnectorPort()!=0);
+    instance->connectAsnyc(GlobalVariable::getInstance()->getConnectorHost().c_str(), GlobalVariable::getInstance()->getConnectorPort(), [=](int err){
         if(err!=0)
         {
             //back to title use assert first
@@ -241,14 +241,145 @@ void LoadingLayer::_sendRequest()
     //get uid
     string sql = "select * from User";
     string uid = "";
+    string firstLogin = "";
+    string pass[] = {uid,firstLogin};
+    char* pErrMsg;
     
-    instance->request(route.c_str(), "", CC_CALLBACK_1(LoadingLayer::_requestCallback, this));
+    int result = sqlite3_exec(pDB, sql.c_str(), LoadingLayer::_uidQueryCallback, pass, &pErrMsg);
+    CC_ASSERT(result==SQLITE_OK);
+    
+    uid = pass[0];
+    firstLogin = pass[1];
+    
+    CC_ASSERT(uid!="");
+    CC_ASSERT(firstLogin!="");
+    
+    msg["uid"] = uid;
+    msg["firstLogin"] = firstLogin;
+    
+    _uid = uid;
+    
+    instance->request(route.c_str(), writer.write(msg), CC_CALLBACK_1(LoadingLayer::_requestCallback, this));
     
 }
 
 void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
 {
+    string infoDownloadPath = "";
     
+    _loadingItemText->setString("Received Data,Syncing...");
+    
+    Json::Value root;
+    Json::Reader reader;
+    Json::Value user;
+    if(reader.parse(result.jsonMsg, root))
+    {
+        CCLOG("Server response\n %s",root.toStyledString().c_str());
+        infoDownloadPath = root["infoDownloadPath"].asString();
+        user = root["user"];
+        
+        _downloadPath = infoDownloadPath;
+        //Sync to SQLite3
+        _writeUserToDB(user);
+        _downloadInfoFile(infoDownloadPath,user);
+    }
+}
+
+void LoadingLayer::_downloadInfoFile(string downloadPath,Json::Value user)
+{
+    _resetParameters();
+    if(downloadPath.empty()){
+        //create an empty info file
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+        FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_fileName).c_str(), "wb");
+#else
+        FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+user["OwnMapCoord"].asString()+".info").c_str(), "w");
+        
+#endif
+        CC_ASSERT(fp!=nullptr);
+        fputs(("s").c_str(), fp);
+        
+        _checkLoadComplete();
+    }
+    HttpRequest* req = new HttpRequest();
+    req->setRequestType(HttpRequest::Type::GET);
+    req->setUrl(downloadPath.c_str());
+    req->setTag("Downloading TMX");
+    req->setResponseCallback(CC_CALLBACK_2(LoadingLayer::onHttpRequestComplete, this));
+    _loadingItemText->setString("Downloading TMX");
+    HttpClient::getInstance()->send(req);
+    req->release();
+}
+
+void LoadingLayer::onHttpRequestComplete(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
+{
+    if(!resp)
+        return;
+    _resetParameters();
+    _spriteCount=0;
+    _loadedSprite = 0;
+    
+    //get file name
+    istringstream iss(_downloadPath);
+    vector<string> tokens{istream_iterator<string>{iss},
+        istream_iterator<string>{}};
+    
+    _fileName = tokens.at(tokens.size());
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_fileName).c_str(), "wb");
+#else
+    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_fileName).c_str(), "wb");
+#endif
+    
+    std::vector<char>* buffer = resp->getResponseData();
+    
+    buffer->shrink_to_fit();
+    _spriteCount = (int)buffer->size();
+    
+    for(unsigned int i = 0 ; i < buffer->size() ; i++)
+    {
+        ++_loadedSprite;
+        _loadingItemText->setString(_sprintfProgress("Downloading Info (%.0f%%)",(float)_calculateProgress()));
+        _loadingBar->setPercent((float)_calculateProgress());
+        CCLOG("Loading:%d",i);
+        fwrite(&buffer->at(i), 1, 1, fp);
+    }
+    fclose(fp);
+    _checkLoadComplete();
+}
+
+void LoadingLayer::_writeUserToDB(Json::Value user)
+{
+    sqlite3* pDB = Database::getInstance()->getDatabasePointer();
+    
+    char sql[512];
+    char* errMsg;
+    sprintf(sql, "UPDATE User SET FirstTimeLogin='%s',GPower='%s',LMana='%s',Food='%s',OwnMapCoord='%s',FoodGenRate='%s',GPowerGenRate='%s',LManaGenRate='%s',FoodLevel='%s',GPowerLevel='%s',LManaLevel='%s',BarrackLevel='%s' WHERE ID='%s'" ,"0",user["GPower"].asString().c_str(),user["LMana"].asString().c_str(),user["Food"].asString().c_str(),user["OwnMapCoord"].asString().c_str(),user["FoodGenRate"].asString().c_str(),user["GPowerGenRate"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["FoodGenLevel"].asString().c_str(),user["GPoweGenLevel"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["BarrackLevel"].asString().c_str(),_uid.c_str());
+    
+    int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
+    CCASSERT(result==SQLITE_OK, errMsg);
+    
+    //start downloading
+    return;
+}
+
+int LoadingLayer::_uidQueryCallback(void *para, int columns, char **columnValue, char **columnName)
+{
+    string* strArr = (string*)para;
+    
+    for(int i = 0 ; i < columns ; i++)
+    {
+        if(string(columnName[i])=="ID")
+        {
+            strArr[0] = string(columnValue[i]);
+        }
+        else if(string(columnName[i])=="FirstTimeLogin")
+        {
+            strArr[1] = string(columnValue[i]);
+        }
+    }
+    
+    return SQLITE_OK;
 }
 
 void LoadingLayer::_resetParameters(){
@@ -348,6 +479,10 @@ std::string LoadingLayer::_sprintfProgress(std::string text, double progress){
 
 void LoadingLayer::_loadComplete(){
 	if (_loadedSprite == _spriteCount){
+        
+        PlayerManager::getInstance()->setCurPlayer(new PlayerModel());
+        PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+        PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
 		ResourceModel *rm = ResourceModel::getModel();
 		SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 		/*

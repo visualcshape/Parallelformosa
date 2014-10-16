@@ -142,7 +142,7 @@ void MenuLayer::aboutClickCallback(cocos2d::Ref *pSender)
 
 void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 {
-
+    
 }
 
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
@@ -224,7 +224,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 	if (reader.parse(result.jsonMsg, root))
 	{
 		CCLOG("Server response :\n %s", root.toStyledString().c_str());
-		if (!root["resp"]){
+		if (!!root["resp"]){
 			Json::Value resp = root["resp"];
 			std::string type = resp["type"].asString();
 			if (type == "create")
@@ -261,7 +261,7 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 				}
 			}
 		}
-		else if (root["code"] != nullptr)
+		else if (!!root["code"])
 		{
 			if (root["code"].asInt() == 500)
 			{
@@ -304,8 +304,10 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 
 void MenuLayer::_startLoading(Json::Value resp)
 {
-	CONNECTOR_HOST = resp["connectorHost"].asString();
-	CONNECTOR_PORT = resp["connectorPort"].asInt();
+    CCLOG("%d",resp["connectorHost"].isString());
+    GlobalVariable::getInstance()->setConnectorPort(resp["connectorPort"].asInt());
+    GlobalVariable::getInstance()->setConnectorHost(resp["connectorHost"].asString());
+    
 	CCPomeloWrapper::getInstance()->stop();
 	Scene* pScene = LoadingScene::createScene();
 	auto fadeTransition = TransitionFade::create(0.32f, pScene, Color3B(0, 0, 0));

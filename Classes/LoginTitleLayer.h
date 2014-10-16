@@ -18,6 +18,7 @@
 #include "DialogueWindowConfirm.h"
 #include "CCPomeloWrapper.h"
 #include "json.h"
+#include "globalVariable.h"
 
 class LoginTitleLayer :public cocos2d::Layer
 {

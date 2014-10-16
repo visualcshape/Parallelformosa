@@ -25,8 +25,8 @@ using namespace std;
 //
 
 //server config
-#define GATE_HOST "169.254."
-#define GATE_PORT 3150
+#define GATE_HOST "220.133.209.239"
+#define GATE_PORT 30000
 //
 
 //SQLite DB config
@@ -52,9 +52,6 @@ using namespace std;
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
 #define TEST_TEXT "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-
-static std::string CONNECTOR_HOST = "";
-static long long CONNECTOR_PORT = 0;
 
 typedef struct tagResource
 {
