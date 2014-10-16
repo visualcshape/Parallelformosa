@@ -26,7 +26,8 @@ public:
 	tm makeSystemTime(int year, int month, int day, int hour, int min, int sec);
 
 	static ResourceModel* getModel();
-	vector <string> DecomposePath(string relativePath);
+	vector <string> DecomposePath(string relativePath); 
+	string NoFolderPath(string relativePath);
 
 	FILE* OpenFileR(string relativePath);
 	FILE* OpenFileW(string relativePath);

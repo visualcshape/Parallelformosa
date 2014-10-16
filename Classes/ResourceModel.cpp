@@ -191,7 +191,7 @@ void ResourceModel::copyData(std::string pFileName){
 	data = CCFileUtils::getInstance()->getFileData(strPath.c_str(), "r", &len);
 
 	std::string destPath = CCFileUtils::getInstance()->getWritablePath();
-	destPath += pFileName;
+	destPath += NoFolderPath(pFileName);
 
 	FILE *pFp = fopen(destPath.c_str(), "w+");
 	fwrite(data, sizeof(char), len, pFp);
@@ -212,6 +212,16 @@ vector <string> ResourceModel::DecomposePath(std::string relativePath){
 	}
 	reverse(paths.begin(), paths.end());
 	return paths;
+}
+string ResourceModel::NoFolderPath(string relativePath){
+	int lenPtr = SZ(relativePath) - 1;
+	char buffer[1000];
+	int ptr = 0;
+	for (int i = lenPtr; i >= 0 && relativePath.at(i) != '/'; i--)
+		buffer[ptr++] = relativePath.at(i);
+	reverse(buffer, buffer + ptr);
+	buffer[ptr] = '\0';
+	return string(buffer);
 }
 
 FILE* ResourceModel::OpenFileR(string relativePath){
@@ -244,14 +254,15 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 }
 
 FILE* ResourceModel::OpenFileW(string relativePath){
-	vector <string> paths = DecomposePath(relativePath);
-	for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
-		CreateDownloadedDir(paths.at(k));
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+	relativePath = NoFolderPath(relativePath);
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
 	FILE* fp = fopen(strPath.c_str(), "w");
 #else
+	vector <string> paths = DecomposePath(relativePath);
+	for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
+		CreateDownloadedDir(paths.at(k));
 	string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
 	FILE *fp = fopen(fullPath.c_str(), "w");
 #endif
