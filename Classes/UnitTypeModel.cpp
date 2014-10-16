@@ -126,6 +126,14 @@ int UnitTypeModel::queryResultCallback(void *para, int columns, char **columnVal
         {
             tmp.id = atoi(columnValueStr.c_str());
         }
+        else if(columnNameStr=="ResourcePath")
+        {
+            tmp.resourcePath = columnValueStr;
+        }
+        else if(columnNameStr=="GID")
+        {
+            tmp.gid = atoi(columnValueStr.c_str());
+        }
         else
         {
             CC_ASSERT(false);

@@ -36,6 +36,10 @@ private:
     ImageView* _durationIcon;
     ImageView* _widthIcon;
     ImageView* _heightIcon;
+    ImageView* _atkIcon;
+    ImageView* _defIcon;
+    Text* _atkValue;
+    Text* _defValue;
     Text* _costTitleText;
     Text* _infoTitleText;
     Text* _descrptionTitleTitleText;

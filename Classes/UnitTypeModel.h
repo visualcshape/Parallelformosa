@@ -36,6 +36,8 @@ typedef struct UnitType
     int atk;
     int def;
     int id;
+    int gid;
+    string resourcePath;
 }UnitType;
 
 

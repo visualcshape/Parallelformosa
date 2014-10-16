@@ -200,7 +200,7 @@ bool BuildingWindow::init(){
     ////
     LinearLayoutParameter* infoCompnentsLP = LinearLayoutParameter::create();
     infoCompnentsLP->setGravity(LinearLayoutParameter::LinearGravity::CENTER_HORIZONTAL);
-    infoCompnentsLP->setMargin(Margin(20, 2, 20, 2));
+    infoCompnentsLP->setMargin(Margin(5, 2, 5, 2));
     
     _healthIcon = ImageView::create("Health.png",Widget::TextureResType::PLIST);
     CC_ASSERT(_healthIcon!=nullptr);
@@ -218,6 +218,22 @@ bool BuildingWindow::init(){
     CC_ASSERT(_rangeValue!=nullptr);
     _rangeValue->setLayoutParameter(infoCompnentsLP);
     
+    _atkIcon = ImageView::create("ATK.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(_atkIcon!=nullptr);
+    _atkIcon->setLayoutParameter(infoCompnentsLP);
+    
+    _atkValue = Text::create("0000000",fontName,fontSize);
+    CC_ASSERT(_atkValue!=nullptr);
+    _atkValue->setLayoutParameter(infoCompnentsLP);
+    
+    _defIcon = ImageView::create("DEF.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(_defIcon!=nullptr);
+    _defIcon->setLayoutParameter(infoCompnentsLP);
+    
+    _defValue = Text::create("0000000",fontName,fontSize);
+    CC_ASSERT(_defValue!=nullptr);
+    _defValue->setLayoutParameter(infoCompnentsLP);
+    
     //1
     Layout* iconsAndTextHRLayout = Layout::create();
     iconsAndTextHRLayout->setLayoutType(Layout::Type::HORIZONTAL);
@@ -228,6 +244,10 @@ bool BuildingWindow::init(){
     iconsAndTextHRLayout->addChild(_healthValue);
     iconsAndTextHRLayout->addChild(_rangeIcon);
     iconsAndTextHRLayout->addChild(_rangeValue);
+    iconsAndTextHRLayout->addChild(_atkIcon);
+    iconsAndTextHRLayout->addChild(_atkValue);
+    iconsAndTextHRLayout->addChild(_defIcon);
+    iconsAndTextHRLayout->addChild(_defValue);
     
     _typeIcon = ImageView::create("Type.png",Widget::TextureResType::PLIST);
     CC_ASSERT(_typeIcon!=nullptr);
@@ -436,6 +456,10 @@ void BuildingWindow::_setValue(std::string key)
     _widthValue->setString(std::to_string(itr->second.width));
     
     _heightValue->setString(std::to_string(itr->second.height));
+    
+    _atkValue->setString(std::to_string(itr->second.atk));
+    
+    _defValue->setString(std::to_string(itr->second.def));
     
     //refresh layout
     _refreshLayout();

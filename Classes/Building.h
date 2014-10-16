@@ -3,8 +3,11 @@
 #include "AppMacro.h"
 #include "PFComponent.h"
 #include "ResourceModel.h"
+#include "Database.h"
+#include <map>
 
 USING_NS_CC;
+using namespace std;
 
 class Building : public PFComponent {
 public:

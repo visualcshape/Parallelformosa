@@ -18,6 +18,29 @@ bool Building::init(){
 }
 
 Building* Building::build(int BID){
+    auto buildingType =BuildingModel::getInstance()->getBuildingModelMap();
+    map<string,BuildingType>::const_iterator itr;
+    for(itr = buildingType->begin() ; itr!=buildingType->end();itr++)
+    {
+        if(itr->second.bid==BID)
+            break;
+    }
+    CC_ASSERT(itr!=buildingType->end());
+    
+    Building* ret = Building::create();
+    ret->_sprite = Sprite::create(itr->second.resourcePath);
+    ret->addChild(ret->_sprite,0);
+    ret->_id =itr->second.gid;
+    ret->_range = itr->second.range;
+    ret->_occupy = MP(itr->second.width,itr->second.height);
+    ret->_hp = itr->second.baseHP;
+    ret->_atk = itr->second.atk;
+    ret->_def = itr->second.def;
+    
+    return ret;
+    
+    //Deprecated...
+    /*
 	CCASSERT(BID >= 1 && BID <= 5, "BID not found");
 	ResourceModel *rm = ResourceModel::getModel();
 
@@ -26,20 +49,20 @@ Building* Building::build(int BID){
 	building->addChild(building->_sprite, 0);
 	building->_id = rm->GIDBuilding[BID];
 	building->_range = 200;
-
+    
 	const PII OCCUPY[6] = { MP(0, 0), MP(1, 1), MP(2, 2), MP(3, 3), MP(2, 1), MP(1, 3) };
 	const int ATK[6] = { -1, 30, 40, 50, 60, 70 };
 	const int DEF[6] = { -1, 20, 15, 10, 5, 0 };
 	const int HP[6] = { -1, 100, 150, 200, 150, 100 };
 
-	/*auto itr = BuildingModel::getInstance()->getBuildingModelMap()->find(key);
+	auto itr = BuildingModel::getInstance()->getBuildingModelMap()->find(key);
 
 	_gPowerValue->setString(std::to_string(itr->second.gPower));
 	_lManaValue->setString(std::to_string(itr->second.lMana));
 	_foodValue->setString(std::to_string(itr->second.foodCost));
 	_healthValue->setString(std::to_string(itr->second.baseHP));
 	_typeValue->setString(itr->second.type);
-	_descriptionValue->setString(itr->second.descrption);*/
+	_descriptionValue->setString(itr->second.descrption);
 
 	building->_occupy = OCCUPY[BID];
 	building->_atk = ATK[BID];
@@ -47,6 +70,7 @@ Building* Building::build(int BID){
 	building->_hp = HP[BID];
 
 	return building;
+    */
 }
 
 void Building::attackLogic(){

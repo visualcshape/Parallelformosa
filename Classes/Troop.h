@@ -3,7 +3,10 @@
 #include "AppMacro.h"
 #include "PFComponent.h"
 #include "CMD.h"
+#include "UnitTypeModel.h"
+#include <map>
 
+using namespace std;
 USING_NS_CC;
 
 class Troop : public PFComponent {

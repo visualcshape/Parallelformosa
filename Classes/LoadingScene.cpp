@@ -297,7 +297,7 @@ void LoadingLayer::_downloadInfoFile(string downloadPath,Json::Value user)
         
 #endif
         CC_ASSERT(fp!=nullptr);
-        fputs(("s").c_str(), fp);
+        //fputs(("s").c_str(), fp);
         
         _checkLoadComplete();
     }
@@ -479,12 +479,17 @@ std::string LoadingLayer::_sprintfProgress(std::string text, double progress){
 
 void LoadingLayer::_loadComplete(){
 	if (_loadedSprite == _spriteCount){
+        PlayerModel* player = new PlayerModel();
+        player->readPlayerInfo();
         
-        PlayerManager::getInstance()->setCurPlayer(new PlayerModel());
+        PlayerManager::getInstance()->setCurPlayer(player);
         PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
         PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+        
+        //
 		ResourceModel *rm = ResourceModel::getModel();
 		SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+        //
 		/*
 		auto scene = MainScene::createScene();
 		Director::getInstance()->replaceScene(scene);*/

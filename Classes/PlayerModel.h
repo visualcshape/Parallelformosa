@@ -4,7 +4,9 @@
 #include "Building.h"
 #include "Troop.h"
 #include "CMD.h"
+#include <map>
 
+using namespace std;
 USING_NS_CC;
 
 class PlayerModel :public Ref{
@@ -44,7 +46,7 @@ public:
 	void addCMDStateToBuilding(int timing, int oid, int adjustHp);
 	void addCMDMoveToTroop(int timing, int oid, int dir, int hofs);
 
-	CC_SYNTHESIZE(int, _uid, UID);
+	CC_SYNTHESIZE(string, _uid, UID);
 	CC_SYNTHESIZE(Vector <Building*>, _buildings, Buildings);
 	CC_SYNTHESIZE(Vector <Troop*>, _troops, Troops);
 
@@ -69,4 +71,7 @@ protected:
 private:
 	bitset <PLAYER_MAX_TROOPS> usedTroopOID;
 	bitset <PLAYER_MAX_BUILDINGS> usedBuildingOID;
+    
+    //sql cb
+    static int UserQueryCB(void* para,int columns,char** columnValue,char** columnName);
 };

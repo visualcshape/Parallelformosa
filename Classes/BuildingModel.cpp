@@ -125,6 +125,22 @@ int BuildingModel::queryResult(void *para, int columns, char **columnValue, char
         {
             tmp.bid = atoi(columnValueStr.c_str());
         }
+        else if(columnNameStr=="ResourcePath")
+        {
+            tmp.resourcePath = columnValueStr;
+        }
+        else if(columnNameStr=="GID")
+        {
+            tmp.gid = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="ATK")
+        {
+            tmp.atk = atoi(columnValueStr.c_str());
+        }
+        else if(columnNameStr=="DEF")
+        {
+            tmp.def = atoi(columnValueStr.c_str());
+        }
         else
         {
             CCASSERT(false, "[DB]Error no such type.");
