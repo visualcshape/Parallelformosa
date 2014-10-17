@@ -29,7 +29,7 @@ void MapLayer::Update(Subject* _subject){
 	setPosition(mm->getMapBasePosition());
 }
 
-MapLayer* MapLayer::create(std::string mapName){
+MapLayer* MapLayer::create(std::string& mapName){
 	MapLayer *pML = new MapLayer();
 	if (pML && pML->init(mapName)) {
 		pML->autorelease();
@@ -39,7 +39,7 @@ MapLayer* MapLayer::create(std::string mapName){
 	return NULL;
 }
 
-bool MapLayer::init(std::string mapName){
+bool MapLayer::init(std::string& mapName){
 	if (!BaseLayer::init()) return false;
 	mm->init(mapName);
 	mm->setMapBasePosition(getPosition());
@@ -51,6 +51,7 @@ bool MapLayer::init(std::string mapName){
 	mm->setRangeSprites(_rangeSprites);
 
 	auto _tileMap = TMXTiledMap::create(mapName);
+    CC_ASSERT(_tileMap!=nullptr);
 	addChild(_tileMap, 0);
 	mm->setTileMap(_tileMap);
 
@@ -101,9 +102,9 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 		CMDFileStream::getInstance()->execute();
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID(1);
+		PlayerManager::getInstance()->getCurPlayer()->changeUID("1");
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID(2);
+		PlayerManager::getInstance()->getCurPlayer()->changeUID("2");
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){

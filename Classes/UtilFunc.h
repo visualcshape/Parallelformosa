@@ -10,6 +10,8 @@
 #define Parallelformosa_Cocos2dx_UtilFunc_h
 
 #include <string>
+#include <vector>
+#include <sstream>
 
 /** @brief A Singleton function
  Utils function like to lower and etc..
@@ -18,6 +20,8 @@ class UtilFunc
 {
 private:
     static UtilFunc* _instance;
+    
+    std::vector<std::string> &split(const std::string &s,char delim,std::vector<std::string>& elems);
 protected:
     UtilFunc();
 public:
@@ -29,6 +33,8 @@ public:
      *@param String to lower.
      */
     void toLower(std::string* str);
+    
+    std::vector<std::string> split(const std::string&s ,char delim);
 };
 
 

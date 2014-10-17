@@ -60,7 +60,7 @@ void PlayerModel::consumeResource(int TID){
 	CMDResource::order(this, -rm->costLstr[TID], -rm->costGmag[TID], -rm->costFood[TID])->execute();
 }
 
-void PlayerModel::changeUID(int uid){
+void PlayerModel::changeUID(string uid){
 	writePlayerInfo();
 	_uid = uid;
 	init();

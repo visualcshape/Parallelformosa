@@ -22,7 +22,7 @@ public:
 	bool canAddTroop(int TID);
 	void consumeResource(int TID);
 
-	void changeUID(int uid);
+	void changeUID(string uid);
 
 	void readPlayerInfo(bool backup = false);
 	void writePlayerInfo(bool backup = false);

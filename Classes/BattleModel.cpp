@@ -41,7 +41,7 @@ void BattleModel::sendRequest(Vector <Building*> buildings){
 		info["coord"]["Y"] = (int)building->getCoord().y;
 		info["coord"]["Z"] = building->getZ();
 
-		info["owner"] = (int)building->getOwner();
+		info["owner"] = building->getOwner();
 		info["occupy"]["X"] = (int)building->getOccupy().X;
 		info["occupy"]["Y"] = (int)building->getOccupy().Y;
 		info["atk"] = building->getAtk();
@@ -63,7 +63,7 @@ void BattleModel::sendRequest(Vector <Troop*> troops){
 		info["coord"]["Y"] = (int)troop->getCoord().y;
 		info["coord"]["Z"] = troop->getZ();
 
-		info["owner"] = (int)troop->getOwner();
+		info["owner"] = troop->getOwner();
 		info["occupy"]["X"] = (int)troop->getOccupy().X;
 		info["occupy"]["Y"] = (int)troop->getOccupy().Y;
 		info["atk"] = troop->getAtk();
@@ -157,8 +157,11 @@ void BattleModel::readCommandConfig(){
 		char buffer[1000];
 		fscanf(fp, "%s", buffer);
 		if (strcmp(buffer, "CMDState") == 0){
-			int owner, oid, adjustHp;
-			fscanf(fp, "%s %d %d %d", buffer, &owner, &oid, &adjustHp);
+            int oid, adjustHp;
+            std::string owner;
+            char w[256];
+            strcpy(w, owner.c_str());
+			fscanf(fp, "%s %s %d %d", buffer, w, &oid, &adjustHp);
 			if (strcmp(buffer, "troop") == 0){
 				if (owner == atkPlayer->getUID())
 					atkPlayer->addCMDStateToTroop(timing, oid, adjustHp);
@@ -173,12 +176,15 @@ void BattleModel::readCommandConfig(){
 			}
 		}
 		else if (strcmp(buffer, "CMDMove") == 0){
+            /*///wait to repair...
 			int owner, oid, dir, hofs;
+            
 			fscanf(fp, "%*s %d %d %d %d", &owner, &oid, &dir, &hofs);
 			if (owner == atkPlayer->getUID())
 				atkPlayer->addCMDMoveToTroop(timing, oid, dir, hofs);
 			else if (owner == defPlayer->getUID())
 				defPlayer->addCMDMoveToTroop(timing, oid, dir, hofs);
+            //....*/
 		}
 	}
 }

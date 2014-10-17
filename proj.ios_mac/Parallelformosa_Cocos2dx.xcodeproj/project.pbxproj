@@ -134,7 +134,6 @@
 		F6A6ED2119E3210D0020EFBB /* Components.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ECFB19E3210C0020EFBB /* Components.png */; };
 		F6A6ED2219E3210D0020EFBB /* hud.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ECFD19E3210C0020EFBB /* hud.png */; };
 		F6A6ED2319E3210D0020EFBB /* MachineGunTurret.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ECFE19E3210C0020EFBB /* MachineGunTurret.png */; };
-		F6A6ED2419E3210D0020EFBB /* MapInfo in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ECFF19E3210C0020EFBB /* MapInfo */; };
 		F6A6ED2519E3210D0020EFBB /* mark.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0019E3210C0020EFBB /* mark.png */; };
 		F6A6ED2619E3210D0020EFBB /* mark.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0119E3210C0020EFBB /* mark.tsx */; };
 		F6A6ED2719E3210D0020EFBB /* meta_tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0219E3210C0020EFBB /* meta_tiles.png */; };
@@ -1092,7 +1091,6 @@
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				F6A6ED2219E3210D0020EFBB /* hud.png in Resources */,
 				F6A6ED2319E3210D0020EFBB /* MachineGunTurret.png in Resources */,
-				F6A6ED2419E3210D0020EFBB /* MapInfo in Resources */,
 				F6A6ED2519E3210D0020EFBB /* mark.png in Resources */,
 				F6A6ED2619E3210D0020EFBB /* mark.tsx in Resources */,
 				F6A6ED2719E3210D0020EFBB /* meta_tiles.png in Resources */,

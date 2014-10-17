@@ -126,7 +126,13 @@ void TMXMapInfo::internalInit(const std::string& tmxFileName, const std::string&
 {
     if (tmxFileName.size() > 0)
     {
-        _TMXFileName = FileUtils::getInstance()->fullPathForFilename(tmxFileName);
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+        _TMXFileName = FileUtils::getInstance()->getWritablePath()+"\"+tmxFileName;
+#else
+        _TMXFileName = FileUtils::getInstance()->getWritablePath()+tmxFileName;
+#endif
+        /* change to writable path
+        _TMXFileName = FileUtils::getInstance()->fullPathForFilename(tmxFileName);*/
     }
     
     if (resourcePath.size() > 0)
@@ -199,8 +205,15 @@ bool TMXMapInfo::parseXMLFile(const std::string& xmlFilename)
     }
     
     parser.setDelegator(this);
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    return parser.parse(xmlFilename);
+#else
+    return parser.parse(xmlFilename);
+#endif
 
-    return parser.parse(FileUtils::getInstance()->fullPathForFilename(xmlFilename).c_str());
+    
+    /*Change to writable path
+    return parser.parse(FileUtils::getInstance()->fullPathForFilename(xmlFilename).c_str());*/
 }
 
 

@@ -96,7 +96,8 @@ void MapModel::addBuilding(Point pos, int level){
 	if (_status == HUD_ID::DEFENSE) targetID = selID + 36;
 	if (_status == HUD_ID::ATTACK) targetID = selID + 18;
 
-	addBuildingToMap(targetID, PlayerManager::getInstance()->getCurPlayer()->getUID(), mapCoordForPosition(pos, level), level);
+    string uid = PlayerManager::getInstance()->getCurPlayer()->getUID();
+    addBuildingToMap(targetID, uid, mapCoordForPosition(pos, level), level);
 }
 
 void MapModel::mapAddBuilding(Building* building){
@@ -120,7 +121,7 @@ void MapModel::mapAddTroop(Troop* troop){
 		PlayerManager::getInstance()->getDefPlayer()->addTroop((Troop*)troop);
 }
 
-void MapModel::addBuildingToMap(int ID, int owner, MapPoint buildingLoc, int z){
+void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc, int z){
 	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, z);
 
 	const int TW = _tileMap->getTileSize().width;
@@ -338,6 +339,8 @@ void MapModel::tryTouchMoved(){
 }
 
 void MapModel::tryTouchEnded(){
+    /*!!!
+    
 	CCLOG("MapModel::tryTouchEnded()");
 	ResourceModel *rm = ResourceModel::getModel();
 
@@ -349,7 +352,7 @@ void MapModel::tryTouchEnded(){
 			for (auto &building : _buildings){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
 				if (coord == building->getCoord() && lr == building->getZ()){
-					CCLOG(">>@ The building belongs %d", building->getOwner());
+					CCLOG(">>@ The building belongs %s", building->getOwner());
 					if (PlayerManager::getInstance()->getCurPlayer()->getUID() == building->getOwner()){
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();
@@ -393,7 +396,7 @@ void MapModel::tryTouchEnded(){
 		/*Rect backgroundRect = Rect(_background->getPositionX(),
 			_background->getPositionY(),
 			_background->getContentSize().width,
-			_background->getContentSize().height);*/
+			_background->getContentSize().height);
 
 		//if (!backgroundRect.containsPoint(_touchLocation)){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
@@ -409,6 +412,7 @@ void MapModel::tryTouchEnded(){
 
 		showAllRange(false);
 	}
+*/
 }
 
 bool MapModel::outsideBordor(Size contentSize, Point pos){
@@ -442,7 +446,7 @@ void MapModel::refresh(float dt){
 	//@debug modify label.
 		{
 			char buffer[70];
-			sprintf(buffer, "player uid= atk:%d def:%d cur:%d", PlayerManager::getInstance()->getAtkPlayer()->getUID(), PlayerManager::getInstance()->getDefPlayer()->getUID(), PlayerManager::getInstance()->getCurPlayer()->getUID());
+			sprintf(buffer, "player uid= atk:%s def:%s cur:%s", PlayerManager::getInstance()->getAtkPlayer()->getUID().c_str(), PlayerManager::getInstance()->getDefPlayer()->getUID().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
 			getlblPlayerPos()->setString(buffer);
 		}
 	//@debug modify label
@@ -644,11 +648,11 @@ void MapModel::writeMapInfo(bool backup){
 	CCASSERT(fp != nullptr, "write map info fail");
 
 	for (auto &building : _buildings)
-		fprintf(fp, "%d %.0f %.0f %d %d\n", building->getID(), building->getCoord().x, building->getCoord().y, building->getZ(), building->getOwner());
+		fprintf(fp, "%d %.0f %.0f %d %s\n", building->getID(), building->getCoord().x, building->getCoord().y, building->getZ(), building->getOwner().c_str());
 
 	if (backup){
 		for (auto &troop : _troops)
-			fprintf(fp, "%d %.0f %.0f %d %d\n", troop->getID(), troop->getCoord().x, troop->getCoord().y, troop->getZ(), troop->getOwner());
+			fprintf(fp, "%d %.0f %.0f %d %s\n", troop->getID(), troop->getCoord().x, troop->getCoord().y, troop->getZ(), troop->getOwner().c_str());
 	}
 
 	fclose(fp);
@@ -656,6 +660,8 @@ void MapModel::writeMapInfo(bool backup){
 
 void MapModel::readMapInfo(bool backup){
 	ResourceModel *rm = ResourceModel::getModel();
+    size_t pos = mapName.find(".tmx");
+    mapName.replace(pos, pos+3, "");
 	string filename = mapName + ".info";
 
 	if (backup)
@@ -664,10 +670,12 @@ void MapModel::readMapInfo(bool backup){
 	FILE *fp = rm->OpenFileR(filename);
 	CCASSERT(fp != nullptr, "read map info fail");
 
-	int id, x, y, height, owner;
-	while (~fscanf(fp, "%d %d %d %d %d", &id, &x, &y, &height, &owner)){
-		CCLOG("info: %d %d %d %d %d", id, x, y, height, owner);
-		addBuildingToMap(id, owner, MapPoint(x, y), height);
+    int id, x, y, height;
+    char owner[256];
+	while (~fscanf(fp, "%d %d %d %d %s", &id, &x, &y, &height, owner)){
+		CCLOG("info: %d %d %d %d %s", id, x, y, height, owner);
+        string ownerString = owner;
+		addBuildingToMap(id, ownerString, MapPoint(x, y), height);
 	}
 
 	fclose(fp);

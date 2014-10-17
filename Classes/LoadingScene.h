@@ -18,17 +18,10 @@
 #include "globalVariable.h"
 #include <fstream>
 #include "PlayerManager.h"
-#include <future>
-/*
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include <curl/include/ios/curl/curl.h>
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include <curl/include/android/curl/curl.h>
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-#include <curl/include/win32/curl/curl.h>
-#endif
-*/
 #include <HttpClient.h>
+#include <copyfile.h>
+#include <dirent.h>
+#include "UtilFunc.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -55,7 +48,8 @@ private:
     int _loadedSprite;
     string _uid;
     string _downloadPath;
-    string _fileName;
+    string _infoFileName;
+    string _infoFileNameWithoutPostfix;
     
     
     //Start load
@@ -67,6 +61,9 @@ private:
     //reset progress parameters such as loadedSprite and string
     void _startConnectServer();
     void _resetParameters();
+    
+    //copy file to writeable
+    void _copyTMXandInfoToWriteablePath();
     
     //network
     void _sendRequest();

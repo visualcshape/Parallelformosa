@@ -116,13 +116,35 @@ bool SAXParser::parse(const char* xmlData, size_t dataLength)
 bool SAXParser::parse(const std::string& filename)
 {
     bool ret = false;
+    Data data;
+    ssize_t size = 0;
+    size_t readsize;
+    unsigned char* buffer = nullptr;
+    FILE* fp = fopen(filename.c_str(), "rb");
+    CC_ASSERT(fp!=nullptr);
+    fseek(fp,0,SEEK_END);
+    size = ftell(fp);
+    fseek(fp,0,SEEK_SET);
+    
+    buffer = (unsigned char*)malloc(sizeof(unsigned char) * size);
+    readsize = fread(buffer, sizeof(unsigned char), size, fp);
+    fclose(fp);
+    data.fastSet(buffer, readsize);
+    if(!data.isNull())
+    {
+        ret = parse((const char*)data.getBytes(), data.getSize());
+    }
+    return ret;
+    
+    /* Change to writable path...
+    bool ret = false;
     Data data = FileUtils::getInstance()->getDataFromFile(filename);
     if (!data.isNull())
     {
         ret = parse((const char*)data.getBytes(), data.getSize());
     }
 
-    return ret;
+    return ret;*///
 }
 
 void SAXParser::startElement(void *ctx, const CC_XML_CHAR *name, const CC_XML_CHAR **atts)

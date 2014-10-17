@@ -279,6 +279,11 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         user = root["user"];
         
         _downloadPath = infoDownloadPath;
+        //infoFileName...
+        vector<string> sp = UtilFunc::getInstance()->split(infoDownloadPath, '/');
+        sp.shrink_to_fit();
+        _infoFileName = sp[sp.size()-1];
+        
         //Sync to SQLite3
         _writeUserToDB(user);
         _downloadInfoFile(infoDownloadPath,user);
@@ -288,63 +293,138 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
 void LoadingLayer::_downloadInfoFile(string downloadPath,Json::Value user)
 {
     _resetParameters();
-    if(downloadPath.empty()){
-        //create an empty info file
-#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
-        FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_fileName).c_str(), "wb");
-#else
-        FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+user["OwnMapCoord"].asString()+".info").c_str(), "w");
-        
-#endif
-        CC_ASSERT(fp!=nullptr);
-        //fputs(("s").c_str(), fp);
-        
-        _checkLoadComplete();
-    }
+    CC_ASSERT(!downloadPath.empty());
     HttpRequest* req = new HttpRequest();
     req->setRequestType(HttpRequest::Type::GET);
     req->setUrl(downloadPath.c_str());
-    req->setTag("Downloading TMX");
+    req->setTag("Downloading Info");
     req->setResponseCallback(CC_CALLBACK_2(LoadingLayer::onHttpRequestComplete, this));
-    _loadingItemText->setString("Downloading TMX");
+    _loadingItemText->setString("Downloading Info");
     HttpClient::getInstance()->send(req);
     req->release();
 }
 
 void LoadingLayer::onHttpRequestComplete(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
 {
-    if(!resp)
-        return;
-    _resetParameters();
-    _spriteCount=0;
-    _loadedSprite = 0;
+    CC_ASSERT(resp!=nullptr);
+    CC_ASSERT(
+              resp->isSucceed());
     
-    //get file name
-    istringstream iss(_downloadPath);
-    vector<string> tokens{istream_iterator<string>{iss},
-        istream_iterator<string>{}};
-    
-    _fileName = tokens.at(tokens.size());
-#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
-    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_fileName).c_str(), "wb");
+    //open file
+#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
+    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_infoFileName).c_str(), "wb");
 #else
-    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_fileName).c_str(), "wb");
+    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_infoFileName).c_str(), "wb");
 #endif
-    
-    std::vector<char>* buffer = resp->getResponseData();
-    
-    buffer->shrink_to_fit();
+    CC_ASSERT(fp!=nullptr);
+    vector<char>* buffer = resp->getResponseData();
     _spriteCount = (int)buffer->size();
-    
-    for(unsigned int i = 0 ; i < buffer->size() ; i++)
+    for(unsigned int i = 0 ; i < buffer->size() ;i++)
     {
         ++_loadedSprite;
-        _loadingItemText->setString(_sprintfProgress("Downloading Info (%.0f%%)",(float)_calculateProgress()));
+        _loadingItemText->setString("Writing...");
         _loadingBar->setPercent((float)_calculateProgress());
-        CCLOG("Loading:%d",i);
         fwrite(&buffer->at(i), 1, 1, fp);
     }
     fclose(fp);
+    
+    _copyTMXandInfoToWriteablePath();
+}
+
+void LoadingLayer::_copyTMXandInfoToWriteablePath()
+{
+    _resetParameters();
+    _loadingItemText->setString("Copy contents...");
+    vector<string> fileNamePathArray;
+    vector<string> fileNameArray;
+    
+    char sub[512];
+    string p = FileUtils::getInstance()->fullPathForFilename("Tilemap/stub");
+    strncpy(sub, p.c_str(), p.length()-4);
+    p = sub;
+    
+    DIR* dir;
+    struct dirent* ent;
+    if((dir=opendir(p.c_str()))!=nullptr)
+    {
+        while((ent = readdir(dir))!=nullptr)
+        {
+            string s = "Normal/Tilemap/";
+            if(string(ent->d_name)=="."||string(ent->d_name)=="..")
+            {
+                continue;
+            }
+            s+=ent->d_name;
+            fileNamePathArray.push_back(s);
+            fileNameArray.push_back(ent->d_name);
+        }
+        closedir(dir);
+    }
+    else
+    {
+        CC_ASSERT(dir!=nullptr);
+    }
+    
+    vector<string>::const_iterator itrP;
+    vector<string>::const_iterator itrA;
+    for(itrP = fileNamePathArray.begin(),itrA=fileNameArray.begin();itrP!=fileNamePathArray.end();itrP++,itrA++)
+    {
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+        string writeFilePath = FileUtils::getInstance()->getWritablePath()+"/"+(*itrA);
+        ssize_t size;
+        const char* data = (char*)FileUtils::getInstance()->getFileData((*itrP), "rb", &size);
+        FILE* file = fopen(writeFilePath.c_str(), "wb");
+        CC_ASSERT(file!=nullptr);
+        fwrite(data, size, 1, file);
+        fclose(file);
+#else
+        string writeFilePath = FileUtils::getInstance()->getWritablePath()+(*itrA);
+        ssize_t size;
+        const char* data = (char*)FileUtils::getInstance()->getFileData((*itrP), "rb", &size);
+        FILE* file = fopen(writeFilePath.c_str(), "wb");
+        CC_ASSERT(file!=nullptr);
+        fwrite(data, size, 1, file);
+        fclose(file);
+#endif
+    }
+    
+    //change filename to player's own mapcoord
+    vector<string> split = UtilFunc::getInstance()->split(_infoFileName.c_str(), '.');
+    for(int i =0 ; i < split.size()-1 ;i++)
+    {
+        if(i==split.size()-1-1)
+        {
+            _infoFileNameWithoutPostfix+=split[i];
+        }
+        else
+        {
+            _infoFileNameWithoutPostfix+=split[i]+".";
+        }
+    }
+#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
+    FILE* fpReadPlayerBase = fopen((FileUtils::getInstance()->getWritablePath()+"/"+"playerMap.tmx").c_str(), "rb");
+    FILE* fpReadPlayerBase = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_infoFileNameWithoutPostfix+".tmx").c_str(), "wb");
+#else
+    FILE* fpReadPlayerBase = fopen((FileUtils::getInstance()->getWritablePath()+"playerMap.tmx").c_str(), "rb");
+    FILE* fpWritePlayerOwnMap = fopen((FileUtils::getInstance()->getWritablePath()+_infoFileNameWithoutPostfix+".tmx").c_str(), "wb");
+#endif
+    CC_ASSERT(fpReadPlayerBase!=nullptr);
+    CC_ASSERT(fpWritePlayerOwnMap!=nullptr);
+    
+    unsigned char* buffer = nullptr;
+    ssize_t size = 0;
+    fseek(fpReadPlayerBase, 0, SEEK_END);
+    size = ftell(fpReadPlayerBase);
+    fseek(fpReadPlayerBase, 0, SEEK_SET);
+    buffer = (unsigned char*)malloc(size);
+    size = fread(buffer, sizeof(unsigned char), size, fpReadPlayerBase);
+    fwrite(buffer, size, 1, fpWritePlayerOwnMap);
+    fclose(fpWritePlayerOwnMap);
+    fclose(fpReadPlayerBase);
+    //!
+    free(buffer);
+    //
+    
     _checkLoadComplete();
 }
 
@@ -480,15 +560,15 @@ std::string LoadingLayer::_sprintfProgress(std::string text, double progress){
 void LoadingLayer::_loadComplete(){
 	if (_loadedSprite == _spriteCount){
         PlayerModel* player = new PlayerModel();
-        player->readPlayerInfo();
+        player->init();
         
         PlayerManager::getInstance()->setCurPlayer(player);
         PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
         PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
         
         //
-		ResourceModel *rm = ResourceModel::getModel();
-		SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+		//ResourceModel *rm = ResourceModel::getModel();
+		SceneManager::goMapScreen(string(_infoFileNameWithoutPostfix+".tmx"), HUD_ID::DEFENSE);
         //
 		/*
 		auto scene = MainScene::createScene();

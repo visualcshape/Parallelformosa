@@ -7,6 +7,7 @@
 #include "CMD.h"
 
 USING_NS_CC;
+using namespace std;
 
 class MapModel : public Layer, public ScreenSubject{
 public:
@@ -117,7 +118,7 @@ protected:
 	static MapModel * mm_pInstance;
 
 	//@func internally add building
-	void addBuildingToMap(int ID, int owner, MapPoint pos, int z);
+	void addBuildingToMap(int ID, string& owner, MapPoint pos, int z);
 
 	CC_SYNTHESIZE(string, mapName, MapName);
 

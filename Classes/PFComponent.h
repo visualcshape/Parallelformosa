@@ -23,7 +23,7 @@ public:
 	CC_SYNTHESIZE(int, _id, ID);
 	CC_SYNTHESIZE(int, _oid, OID); //object ID
 
-	CC_SYNTHESIZE(int, _owner, Owner); //uid
+    CC_SYNTHESIZE(std::string, _owner, Owner); //uid
 	CC_SYNTHESIZE(int, _z, Z);
 	CC_SYNTHESIZE(PII, _occupy, Occupy);
 	CC_SYNTHESIZE(Sprite*, _sprite, Sprite);

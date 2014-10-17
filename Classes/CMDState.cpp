@@ -32,11 +32,11 @@ bool CMDState::execute(){
 		char buffer[1000];
 		auto &pcp = _pfComponent;
 		if (dynamic_cast<Troop*>(pcp) != nullptr){
-			sprintf(buffer, "%d CMDState troop %d %d %d\n", BattleModel::getModel()->getCountdown(), pcp->getOwner(), pcp->getOID(), _adjustHp);
+			sprintf(buffer, "%d CMDState troop %s %d %d\n", BattleModel::getModel()->getCountdown(), pcp->getOwner().c_str(), pcp->getOID(), _adjustHp);
 			CMDFileStream::getInstance()->append(buffer);
 		}
 		else if (dynamic_cast<Building*>(pcp) != nullptr){
-			sprintf(buffer, "%d CMDState building %d %d %d\n", BattleModel::getModel()->getCountdown(), pcp->getOwner(), pcp->getOID(), _adjustHp);
+			sprintf(buffer, "%d CMDState building %s %d %d\n", BattleModel::getModel()->getCountdown(), pcp->getOwner().c_str(), pcp->getOID(), _adjustHp);
 			CMDFileStream::getInstance()->append(buffer);
 		}
 	}

@@ -22,8 +22,8 @@ public:
 	virtual void onTouchMoved(Touch *touch, Event *event);
 	virtual void onTouchEnded(Touch* touch, Event* event);
 
-	static MapLayer* create(std::string mapName);
-	bool init(std::string mapName);
+	static MapLayer* create(std::string& mapName);
+	bool init(std::string& mapName);
 
 	void slide(Vec2 translation);
 	void refresh(float dt);
