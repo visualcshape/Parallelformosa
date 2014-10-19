@@ -5,11 +5,13 @@
 #include "Troop.h"
 #include "CMD.h"
 #include <map>
+#include "Subject.h"
+#include "MapModel.h"
 
 using namespace std;
 USING_NS_CC;
 
-class PlayerModel :public Ref{
+class PlayerModel :public Ref,public Subject{
 
 public:
 	PlayerModel();
@@ -50,10 +52,6 @@ public:
 	CC_SYNTHESIZE(Vector <Building*>, _buildings, Buildings);
 	CC_SYNTHESIZE(Vector <Troop*>, _troops, Troops);
 
-	CC_SYNTHESIZE(int, _Lstr, Lstr);
-	CC_SYNTHESIZE(int, _Gmag, Gmag);
-	CC_SYNTHESIZE(int, _food, Food);
-
 	CC_SYNTHESIZE(int, _troopCnt, TroopCnt);
 	CC_SYNTHESIZE(int, _buildingCnt, BuildingCnt);
 
@@ -61,13 +59,48 @@ public:
 
 	int height;
 	Point coord;
+    
+    //G+
+    int getLstr();
+    void setLstr(int value);
+    int getGmag();
+    void setGmag(int value);
+    int getFood();
+    void setFood(int value);
 
+    float getLStrGenRate();
+    void setLStrGenRate(float value);
+    float getGMagGenRate();
+    void setGMagGenRate(float value);
+    float getFoodGenRate();
+    void setFoodGenRate(float value);
+    
+    MapModel::Weather getPlayerOwnMapWeather();
+    void setPlayerOwnMapWeather(MapModel::Weather weather);
+    
+    string getPlayerOwnMapCoord();
+    void setPlayerOwnMapCoord(string coord);
+    
+    //NET
+    void sendResourceAddNotify();
+    //
 protected:
 	int getProperTroopOID();
 	int getProperBuildingOID();
 	bool canAddTroop(Troop* target);
 	bool canAddBuilding(Building* target);
 
+    int _lStr;
+    int _gMag;
+    int _food;
+    
+    double _lStrGenRate;
+    double _gMagGenRate;
+    double _foodGenRate;
+    
+    MapModel::Weather _playerOwnMapWeather;
+    
+    string _playerOwnMapCoord;
 private:
 	bitset <PLAYER_MAX_TROOPS> usedTroopOID;
 	bitset <PLAYER_MAX_BUILDINGS> usedBuildingOID;

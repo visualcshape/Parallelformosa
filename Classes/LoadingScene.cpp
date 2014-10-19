@@ -61,6 +61,7 @@ LoadingLayer::LoadingLayer(){
 	_fileNames.shrink_to_fit();
 	_spriteCount = (int)_fileNames.size();
 	_loadedSprite = 0;
+    //_userJson = nullptr;
 }
 
 LoadingLayer::~LoadingLayer(){
@@ -284,6 +285,25 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         sp.shrink_to_fit();
         _infoFileName = sp[sp.size()-1];
         
+        
+        //init player
+        PlayerModel* player = new PlayerModel();
+        player->init();
+        
+        PlayerManager::getInstance()->setCurPlayer(player);
+        PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+        PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+        
+        //set player resources...
+        auto playerInit = PlayerManager::getInstance()->getCurPlayer();
+        playerInit->setGmag(atoi(user["GPower"].asString().c_str()));
+        playerInit->setLstr(atoi(user["LMana"].asString().c_str()));
+        playerInit->setFood(atoi(user["Food"].asString().c_str()));
+        playerInit->setPlayerOwnMapCoord(user["OwnMapCoord"].asString());
+        playerInit->setFoodGenRate(atof(user["FoodGenRate"].asString().c_str()));
+        playerInit->setGMagGenRate(atof(user["GPowerGenRate"].asString().c_str()));
+        playerInit->setLStrGenRate(atof(user["LManaGenRate"].asString().c_str()));
+        
         //Sync to SQLite3
         _writeUserToDB(user);
         _downloadInfoFile(infoDownloadPath,user);
@@ -431,10 +451,11 @@ void LoadingLayer::_copyTMXandInfoToWriteablePath()
 void LoadingLayer::_writeUserToDB(Json::Value user)
 {
     sqlite3* pDB = Database::getInstance()->getDatabasePointer();
+    CCLOG("%s",user.toStyledString().c_str());
     
     char sql[512];
     char* errMsg;
-    sprintf(sql, "UPDATE User SET FirstTimeLogin='%s',GPower='%s',LMana='%s',Food='%s',OwnMapCoord='%s',FoodGenRate='%s',GPowerGenRate='%s',LManaGenRate='%s',FoodLevel='%s',GPowerLevel='%s',LManaLevel='%s',BarrackLevel='%s' WHERE ID='%s'" ,"0",user["GPower"].asString().c_str(),user["LMana"].asString().c_str(),user["Food"].asString().c_str(),user["OwnMapCoord"].asString().c_str(),user["FoodGenRate"].asString().c_str(),user["GPowerGenRate"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["FoodGenLevel"].asString().c_str(),user["GPoweGenLevel"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["BarrackLevel"].asString().c_str(),_uid.c_str());
+    sprintf(sql, "UPDATE User SET FirstTimeLogin='%s',GPower='%s',LMana='%s',Food='%s',OwnMapCoord='%s',FoodGenRate='%s',GPowerGenRate='%s',LManaGenRate='%s',FoodLevel='%s',GPowerLevel='%s',LManaLevel='%s',BarrackLevel='%s' WHERE ID='%s'" ,"0",user["GPower"].asString().c_str(),user["LMana"].asString().c_str(),user["Food"].asString().c_str(),user["OwnMapCoord"].asString().c_str(),user["FoodGenRate"].asString().c_str(),user["GPowerGenRate"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["FoodGenLevel"].asString().c_str(),user["GPowerGenLevel"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["BarrackLevel"].asString().c_str(),_uid.c_str());
     
     int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
     CCASSERT(result==SQLITE_OK, errMsg);
@@ -559,17 +580,11 @@ std::string LoadingLayer::_sprintfProgress(std::string text, double progress){
 
 void LoadingLayer::_loadComplete(){
 	if (_loadedSprite == _spriteCount){
-        PlayerModel* player = new PlayerModel();
-        player->init();
-        
-        PlayerManager::getInstance()->setCurPlayer(player);
-        PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-        PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-        
         //
 		//ResourceModel *rm = ResourceModel::getModel();
 		SceneManager::goMapScreen(string(_infoFileNameWithoutPostfix+".tmx"), HUD_ID::DEFENSE);
         //
+        
 		/*
 		auto scene = MainScene::createScene();
 		Director::getInstance()->replaceScene(scene);*/

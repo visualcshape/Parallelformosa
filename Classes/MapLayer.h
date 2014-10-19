@@ -5,6 +5,10 @@
 #include "MapModel.h"
 #include "Subject.h"
 #include "Observer.h"
+#include "CCPomeloWrapper.h"
+#include "WeatherLayer.h"
+#include "json.h"
+#include "VisibleRect.h"
 
 USING_NS_CC;
 
@@ -30,9 +34,8 @@ public:
 	void ccdebug(float dt);
 	void produce(float dt);
 	void attack(float dt);
-
+    
 protected:
-
 private:
 	MapModel *mm;
 };

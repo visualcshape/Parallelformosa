@@ -84,7 +84,6 @@ bool MapLayer::init(std::string& mapName){
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(MapLayer::refresh), mm->REFRESH_RATE);
 	this->schedule(schedule_selector(MapLayer::ccdebug), 5.0f);
-	this->schedule(schedule_selector(MapLayer::produce), mm->PRODUCE_RATE);
 
 	return true;
 }

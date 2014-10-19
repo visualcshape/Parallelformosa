@@ -37,7 +37,7 @@ bool CMDMove::execute(){
 
 	if (CMDFileStream::getInstance()->isStreamOn()){
 		char buffer[1000];
-		sprintf(buffer, "%d CMDMove troop %d %d %d %d\n", BattleModel::getModel()->getCountdown(), _troop->getOwner(), _troop->getOID(), _dir, _hofs);
+		sprintf(buffer, "%d CMDMove troop %s %d %d %d\n", BattleModel::getModel()->getCountdown(), _troop->getOwner().c_str(), _troop->getOID(), _dir, _hofs);
 		CMDFileStream::getInstance()->append(buffer);
 	}
 	return true;

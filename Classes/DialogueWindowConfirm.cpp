@@ -25,6 +25,7 @@ DialogueWindowConfirm* DialogueWindowConfirm::create(std::string title,cocos2d::
 {
     DialogueWindowConfirm* ret = new DialogueWindowConfirm();
     
+    ret->autorelease();
     ret->setTitleText(title);
     ret->setContentText(content);
     ret->setTitletextColor(titleColor);

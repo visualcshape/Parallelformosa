@@ -1,7 +1,7 @@
 #include "PlayerModel.h"
 #include "ResourceModel.h"
-#include "MapModel.h"
 #include "command.h"
+#include "CCPomeloWrapper.h"
 
 USING_NS_CC;
 
@@ -25,8 +25,10 @@ void PlayerModel::init(){
 	usedTroopOID.reset();
 	usedBuildingOID.reset();
 	_troops.clear();
-	_Lstr = _Gmag = 3000;
+	_lStr = _gMag = 3000;
 	_food = 30;
+    //_lStrGenRate = _gMagGenRate = _foodGenRate = 10.0f;
+    _playerOwnMapWeather = MapModel::Weather::NONEWEATHER;
 	readPlayerInfo();
 }
 
@@ -44,14 +46,51 @@ PlayerModel* PlayerModel::initWithPlayer(PlayerModel* rhs){
 }
 
 void PlayerModel::produce(float dt){
-	CMDResource::order(this, 6, 6, 6)->execute();
+    //base produce speed
+    //prepara
+    int prepareGMag = 0;
+    int prepareLStr = 0;
+    int prepareFood = 0;
+    int baseGMag = 6;
+    int baseLStr = 10;
+    int baseFood = 20;
+    
+    if(_playerOwnMapWeather==MapModel::Weather::NONEWEATHER)
+    {
+        prepareFood+=baseFood*_foodGenRate*0;
+        prepareLStr+=baseLStr*_lStrGenRate*0;
+        prepareGMag+=baseGMag*_gMagGenRate*0;
+    }
+    else if (_playerOwnMapWeather==MapModel::Weather::RAIN)
+    {
+        prepareFood+=baseFood*_foodGenRate*1.5;
+        prepareLStr+=baseLStr*_lStrGenRate*0.8;
+        prepareGMag+=baseGMag*_gMagGenRate*1.2;
+    }
+    else
+    {
+        prepareFood+=baseFood*_foodGenRate*0.9;
+        prepareLStr+=baseLStr*_lStrGenRate*1.2;
+        prepareGMag+=baseGMag*_gMagGenRate*0.8;
+    }
+    
+    //POMELO//POMELO//POMELO
+    
+    ////////////////////////
+    
+	CMDResource::order(this, prepareLStr, prepareGMag, prepareFood)->execute();
 	//CommandModel::getModel()->AddCommand(CMDResource::order(this, 6, 6, 6));
+}
+
+void PlayerModel::sendResourceAddNotify()
+{
+    
 }
 
 bool PlayerModel::canAddTroop(int TID){
 	ResourceModel *rm = ResourceModel::getModel();
-	return _Lstr >= rm->costLstr[TID] &&
-		_Gmag >= rm->costGmag[TID] &&
+	return _lStr >= rm->costLstr[TID] &&
+		_gMag >= rm->costGmag[TID] &&
 		_food >= rm->costFood[TID];
 }
 
@@ -67,18 +106,21 @@ void PlayerModel::changeUID(string uid){
 }
 
 void PlayerModel::gainLstr(int value){
-	_Lstr += value;
-	_Lstr = max(_Lstr, 0);
+    _lStr += value;
+	_lStr = max(_lStr, 0);
+    Notify();
 }
 
 void PlayerModel::gainGmag(int value){
-	_Gmag += value;
-	_Gmag = max(_Gmag, 0);
+    _gMag += value;
+	_gMag = max(_gMag, 0);
+    Notify();
 }
 
 void PlayerModel::gainFood(int value){
-	_food += value;
+    _food+=value;
 	_food = max(_food, 0);
+    Notify();
 }
 
 void PlayerModel::addBuilding(Building* building){
@@ -204,8 +246,8 @@ void PlayerModel::readPlayerInfo(bool backup){
     CCASSERT(result==SQLITE_OK, pzErrMsg);
     
     _uid = pass["UID"];
-    _Gmag = atoi(pass["GPower"].c_str());
-    _Lstr = atoi(pass["LMana"].c_str());
+    _gMag = atoi(pass["GPower"].c_str());
+    _lStr= atoi(pass["LMana"].c_str());
     _food = atoi(pass["Food"].c_str());
     
     //Deprecated...
@@ -298,7 +340,7 @@ void PlayerModel::writePlayerInfo(bool backup){
     char sql[128] = "";
     char* errMsg;
     
-    sprintf(sql, "Update User SET GPower=%d,LMana=%d,Food=%d WHERE ID='%s'",_Gmag,_Lstr,_food,_uid.c_str());
+    sprintf(sql, "Update User SET GPower=%d,LMana=%d,Food=%d WHERE ID='%s'",_gMag,_lStr,_food,_uid.c_str());
     
     int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
     
@@ -335,4 +377,87 @@ void PlayerModel::writePlayerInfo(bool backup){
 	}*/
 
 	//fclose(fp);
+}
+
+int PlayerModel::getLstr()
+{
+    return _lStr;
+}
+
+void PlayerModel::setLstr(int value)
+{
+    _lStr = value;
+    Notify();
+}
+
+int PlayerModel::getGmag()
+{
+    return _gMag;
+}
+
+void PlayerModel::setGmag(int value)
+{
+    _gMag = value;
+    Notify();
+}
+
+int PlayerModel::getFood()
+{
+    return _food;
+}
+
+void PlayerModel::setFood(int value)
+{
+    _food = value;
+    Notify();
+}
+
+float PlayerModel::getLStrGenRate()
+{
+    return _lStrGenRate;
+}
+
+void PlayerModel::setLStrGenRate(float value)
+{
+    _lStrGenRate = value;
+}
+
+float PlayerModel::getGMagGenRate()
+{
+    return _gMagGenRate;
+}
+
+void PlayerModel::setGMagGenRate(float value)
+{
+    _gMagGenRate = value;
+}
+
+float PlayerModel::getFoodGenRate()
+{
+    return _foodGenRate;
+}
+
+void PlayerModel::setFoodGenRate(float value)
+{
+    _foodGenRate = value;
+}
+
+MapModel::Weather PlayerModel::getPlayerOwnMapWeather()
+{
+    return _playerOwnMapWeather;
+}
+
+void PlayerModel::setPlayerOwnMapWeather(MapModel::Weather weather)
+{
+    _playerOwnMapWeather = weather;
+}
+
+string PlayerModel::getPlayerOwnMapCoord()
+{
+    return _playerOwnMapCoord;
+}
+
+void PlayerModel::setPlayerOwnMapCoord(string coord)
+{
+    _playerOwnMapCoord = coord;
 }

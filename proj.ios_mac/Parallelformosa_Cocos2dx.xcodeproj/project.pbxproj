@@ -186,6 +186,10 @@
 		F6C1C65419EEDEE7001F9532 /* PlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C64119EEDEE7001F9532 /* PlayerManager.cpp */; };
 		F6C1C65719EF00ED001F9532 /* globalVariable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C65519EF00ED001F9532 /* globalVariable.cpp */; };
 		F6C1C65819EF00ED001F9532 /* globalVariable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C65519EF00ED001F9532 /* globalVariable.cpp */; };
+		F6C1C66119F2AC71001F9532 /* WeatherLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C65F19F2AC71001F9532 /* WeatherLayer.cpp */; };
+		F6C1C66219F2AC71001F9532 /* WeatherLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C65F19F2AC71001F9532 /* WeatherLayer.cpp */; };
+		F6C1C66519F2B60D001F9532 /* NetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C66319F2B60D001F9532 /* NetManager.cpp */; };
+		F6C1C66619F2B60D001F9532 /* NetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6C1C66319F2B60D001F9532 /* NetManager.cpp */; };
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
@@ -535,6 +539,10 @@
 		F6C1C64219EEDEE7001F9532 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerManager.h; path = ../Classes/PlayerManager.h; sourceTree = "<group>"; };
 		F6C1C65519EF00ED001F9532 /* globalVariable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = globalVariable.cpp; path = ../Classes/globalVariable.cpp; sourceTree = "<group>"; };
 		F6C1C65619EF00ED001F9532 /* globalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globalVariable.h; path = ../Classes/globalVariable.h; sourceTree = "<group>"; };
+		F6C1C65F19F2AC71001F9532 /* WeatherLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WeatherLayer.cpp; path = ../Classes/WeatherLayer.cpp; sourceTree = "<group>"; };
+		F6C1C66019F2AC71001F9532 /* WeatherLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherLayer.h; path = ../Classes/WeatherLayer.h; sourceTree = "<group>"; };
+		F6C1C66319F2B60D001F9532 /* NetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetManager.cpp; path = ../Classes/NetManager.cpp; sourceTree = "<group>"; };
+		F6C1C66419F2B60D001F9532 /* NetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetManager.h; path = ../Classes/NetManager.h; sourceTree = "<group>"; };
 		F6D4CE0A198926C0002FAE49 /* UtilFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFunc.h; path = ../Classes/UtilFunc.h; sourceTree = "<group>"; };
 		F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFunc.cpp; path = ../Classes/UtilFunc.cpp; sourceTree = "<group>"; };
 		F6D4CE0F19893327002FAE49 /* sqlite3.dll */ = {isa = PBXFileReference; lastKnownFileType = file; name = sqlite3.dll; path = ../cocos2d/external/sqlite3/libraries/win32/sqlite3.dll; sourceTree = "<group>"; };
@@ -700,7 +708,6 @@
 				F6D4CE23198A857D002FAE49 /* Subject.cpp */,
 				F60EBBF7198A8FC000B1011F /* Observer.h */,
 				F60EBBFD198AA4C400B1011F /* Observer.cpp */,
-				F698767419A263E700D89FC9 /* DialogueWindow.h */,
 				F698767519A2640400D89FC9 /* DialogueWindow.cpp */,
 				F6E7B97819A3A044004D6DAF /* DialogueWindowConfirm.h */,
 				F6E7B97B19A3A05A004D6DAF /* DialogueWindowConfirm.cpp */,
@@ -713,6 +720,7 @@
 				F6B5E33A19D99A69004F1FA6 /* MainScene.cpp */,
 				F6B5E33B19D99A69004F1FA6 /* MainScene.h */,
 				F6B5E34219DA9583004F1FA6 /* MainUIButtonFactory.cpp */,
+				F698767419A263E700D89FC9 /* DialogueWindow.h */,
 				F6B5E34319DA9583004F1FA6 /* MainUIButtonFactory.h */,
 				F6B5E34619DB1F2F004F1FA6 /* MainUIInfoModel.cpp */,
 				F6B5E34719DB1F2F004F1FA6 /* MainUIInfoModel.h */,
@@ -737,6 +745,10 @@
 				F6C1C62B19EEBD97001F9532 /* ConnectingSign.h */,
 				F6C1C65519EF00ED001F9532 /* globalVariable.cpp */,
 				F6C1C65619EF00ED001F9532 /* globalVariable.h */,
+				F6C1C65F19F2AC71001F9532 /* WeatherLayer.cpp */,
+				F6C1C66019F2AC71001F9532 /* WeatherLayer.h */,
+				F6C1C66319F2B60D001F9532 /* NetManager.cpp */,
+				F6C1C66419F2B60D001F9532 /* NetManager.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1196,6 +1208,7 @@
 				F6A6ECE019E31F340020EFBB /* MapLayer.cpp in Sources */,
 				F6A6ECE819E31F340020EFBB /* PlayerModel.cpp in Sources */,
 				F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
+				F6C1C66519F2B60D001F9532 /* NetManager.cpp in Sources */,
 				F6C1C65719EF00ED001F9532 /* globalVariable.cpp in Sources */,
 				F6DEBDC619E9284400F58194 /* Effect.cpp in Sources */,
 				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
@@ -1206,6 +1219,7 @@
 				F6A6ECF219E31F340020EFBB /* Troop.cpp in Sources */,
 				F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
+				F6C1C66119F2AC71001F9532 /* WeatherLayer.cpp in Sources */,
 				F6C1C62C19EEBD97001F9532 /* ConnectingSign.cpp in Sources */,
 				F6FD118E19EA815F00189826 /* UnitWindow.cpp in Sources */,
 				F6FD118819EA27F100189826 /* UnitTypeModel.cpp in Sources */,
@@ -1248,6 +1262,7 @@
 				F69E486619B9D687009717E7 /* LoadingScene.cpp in Sources */,
 				F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */,
 				F6B5E34919DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
+				F6C1C66219F2AC71001F9532 /* WeatherLayer.cpp in Sources */,
 				F6B5E34519DA9583004F1FA6 /* MainUIButtonFactory.cpp in Sources */,
 				F6C1C65419EEDEE7001F9532 /* PlayerManager.cpp in Sources */,
 				F6B5E35D19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
@@ -1256,6 +1271,7 @@
 				F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */,
 				F6A6ECDF19E31F340020EFBB /* LoginTitleLayer.cpp in Sources */,
 				F6A6ECDB19E31F340020EFBB /* Building.cpp in Sources */,
+				F6C1C66619F2B60D001F9532 /* NetManager.cpp in Sources */,
 				F6E7B97D19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
 				F6A6ECF319E31F340020EFBB /* Troop.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,

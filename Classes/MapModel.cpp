@@ -5,7 +5,6 @@
 #include "SceneManager.h"
 #include "AppMacro.h"
 #include "ResourceModel.h"
-#include "PlayerModel.h"
 #include "DialogueWindowConfirm.h"
 #include "VisibleRect.h"
 #include "AppMacro.h"
@@ -41,6 +40,7 @@ void MapModel::init(std::string mapName){
 	_tileMap = nullptr;
 	_prevCursurOutside = false;
 	_status = HUD_ID::DEFENSE;
+    _changedData = ChangedData::NONE;
 	PlayerManager::getInstance()->getCurPlayer()->init();
 	PlayerManager::getInstance()->getAtkPlayer()->init();
 	PlayerManager::getInstance()->getDefPlayer()->init();
@@ -693,4 +693,19 @@ void MapModel::readMapInfo(bool backup){
 	}
 	CCLOG(">> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
 	*/
+}
+
+MapModel::Weather MapModel::getWeather()
+{
+    return _weather;
+}
+
+void MapModel::setWeather(Weather weather)
+{
+    _weather = weather;
+}
+
+MapModel::ChangedData MapModel::getChangedData()
+{
+    return _changedData;
 }

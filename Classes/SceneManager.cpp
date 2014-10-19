@@ -34,6 +34,7 @@ void SceneManager::goTitleScreen(){
 
 void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	SceneManager::cleanRunningScreen();
+    //Caller write map name
 	Layer* layer = MapLayer::create(mapName);
 
 	//@brief bind mainUIlayer

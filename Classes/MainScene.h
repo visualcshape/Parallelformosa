@@ -18,6 +18,11 @@
 #include "ButtonWithImage.h"
 #include "UnitWindow.h"
 #include "MapModel.h"
+#include "WeatherLayer.h"
+#include "CCPomeloWrapper.h"
+#include "json.h"
+#include "NetManager.h"
+#include "PlayerManager.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -70,6 +75,8 @@ private:
 };
 
 //infomation (Upper)
+//information Layer also manage network...
+//DO NOT REPLACE THIS LAYER MAY CAUSE FAILURE...
 class MainInfoLayer : public Layer, public Observer{
 private:
     //Data
@@ -78,10 +85,27 @@ private:
     Label* _scrollingLabel;
     Sprite* _infoNoticeBackground;
     
+    ImageView* _infoIcon;
+    
+    ////resource and weathers...
+    Layout* _infoLayout;
+    Text* _gPowerValue;
+    Text* _lManaValue;
+    Text* _foodValue;
+    Text* _locationValue;
+    
+    Sprite* _weatherIcon;
+    
+    WeatherLayer* _weatherLayer;
+    
     //model chaged
     void _scrollingTextModelChanged();
     //Update scrolling text position.
     void _scroll(float delta);
+    
+    //refresh layout
+    void _refreshLayout();
+    
 protected:
 public:
     MainInfoLayer();
@@ -93,7 +117,18 @@ public:
     
 	CREATE_FUNC(MainInfoLayer);
 
+    //Network
+    void PrepareNetwork();
+    
+    void onConnectLost();
+    
+    void queryMapWeather();
+    
+    void produce(float dt);
 private:
 	MapModel *mm;
+    PlayerModel* _bindedPlayer;
+    
+    void _onQueryWeatherRequestCallback(const CCPomeloRequestResult& result);
 };
 #endif /* defined(__Parallelformosa_Cocos2dx__MainScene__) */

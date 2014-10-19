@@ -51,7 +51,6 @@ private:
     string _infoFileName;
     string _infoFileNameWithoutPostfix;
     
-    
     //Start load
     void _startLoadUI();
     void _startLoadWindow();

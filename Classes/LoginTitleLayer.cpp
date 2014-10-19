@@ -190,10 +190,12 @@ void MenuLayer::_newConnectServer()
 				if (type == ui::Widget::TouchEventType::ENDED)
 				{
 					thisLayer->removeChildByTag(DIALAGOUE_TAG);
-					pDialogue->autorelease();
 				}
 			};
 			pDialogue->addButtonListener(cb);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+            pDialogue->retain();
+#endif
 			thisLayer->addChild(pDialogue, 100, DIALAGOUE_TAG);
 			CCLOG("Connect Failed");
 		}
@@ -251,11 +253,13 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 							thisLayer->removeChildByTag(DIALAGOUE_TAG);
 							//remove loading
 							thisLayer->removeChildByName("Connecting");
-							pDialogue->autorelease();
 							LoginTitleModel::getInstance()->setUID("0");
 						}
 					};
 					pDialogue->addButtonListener(cb);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+                    pDialogue->retain();
+#endif
 					addChild(pDialogue, 100, DIALAGOUE_TAG);
 					CCPomeloWrapper::getInstance()->stop();
 				}
@@ -274,10 +278,12 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 						thisLayer->removeChildByTag(DIALAGOUE_TAG);
 						//remove loading
 						thisLayer->removeChildByName("Connecting");
-						pDialogue->autorelease();
 					}
 				};
 				pDialogue->addButtonListener(cb);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+                pDialogue->retain();
+#endif
 				addChild(pDialogue, 100, DIALAGOUE_TAG);
 				CCPomeloWrapper::getInstance()->stop();
 			}
@@ -292,10 +298,12 @@ void MenuLayer::_newOnAuthUIDRequestCallback(const CCPomeloRequestResult& result
 				{
 					thisLayer->removeChildByTag(DIALAGOUE_TAG);
 					thisLayer->removeChildByName("Connecting");
-					pDialogue->autorelease();
 				}
 			};
 			pDialogue->addButtonListener(cb);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+            pDialogue->retain();
+#endif
 			addChild(pDialogue, 100, DIALAGOUE_TAG);
 			CCPomeloWrapper::getInstance()->stop();
 		}

@@ -165,6 +165,10 @@ MainInfoLayer::MainInfoLayer(){
 	CCLOG("MainInfoLayer construct");
 	mm = MapModel::getModel();
 	mm->Attach(this);
+    
+    PlayerModel* curPlayer = PlayerManager::getInstance()->getCurPlayer();
+    _bindedPlayer = curPlayer;
+    _bindedPlayer->Attach(this);
 }
 
 MainInfoLayer::~MainInfoLayer(){
@@ -176,6 +180,12 @@ MainInfoLayer::~MainInfoLayer(){
 		_bindModel->Detach(this);
 		_bindModel = nullptr;
 	}
+    
+    if(_bindedPlayer!=nullptr)
+    {
+        _bindedPlayer->Detach(this);
+        _bindedPlayer = nullptr;
+    }
 }
 
 bool MainInfoLayer::init(){
@@ -204,36 +214,153 @@ bool MainInfoLayer::init(){
     _infoNoticeBackground = Sprite::create("UI/MainInfo_Notice.png");
     CCASSERT(_infoNoticeBackground!=nullptr, "infoNoticeBackground cannot be null.");
     _infoNoticeBackground->setAnchorPoint(Vec2(0.0, 0.5));
-    //Position x will be modified
-    _infoNoticeBackground->setPosition(Vec2(50, infoBackground->getContentSize().height/2));
-    //set scrolling text position.
-    _scrollingLabel->setPosition(_infoNoticeBackground->getPosition());
     //Mask
     Sprite* infoMask = Sprite::create("UI/MainInfo_Mask.png");
     CCASSERT(infoMask!=nullptr, "infoMask cannot be null.");
     infoMask->setAnchorPoint(Vec2(0.0,1.0));
     infoMask->setPosition(infoBackground->getPosition());
     
+    //Position x will be modified
+    _infoNoticeBackground->setPosition(Vec2(53, infoMask->getPosition().y-infoMask->getContentSize().height/2));
+    //set scrolling text position.
+    _scrollingLabel->setPosition(_infoNoticeBackground->getPosition());
+    
+    _infoIcon = ImageView::create("info.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(_infoIcon!=nullptr);
+    _infoIcon->setAnchorPoint(Vec2(0.0, 0.5));
+    _infoIcon->setPosition(Vec2(5, infoBackground->getContentSize().height/2));
+    ////////////
+    string fontName  = "fonts/Silom.ttf";
+    float fontSize = computeFontSize(24);
+    Color3B fontColor(11,72,107);
+    
+    LinearLayoutParameter* infoCompLLP = LinearLayoutParameter::create();
+    infoCompLLP->setGravity(LinearLayoutParameter::LinearGravity::CENTER_HORIZONTAL);
+    infoCompLLP->setMargin(Margin(2, 0, 2, 0));
+
+    ImageView* gPowerIcon = ImageView::create("GPower.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(gPowerIcon!=nullptr);
+    gPowerIcon->setLayoutParameter(infoCompLLP);
+    
+    _gPowerValue = Text::create("000000", fontName, fontSize);
+    CC_ASSERT(_gPowerValue!=nullptr);
+    _gPowerValue->setLayoutParameter(infoCompLLP);
+    _gPowerValue->setColor(fontColor);
+    
+    ImageView* lManaIcon =  ImageView::create("LMana.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(lManaIcon!=nullptr);
+    lManaIcon->setLayoutParameter(infoCompLLP);
+    
+    _lManaValue = Text::create("000000", fontName, fontSize);
+    CC_ASSERT(_lManaValue!=nullptr);
+    _lManaValue->setLayoutParameter(infoCompLLP);
+    _lManaValue->setColor(fontColor);
+    
+    ImageView* foodIcon = ImageView::create("Food.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(foodIcon!=nullptr);
+    foodIcon->setLayoutParameter(infoCompLLP);
+    
+    _foodValue = Text::create("000000",fontName,fontSize);
+    CC_ASSERT(_foodValue!=nullptr);
+    _foodValue->setLayoutParameter(infoCompLLP);
+    _foodValue->setColor(fontColor);
+    
+    ImageView* locationIcon = ImageView::create("location.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(locationIcon!=nullptr);
+    locationIcon->setLayoutParameter(infoCompLLP);
+    
+    _locationValue = Text::create("0.0.00-00", fontName, fontSize);
+    CC_ASSERT(_locationValue!=nullptr);
+    _locationValue->setLayoutParameter(infoCompLLP);
+    _locationValue->setColor(fontColor);
+    
+    _infoLayout = Layout::create();
+    _infoLayout->setLayoutType(Layout::Type::HORIZONTAL);
+    _infoLayout->setAnchorPoint(Vec2(0.0, 0.5));
+    _infoLayout->setContentSize(Size(infoBackground->getContentSize().width-_infoIcon->getContentSize().width-_infoNoticeBackground->getContentSize().width-3,infoBackground->getContentSize().height));
+    _infoLayout->setPosition(Vec2(_infoNoticeBackground->getContentSize().width+53+2, _infoNoticeBackground->getContentSize().height/2));
+    
+    _weatherIcon = Sprite::create("UI/sunny_icon.png");
+    CC_ASSERT(_weatherIcon!=nullptr);
+    _weatherIcon->setAnchorPoint(Vec2::ANCHOR_MIDDLE_RIGHT);
+    _weatherIcon->setPosition(Vec2(infoMask->getContentSize().width-5, infoMask->getContentSize().height/2));
+    
+    //Add components...
+    _infoLayout->addChild(gPowerIcon);
+    _infoLayout->addChild(_gPowerValue);
+    _infoLayout->addChild(lManaIcon);
+    _infoLayout->addChild(_lManaValue);
+    _infoLayout->addChild(foodIcon);
+    _infoLayout->addChild(_foodValue);
+    _infoLayout->addChild(locationIcon);
+    _infoLayout->addChild(_locationValue);
+    
+    ////////////////////
+    
     //add to background
-    infoBackground->addChild(_scrollingLabel,1);
-    infoBackground->addChild(_infoNoticeBackground,0);
+    infoMask->addChild(_infoIcon,1);
+    infoMask->addChild(_infoLayout,2);
+    infoMask->addChild(_weatherIcon,3);
     
     //add to layer
-    addChild(infoBackground,0);
+    addChild(_infoNoticeBackground,-1);
+    addChild(_scrollingLabel,0);
     addChild(infoMask,1);
     
     //add a schedule
     schedule(schedule_selector(MainInfoLayer::_scroll), 0.01f);
     
-    _bindModel->setScrollingText("Test...");
+    _bindModel->setScrollingText("Welcome to Parallelformosa Alpha Version...");
+    
+    //NetWorkFunc
+    PrepareNetwork();
+    queryMapWeather();
+    //////////////
+    
+    //set resource init value//
+    _gPowerValue->setString(to_string(_bindedPlayer->getGmag()));
+    _lManaValue->setString(to_string(_bindedPlayer->getLstr()));
+    _foodValue->setString(to_string(_bindedPlayer->getFood()));
+    //////////////////
+    //set now coord...///
+    _locationValue->setString(mm->getMapName());
+    
+    this->schedule(schedule_selector(MainInfoLayer::produce), 3.0f);
     
     ret = true;
     return ret;
 }
 
+void MainInfoLayer::produce(float dt)
+{
+    PlayerManager::getInstance()->getCurPlayer()->produce(dt);
+}
+
+void MainInfoLayer::PrepareNetwork()
+{
+    auto p = bind(&MainInfoLayer::onConnectLost, this);
+    CCPomeloWrapper::getInstance()->setDisconnectedCallback(p);
+}
+
+void MainInfoLayer::onConnectLost()
+{
+    auto p = NetManager::getInstance();
+    p->onConnectLost();
+}
+
 void MainInfoLayer::Update(Subject *changedSubject){
     MainUIInfoModel* changedModel = dynamic_cast<MainUIInfoModel*>(changedSubject);
-    //CCASSERT(changedModel!=nullptr, "ChangedModel cannot be null.");
+    PlayerModel* playerModelChanged = dynamic_cast<PlayerModel*>(changedSubject);
+    MapModel* mapModelChanged = dynamic_cast<MapModel*>(changedSubject);
+    
+    //changedModel == MapModel
+    if (mapModelChanged != nullptr)
+    {
+        setPosition(mm->getHUDBasePosition());
+        _refreshLayout();
+        return;
+    }
+    //changedModel == MainUIInfoModel
 	if (changedModel != nullptr)
 	{
 		switch (changedModel->getChagedData()) {
@@ -245,11 +372,26 @@ void MainInfoLayer::Update(Subject *changedSubject){
 		default:
 			break;
 		}
+        _refreshLayout();
+        return;
 	}
-	if (mm != nullptr)
-	{
-		setPosition(mm->getHUDBasePosition());
-	}
+    //ChangedModel==playerModel
+    if(playerModelChanged!=nullptr)
+    {
+        int gPower = playerModelChanged->getGmag();
+        int lMana = playerModelChanged->getLstr();
+        int food = playerModelChanged->getFood();
+        
+        _gPowerValue->setString(to_string(gPower));
+        _lManaValue->setString(to_string(lMana));
+        _foodValue->setString(to_string(food));
+        
+        _refreshLayout();
+        return;
+    }
+    
+    
+    CCASSERT(false,"Unknown Modelchanged or Model not attached yet");
 }
 
 void MainInfoLayer::_scrollingTextModelChanged(){
@@ -266,4 +408,58 @@ void MainInfoLayer::_scroll(float delta){
     }
     
     _scrollingLabel->setPosition(postPos);
+}
+
+void MainInfoLayer::_refreshLayout()
+{
+    _infoLayout->updateSizeAndPosition();
+}
+
+void MainInfoLayer::queryMapWeather()
+{
+    const char* route = "parallelSpace.parallelSpaceHandler.getWeatherByMapID";
+    Json::Value msg;
+    Json::FastWriter writer;
+    msg["mapID"] = mm->getMapName();
+    
+    CCPomeloWrapper::getInstance()->request(route, writer.write(msg), CC_CALLBACK_1(MainInfoLayer::_onQueryWeatherRequestCallback, this));
+}
+
+void MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &result)
+{
+    Json::Value root;
+    Json::Reader reader;
+    
+    if(reader.parse(result.jsonMsg, root))
+    {
+        CCLOG("server response : %s",root.toStyledString().c_str());
+        string weather = root["weather"].asString();
+        if(weather=="sunny")
+        {
+            _weatherIcon->setTexture("UI/sunny_icon.png");
+            removeChildByName("weather");
+            mm->setWeather(MapModel::Weather::SUNNY);
+            
+            if(mm->getMapName()==PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord())
+            {
+                PlayerManager::getInstance()->getCurPlayer()->setPlayerOwnMapWeather(MapModel::Weather::SUNNY);
+            }
+        }
+        else
+        {
+            _weatherIcon->setTexture("UI/rain_icon.png");
+            _weatherLayer = WeatherLayer::create();
+            //_weatherLayer->retain();
+            CC_ASSERT(_weatherLayer!=nullptr);
+            _weatherLayer->setPosition(VisibleRect::leftBottom());
+            _weatherLayer->setAnchorPoint(Vec2(0, 0));
+            addChild(_weatherLayer,10);
+            mm->setWeather(MapModel::Weather::RAIN);
+            
+            if(mm->getMapName()==PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord())
+            {
+                PlayerManager::getInstance()->getCurPlayer()->setPlayerOwnMapWeather(MapModel::Weather::RAIN);
+            }
+        }
+    }
 }

@@ -3,13 +3,12 @@
 #include "Building.h"
 #include "Subject.h"
 #include "Troop.h"
-#include "PlayerModel.h"
 #include "CMD.h"
 
 USING_NS_CC;
 using namespace std;
 
-class MapModel : public Layer, public ScreenSubject{
+class MapModel : public Layer,public Subject{
 public:
 	static const int EMPTY_TILE = 54;
 
@@ -22,7 +21,20 @@ public:
 	const float PRODUCE_RATE = 1.0f;
 	static const int BORDER_PIXEL = 40;
 	static const int BAR_ICON = 5;
+    
+    //enum
+    typedef enum Weather
+    {
+        NONEWEATHER,
+        SUNNY,
+        RAIN
+    }Weather;
 
+    //enum changed data
+    typedef enum ChangedData
+    {
+        NONE=-1
+    }ChangedData;
 public:
 	MapModel();
 	~MapModel();
@@ -114,17 +126,25 @@ public:
 	void setTileGID(MapPoint mpt, int z, int xlen, int ylen, int GID);
 	uint32_t getTileGIDAt(MapPoint mpt, int z);
 
+    CC_SYNTHESIZE(string, mapName, MapName);
+    
+    //////////////////
+    Weather getWeather();
+    
+    void setWeather(Weather weather);
+    
+    ChangedData getChangedData();
 protected:
 	static MapModel * mm_pInstance;
 
 	//@func internally add building
 	void addBuildingToMap(int ID, string& owner, MapPoint pos, int z);
-
-	CC_SYNTHESIZE(string, mapName, MapName);
-
 private:
 	int selID;
 	bool _prevCursurOutside; 
 	Vector <Building*> _buildings;
 	Vector <Troop*> _troops;
+    
+    Weather _weather;
+    ChangedData _changedData;
 };
