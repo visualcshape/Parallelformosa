@@ -180,6 +180,21 @@
     <ClCompile Include="..\Classes\CMDFileStream.cpp">
       <Filter>Classes\Command</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\WeatherLayer.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ConnectingSign.cpp">
+      <Filter>Classes\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\dirent.c">
+      <Filter>Classes\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\globalVariable.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NetManager.cpp">
+      <Filter>Classes\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -340,6 +355,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\CMDFileStream.h">
       <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeatherLayer.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ConnectingSign.h">
+      <Filter>Classes\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\dirent.h">
+      <Filter>Classes\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\globalVariable.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NetManager.h">
+      <Filter>Classes\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
