@@ -196,6 +196,16 @@ void Button::setScale9Enabled(bool able)
     setBright(_bright);
 }
 
+    void Button::setBindedObject(cocos2d::Node *obj)
+    {
+        _bindedObject = obj;
+    }
+    
+    Node* Button::getBindedObject()
+    {
+        return _bindedObject;
+    }
+    
 bool Button::isScale9Enabled()const
 {
     return _scale9Enabled;
@@ -789,7 +799,6 @@ void Button::copySpecialProperties(Widget *widget)
         setPressedActionEnabled(button->_pressedActionEnabled);
     }
 }
-
 }
 
 NS_CC_END

@@ -142,7 +142,17 @@ void MenuLayer::aboutClickCallback(cocos2d::Ref *pSender)
 
 void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 {
+    SpriteFrameCache* cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile("Building/BuildingType.plist", "Building/BuildingType.png");
+    cache->addSpriteFramesWithFile("UI/MainUI_Windows_Component.plist", "UI/MainUI_Windows_Component.png");
     
+    OptionWindow* ow = OptionWindow::create("Options", [=](Ref* pSender,Widget::TouchEventType type){
+        if(type==Widget::TouchEventType::ENDED)
+        {
+            this->removeChildByName("ow");
+        }
+    }, nullptr);
+    addChild(ow,100,"ow");
 }
 
 void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
@@ -316,6 +326,9 @@ void MenuLayer::_startLoading(Json::Value resp)
     GlobalVariable::getInstance()->setConnectorPort(resp["connectorPort"].asInt());
     GlobalVariable::getInstance()->setConnectorHost(resp["connectorHost"].asString());
     
+    //!
+    SpriteFrameCache::getInstance()->destroyInstance();
+    //
 	CCPomeloWrapper::getInstance()->stop();
 	Scene* pScene = LoadingScene::createScene();
 	auto fadeTransition = TransitionFade::create(0.32f, pScene, Color3B(0, 0, 0));
@@ -340,7 +353,6 @@ void MenuLayer::_timedOut(float delta)
 		if (type == ui::Widget::TouchEventType::ENDED)
 		{
 			thisLayer->removeChildByTag(DIALAGOUE_TAG);
-			pDialogue->autorelease();
 		}
 	};
 	pDialogue->addButtonListener(cb);

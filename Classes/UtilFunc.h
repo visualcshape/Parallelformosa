@@ -12,7 +12,14 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <cocos2d.h>
+#include <HttpClient.h>
+#include "AppMacro.h"
 
+USING_NS_CC;
+USING_NS_CC::network;
+
+using namespace std;
 /** @brief A Singleton function
  Utils function like to lower and etc..
  */
@@ -22,6 +29,8 @@ private:
     static UtilFunc* _instance;
     
     std::vector<std::string> &split(const std::string &s,char delim,std::vector<std::string>& elems);
+    
+    static string DOWNLOAD_BASE_PATH;
 protected:
     UtilFunc();
 public:
@@ -35,6 +44,12 @@ public:
     void toLower(std::string* str);
     
     std::vector<std::string> split(const std::string&s ,char delim);
+    
+    void copyPlayerMapTMXFile(string coord);
+    
+    bool checkWritablePathFileExist(string fileName);
+    
+    void downloadInfoFile(string coord,function<void(HttpClient* ,HttpResponse*)> onHttpRequestCompleteCallback);
 };
 
 

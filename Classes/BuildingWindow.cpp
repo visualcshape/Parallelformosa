@@ -7,6 +7,7 @@
 //
 
 #include "BuildingWindow.h"
+#include "PlayerManager.h"
 #include <math.h>
 
 const static std::string btnName = "btn";
@@ -338,23 +339,23 @@ bool BuildingWindow::init(){
     _descriptionScrollView->setBackGroundColorOpacity(255*0.25);
     _descriptionScrollView->addChild(dvLayout,zOrder,DVLayoutName);
     
-    Button* buildButton = Button::create("BlueButton.png","BlueButtonPressed.png","ButtonDisabled.png",Widget::TextureResType::PLIST);
-    CC_ASSERT(buildButton!=nullptr);
-    buildButton->setScale9Enabled(true);
-    buildButton->setCapInsets(Rect(1, 1, buildButton->getContentSize().width-2, buildButton->getContentSize().height-2));
-    buildButton->setContentSize(Size(_buildingRightLayout->getContentSize().width/4, _buildingRightLayout->getContentSize().height-_costTitleText->getContentSize().height-iconsAndTextGLLayout->getContentSize().height-iconsAndTextFDLayout->getContentSize().height-_infoTitleText->getContentSize().height-iconsAndTextHRLayout->getContentSize().height-iconsAndTextTLayout->getContentSize().height-_descrptionTitleTitleText->getContentSize().height-_descriptionScrollView->getContentSize().height-(_baseWindow->getContentSize().height-_buildingRightLayout->getContentSize().height)+10));
-    buildButton->setTitleText("Build");
-    buildButton->setTitleFontName(fontName);
-    buildButton->setTitleFontSize(fontSize-4);
-    buildButton->setAnchorPoint(Vec2(1.0, 0.0));
-    buildButton->setPosition(Vec2( _buildingRightLayout->getContentSize().width,0));
+    _buildButton = Button::create("BlueButton.png","BlueButtonPressed.png","ButtonDisabled.png",Widget::TextureResType::PLIST);
+    CC_ASSERT(_buildButton!=nullptr);
+    _buildButton->setScale9Enabled(true);
+    _buildButton->setCapInsets(Rect(1, 1, _buildButton->getContentSize().width-2, _buildButton->getContentSize().height-2));
+    _buildButton->setContentSize(Size(_buildingRightLayout->getContentSize().width/4, _buildingRightLayout->getContentSize().height-_costTitleText->getContentSize().height-iconsAndTextGLLayout->getContentSize().height-iconsAndTextFDLayout->getContentSize().height-_infoTitleText->getContentSize().height-iconsAndTextHRLayout->getContentSize().height-iconsAndTextTLayout->getContentSize().height-_descrptionTitleTitleText->getContentSize().height-_descriptionScrollView->getContentSize().height-(_baseWindow->getContentSize().height-_buildingRightLayout->getContentSize().height)+10));
+    _buildButton->setTitleText("Build");
+    _buildButton->setTitleFontName(fontName);
+    _buildButton->setTitleFontSize(fontSize-4);
+    _buildButton->setAnchorPoint(Vec2(1.0, 0.0));
+    _buildButton->setPosition(Vec2( _buildingRightLayout->getContentSize().width,0));
     //Callback
-    buildButton->addTouchEventListener(_buildButtonPressedCallback);
+    _buildButton->addTouchEventListener(_buildButtonPressedCallback);
     
     Layout* buildButtonLayout = Layout::create();
     buildButtonLayout->setLayoutType(Layout::Type::ABSOLUTE);
-    buildButtonLayout->setContentSize(Size(_buildingRightLayout->getContentSize().width, buildButton->getContentSize().height));
-    buildButtonLayout->addChild(buildButton);
+    buildButtonLayout->setContentSize(Size(_buildingRightLayout->getContentSize().width, _buildButton->getContentSize().height));
+    buildButtonLayout->addChild(_buildButton);
     
     //right layout
     _buildingRightLayout->addChild(_costTitleText);
@@ -413,6 +414,12 @@ void BuildingWindow::setFocus(int index)
     btn->setFocus(true);
     _curBTN = btn;
 
+    _buildButton->setBright(true);
+    _buildButton->setEnabled(true);
+    _gPowerValue->setColor(Color3B::WHITE);
+    _lManaValue->setColor(Color3B::WHITE);
+    _foodValue->setColor(Color3B::WHITE);
+    
     _setValue(btn->getKey());
 }
 
@@ -460,6 +467,46 @@ void BuildingWindow::_setValue(std::string key)
     _atkValue->setString(std::to_string(itr->second.atk));
     
     _defValue->setString(std::to_string(itr->second.def));
+    
+    auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+    auto playerGPower = curPlayer->getGmag();
+    auto playerLMana = curPlayer->getLstr();
+    auto playerFood = curPlayer->getFood();
+    
+    _buildButton->setEnabled(true);
+    
+    if(playerGPower<itr->second.gPower)
+    {
+        _gPowerValue->setColor(Color3B::RED);
+        _buildButton->setEnabled(false);
+        _buildButton->setBright(false);
+    }
+    else
+    {
+        _gPowerValue->setColor(Color3B::WHITE);
+    }
+    
+    if(playerLMana<itr->second.lMana)
+    {
+        _lManaValue->setColor(Color3B::RED);
+        _buildButton->setEnabled(false);
+        _buildButton->setBright(false);
+    }
+    else
+    {
+        _lManaValue->setColor(Color3B::WHITE);
+    }
+    
+    if(playerFood<itr->second.foodCost)
+    {
+        _foodValue->setColor(Color3B::RED);
+        _buildButton->setEnabled(false);
+        _buildButton->setBright(false);
+    }
+    else
+    {
+        _foodValue->setColor(Color3B::WHITE);
+    }
     
     //refresh layout
     _refreshLayout();

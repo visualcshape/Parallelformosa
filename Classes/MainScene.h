@@ -23,6 +23,7 @@
 #include "json.h"
 #include "NetManager.h"
 #include "PlayerManager.h"
+#include "MapWindow.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -61,7 +62,7 @@ public:
 
 	void ItemButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
-	void StatusButtonCallback(Ref* pSender, Widget::TouchEventType type);
+	void MapButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
 	void AlliesButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
@@ -69,6 +70,7 @@ public:
 
 	CREATE_FUNC(MainMenuLayer);
 
+    void queriedMapResultCallback(const CCPomeloRequestResult& result);
 private:
 	MapModel *mm;
 	int ID;

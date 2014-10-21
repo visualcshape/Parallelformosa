@@ -82,7 +82,7 @@ public:
     void setPlayerOwnMapCoord(string coord);
     
     //NET
-    void sendResourceAddNotify();
+    void sendResourceAddNotify(int addedGPower,int addedLMana,int addedFood);
     //
 protected:
 	int getProperTroopOID();

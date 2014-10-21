@@ -31,7 +31,7 @@ using namespace std;
 
 //SQLite DB config
 //DB_REWRITE 1 = rewrite, 0 = no-rewrite
-#define DB_REWRITE 1
+#define DB_REWRITE 0
 //
 
 //other
@@ -52,6 +52,8 @@ using namespace std;
 #define TARGET_DESIGN_RESOLUTION_SIZE DESIGN_RESOLUTION_960X640
 
 #define TEST_TEXT "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+
+static const char* DOWNLOAD_BASE_PATH = "http://220.133.209.239/tmxAndInfo/";
 
 typedef struct tagResource
 {

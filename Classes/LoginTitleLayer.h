@@ -19,6 +19,7 @@
 #include "CCPomeloWrapper.h"
 #include "json.h"
 #include "globalVariable.h"
+#include "OptionWindow.h"
 
 class LoginTitleLayer :public cocos2d::Layer
 {

@@ -11,6 +11,7 @@
 #include "VisibleRect.h"
 #include "AppMacro.h"
 #include "BuildingModel.h"
+#include "SceneManager.h"
 
 Scene* MainScene::createScene(){
     auto scene = Scene::create();
@@ -66,7 +67,7 @@ bool MainMenuLayer::init(){
     bindFunction = CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback, this);
     _itemButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
     CCASSERT(_itemButton!=nullptr, "_itemButton cannot be null");
-    bindFunction = CC_CALLBACK_2(MainMenuLayer::StatusButtonCallback, this);
+    bindFunction = CC_CALLBACK_2(MainMenuLayer::MapButtonCallback, this);
     _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
     CCASSERT(_statusButton!=nullptr, "_statusButton cannot be null");
     bindFunction = CC_CALLBACK_2(MainMenuLayer::AlliesButtonCallback, this);
@@ -135,22 +136,51 @@ void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
 void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
-        BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
+        /*BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
         int ID = p->getCurButton()->getID();
         
         this->removeChildByName("BuildingWindow");
 
 		//@brief later modify
-		MapModel::getModel()->clickToAddBuildingCursor(ID);
+		MapModel::getModel()->clickToAddBuildingCursor(ID);*/
 	}
 }
 
-void MainMenuLayer::StatusButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
+void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender,Widget::TouchEventType type){
+            this->removeChildByName("mw");
+        }, [=](Ref* pSender,Widget::TouchEventType type){
+            TextField* txt = dynamic_cast<TextField*>(((Button*)pSender)->getBindedObject());
+            CC_ASSERT(txt!=nullptr);
+            string mapCoord = txt->getStringValue();
+            const char* route = "parallelSpace.parallelSpaceHandler.queryMapInfo";
+            Json::Value root;
+            Json::FastWriter writer;
+            
+            root["queriedMapCoord"] = mapCoord;
+            
+            CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
+        });
+        CC_ASSERT(mw!=nullptr);
+        this->addChild(mw,10,"mw");
+    }
+}
+
+void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result)
+{
+    Json::Value root;
+    Json::Reader reader;
     
+    if(reader.parse(result.jsonMsg, root))
+    {
+        CCLOG("%s",root.toStyledString().c_str());
+    }
 }
 
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    
+    SceneManager::goMapScreen("0.0.tmx", HUD_ID::DEFENSE);
 }
 
 void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
