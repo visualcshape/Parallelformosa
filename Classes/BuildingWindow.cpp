@@ -24,6 +24,9 @@ BuildingWindow* BuildingWindow::create(std::string titleText,std::function<void(
     if(ret&&ret->init()){
         ret->autorelease();
         ret->setFocus(0);
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_WIN32)
+        ret->retain();
+#endif
         return ret;
     }
     

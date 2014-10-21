@@ -514,11 +514,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -530,11 +530,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -546,11 +546,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -562,11 +562,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -578,11 +578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -594,11 +594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -610,11 +610,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/BuildingWindow.cpp"
-            timestampString = "435592489.796955"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "BuildingWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -642,11 +642,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/UnitWindow.cpp"
-            timestampString = "435590196.365262"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "UnitWindow::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -690,11 +690,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleLayer.cpp"
-            timestampString = "435503180.646055"
+            timestampString = "435610620.608913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "MenuLayer::_startLoading(Json::Value resp)"
             landmarkType = "5">
          </BreakpointContent>
@@ -722,11 +722,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "457"
-            endingLineNumber = "457"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
             landmarkName = "LoadingLayer::_uidQueryCallback(void *para, int columns, char **columnValue, char **columnName)"
             landmarkType = "5">
          </BreakpointContent>
@@ -786,11 +786,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435562846.128515"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -818,11 +818,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435562846.128515"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290">
+            startingLineNumber = "294"
+            endingLineNumber = "294">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -832,11 +832,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435562846.128515"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "LoadingLayer::onHttpRequestComplete(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)"
             landmarkType = "5">
          </BreakpointContent>
@@ -848,11 +848,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435562846.128515"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -864,11 +864,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
             landmarkType = "5">
          </BreakpointContent>
@@ -880,11 +880,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
+            startingLineNumber = "424"
+            endingLineNumber = "424"
             landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
             landmarkType = "5">
          </BreakpointContent>
@@ -896,11 +896,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
             landmarkType = "5">
          </BreakpointContent>
@@ -912,11 +912,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
             landmarkType = "5">
          </BreakpointContent>
@@ -928,11 +928,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1040,11 +1040,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
             landmarkName = "LoadingLayer::_writeUserToDB(Json::Value user)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1056,11 +1056,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
             landmarkName = "LoadingLayer::_writeUserToDB(Json::Value user)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1072,11 +1072,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435574877.971652"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "MainInfoLayer::~MainInfoLayer()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1088,11 +1088,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435574877.971652"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &amp;result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1104,11 +1104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435574877.971652"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "491"
-            endingLineNumber = "491"
+            startingLineNumber = "488"
+            endingLineNumber = "488"
             landmarkName = "MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &amp;result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1168,11 +1168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435562846.128515"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1200,11 +1200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435562846.128515"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1232,11 +1232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435574877.971652"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "MainInfoLayer::produce(float dt)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1280,7 +1280,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoadingScene.cpp"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "344"
@@ -1296,59 +1312,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
-            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
-            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/LoadingScene.cpp"
-            timestampString = "435587318.501954"
+            timestampString = "435608945.898858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "346"
             endingLineNumber = "346"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoadingScene.cpp"
+            timestampString = "435608945.898858"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/LoadingScene.cpp"
+            timestampString = "435608945.898858"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
             landmarkType = "5">
          </BreakpointContent>

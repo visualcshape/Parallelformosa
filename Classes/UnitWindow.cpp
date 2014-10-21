@@ -32,6 +32,9 @@ UnitWindow* UnitWindow::create(string titleText, function<void (cocos2d::Ref *, 
     {
         ret->autorelease();
         ret->_setFocus(0);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        ret->retain();
+#endif
         return ret;
     }
     CC_SAFE_DELETE(ret);

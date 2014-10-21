@@ -24,6 +24,9 @@ OptionWindow* OptionWindow::create(string title, function<void (cocos2d::Ref *, 
     if(ret&&ret->init())
     {
         ret->autorelease();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+        ret->retain();
+#endif
         return ret;
     }
     CC_SAFE_DELETE(ret);

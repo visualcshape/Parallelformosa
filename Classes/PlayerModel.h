@@ -81,6 +81,15 @@ public:
     string getPlayerOwnMapCoord();
     void setPlayerOwnMapCoord(string coord);
     
+    void setPlayerOwnedSwordMan(int value);
+    int getPlayerOwnedSwordMan();
+    void setPlayerOwnedArcher(int value);
+    int getPlayerOwnedArcher();
+    void setPlayerOwnedPriest(int value);
+    int getPlayerOwnedPriest();
+    void setPlayerOwnedMagician(int value);
+    int getPlayerOwnedMagician();
+    
     //NET
     void sendResourceAddNotify(int addedGPower,int addedLMana,int addedFood);
     //
@@ -97,6 +106,11 @@ protected:
     double _lStrGenRate;
     double _gMagGenRate;
     double _foodGenRate;
+    
+    int _playerOwnedSwordMan;
+    int _playerOwnedArcher;
+    int _playerOwnedPriest;
+    int _playerOwnedMagician;
     
     MapModel::Weather _playerOwnMapWeather;
     

@@ -100,6 +100,8 @@
 		F69E937119F44D5700D4F6A1 /* OptionWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */; };
 		F69E937219F44D5700D4F6A1 /* OptionWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */; };
 		F69E937419F66F6A00D4F6A1 /* Database in Resources */ = {isa = PBXBuildFile; fileRef = F69E937319F66F6A00D4F6A1 /* Database */; };
+		F69E937719F6BC2B00D4F6A1 /* NoticeBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */; };
+		F69E937819F6BC2B00D4F6A1 /* NoticeBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */; };
 		F6A6ECB419E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6A6ECD619E31F340020EFBB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */; };
@@ -444,6 +446,8 @@
 		F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OptionWindow.cpp; path = ../Classes/OptionWindow.cpp; sourceTree = "<group>"; };
 		F69E937019F44D5700D4F6A1 /* OptionWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionWindow.h; path = ../Classes/OptionWindow.h; sourceTree = "<group>"; };
 		F69E937319F66F6A00D4F6A1 /* Database */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Database; path = ../Resources/Database; sourceTree = "<group>"; };
+		F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeBox.cpp; path = ../Classes/NoticeBox.cpp; sourceTree = "<group>"; };
+		F69E937619F6BC2A00D4F6A1 /* NoticeBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeBox.h; path = ../Classes/NoticeBox.h; sourceTree = "<group>"; };
 		F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonWithImage.cpp; path = ../Classes/ButtonWithImage.cpp; sourceTree = "<group>"; };
 		F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonWithImage.h; path = ../Classes/ButtonWithImage.h; sourceTree = "<group>"; };
 		F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseLayer.cpp; path = ../Classes/BaseLayer.cpp; sourceTree = "<group>"; };
@@ -761,6 +765,8 @@
 				F69E936819F43A1100D4F6A1 /* MapWindow.h */,
 				F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */,
 				F69E937019F44D5700D4F6A1 /* OptionWindow.h */,
+				F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */,
+				F69E937619F6BC2A00D4F6A1 /* NoticeBox.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1225,6 +1231,7 @@
 				F6C1C65719EF00ED001F9532 /* globalVariable.cpp in Sources */,
 				F6DEBDC619E9284400F58194 /* Effect.cpp in Sources */,
 				F6E7B97C19A3A05A004D6DAF /* DialogueWindowConfirm.cpp in Sources */,
+				F69E937719F6BC2B00D4F6A1 /* NoticeBox.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				F6D4CE24198A857D002FAE49 /* Subject.cpp in Sources */,
 				F6A6ECE219E31F340020EFBB /* MapModel.cpp in Sources */,
@@ -1269,6 +1276,7 @@
 				F6FD118F19EA815F00189826 /* UnitWindow.cpp in Sources */,
 				F6C1C65019EEDEE7001F9532 /* CMDResource.cpp in Sources */,
 				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
+				F69E937819F6BC2B00D4F6A1 /* NoticeBox.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
 				F69E937219F44D5700D4F6A1 /* OptionWindow.cpp in Sources */,
 				F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */,

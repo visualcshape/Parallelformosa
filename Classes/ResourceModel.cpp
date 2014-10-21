@@ -229,9 +229,6 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 		vector <string> paths = DecomposePath(relativePath);
 		for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
 			CreateDownloadedDir(paths.at(k));
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
-		copyData(relativePath);
-#endif
 	}
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
