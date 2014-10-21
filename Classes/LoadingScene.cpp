@@ -37,34 +37,8 @@ Scene* LoadingScene::createScene()
 /////////////////
 LoadingLayer::LoadingLayer(){
 	//Load file list
-	std::ifstream inputStream;
-	std::string curLine;
-	std::string contents;
-	long fSize = 0;
-	std::string fullPath = FileUtils::getInstance()->fullPathForFilename("UI/MainSceneResourceList.txt");
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
-	unsigned char* buf = FileUtils::getInstance()->getFileData(fullPath.c_str(), "r", &fSize);
-	contents.append((char*)buf);
-
-	std::istringstream fileStream(contents);
-
-	while (std::getline(fileStream, curLine)){
-		_fileNames.push_back(curLine);
-	}
-#else
-	inputStream.open(fullPath.c_str());
-	CCASSERT(inputStream.is_open(), "Cannot open file UI/MainSceneResourceList.txt");
-	while (std::getline(inputStream, curLine)){
-		_fileNames.push_back(curLine);
-	}
-#endif
-	//pop useless last index
-	_fileNames.pop_back();
-	inputStream.close();
-	_fileNames.shrink_to_fit();
-	_spriteCount = (int)_fileNames.size();
-	_loadedSprite = 0;
-    //_userJson = nullptr;
+    _spriteCount = 0;
+    _loadedSprite = 0;
 }
 
 LoadingLayer::~LoadingLayer(){
@@ -125,13 +99,17 @@ void LoadingLayer::loadingUICallback(cocos2d::Texture2D *texture){
 
 void LoadingLayer::_startLoadUI(){
 	auto textureCache = Director::getInstance()->getTextureCache();
-
+    
+    _spriteCount=6;
+    _loadedSprite=0;
 	//Load UI
-	std::vector<std::string>::iterator it;
 	_loadingItemText->setString("Loading UI Components...(0%)");
-	for (it = _fileNames.begin(); it != _fileNames.end(); it++){
-		textureCache->addImageAsync(*it, CC_CALLBACK_1(LoadingLayer::loadingUICallback, this));
-	}
+    textureCache->addImageAsync("UI/MainInfo_Background.png", CC_CALLBACK_1(LoadingLayer::loadingUICallback,this));
+    textureCache->addImageAsync("UI/MainInfo_Notice.png", CC_CALLBACK_1(LoadingLayer::loadingUICallback,this));
+    textureCache->addImageAsync("UI/MainUI_Background.png", CC_CALLBACK_1(LoadingLayer::loadingUICallback,this));
+                                textureCache->addImageAsync("UI/MainUI_BTN_Pressed.png", CC_CALLBACK_1(LoadingLayer::loadingUICallback,this));
+    textureCache->addImageAsync("UI/MainUI_BTN_Normal.png", CC_CALLBACK_1(LoadingLayer::loadingUICallback,this));
+    textureCache->addImageAsync("UI/MainInfo_Mask.png", CC_CALLBACK_1(LoadingLayer::loadingUICallback,this));
 
 }
 
@@ -458,7 +436,7 @@ void LoadingLayer::_writeUserToDB(Json::Value user)
     
     char sql[512];
     char* errMsg;
-    sprintf(sql, "UPDATE User SET FirstTimeLogin='%s',GPower='%s',LMana='%s',Food='%s',OwnMapCoord='%s',FoodGenRate='%s',GPowerGenRate='%s',LManaGenRate='%s',FoodLevel='%s',GPowerLevel='%s',LManaLevel='%s',BarrackLevel='%s' WHERE ID='%s'" ,"0",user["GPower"].asString().c_str(),user["LMana"].asString().c_str(),user["Food"].asString().c_str(),user["OwnMapCoord"].asString().c_str(),user["FoodGenRate"].asString().c_str(),user["GPowerGenRate"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["FoodGenLevel"].asString().c_str(),user["GPowerGenLevel"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["BarrackLevel"].asString().c_str(),_uid.c_str());
+    sprintf(sql, "UPDATE User SET FirstTimeLogin='%s',GPower='%s',LMana='%s',Food='%s',OwnMapCoord='%s',FoodGenRate='%s',GPowerGenRate='%s',LManaGenRate='%s',FoodLevel='%s',GPowerLevel='%s',LManaLevel='%s',BarrackLevel='%s',SwordManAmount='%s',ArcherAmount='%s',PriestAmount='%s',MagicianAmount='%s' WHERE ID='%s'" ,"0",user["GPower"].asString().c_str(),user["LMana"].asString().c_str(),user["Food"].asString().c_str(),user["OwnMapCoord"].asString().c_str(),user["FoodGenRate"].asString().c_str(),user["GPowerGenRate"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["FoodGenLevel"].asString().c_str(),user["GPowerGenLevel"].asString().c_str(),user["LManaGenRate"].asString().c_str(),user["BarrackLevel"].asString().c_str(),user["SwordManAmount"].asString().c_str(),user["ArcherAmount"].asString().c_str(),user["PriestAmount"].asString().c_str(),user["MagicianAmount"].asString().c_str(),_uid.c_str());
     
     int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
     CCASSERT(result==SQLITE_OK, errMsg);

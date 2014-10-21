@@ -58,6 +58,8 @@ private:
     
     ButtonWithImage* _curBTN;
     
+    Button* _buildButton;
+    
     static float MARGIN;
     
     static std::string GLLayoutName;

@@ -78,7 +78,6 @@
 		F696BA6019877D4100474833 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5C19877D4100474833 /* fonts */; };
 		F696BA6119877D4100474833 /* Normal in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5D19877D4100474833 /* Normal */; };
 		F696BA6219877D4100474833 /* Normal in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5D19877D4100474833 /* Normal */; };
-		F696BA6319877D4100474833 /* Small in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5E19877D4100474833 /* Small */; };
 		F696BA6419877D4100474833 /* Small in Resources */ = {isa = PBXBuildFile; fileRef = F696BA5E19877D4100474833 /* Small */; };
 		F696BA6719879AC900474833 /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */; };
 		F696BA6819879AC900474833 /* CustomLabelMenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F696BA6619879AC900474833 /* CustomLabelMenuItem.cpp */; };
@@ -96,6 +95,11 @@
 		F69E486D19BF539F009717E7 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E486B19BF539F009717E7 /* jsoncpp.cpp */; };
 		F69E487219C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
 		F69E487319C064C2009717E7 /* NoticeLoading.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E487119C064C2009717E7 /* NoticeLoading.cpp */; };
+		F69E936919F43A1100D4F6A1 /* MapWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E936719F43A1100D4F6A1 /* MapWindow.cpp */; };
+		F69E936A19F43A1100D4F6A1 /* MapWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E936719F43A1100D4F6A1 /* MapWindow.cpp */; };
+		F69E937119F44D5700D4F6A1 /* OptionWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */; };
+		F69E937219F44D5700D4F6A1 /* OptionWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */; };
+		F69E937419F66F6A00D4F6A1 /* Database in Resources */ = {isa = PBXBuildFile; fileRef = F69E937319F66F6A00D4F6A1 /* Database */; };
 		F6A6ECB419E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6A6ECD619E31F340020EFBB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */; };
@@ -193,7 +197,6 @@
 		F6D4CE0E198926D2002FAE49 /* UtilFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE0D198926D2002FAE49 /* UtilFunc.cpp */; };
 		F6D4CE1519893407002FAE49 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1319893407002FAE49 /* libsqlite3.0.dylib */; };
 		F6D4CE1619893407002FAE49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CE1419893407002FAE49 /* libsqlite3.dylib */; };
-		F6D4CE1C198A4D6D002FAE49 /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */; };
 		F6D4CE1D198A4D6D002FAE49 /* database.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F6D4CE1B198A4D6D002FAE49 /* database.sqlite3 */; };
 		F6D4CE20198A8465002FAE49 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */; };
 		F6D4CE21198A8465002FAE49 /* LoginTitleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D4CE1F198A8465002FAE49 /* LoginTitleModel.cpp */; };
@@ -436,6 +439,11 @@
 		F69E486F19BF544A009717E7 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		F69E487019C064B4009717E7 /* NoticeLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeLoading.h; path = ../Classes/NoticeLoading.h; sourceTree = "<group>"; };
 		F69E487119C064C2009717E7 /* NoticeLoading.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeLoading.cpp; path = ../Classes/NoticeLoading.cpp; sourceTree = "<group>"; };
+		F69E936719F43A1100D4F6A1 /* MapWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapWindow.cpp; path = ../Classes/MapWindow.cpp; sourceTree = "<group>"; };
+		F69E936819F43A1100D4F6A1 /* MapWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapWindow.h; path = ../Classes/MapWindow.h; sourceTree = "<group>"; };
+		F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OptionWindow.cpp; path = ../Classes/OptionWindow.cpp; sourceTree = "<group>"; };
+		F69E937019F44D5700D4F6A1 /* OptionWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionWindow.h; path = ../Classes/OptionWindow.h; sourceTree = "<group>"; };
+		F69E937319F66F6A00D4F6A1 /* Database */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Database; path = ../Resources/Database; sourceTree = "<group>"; };
 		F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonWithImage.cpp; path = ../Classes/ButtonWithImage.cpp; sourceTree = "<group>"; };
 		F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonWithImage.h; path = ../Classes/ButtonWithImage.h; sourceTree = "<group>"; };
 		F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseLayer.cpp; path = ../Classes/BaseLayer.cpp; sourceTree = "<group>"; };
@@ -749,6 +757,10 @@
 				F6C1C66019F2AC71001F9532 /* WeatherLayer.h */,
 				F6C1C66319F2B60D001F9532 /* NetManager.cpp */,
 				F6C1C66419F2B60D001F9532 /* NetManager.h */,
+				F69E936719F43A1100D4F6A1 /* MapWindow.cpp */,
+				F69E936819F43A1100D4F6A1 /* MapWindow.h */,
+				F69E936F19F44D5700D4F6A1 /* OptionWindow.cpp */,
+				F69E937019F44D5700D4F6A1 /* OptionWindow.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -783,6 +795,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F69E937319F66F6A00D4F6A1 /* Database */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -1092,6 +1105,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69E937419F66F6A00D4F6A1 /* Database in Resources */,
 				F6A6ED1A19E3210D0020EFBB /* 62x120 in Resources */,
 				F6A6ED1B19E3210D0020EFBB /* 100_80_green.png in Resources */,
 				F6A6ED1C19E3210D0020EFBB /* 100_80_red.png in Resources */,
@@ -1119,8 +1133,6 @@
 				F6A6ED3C19E3210D0020EFBB /* TileMap4.tmx in Resources */,
 				F6A6ED3D19E3210D0020EFBB /* tmw_desert_spacing.png in Resources */,
 				F6A6ED3E19E3210D0020EFBB /* Untitled.tsx in Resources */,
-				F6D4CE1C198A4D6D002FAE49 /* database.sqlite3 in Resources */,
-				F696BA6319877D4100474833 /* Small in Resources */,
 				F696BA6119877D4100474833 /* Normal in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
@@ -1196,6 +1208,7 @@
 				F6B5E34819DB1F2F004F1FA6 /* MainUIInfoModel.cpp in Sources */,
 				F6A6ECDC19E31F340020EFBB /* HUDLayer.cpp in Sources */,
 				F6C1C64F19EEDEE7001F9532 /* CMDResource.cpp in Sources */,
+				F69E936919F43A1100D4F6A1 /* MapWindow.cpp in Sources */,
 				F6FD119219EABD8300189826 /* LayoutFactory.cpp in Sources */,
 				F6B5E33C19D99A69004F1FA6 /* MainScene.cpp in Sources */,
 				F6C1C65319EEDEE7001F9532 /* PlayerManager.cpp in Sources */,
@@ -1220,6 +1233,7 @@
 				F6B5E35C19E08853004F1FA6 /* BuildingModel.cpp in Sources */,
 				F646F54919891025007519A6 /* Database.cpp in Sources */,
 				F6C1C66119F2AC71001F9532 /* WeatherLayer.cpp in Sources */,
+				F69E937119F44D5700D4F6A1 /* OptionWindow.cpp in Sources */,
 				F6C1C62C19EEBD97001F9532 /* ConnectingSign.cpp in Sources */,
 				F6FD118E19EA815F00189826 /* UnitWindow.cpp in Sources */,
 				F6FD118819EA27F100189826 /* UnitTypeModel.cpp in Sources */,
@@ -1233,6 +1247,7 @@
 				F6C1C64619EEDEE7001F9532 /* CMD.cpp in Sources */,
 				F6D4CE25198A857D002FAE49 /* Subject.cpp in Sources */,
 				F6C1C65219EEDEE7001F9532 /* CMDState.cpp in Sources */,
+				F69E936A19F43A1100D4F6A1 /* MapWindow.cpp in Sources */,
 				F6B5E35519E02D66004F1FA6 /* BuildingWindow.cpp in Sources */,
 				F6A6ECDD19E31F340020EFBB /* HUDLayer.cpp in Sources */,
 				F698767719A2640400D89FC9 /* DialogueWindow.cpp in Sources */,
@@ -1255,6 +1270,7 @@
 				F6C1C65019EEDEE7001F9532 /* CMDResource.cpp in Sources */,
 				F69E486A19BF0946009717E7 /* CCPomeloWrapper.cpp in Sources */,
 				F696BA2D1986586A00474833 /* VisibleRect.cpp in Sources */,
+				F69E937219F44D5700D4F6A1 /* OptionWindow.cpp in Sources */,
 				F6DEBDC719E9284400F58194 /* Effect.cpp in Sources */,
 				F6A6ECE519E31F340020EFBB /* PFComponent.cpp in Sources */,
 				F6C1C62D19EEBD97001F9532 /* ConnectingSign.cpp in Sources */,

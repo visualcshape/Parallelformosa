@@ -187,6 +187,9 @@ public:
     void setTitleFontName(const std::string& fontName);
     const std::string& getTitleFontName() const;
     
+    void setBindedObject(Node* obj);
+    Node* getBindedObject();
+    
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
     virtual bool init(const std::string& normalImage,
@@ -247,7 +250,7 @@ protected:
     bool _normalTextureAdaptDirty;
     bool _pressedTextureAdaptDirty;
     bool _disabledTextureAdaptDirty;
-
+    Node* _bindedObject;
 private:
     enum class FontType
     {

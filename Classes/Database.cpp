@@ -62,7 +62,7 @@ void Database::initDatabase()
    if(strcmp("1", firstAccess)==0)
    {
 	   ssize_t size;
-	   const char* data = (char*)FileUtils::getInstance()->getFileData("database.sqlite3", "rb", &size);
+	   const char* data = (char*)FileUtils::getInstance()->getFileData("Database/database.sqlite3", "rb", &size);
        FILE* file = fopen(dbPath.c_str(), "wb");
        CC_ASSERT(file!=nullptr);
        fwrite(data, size, 1, file);
@@ -104,7 +104,7 @@ void Database::initDatabase()
     if(strcmp("1", firstAccess)==0)
     {
         ssize_t size;
-        const char* data = (char*)FileUtils::getInstance()->getFileData("database.sqlite3", "rb", &size);
+        const char* data = (char*)FileUtils::getInstance()->getFileData("Database/database.sqlite3", "rb", &size);
         FILE* file = fopen(path.c_str(), "wb");
         CC_ASSERT(file!=nullptr);
         fwrite(data, size, 1, file);
@@ -203,7 +203,7 @@ void Database::_insertUserID()
     if(strcmp(resultTabel[1], "0")==0)
     {
         //Insert new ID
-        result = sqlite3_exec(_pdb, "insert into User values(0,1,0,0,0,'0.0.0',0,0,0,0,0,0,0)", nullptr, nullptr, nullptr);
+        result = sqlite3_exec(_pdb, "insert into User values(0,1,0,0,0,'0.0.0',0,0,0,0,0,0,0,0,0,0,0)", nullptr, nullptr, nullptr);
         
         CCASSERT(result==SQLITE_OK, "_insertUserID new ID Failed!");
     }

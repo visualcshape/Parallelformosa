@@ -2,6 +2,7 @@
 #include "ResourceModel.h"
 #include "command.h"
 #include "CCPomeloWrapper.h"
+#include "json.h"
 
 USING_NS_CC;
 
@@ -75,16 +76,24 @@ void PlayerModel::produce(float dt){
     }
     
     //POMELO//POMELO//POMELO
-    
+    sendResourceAddNotify(prepareGMag,prepareLStr,prepareFood);
     ////////////////////////
     
 	CMDResource::order(this, prepareLStr, prepareGMag, prepareFood)->execute();
 	//CommandModel::getModel()->AddCommand(CMDResource::order(this, 6, 6, 6));
 }
 
-void PlayerModel::sendResourceAddNotify()
+void PlayerModel::sendResourceAddNotify(int addedGPower,int addedLMana,int addedFood)
 {
+    const char* route = "parallelSpace.parallelSpaceHandler.addResource";
+    Json::Value root;
+    Json::FastWriter writer;
     
+    root["addedGPower"]=addedGPower;
+    root["addedFood"] = addedFood;
+    root["addedLMana"] = addedLMana;
+    
+    CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
 }
 
 bool PlayerModel::canAddTroop(int TID){

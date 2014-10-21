@@ -26,6 +26,7 @@ protected:
     Database();
 private:
     void _insertUserID();
+
     static Database* _instance;
     sqlite3* _pdb;
 };

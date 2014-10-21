@@ -7,6 +7,7 @@
 //
 
 #include "UnitWindow.h"
+#include "PlayerManager.h"
 
 string UnitWindow::_buttonName = "btn";
 int UnitWindow::_buttonZOrder = 10;
@@ -431,6 +432,7 @@ int UnitWindow::getCurrentAmount()
 
 void UnitWindow::_updateValues(string key)
 {
+    auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
     auto itr = UnitTypeModel::getInstance()->getUnitTypeMap()->find(key);
     int multiplier = 0;
     
@@ -488,6 +490,38 @@ void UnitWindow::_updateValues(string key)
         _minusButton->setBright(true);
         _trainButton->setEnabled(true);
         _trainButton->setBright(true);
+        if(curPlayer->getGmag()<itr->second.gPowerCost*multiplier)
+        {
+            _gPowerValue->setColor(Color3B::RED);
+            _trainButton->setEnabled(false);
+            _trainButton->setBright(false);
+        }
+        else
+        {
+            _gPowerValue->setColor(Color3B::WHITE);
+        }
+        
+        if(curPlayer->getLstr()<itr->second.lManaCost*multiplier)
+        {
+            _lManaValue->setColor(Color3B::RED);
+            _trainButton->setEnabled(false);
+            _trainButton->setBright(false);
+        }
+        else
+        {
+            _lManaValue->setColor(Color3B::WHITE);
+        }
+        
+        if(curPlayer->getFood()<itr->second.foodCost*multiplier)
+        {
+            _foodValue->setColor(Color3B::RED);
+            _trainButton->setEnabled(false);
+            _trainButton->setBright(false);
+        }
+        else
+        {
+            _foodValue->setColor(Color3B::WHITE);
+        }
     }
     
     string amt = "";
@@ -521,6 +555,12 @@ void UnitWindow::_setFocus(int index)
     }
     btn->setFocus(true);
     _curButton = btn;
+    
+    _trainButton->setEnabled(true);
+    _trainButton->setBright(true);
+    _gPowerValue->setColor(Color3B::WHITE);
+    _lManaValue->setColor(Color3B::WHITE);
+    _foodValue->setColor(Color3B::WHITE);
     
     _updateValues(_curButton->getKey());
 }
