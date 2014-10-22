@@ -41,6 +41,10 @@ bool BattleOverLayer::init(std::string strLabel){
 
 void BattleOverLayer::battleOverDone(){
 	ResourceModel *rm = ResourceModel::getModel();
-	
-	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+	string mapName = MapModel::getModel()->getMapName();
+	int firstMap, secondMap;
+	sscanf(mapName.c_str(), "%d.%d", &firstMap, &secondMap);
+	char buffer[1000];
+	sprintf(buffer, "%d.%d.tmx", firstMap, secondMap);
+	SceneManager::goMapScreen(string(buffer), HUD_ID::DEFENSE);
 }

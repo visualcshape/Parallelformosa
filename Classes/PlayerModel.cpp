@@ -4,11 +4,20 @@
 #include "CCPomeloWrapper.h"
 #include "json.h"
 #include "BuildingModel.h"
-
+#include <CocosGUI.h>
+#include "MainUIInfoModel.h"
+#include "BuildingWindow.h"
+#include "ButtonWithImage.h"
+#include "UnitWindow.h"
+#include "MapModel.h"
+#include "WeatherLayer.h"
+#include "PlayerManager.h"
+#include "MapWindow.h"
+#include <HttpClient.h>
 USING_NS_CC;
 
 PlayerModel::PlayerModel(){
-	_uid = rand() % 2 + 1;
+	_uid = to_string(rand() % 2 + 1);
 	init();
 }
 
@@ -68,7 +77,6 @@ void PlayerModel::produce(float dt){
 	////////////////////////
 
 	CMDResource::order(this, prepareLStr, prepareGMag, prepareFood)->execute();
-	//CommandModel::getModel()->AddCommand(CMDResource::order(this, 6, 6, 6));
 }
 
 void PlayerModel::sendResourceAddNotify(int addedGPower, int addedLMana, int addedFood)
@@ -134,7 +142,7 @@ void PlayerModel::consumeResourceByTroop(int TID){
 void PlayerModel::changeUID(string uid){
 	writePlayerInfo();
 	_uid = uid;
-	//init();
+	init();
 }
 
 void PlayerModel::gainLstr(int value){
@@ -269,6 +277,16 @@ void PlayerModel::addCMDMoveToTroop(int timing, int oid, int dir, int hofs){
 }
 
 void PlayerModel::readPlayerInfo(bool backup){
+	const char* route = "parallelSpace.parallelSpaceHandler.queryUserByUID";
+	auto instance = CCPomeloWrapper::getInstance();
+
+	Json::Value msg;
+	Json::FastWriter writer;
+
+	msg["uid"] = _uid;
+
+	instance->request(route, writer.write(msg), CC_CALLBACK_1(PlayerModel::PlayerModelCallBack, this));
+	/*
     sqlite3* pDB = Database::getInstance()->getDatabasePointer();
     char* pzErrMsg;
     string sql = "SELECT * FROM User ORDER BY ROWID ASC LIMIT 1";
@@ -280,13 +298,12 @@ void PlayerModel::readPlayerInfo(bool backup){
     _uid = pass["UID"];
     _gMag = atoi(pass["GPower"].c_str());
     _lStr= atoi(pass["LMana"].c_str());
-    _food = atoi(pass["Food"].c_str());
-    /*
+    _food = atoi(pass["Food"].c_str());*/
+		/*
     //Deprecated...
 	ResourceModel *rm = ResourceModel::getModel();
 	char buffer[1000];
-	sprintf(buffer, "%d", _uid);
-	string playerName = "player" + string(buffer);
+	string playerName = "player" + _uid;
 	string filename = playerName + ".info";
 	if (backup)
 		filename += ".backup";
@@ -298,7 +315,7 @@ void PlayerModel::readPlayerInfo(bool backup){
 
 	fscanf(fp, "%d %d %d", &_lStr, &_gMag, &_food);
 	fscanf(fp, "%s", buffer);
-	CCLOG("player %d info: %d %d %d => %s", _uid, _lStr, _gMag, _food, buffer);
+	CCLOG("player %s info: %d %d %d => %s", _uid.c_str(), _lStr, _gMag, _food, buffer);
 	
 	int year, month, day, hour, min, sec;
 	sscanf(buffer, "%d-%d-%d_%d:%d:%d", &year, &month, &day, &hour, &min, &sec);
@@ -332,39 +349,62 @@ void PlayerModel::readPlayerInfo(bool backup){
 
 	fclose(fp);*/
 }
+//callback
+
+void PlayerModel::PlayerModelCallBack(const CCPomeloRequestResult& result){
+	Json::Value root;
+	Json::Reader reader;
+	if (reader.parse(result.jsonMsg, root))
+	{
+		auto user = root["user"];
+
+		_gMag = atoi(user["GPower"].asString().c_str());
+		_lStr = atoi(user["LMana"].asString().c_str());
+		_food = atoi(user["Food"].asString().c_str());
+		_playerOwnMapCoord = user["OwnMapCoord"].asString();
+		_foodGenRate = atof(user["FoodGenRate"].asString().c_str());
+		_gMagGenRate = atof(user["GPowerGenRate"].asString().c_str());
+		_lStrGenRate = atof(user["LManaGenRate"].asString().c_str());
+		_playerOwnedSwordMan = user["SwordManAmount"].asInt();
+		_playerOwnedArcher = user["ArcherAmount"].asInt();
+		_playerOwnedPriest = user["PriestAmount"].asInt();
+		_playerOwnedMagician = user["Magician"].asInt();
+		CCLOG("%d %d %d", _gMag, _lStr, _food);
+	}
+}
 
 int PlayerModel::UserQueryCB(void *para, int columns, char **columnValue, char **columnName)
 {
-    map<string,string>* pass = static_cast<map<string,string>*>(para);
-    
-    for(int i = 0 ; i < columns ; i++)
-    {
-        string columnNameStr = columnName[i];
-        string columnValueStr = columnValue[i];
-        
-        if(columnNameStr=="GPower")
-        {
-            (*pass)["GPower"] = columnValueStr;
-        }
-        else if(columnNameStr == "LMana")
-        {
-            (*pass)["LMana"] = columnValueStr;
-        }
-        else if (columnNameStr=="Food")
-        {
-            (*pass)["Food"]=columnValueStr;
-        }
-        else if(columnNameStr=="ID")
-        {
-            (*pass)["UID"] = columnValueStr;
-        }
-        else
-        {
-            continue;
-        }
-    }
-    
-    return SQLITE_OK;
+	map<string, string>* pass = static_cast<map<string, string>*>(para);
+
+	for (int i = 0; i < columns; i++)
+	{
+		string columnNameStr = columnName[i];
+		string columnValueStr = columnValue[i];
+
+		if (columnNameStr == "GPower")
+		{
+			(*pass)["GPower"] = columnValueStr;
+		}
+		else if (columnNameStr == "LMana")
+		{
+			(*pass)["LMana"] = columnValueStr;
+		}
+		else if (columnNameStr == "Food")
+		{
+			(*pass)["Food"] = columnValueStr;
+		}
+		else if (columnNameStr == "ID")
+		{
+			(*pass)["UID"] = columnValueStr;
+		}
+		else
+		{
+			continue;
+		}
+	}
+
+	return SQLITE_OK;
 }
 
 void PlayerModel::writePlayerInfo(bool backup){
@@ -377,36 +417,35 @@ void PlayerModel::writePlayerInfo(bool backup){
 	int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
 
 	CC_ASSERT(result == SQLITE_OK);
-	/*
-	ResourceModel *rm = ResourceModel::getModel();
-	char buffer[1000];
-	sprintf(buffer, "%d", _uid);
-	string playerName = "player" + string(buffer);
-	string filename = playerName + ".info";
 
-	if (backup)
-		filename += ".backup";
+	/*ResourceModel *rm = ResourceModel::getModel();
+char buffer[1000];
+string playerName = "player" + _uid;
+string filename = playerName + ".info";
 
-	FILE *fp = rm->OpenFileW(filename);
-	CCASSERT(fp != nullptr, "read map info fail");
+if (backup)
+filename += ".backup";
 
-	//@brief save resoures
-	fprintf(fp, "%d %d %d\n", _lStr, _gMag, _food);
+FILE *fp = rm->OpenFileW(filename);
+CCASSERT(fp != nullptr, "read map info fail");
 
-	//@brief save logout time
-	fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
+//@brief save resoures
+fprintf(fp, "%d %d %d\n", _lStr, _gMag, _food);
 
-	//@brief save troops info
-	for (auto &troop : _troops){
-		fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
-	}
+//@brief save logout time
+fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
 
-	//@brief save buildings info
-	for (auto &building : _buildings){
-		fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
-	}
+//@brief save troops info
+for (auto &troop : _troops){
+fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
+}
 
-	fclose(fp);*/
+//@brief save buildings info
+for (auto &building : _buildings){
+fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
+}
+
+fclose(fp); */
 }
 
 int PlayerModel::getLstr()

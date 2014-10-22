@@ -7,6 +7,8 @@
 #include <map>
 #include "Subject.h"
 #include "MapModel.h"
+#include "json.h"
+#include "CCPomeloWrapper.h"
 
 using namespace std;
 USING_NS_CC;
@@ -32,6 +34,7 @@ public:
 	void writePlayerInfo(bool backup = false);
 
 	void produce(float dt);
+	void PlayerModelCallBack(const CCPomeloRequestResult& result);
 
 	//@resource
 	void gainLstr(int value);

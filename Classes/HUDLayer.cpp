@@ -93,6 +93,11 @@ bool HUDLayer::init(HUD_ID status){
 	addChild(lblPlayerPos, -1);
 	mm->setlblPlayerPos(lblPlayerPos);
 
+	Label* lblResourcePos = Label::createWithTTF(config, "str = ??,\nmag = ??,\n food = ??,", TextHAlignment::LEFT);
+	lblResourcePos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 800, VisibleRect::getVisibleRect().size.height - 60));
+	addChild(lblResourcePos, -1);
+	mm->setlblResourcePos(lblResourcePos);
+
 	Label* lblCountdownPos = Label::createWithTTF(config, "time remain: ??", TextHAlignment::LEFT);
 	lblCountdownPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 500, VisibleRect::getVisibleRect().size.height - 60));
 	addChild(lblCountdownPos, -1);

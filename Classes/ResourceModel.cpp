@@ -251,6 +251,7 @@ FILE* ResourceModel::OpenFileW(string relativePath){
 //#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	relativePath = NoFolderPath(relativePath);
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
+	CCLOG("============== %s ===================", strPath.c_str());
 	FILE* fp = fopen(strPath.c_str(), "w");
 /*#else
 	vector <string> paths = DecomposePath(relativePath);

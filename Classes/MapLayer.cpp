@@ -83,6 +83,7 @@ bool MapLayer::init(std::string& mapName){
 
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(MapLayer::refresh), mm->REFRESH_RATE);
+	this->schedule(schedule_selector(MapLayer::produce), mm->PRODUCE_RATE);
 	this->schedule(schedule_selector(MapLayer::ccdebug), 5.0f);
 
 	return true;
@@ -106,8 +107,9 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 		CMDFileStream::getInstance()->execute();
 	}
 
-	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID("1413977890666");
+	if (keyCode == EventKeyboard::KeyCode::KEY_C){
+		PlayerManager::getInstance()->getCurPlayer()->init();
+	}
 
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
 		PlayerManager::getInstance()->getCurPlayer()->changeUID("1413977939022");
@@ -137,6 +139,11 @@ void MapLayer::refresh(float dt){
 
 void MapLayer::ccdebug(float dt){
 	mm->ccdebug(dt);
+}
+
+void MapLayer::produce(float dt){
+	PlayerManager::getInstance()->getCurPlayer()->produce(dt);
+	CCLOG("%d\n", PlayerManager::getInstance()->getCurPlayer()->getLstr());
 }
 
 void MapLayer::attack(float dt){
