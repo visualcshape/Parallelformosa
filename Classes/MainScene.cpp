@@ -150,25 +150,30 @@ void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type
 }
 
 void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    if(type==Widget::TouchEventType::ENDED)
-    {
-        MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender,Widget::TouchEventType type){
-            this->removeChildByName("mw");
-        }, [=](Ref* pSender,Widget::TouchEventType type){
-            TextField* txt = dynamic_cast<TextField*>(((Button*)pSender)->getBindedObject());
-            CC_ASSERT(txt!=nullptr);
-            string mapCoord = txt->getStringValue();
-            const char* route = "parallelSpace.parallelSpaceHandler.queryMapInfo";
-            Json::Value root;
-            Json::FastWriter writer;
-            
-            root["queriedMapCoord"] = mapCoord;
-            
-            CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
-        });
-        CC_ASSERT(mw!=nullptr);
-        this->addChild(mw,10,"mw");
-    }
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender, Widget::TouchEventType type){
+			this->removeChildByName("mw");
+		}, [=](Ref* pSender, Widget::TouchEventType type){
+
+			if (type == Widget::TouchEventType::ENDED){
+				TextField* txt = dynamic_cast<TextField*>(((Button*)pSender)->getBindedObject());
+				CC_ASSERT(txt != nullptr);
+				string mapCoord = txt->getStringValue();
+				const char* route = "parallelSpace.parallelSpaceHandler.queryMapInfo";
+				Json::Value root;
+				Json::FastWriter writer;
+
+				root["queriedMapCoord"] = mapCoord;
+
+
+				CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
+				txt->setText("");
+			}
+		});
+		CC_ASSERT(mw != nullptr);
+		this->addChild(mw, 10, "mw");
+	}
 }
 
 void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result)
@@ -177,13 +182,26 @@ void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result
     Json::Reader reader;
     
     if(reader.parse(result.jsonMsg, root))
-    {
-        CCLOG("%s",root.toStyledString().c_str());
+	{
+		CCLOG("%s", root.toStyledString().c_str());
+		if (root["mapExist"].asBool() == true){
+			string downloadPath = root["downloadPath"].asString();
+			int len = SZ(downloadPath);
+			string goMapStr = downloadPath.substr(len - 8, 3) + ".tmx";
+			CCLOG(">>>>> goMapStr = %s\n", goMapStr.c_str());
+			SceneManager::goMapScreen(goMapStr, HUD_ID::DEFENSE);
+		}
     }
 }
 
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    SceneManager::goMapScreen("0.0.tmx", HUD_ID::DEFENSE);
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		char buffer[1000];
+		sprintf(buffer, "0.%d.tmx", rand() % 14);
+
+		SceneManager::goMapScreen(buffer, HUD_ID::DEFENSE);
+	}
 }
 
 void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){

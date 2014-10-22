@@ -34,19 +34,6 @@ void PlayerModel::init(){
 	readPlayerInfo();
 }
 
-PlayerModel* PlayerModel::initWithPlayer(PlayerModel* rhs){
-	PlayerModel* lhs = new PlayerModel();
-	lhs->coord = rhs->coord;
-	lhs->height = rhs->height;
-	lhs->setBuildings(rhs->getBuildings());
-	lhs->setFood(rhs->getFood());
-	lhs->setGmag(rhs->getGmag());
-	lhs->setLstr(rhs->getLstr());
-	lhs->setTroops(rhs->getTroops());
-	lhs->setUID(rhs->getUID());
-	return lhs;
-}
-
 void PlayerModel::produce(float dt){
 	//base produce speed
 	//prepara

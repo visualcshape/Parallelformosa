@@ -19,7 +19,6 @@ public:
 	~PlayerModel();
 
 	void init();
-	static PlayerModel* initWithPlayer(PlayerModel* rhs);
 
 	bool canAddBuilding(int BID);
 	bool canAddTroop(int TID);
