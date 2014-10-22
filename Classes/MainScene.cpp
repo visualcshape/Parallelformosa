@@ -108,9 +108,6 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 			if (type == Widget::TouchEventType::ENDED)
 				thisLayer->removeChildByName(windowName);
 		}, CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback,this));
-#if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-		p->retain();
-#endif
 		ID = p->getCurButton()->getID();
 		addChild(p, 100, windowName);
 	}

@@ -284,6 +284,10 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         playerInit->setFoodGenRate(atof(user["FoodGenRate"].asString().c_str()));
         playerInit->setGMagGenRate(atof(user["GPowerGenRate"].asString().c_str()));
         playerInit->setLStrGenRate(atof(user["LManaGenRate"].asString().c_str()));
+        playerInit->setPlayerOwnedSwordMan(user["SwordManAmount"].asInt());
+        playerInit->setPlayerOwnedArcher(user["ArcherAmount"].asInt());
+        playerInit->setPlayerOwnedPriest(user["PriestAmount"].asInt());
+        playerInit->setPlayerOwnedPriest(user["Magician"].asInt());
         
         //Sync to SQLite3
         _writeUserToDB(user);

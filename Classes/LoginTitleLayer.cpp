@@ -17,6 +17,7 @@
 #include "ResourceModel.h"
 #include "SceneManager.h"
 #include "PlayerManager.h"
+#include "NoticeBox.h"
 //
 
 using namespace cocos2d;
@@ -137,7 +138,7 @@ MenuLayer::MenuLayer()
 
 void MenuLayer::aboutClickCallback(cocos2d::Ref *pSender)
 {
-
+    MessageBox("NTUT CSIE\n 100590450 李政懋 \n 100590451 孫季加", "About");
 }
 
 void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)

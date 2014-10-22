@@ -470,3 +470,43 @@ void PlayerModel::setPlayerOwnMapCoord(string coord)
 {
     _playerOwnMapCoord = coord;
 }
+
+void PlayerModel::setPlayerOwnedSwordMan(int value)
+{
+    _playerOwnedSwordMan = value;
+}
+
+int PlayerModel::getPlayerOwnedSwordMan()
+{
+    return _playerOwnedSwordMan;
+}
+
+void PlayerModel::setPlayerOwnedArcher(int value)
+{
+    _playerOwnedArcher = value;
+}
+
+int PlayerModel::getPlayerOwnedArcher()
+{
+    return _playerOwnedArcher;
+}
+
+void PlayerModel::setPlayerOwnedPriest(int value)
+{
+    _playerOwnedPriest = value;
+}
+
+int PlayerModel::getPlayerOwnedPriest()
+{
+    return _playerOwnedPriest;
+}
+
+void PlayerModel::setPlayerOwnedMagician(int value)
+{
+    _playerOwnedMagician = value;
+}
+
+int PlayerModel::getPlayerOwnedMagician()
+{
+    return _playerOwnedMagician;
+}
