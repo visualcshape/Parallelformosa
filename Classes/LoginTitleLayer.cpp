@@ -81,7 +81,37 @@ bool LoginTitleLayer::init()
 
 BackgroundLayer::BackgroundLayer()
 {
+    Size visibleSize = VisibleRect::getVisibleRect().size;
+    
+    m_title = Sprite::create("LoginTitle/title.png");
+    CC_ASSERT(m_title!=nullptr);
+    m_title->setPosition(Vec2(visibleSize.width/2, visibleSize.height/10*8));
+    
+    _background = Sprite::create("LoginTitle/background.png");
+    CC_ASSERT(_background!=nullptr);
+    _background->setScale(2.0);
+    _background->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2));
+    
+    backgroundAction();
+    
+    addChild(_background,0);
+    addChild(m_title,1);
+}
 
+void BackgroundLayer::backgroundAction()
+{
+    Size visibleSize = VisibleRect::getVisibleRect().size;
+    
+    auto actUp = MoveTo::create(5.0f, Vec2(_background->getPosition().x, visibleSize.height/2+200));
+    auto actDown = MoveTo::create(5.0f, Vec2(_background->getPosition().x, visibleSize.height/2-200));
+    auto actLeft = MoveTo::create(5.0f, Vec2(visibleSize.width/2-150, _background->getPosition().y));
+    auto actRight = MoveTo::create(5.0f, Vec2(visibleSize.width/2+150, _background->getPosition().y));
+    auto fadeOut = FadeOut::create(1.2f);
+    auto fadeIn = FadeIn::create(0.8f);
+    auto reset = MoveTo::create(0.0f,Vec2(visibleSize.width/2,visibleSize.height/2));
+    CallFunc* func = CallFunc::create(CC_CALLBACK_0(BackgroundLayer::backgroundAction,this));
+    Sequence* seq = Sequence::create(actUp,fadeOut,reset,fadeIn,actLeft,fadeOut,reset,fadeIn,actRight,fadeOut,reset,fadeIn,actDown,fadeOut,func, NULL);
+    _background->runAction(seq);
 }
 
 /////////////

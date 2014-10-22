@@ -1,7 +1,6 @@
 #include "PlayerModel.h"
 #include "ResourceModel.h"
 #include "command.h"
-#include "CCPomeloWrapper.h"
 #include "json.h"
 #include "BuildingModel.h"
 

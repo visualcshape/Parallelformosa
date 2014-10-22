@@ -8,11 +8,8 @@
 
 #include "MainUIButtonFactory.h"
 
-Button* MainUIButtonFactory::create(Vec2 position, Widget::ccWidgetTouchCallback callback){
-    Button* ret = Button::create("UI/MainUI_BTN_Normal.png","UI/MainUI_BTN_Pressed.png");
-#if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-	ret->retain();
-#endif
+Button* MainUIButtonFactory::create(Vec2 position, Widget::ccWidgetTouchCallback callback,string normal,string pressed){
+    Button* ret = Button::create(normal,pressed);
     LinearLayoutParameter* lp = LinearLayoutParameter::create();
     lp->setGravity(LinearLayoutParameter::LinearGravity::BOTTOM);
     lp->setMargin(Margin(0, 0, 0, 0));

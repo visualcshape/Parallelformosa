@@ -14,12 +14,13 @@
 
 USING_NS_CC;
 using namespace cocos2d::ui;
+using namespace std;
 
 class MainUIButtonFactory{
 private:
 protected:
 public:
-    static Button* create(Vec2 position,std::function<void(Ref*,Widget::TouchEventType)>);
+    static Button* create(Vec2 position,std::function<void(Ref*,Widget::TouchEventType)> callback,string normal,string pressed);
 };
 
 #endif /* defined(__Parallelformosa_Cocos2dx__MainUIButtonFactory__) */

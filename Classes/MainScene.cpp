@@ -63,35 +63,27 @@ bool MainMenuLayer::init(){
     //Button
     std::function<void(Ref*,Widget::TouchEventType)> bindFunction;
     bindFunction = CC_CALLBACK_2(MainMenuLayer::BuildingButtonCallback, this);
-    _buildingButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2,layoutSize.height/2), bindFunction);
+    _buildingButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2,layoutSize.height/2), bindFunction,"UI/buildingNormal.png","UI/buildingPressed.png");
     CCASSERT(_buildingButton!=nullptr, "_buildingButton cannot be null");
 
     bindFunction = CC_CALLBACK_2(MainMenuLayer::UnitButtonCallback, this);
-    _unitButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
+    _unitButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction,"UI/unitNormal.png","UI/unitPressed.png");
     CCASSERT(_unitButton!=nullptr, "_unitButton cannot be null");
 
-    bindFunction = CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback, this);
-    _itemButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
-    CCASSERT(_itemButton!=nullptr, "_itemButton cannot be null");
-
     bindFunction = CC_CALLBACK_2(MainMenuLayer::MapButtonCallback, this);
-    _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
+    _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction,"UI/mapNormal.png","UI/mapPressed.png");
     CCASSERT(_statusButton!=nullptr, "_statusButton cannot be null");
-
-    bindFunction = CC_CALLBACK_2(MainMenuLayer::AlliesButtonCallback, this);
-    _alliesButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
-    CCASSERT(_alliesButton!=nullptr, "_alliesButton cannot be null");
     
     //Option
     bindFunction = CC_CALLBACK_2(MainMenuLayer::OptionButtonCallback, this);
-    _optionButton = MainUIButtonFactory::create(Vec2(VisibleRect::getVisibleRect().size.width, 0), bindFunction);
+    _optionButton = MainUIButtonFactory::create(Vec2(VisibleRect::getVisibleRect().size.width, 0), bindFunction,"UI/optionNormal.png","UI/optionPressed.png");
     CCASSERT(_optionButton!=nullptr,"_optionButton cannot be null");
     _optionButton->setAnchorPoint(Vec2(1.0,0.0));
     this->addChild(_optionButton);
     //
     
-    Button* mainButtonArray[] = {_buildingButton,_unitButton,_itemButton,_statusButton,_alliesButton};
-    for(int i = 0 ; i < 5 ; i++){
+    Button* mainButtonArray[] = {_buildingButton,_unitButton,_statusButton};
+    for(int i = 0 ; i < 3 ; i++){
         _mainLayout->addChild(mainButtonArray[i]);
     }
     
@@ -282,7 +274,7 @@ void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result
             
             auto act = FadeOut::create(1.5f);
             CallFunc* cf = CallFunc::create(CC_CALLBACK_0(MainMenuLayer::whenNBFadeOut, this));
-            auto seq = Sequence::create(act,DelayTime::create(1.5f),cf, NULL);
+            auto seq = Sequence::create(act,cf, NULL);
             nb->runAction(seq);
         }
     }
@@ -336,7 +328,15 @@ void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEve
     
     if(type == Widget::TouchEventType::ENDED)
     {
-        OptionWindow* ow = OptionWindow::create("Options", [=](Ref* pSender,Widget::TouchEventType type){}, nullptr);
+        OptionWindow* ow = OptionWindow::create("Options", [=](Ref* pSender,Widget::TouchEventType type){
+            if(type==Widget::TouchEventType::ENDED)
+            {
+                this->removeChildByName("ow");
+            }
+        }, nullptr);
+        
+        addChild(ow,100,"ow");
+        
     }
 }
 ///////////////////

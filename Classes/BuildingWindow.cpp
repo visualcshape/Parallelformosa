@@ -27,6 +27,7 @@ BuildingWindow* BuildingWindow::create(std::string titleText,std::function<void(
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_WIN32)
         ret->retain();
 #endif
+        ret->retain();
         return ret;
     }
     
@@ -40,7 +41,7 @@ BuildingWindow::BuildingWindow(std::string titleText,std::function<void(Ref*,Wid
 }
 
 BuildingWindow::~BuildingWindow(){
-    
+    this->release();
 }
 
 bool BuildingWindow::init(){

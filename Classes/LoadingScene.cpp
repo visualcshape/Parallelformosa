@@ -16,6 +16,7 @@
 #include "UnitTypeModel.h"
 #include "ResourceModel.h"
 #include "SceneManager.h"
+#include "NoticeBox.h"
 
 Scene* LoadingScene::createScene()
 {
@@ -71,7 +72,10 @@ bool LoadingLayer::init(){
 	_loadingBar = LoadingBar::create("UI/LoadingBar.png");
 	CCASSERT(_loadingBar != nullptr, "\"LoadingBar\" cannot be null.");
 	_loadingBar->setPosition(Vec2(VisibleRect::getVisibleRect().size.width / 2, _loadingItemText->getContentSize().height + _loadingBar->getContentSize().height + 10));
-
+    
+    NoticeBox* nb = NoticeBox::create("Notice", "Loading...\nPlease wait...");
+    
+    this->addChild(nb,2);
 	this->addChild(_loadingItemText, 0);
 	this->addChild(_loadingBar, 1);
 

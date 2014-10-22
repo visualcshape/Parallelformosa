@@ -7,6 +7,7 @@
 #include <map>
 #include "Subject.h"
 #include "MapModel.h"
+#include "CCPomeloWrapper.h"
 
 using namespace std;
 USING_NS_CC;

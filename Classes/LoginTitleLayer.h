@@ -37,10 +37,13 @@ class BackgroundLayer :public cocos2d::Layer
 {
 private:
 	cocos2d::Sprite* m_title;
+    cocos2d::Sprite* _background;
 public:
 	BackgroundLayer();
 
 	CREATE_FUNC(BackgroundLayer);
+    
+    void backgroundAction();
 };
 
 class MenuLayer :public cocos2d::Layer
