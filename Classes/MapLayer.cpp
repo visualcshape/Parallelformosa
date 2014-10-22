@@ -41,6 +41,7 @@ MapLayer* MapLayer::create(std::string& mapName){
 
 bool MapLayer::init(std::string& mapName){
 	if (!BaseLayer::init()) return false;
+
 	mm->init(mapName);
 	mm->setMapBasePosition(getPosition());
 	mm->setMapContent(getContentSize());

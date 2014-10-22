@@ -42,6 +42,9 @@ void MapModel::init(std::string mapName){
 	_prevCursurOutside = false;
 	_status = HUD_ID::DEFENSE;
     _changedData = ChangedData::NONE;
+	PlayerManager::getInstance()->getAtkPlayer()->init();
+	PlayerManager::getInstance()->getDefPlayer()->init();
+	PlayerManager::getInstance()->getCurPlayer()->init();
 }
 
 void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
@@ -583,6 +586,15 @@ uint32_t MapModel::getTileGIDAt(MapPoint mpt, int z){
 
 //@debug later online
 void MapModel::writeMapInfo(bool backup){
+	
+	//const char* route = "parallelSpace.parallelSpaceHandler.notifyRefreshPlayer";
+	//Json::Value root;
+	//Json::FastWriter writer;
+
+	//root["uid"] = PlayerManager::getInstance()->getCurPlayer()->getUID();
+
+	//CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
+
 	ResourceModel *rm = ResourceModel::getModel();
 	string filename = mapName + ".info";
 

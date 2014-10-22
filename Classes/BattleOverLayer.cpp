@@ -41,5 +41,6 @@ bool BattleOverLayer::init(std::string strLabel){
 
 void BattleOverLayer::battleOverDone(){
 	ResourceModel *rm = ResourceModel::getModel();
+	
 	SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 }

@@ -22,13 +22,13 @@ PlayerModel::~PlayerModel(){
 }
 
 void PlayerModel::init(){
-	height = -1;
+	//height = -1;
 	_buildings.clear();
 	usedTroopOID.reset();
 	usedBuildingOID.reset();
 	_troops.clear();
-	_lStr = _gMag = 3000;
-	_food = 30;
+	//_lStr = _gMag = 3000;
+	//_food = 30;
     //_lStrGenRate = _gMagGenRate = _foodGenRate = 10.0f;
     _playerOwnMapWeather = MapModel::Weather::NONEWEATHER;
 	readPlayerInfo();
@@ -287,7 +287,7 @@ void PlayerModel::readPlayerInfo(bool backup){
 	char buffer[1000];
 	sprintf(buffer, "%d", _uid);
 	string playerName = "player" + string(buffer);
-	string filename = "PlayerInfo/" + playerName + ".info";
+	string filename = playerName + ".info";
 	if (backup)
 		filename += ".backup";
 	//@brief new acccount
@@ -382,10 +382,10 @@ void PlayerModel::writePlayerInfo(bool backup){
 	char buffer[1000];
 	sprintf(buffer, "%d", _uid);
 	string playerName = "player" + string(buffer);
-	string filename = "PlayerInfo/" + playerName + ".info";
+	string filename = playerName + ".info";
 
 	if (backup)
-	filename += ".backup";
+		filename += ".backup";
 
 	FILE *fp = rm->OpenFileW(filename);
 	CCASSERT(fp != nullptr, "read map info fail");
@@ -398,12 +398,12 @@ void PlayerModel::writePlayerInfo(bool backup){
 
 	//@brief save troops info
 	for (auto &troop : _troops){
-	fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
+		fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
 	}
 
 	//@brief save buildings info
 	for (auto &building : _buildings){
-	fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
+		fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
 	}
 
 	fclose(fp);*/
