@@ -661,7 +661,7 @@ void MapModel::writeMapInfo(bool backup){
 void MapModel::readMapInfo(bool backup){
 	ResourceModel *rm = ResourceModel::getModel();
     size_t pos = mapName.find(".tmx");
-    mapName.replace(pos, pos+3, "");
+	mapName.replace(pos, pos + 4, "");
 	string filename = mapName + ".info";
 
 	if (backup)

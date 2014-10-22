@@ -156,7 +156,7 @@ void LoadingLayer::_startLoadMISC(){
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 
-	ResourceModel::getModel()->LoadTilemaps();
+/*	ResourceModel::getModel()->LoadTilemaps();
 	++_loadedSprite;
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
@@ -166,7 +166,7 @@ void LoadingLayer::_startLoadMISC(){
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 	ResourceModel::getModel()->LoadMISC();
-	++_loadedSprite;
+	++_loadedSprite;*/
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 
@@ -339,9 +339,10 @@ void LoadingLayer::_copyTMXandInfoToWriteablePath()
     vector<string> fileNamePathArray;
     vector<string> fileNameArray;
     
-    char sub[512];
+    char sub[1000];
     string p = FileUtils::getInstance()->fullPathForFilename("Tilemap/stub");
     strncpy(sub, p.c_str(), p.length()-4);
+	sub[p.length() - 4] = '\0';
     p = sub;
     
     DIR* dir;

@@ -19,8 +19,8 @@ public:
 	void LoadBuildings();
 	void LoadTroops();
 	void LoadTerrains();
-	void LoadTilemaps();
-	void LoadPlayers();
+	//void LoadTilemaps();
+	//void LoadPlayers();
 	void LoadMISC();
 
 	string getSystemTimeString();

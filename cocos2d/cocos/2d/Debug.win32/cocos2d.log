@@ -1,10 +1,4 @@
-﻿  CCSAXParser.cpp
-  CCTMXXMLParser.cpp
-..\platform\CCSAXParser.cpp : warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
-CCTMXXMLParser.cpp : warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
-D:\Git\Parallelformosa_G+\cocos2d\cocos\platform/CCSAXParser.h : warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss (..\platform\CCSAXParser.cpp)
-D:\Git\Parallelformosa_G+\cocos2d\cocos\platform/CCSAXParser.h : warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss (CCTMXXMLParser.cpp)
-  1 File(s) copied
+﻿  1 File(s) copied
   1 File(s) copied
   2 File(s) copied
   1 File(s) copied

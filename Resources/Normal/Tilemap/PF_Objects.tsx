@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="PF_Objects" tilewidth="62" tileheight="117" spacing="2" margin="2">
+<tileset name="PF_Objects" tilewidth="101" tileheight="171" spacing="2" margin="2">
  <image source="PF_Objects.png" width="600" height="800"/>
  <tile id="0">
   <properties>

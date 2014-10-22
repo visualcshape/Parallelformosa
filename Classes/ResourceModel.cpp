@@ -101,7 +101,7 @@ void ResourceModel::LoadTerrains(){
 		GIDTerrain[i] = i;
 	}
 }
-
+/*
 void ResourceModel::LoadTilemaps(){
 	//@var load map
 	strWorldMap = std::string("PFMAP/pfmap_world.tmx");
@@ -116,7 +116,6 @@ void ResourceModel::LoadTilemaps(){
 		strTileMap[i] = str;
 	}
 }
-
 void ResourceModel::LoadPlayers(){
 	//@var load map
 	for (int i = 1; i <= PALYER_SIZE; i++){
@@ -128,7 +127,7 @@ void ResourceModel::LoadPlayers(){
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Player Map Resource Loading Fail!!");
 		strPlayerMap[i] = str;
 	}
-}
+}*/
 
 void ResourceModel::LoadMISC(){
 	//@var load range pic
@@ -229,25 +228,19 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 		vector <string> paths = DecomposePath(relativePath);
 		for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
 			CreateDownloadedDir(paths.at(k));
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
-		copyData(relativePath);
-#endif
 	}
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
 	FILE* fp = fopen(strPath.c_str(), "r");
-#else
-	std::string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
-	FILE *fp = fopen(fullPath.c_str(), "r");
+//	std::string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
+//	FILE *fp = fopen(fullPath.c_str(), "r");
 
 	//@brief create empty file
 	if (fp == nullptr){
-		fp = fopen(fullPath.c_str(), "w");
+		fp = fopen(strPath.c_str(), "w");
 		fclose(fp);
-		fp = fopen(fullPath.c_str(), "r");
+		fp = fopen(strPath.c_str(), "r");
 	}
-#endif
 
 	CCASSERT(fp != nullptr, "OpenFileR failed");
 	return fp;

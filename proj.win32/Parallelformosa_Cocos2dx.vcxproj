@@ -170,10 +170,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\MainUIInfoModel.cpp" />
     <ClCompile Include="..\Classes\MapLayer.cpp" />
     <ClCompile Include="..\Classes\MapModel.cpp" />
+    <ClCompile Include="..\Classes\MapWindow.cpp" />
     <ClCompile Include="..\Classes\NetManager.cpp" />
     <ClCompile Include="..\Classes\NoticeLoading.cpp" />
     <ClCompile Include="..\Classes\NoticeManager.cpp" />
     <ClCompile Include="..\Classes\Observer.cpp" />
+    <ClCompile Include="..\Classes\OptionWindow.cpp" />
     <ClCompile Include="..\Classes\PFComponent.cpp" />
     <ClCompile Include="..\Classes\PlayerManager.cpp" />
     <ClCompile Include="..\Classes\PlayerModel.cpp" />
@@ -230,10 +232,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\MainUIInfoModel.h" />
     <ClInclude Include="..\Classes\MapLayer.h" />
     <ClInclude Include="..\Classes\MapModel.h" />
+    <ClInclude Include="..\Classes\MapWindow.h" />
     <ClInclude Include="..\Classes\NetManager.h" />
     <ClInclude Include="..\Classes\NoticeLoading.h" />
     <ClInclude Include="..\Classes\NoticeManager.h" />
     <ClInclude Include="..\Classes\Observer.h" />
+    <ClInclude Include="..\Classes\OptionWindow.h" />
     <ClInclude Include="..\Classes\PFComponent.h" />
     <ClInclude Include="..\Classes\PlayerManager.h" />
     <ClInclude Include="..\Classes\PlayerModel.h" />
@@ -257,6 +261,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj">
       <Project>{f8edd7fa-9a51-4e80-baeb-860825d2eac6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\cocos\network\proj.win32\libNetwork.vcxproj">
+      <Project>{df2638c0-8128-4847-867c-6eafe3dee7b5}</Project>
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\cocos\ui\proj.win32\libGUI.vcxproj">
       <Project>{7e06e92c-537a-442b-9e4a-4761c84f8a1a}</Project>

@@ -47,38 +47,38 @@ PlayerModel* PlayerModel::initWithPlayer(PlayerModel* rhs){
 }
 
 void PlayerModel::produce(float dt){
-    //base produce speed
-    //prepara
-    int prepareGMag = 0;
-    int prepareLStr = 0;
-    int prepareFood = 0;
-    int baseGMag = 6;
-    int baseLStr = 10;
-    int baseFood = 20;
-    
-    if(_playerOwnMapWeather==MapModel::Weather::NONEWEATHER)
-    {
-        prepareFood+=baseFood*_foodGenRate*0;
-        prepareLStr+=baseLStr*_lStrGenRate*0;
-        prepareGMag+=baseGMag*_gMagGenRate*0;
-    }
-    else if (_playerOwnMapWeather==MapModel::Weather::RAIN)
-    {
-        prepareFood+=baseFood*_foodGenRate*1.5;
-        prepareLStr+=baseLStr*_lStrGenRate*0.8;
-        prepareGMag+=baseGMag*_gMagGenRate*1.2;
-    }
-    else
-    {
-        prepareFood+=baseFood*_foodGenRate*0.9;
-        prepareLStr+=baseLStr*_lStrGenRate*1.2;
-        prepareGMag+=baseGMag*_gMagGenRate*0.8;
-    }
-    
-    //POMELO//POMELO//POMELO
-    sendResourceAddNotify(prepareGMag,prepareLStr,prepareFood);
-    ////////////////////////
-    
+	//base produce speed
+	//prepara
+	int prepareGMag = 0;
+	int prepareLStr = 0;
+	int prepareFood = 0;
+	int baseGMag = 6;
+	int baseLStr = 10;
+	int baseFood = 20;
+
+	if (_playerOwnMapWeather == MapModel::Weather::NONEWEATHER)
+	{
+		prepareFood += baseFood*_foodGenRate * 0;
+		prepareLStr += baseLStr*_lStrGenRate * 0;
+		prepareGMag += baseGMag*_gMagGenRate * 0;
+	}
+	else if (_playerOwnMapWeather == MapModel::Weather::RAIN)
+	{
+		prepareFood += baseFood*_foodGenRate*1.5;
+		prepareLStr += baseLStr*_lStrGenRate*0.8;
+		prepareGMag += baseGMag*_gMagGenRate*1.2;
+	}
+	else
+	{
+		prepareFood += baseFood*_foodGenRate*0.9;
+		prepareLStr += baseLStr*_lStrGenRate*1.2;
+		prepareGMag += baseGMag*_gMagGenRate*0.8;
+	}
+
+	//POMELO//POMELO//POMELO
+	sendResourceAddNotify(prepareGMag, prepareLStr, prepareFood);
+	////////////////////////
+
 	CMDResource::order(this, prepareLStr, prepareGMag, prepareFood)->execute();
 	//CommandModel::getModel()->AddCommand(CMDResource::order(this, 6, 6, 6));
 }
