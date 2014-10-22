@@ -20,7 +20,6 @@ HUDLayer::~HUDLayer(){
 	CCLOG("HUD Layer destruct");
 	mm->Detach(this);
 	mm = nullptr;
-	this->unscheduleAllSelectors();
 	removeAllChildren();
 }
 

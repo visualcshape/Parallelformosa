@@ -139,13 +139,13 @@ void BattleModel::startBattle(){
 		PlayerManager::getInstance()->getDefPlayer()->writePlayerInfo(true);
 		_mapModel->writeMapInfo(true);
 
-		CMDFileStream::getInstance()->OpenStream("CommandInfo/" + _mapModel->getMapName() + ".cmd");
+		CMDFileStream::getInstance()->OpenStream(_mapModel->getMapName() + ".cmd");
 	}
 }
 
 void BattleModel::readCommandConfig(){
 	ResourceModel *rm = ResourceModel::getModel();
-	string filename = "CommandInfo/" + _mapModel->getMapName() + ".cmd";
+	string filename = _mapModel->getMapName() + ".cmd";
 	FILE* fp = rm->OpenFileR(filename);
 
 	CCASSERT(fp != nullptr, "readCommandConfig fail");

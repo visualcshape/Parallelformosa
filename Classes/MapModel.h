@@ -49,7 +49,6 @@ public:
 
 	void refresh(float dt);
 	void ccdebug(float dt);
-	void produce(float dt);
 
 	void clickToAddBuildingCursor(int BID);
 	
@@ -132,11 +131,13 @@ public:
     void setWeather(Weather weather);
     
     ChangedData getChangedData();
+
 protected:
 	static MapModel * mm_pInstance;
 
 	//@func internally add building
-	void addBuildingToMap(int ID, string& owner, MapPoint pos, int z);
+	void addBuildingToMap(int ID, string& owner, MapPoint pos, int z, bool writeToServer = true);
+
 private:
 	int selID;
 	bool _prevCursurOutside; 

@@ -95,7 +95,8 @@ void MapModel::addBuilding(Point pos, int level){
 	if (_status == HUD_ID::ATTACK) targetID = selID + 18;
 
     string uid = PlayerManager::getInstance()->getCurPlayer()->getUID();
-    addBuildingToMap(targetID, uid, mapCoordForPosition(pos, level), level);
+	addBuildingToMap(targetID, uid, mapCoordForPosition(pos, level), level); 
+	
 }
 
 void MapModel::mapAddBuilding(Building* building){
@@ -119,7 +120,7 @@ void MapModel::mapAddTroop(Troop* troop){
 		PlayerManager::getInstance()->getDefPlayer()->addTroop((Troop*)troop);
 }
 
-void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc, int z){
+void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc, int z, bool writeToServer){
 	CCASSERT(z > 0, "addBuildingToMap() => z-Coord need > 0");
 
 	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, z);
@@ -151,13 +152,28 @@ void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc
 		mapAddBuilding((Building*)target);
 	else if (ID > 18)
 		mapAddTroop((Troop*)target);
-	/*
-	if (_status == HUD_ID::DEFENSE)
-	mapAddBuilding((Building*)target);
 
-	if (_status == HUD_ID::ATTACK)
-	mapAddTroop((Troop*)target);
-	*/
+	if (writeToServer){
+		const char* route = "parallelSpace.parallelSpaceHandler.buildBuilding";
+		Json::Value root;
+		Json::FastWriter writer;
+
+		root["buildingX"] = (int)target->getCoord().x;
+		root["buildingY"] = (int)target->getCoord().y;
+		root["buildingZ"] = (int)target->getZ();
+		CCLOG(">>>>>>>> %d, %s\n", target->getID(), target->getOwner().c_str());
+		root["gid"] = target->getID();
+		root["uid"] = target->getOwner();
+
+		CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
+	}
+		/*
+		if (_status == HUD_ID::DEFENSE)
+		mapAddBuilding((Building*)target);
+
+		if (_status == HUD_ID::ATTACK)
+		mapAddTroop((Troop*)target);
+		*/
 }
 /*@return the highest layer could build, otherwise NONE
 */
@@ -346,7 +362,7 @@ void MapModel::tryTouchMoved(){
 	}
 }
 
-void MapModel::tryTouchEnded(){    
+void MapModel::tryTouchEnded(){   
 	CCLOG("MapModel::tryTouchEnded()");
 	ResourceModel *rm = ResourceModel::getModel();
 
@@ -355,43 +371,33 @@ void MapModel::tryTouchEnded(){
 	if (_pressLoc.distance(_touchLocation) < 6.5f){
 		TilePoint tileLoc = tileCoordForPosition(_touchLocationInGameLayer);
 		for (int lr = 5; lr >= 0; lr--){
-			for (auto &building : _buildings){
+			for (auto &building : _buildings) if (building->getID() == PFComponent::HQ_GID){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
 				if (coord == building->getCoord() && lr == building->getZ()){
 					CCLOG(">>@ The building belongs %s", building->getOwner().c_str());
-					if (PlayerManager::getInstance()->getCurPlayer()->getUID() == building->getOwner()){
-						if (mapName.compare(rm->strWorldMap) == 0){
-							writeMapInfo();
-							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-							
-							//SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::DEFENSE);
-						}
-						else{
-							writeMapInfo();
-							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-							//SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
-						}
+
+					char buffer[1000];
+					sprintf(buffer, ".%.0f-%.0f", coord.x, coord.y);
+					string goMapStr = mapName + string(buffer) + ".tmx";
+
+					CCLOG(">>>>!>>>!>> %s", mapName.c_str());
+					CCLOG(">>>>>>>>>>>>>>>>>>>>>>>>>>>> %s\n", goMapStr.c_str());
+
+					if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(mapName) == 0){
+						writeMapInfo();
+						PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+						PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+						SceneManager::goMapScreen(goMapStr, HUD_ID::DEFENSE);
 					}
 					else{
-						CCLOG(">>>> This is not your building !!! ");
-						if (mapName.compare(rm->strWorldMap) == 0){
-							writeMapInfo();
-							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-							PlayerManager::getInstance()->getCurPlayer()->height = building->getZ();
-							PlayerManager::getInstance()->getCurPlayer()->coord = building->getCoord();
+						writeMapInfo();
+						PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+						PlayerManager::getInstance()->getCurPlayer()->height = building->getZ();
+						PlayerManager::getInstance()->getCurPlayer()->coord = building->getCoord();
 
-							PlayerManager::getInstance()->setDefPlayer(new PlayerModel(building->getOwner()));
-							CCLOG(">!> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
-							//SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::ATTACK);
-						}
-						else{
-							writeMapInfo();
-							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-							//SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
-						}
+						PlayerManager::getInstance()->setDefPlayer(new PlayerModel(building->getOwner()));
+						CCLOG(">!> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
+						SceneManager::goMapScreen(goMapStr, HUD_ID::ATTACK);
 					}
 					return;
 				}
@@ -448,10 +454,6 @@ void MapModel::slide(Vec2 translation){
 void MapModel::ccdebug(float dt){
 	CCLOG("buildings atk:%d def:%d, cur:%d\n", SZ(PlayerManager::getInstance()->getAtkPlayer()->getBuildings()), SZ(PlayerManager::getInstance()->getDefPlayer()->getBuildings()), SZ(PlayerManager::getInstance()->getCurPlayer()->getBuildings()));
 	CCLOG("troops atk:%d def:%d, cur:%d\n", SZ(PlayerManager::getInstance()->getAtkPlayer()->getTroops()), SZ(PlayerManager::getInstance()->getDefPlayer()->getTroops()), SZ(PlayerManager::getInstance()->getCurPlayer()->getTroops()));
-}
-
-void MapModel::produce(float dt){
-	PlayerManager::getInstance()->getCurPlayer()->produce(dt);
 }
 
 void MapModel::refresh(float dt){
@@ -602,7 +604,7 @@ void MapModel::readMapInfo(bool backup){
     char owner[256];
 	while (~fscanf(fp, "%d %d %d %d %s", &id, &x, &y, &height, owner)){
 		CCLOG("info: %d %d %d %d %s", id, x, y, height, owner);
-		string ownerString = owner;
+		string ownerString = string(owner);
 
 		//@brief for server assigned map
 		if (height > SZ(_pfLayers))
@@ -610,7 +612,7 @@ void MapModel::readMapInfo(bool backup){
 		while (height > 2 && !canMoveTo(MapPoint(x, y), height))
 			height--;
 
-		addBuildingToMap(id, ownerString, MapPoint(x, y), height);
+		addBuildingToMap(id, ownerString, MapPoint(x, y), height, false);
 	}
 
 	fclose(fp);

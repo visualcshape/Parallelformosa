@@ -23,7 +23,6 @@ MapLayer::~MapLayer(){
 	mm->Detach(this);
 	mm = nullptr;
 	removeAllChildren();
-	this->unscheduleAllSelectors();
 }
 
 void MapLayer::Update(Subject* _subject){
@@ -72,7 +71,6 @@ bool MapLayer::init(std::string& mapName){
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(MapLayer::keyPressed, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 
-
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 
@@ -101,10 +99,12 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 		this->unschedule(schedule_selector(MapLayer::attack));
 		CMDFileStream::getInstance()->execute();
 	}
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID("1");
+		PlayerManager::getInstance()->getCurPlayer()->changeUID("1413977890666");
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID("2");
+		PlayerManager::getInstance()->getCurPlayer()->changeUID("1413977939022");
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){
@@ -131,10 +131,6 @@ void MapLayer::refresh(float dt){
 
 void MapLayer::ccdebug(float dt){
 	mm->ccdebug(dt);
-}
-
-void MapLayer::produce(float dt){
-	mm->produce(dt);
 }
 
 void MapLayer::attack(float dt){

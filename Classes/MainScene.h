@@ -1,14 +1,4 @@
-//
-//  MainScene.h
-//  Parallelformosa_Cocos2dx
-//
-//  Created by Chi-Chia Sun on 2014/9/29.
-//
-//
-
-#ifndef __Parallelformosa_Cocos2dx__MainScene__
-#define __Parallelformosa_Cocos2dx__MainScene__
-
+#pragma once
 #include <cocos2d.h>
 #include <CocosGUI.h>
 #include "Observer.h"
@@ -56,10 +46,8 @@ public:
 	MainMenuLayer();
 	~MainMenuLayer();
 
-	void gogo();
 	void BuildingButtonCallback(Ref* pSender, Widget::TouchEventType type);
 	void BuildingButtonCallbackEnded(Ref* pSender, Widget::TouchEventType type);
-
 
 	void UnitButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
@@ -74,6 +62,7 @@ public:
 	CREATE_FUNC(MainMenuLayer);
 
     void queriedMapResultCallback(const CCPomeloRequestResult& result);
+
 private:
 	MapModel *mm;
 	int ID;
@@ -105,6 +94,7 @@ private:
     
     //model chaged
     void _scrollingTextModelChanged();
+	
     //Update scrolling text position.
     void _scroll(float delta);
     
@@ -130,10 +120,10 @@ public:
     void queryMapWeather();
     
     void produce(float dt);
+
 private:
 	MapModel *mm;
     PlayerModel* _bindedPlayer;
     
     void _onQueryWeatherRequestCallback(const CCPomeloRequestResult& result);
 };
-#endif /* defined(__Parallelformosa_Cocos2dx__MainScene__) */

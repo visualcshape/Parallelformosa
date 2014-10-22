@@ -61,15 +61,19 @@ bool MainMenuLayer::init(){
     bindFunction = CC_CALLBACK_2(MainMenuLayer::BuildingButtonCallback, this);
     _buildingButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2,layoutSize.height/2), bindFunction);
     CCASSERT(_buildingButton!=nullptr, "_buildingButton cannot be null");
+
     bindFunction = CC_CALLBACK_2(MainMenuLayer::UnitButtonCallback, this);
     _unitButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
     CCASSERT(_unitButton!=nullptr, "_unitButton cannot be null");
+
     bindFunction = CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback, this);
     _itemButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
     CCASSERT(_itemButton!=nullptr, "_itemButton cannot be null");
+
     bindFunction = CC_CALLBACK_2(MainMenuLayer::MapButtonCallback, this);
     _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
     CCASSERT(_statusButton!=nullptr, "_statusButton cannot be null");
+
     bindFunction = CC_CALLBACK_2(MainMenuLayer::AlliesButtonCallback, this);
     _alliesButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
     CCASSERT(_alliesButton!=nullptr, "_alliesButton cannot be null");
@@ -116,15 +120,12 @@ void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::T
 	if (type == Widget::TouchEventType::ENDED)
 	{
 		BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
-		CCLOG("go1");
 
 		int ID = p->getCurButton()->getID();
 		this->removeChildByName("BuildingWindow");
-		CCLOG("go2");
 
 		//@brief later modify
 		MapModel::getModel()->clickToAddBuildingCursor(ID);
-		CCLOG("go3");
 	}
 }
 
@@ -165,7 +166,6 @@ void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventT
 				Json::FastWriter writer;
 
 				root["queriedMapCoord"] = mapCoord;
-
 
 				CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
 				txt->setText("");

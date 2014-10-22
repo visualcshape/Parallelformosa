@@ -17,7 +17,6 @@
 #include "ResourceModel.h"
 #include "SceneManager.h"
 
-
 Scene* LoadingScene::createScene()
 {
 	auto scene = Scene::create();
@@ -263,8 +262,7 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         //infoFileName...
         vector<string> sp = UtilFunc::getInstance()->split(infoDownloadPath, '/');
         sp.shrink_to_fit();
-        _infoFileName = sp[sp.size()-1];
-        
+		_infoFileName = sp[sp.size() - 1];
         
         //init player
         PlayerModel* player = new PlayerModel();

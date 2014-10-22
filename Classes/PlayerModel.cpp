@@ -71,17 +71,17 @@ void PlayerModel::produce(float dt){
 	//CommandModel::getModel()->AddCommand(CMDResource::order(this, 6, 6, 6));
 }
 
-void PlayerModel::sendResourceAddNotify(int addedGPower,int addedLMana,int addedFood)
+void PlayerModel::sendResourceAddNotify(int addedGPower, int addedLMana, int addedFood)
 {
-    const char* route = "parallelSpace.parallelSpaceHandler.addResource";
-    Json::Value root;
-    Json::FastWriter writer;
-    
-    root["addedGPower"]=addedGPower;
-    root["addedFood"] = addedFood;
-    root["addedLMana"] = addedLMana;
-    
-    CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
+	const char* route = "parallelSpace.parallelSpaceHandler.addResource";
+	Json::Value root;
+	Json::FastWriter writer;
+
+	root["addedGPower"] = addedGPower;
+	root["addedFood"] = addedFood;
+	root["addedLMana"] = addedLMana;
+
+	CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
 }
 
 bool PlayerModel::canAddBuilding(int BID){
@@ -134,7 +134,7 @@ void PlayerModel::consumeResourceByTroop(int TID){
 void PlayerModel::changeUID(string uid){
 	writePlayerInfo();
 	_uid = uid;
-	init();
+	//init();
 }
 
 void PlayerModel::gainLstr(int value){
@@ -144,15 +144,15 @@ void PlayerModel::gainLstr(int value){
 }
 
 void PlayerModel::gainGmag(int value){
-    _gMag += value;
+	_gMag += value;
 	_gMag = max(_gMag, 0);
-    Notify();
+	Notify();
 }
 
 void PlayerModel::gainFood(int value){
-    _food+=value;
+	_food += value;
 	_food = max(_food, 0);
-    Notify();
+	Notify();
 }
 
 void PlayerModel::addBuilding(Building* building){
@@ -201,7 +201,6 @@ void PlayerModel::replay(){
 		troop->replayLogic();
 	for (auto &building : _tmp_buildings)
 		building->replayLogic();
-
 }
 
 int PlayerModel::getProperTroopOID(){
@@ -234,7 +233,6 @@ bool PlayerModel::canAddBuilding(Building* target){
 			return false;
 	}
 	return true;
-
 }
 
 void PlayerModel::addCMDStateToTroop(int timing, int oid, int adjustHp){
@@ -247,6 +245,7 @@ void PlayerModel::addCMDStateToTroop(int timing, int oid, int adjustHp){
     //problem
 	//CCASSERT(false, "didn't find proper troop with oid = %d", oid);
 }
+
 void PlayerModel::addCMDStateToBuilding(int timing, int oid, int adjustHp){
 	CCLOG("addCMDStateToBuilding");
 	for (auto &building : _buildings) if (building->getOID() == oid){
@@ -257,6 +256,7 @@ void PlayerModel::addCMDStateToBuilding(int timing, int oid, int adjustHp){
     //problem
 	//CCASSERT(false, "didn't find proper building with oid = %d", oid);
 }
+
 void PlayerModel::addCMDMoveToTroop(int timing, int oid, int dir, int hofs){
 	CCLOG("addCMDMoveToTroop");
 	for (auto &troop : _troops) if (troop->getOID() == oid){
@@ -281,37 +281,37 @@ void PlayerModel::readPlayerInfo(bool backup){
     _gMag = atoi(pass["GPower"].c_str());
     _lStr= atoi(pass["LMana"].c_str());
     _food = atoi(pass["Food"].c_str());
-    
+    /*
     //Deprecated...
-	//ResourceModel *rm = ResourceModel::getModel();
-	//char buffer[1000];
-	//sprintf(buffer, "%d", _uid);
-	//string playerName = "player" + string(buffer);
-	//string filename = "PlayerInfo/" + playerName + ".info";
-	//if (backup)
-	//	filename += ".backup";
+	ResourceModel *rm = ResourceModel::getModel();
+	char buffer[1000];
+	sprintf(buffer, "%d", _uid);
+	string playerName = "player" + string(buffer);
+	string filename = "PlayerInfo/" + playerName + ".info";
+	if (backup)
+		filename += ".backup";
 	//@brief new acccount
-	//if (!rm->isFileExist(filename))
-	//	writePlayerInfo(backup);
+	if (!rm->isFileExist(filename))
+		writePlayerInfo(backup);
 
-	//FILE *fp = rm->OpenFileR(filename);
+	FILE *fp = rm->OpenFileR(filename);
 
-	//fscanf(fp, "%d %d %d", &_Lstr, &_Gmag, &_food);
-	//fscanf(fp, "%s", buffer);
-	//CCLOG("player %d info: %d %d %d => %s", _uid, _Lstr, _Gmag, _food, buffer);
+	fscanf(fp, "%d %d %d", &_lStr, &_gMag, &_food);
+	fscanf(fp, "%s", buffer);
+	CCLOG("player %d info: %d %d %d => %s", _uid, _lStr, _gMag, _food, buffer);
 	
-	//int year, month, day, hour, min, sec;
-	//sscanf(buffer, "%d-%d-%d_%d:%d:%d", &year, &month, &day, &hour, &min, &sec);
+	int year, month, day, hour, min, sec;
+	sscanf(buffer, "%d-%d-%d_%d:%d:%d", &year, &month, &day, &hour, &min, &sec);
 
-	//time_t _time = time(NULL);
-	//tm prev = rm->makeSystemTime(year, month, day, hour, min, sec);
-	//tm now = *localtime(&_time);
+	time_t _time = time(NULL);
+	tm prev = rm->makeSystemTime(year, month, day, hour, min, sec);
+	tm now = *localtime(&_time);
 
-	//int difSec = (int)difftime(mktime(&now), mktime(&prev));
-	//gainLstr(difSec * 6);
-	//gainGmag(difSec * 6);
-	//gainFood(difSec * 6);
-	/*
+	int difSec = (int)difftime(mktime(&now), mktime(&prev));
+	gainLstr(difSec * 6);
+	gainGmag(difSec * 6);
+	gainFood(difSec * 6);
+	
 	while (~fscanf(fp, "%s", buffer)){
 		if (strcmp(buffer, "troop") == 0){
 			int oid, tid, x, y, z;
@@ -325,12 +325,12 @@ void PlayerModel::readPlayerInfo(bool backup){
 		else {
 			CCASSERT(false, "player info type not sure?!");
 		}
-	}*/
+	}
 
 	//@brief Write back
-	//writePlayerInfo(backup);
+	writePlayerInfo(backup);
 
-	//fclose(fp);
+	fclose(fp);*/
 }
 
 int PlayerModel::UserQueryCB(void *para, int columns, char **columnValue, char **columnName)
@@ -368,47 +368,45 @@ int PlayerModel::UserQueryCB(void *para, int columns, char **columnValue, char *
 }
 
 void PlayerModel::writePlayerInfo(bool backup){
-    sqlite3* pDB = Database::getInstance()->getDatabasePointer();
-    char sql[128] = "";
-    char* errMsg;
-    
-    sprintf(sql, "Update User SET GPower=%d,LMana=%d,Food=%d WHERE ID='%s'",_gMag,_lStr,_food,_uid.c_str());
-    
-    int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
-    
-    CC_ASSERT(result==SQLITE_OK);
-    
-	//ResourceModel *rm = ResourceModel::getModel();
-	//char buffer[1000];
-	//sprintf(buffer, "%d", _uid);
-	//string playerName = "player" + string(buffer);
-	//string filename = "PlayerInfo/" + playerName + ".info";
+	sqlite3* pDB = Database::getInstance()->getDatabasePointer();
+	char sql[128] = "";
+	char* errMsg;
 
-	//if (backup)
-	//	filename += ".backup";
+	sprintf(sql, "Update User SET GPower=%d,LMana=%d,Food=%d WHERE ID='%s'", _gMag, _lStr, _food, _uid.c_str());
 
-	//FILE *fp = rm->OpenFileW(filename);
-	//CCASSERT(fp != nullptr, "read map info fail");
+	int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
+
+	CC_ASSERT(result == SQLITE_OK);
+	/*
+	ResourceModel *rm = ResourceModel::getModel();
+	char buffer[1000];
+	sprintf(buffer, "%d", _uid);
+	string playerName = "player" + string(buffer);
+	string filename = "PlayerInfo/" + playerName + ".info";
+
+	if (backup)
+	filename += ".backup";
+
+	FILE *fp = rm->OpenFileW(filename);
+	CCASSERT(fp != nullptr, "read map info fail");
 
 	//@brief save resoures
-	//fprintf(fp, "%d %d %d\n", _Lstr, _Gmag, _food);
+	fprintf(fp, "%d %d %d\n", _lStr, _gMag, _food);
 
 	//@brief save logout time
-	//fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
+	fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
 
-	/*
 	//@brief save troops info
 	for (auto &troop : _troops){
-		fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
-	}*/
+	fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
+	}
 
-	/*
 	//@brief save buildings info
 	for (auto &building : _buildings){
-		fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
-	}*/
+	fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
+	}
 
-	//fclose(fp);
+	fclose(fp);*/
 }
 
 int PlayerModel::getLstr()

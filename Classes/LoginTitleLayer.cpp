@@ -165,7 +165,8 @@ void MenuLayer::startClickCallback(cocos2d::Ref *pSender)
 	//ResourceModel *rm = ResourceModel::getModel();
 	//SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 	//Go to main scene
-	PlayerManager::getInstance()->setCurPlayer(new PlayerModel());
+	PlayerManager::getInstance()->set
+		(new PlayerModel());
 	PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
 	PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
 	auto scene = LoadingScene::createScene();

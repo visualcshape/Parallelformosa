@@ -32,7 +32,6 @@ public:
 	void slide(Vec2 translation);
 	void refresh(float dt);
 	void ccdebug(float dt);
-	void produce(float dt);
 	void attack(float dt);
     
 protected:

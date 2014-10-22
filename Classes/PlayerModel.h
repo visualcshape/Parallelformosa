@@ -95,6 +95,7 @@ public:
     //NET
     void sendResourceAddNotify(int addedGPower,int addedLMana,int addedFood);
     //
+
 protected:
 	int getProperTroopOID();
 	int getProperBuildingOID();
@@ -117,6 +118,7 @@ protected:
     MapModel::Weather _playerOwnMapWeather;
     
     string _playerOwnMapCoord;
+
 private:
 	bitset <PLAYER_MAX_TROOPS> usedTroopOID;
 	bitset <PLAYER_MAX_BUILDINGS> usedBuildingOID;
