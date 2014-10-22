@@ -20,6 +20,7 @@
 #include "PlayerManager.h"
 #include <HttpClient.h>
 #include "UtilFunc.h"
+#include <dirent.h>
 
 USING_NS_CC;
 using namespace cocos2d::ui;
