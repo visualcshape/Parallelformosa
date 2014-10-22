@@ -16,9 +16,7 @@
 #include "UnitTypeModel.h"
 #include "ResourceModel.h"
 #include "SceneManager.h"
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-#include "dirent.h"
-#endif
+#include <dirent.h>
 
 Scene* LoadingScene::createScene()
 {

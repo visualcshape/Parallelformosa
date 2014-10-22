@@ -248,17 +248,17 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 
 FILE* ResourceModel::OpenFileW(string relativePath){
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+//#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	relativePath = NoFolderPath(relativePath);
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
 	FILE* fp = fopen(strPath.c_str(), "w");
-#else
+/*#else
 	vector <string> paths = DecomposePath(relativePath);
 	for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
 		CreateDownloadedDir(paths.at(k));
 	string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
 	FILE *fp = fopen(fullPath.c_str(), "w");
-#endif
+#endif*/
 
 	CCASSERT(fp != nullptr, "OpenFileW failed");
 	return fp;

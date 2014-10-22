@@ -183,9 +183,6 @@
     <ClCompile Include="..\Classes\ConnectingSign.cpp">
       <Filter>Classes\Network</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\dirent.c">
-      <Filter>Classes\Network</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\globalVariable.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -363,9 +360,6 @@
       <Filter>Classes\Controller &amp; View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ConnectingSign.h">
-      <Filter>Classes\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\dirent.h">
       <Filter>Classes\Network</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\globalVariable.h">

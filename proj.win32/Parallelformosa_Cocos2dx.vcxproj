@@ -156,7 +156,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Database.cpp" />
     <ClCompile Include="..\Classes\DialogueWindow.cpp" />
     <ClCompile Include="..\Classes\DialogueWindowConfirm.cpp" />
-    <ClCompile Include="..\Classes\dirent.c" />
     <ClCompile Include="..\Classes\Effect.cpp" />
     <ClCompile Include="..\Classes\globalVariable.cpp" />
     <ClCompile Include="..\Classes\HUDLayer.cpp" />
@@ -217,7 +216,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Database.h" />
     <ClInclude Include="..\Classes\DialogueWindow.h" />
     <ClInclude Include="..\Classes\DialogueWindowConfirm.h" />
-    <ClInclude Include="..\Classes\dirent.h" />
     <ClInclude Include="..\Classes\Effect.h" />
     <ClInclude Include="..\Classes\globalVariable.h" />
     <ClInclude Include="..\Classes\HUDLayer.h" />

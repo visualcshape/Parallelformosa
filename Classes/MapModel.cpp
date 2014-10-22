@@ -461,12 +461,6 @@ void MapModel::refresh(float dt){
 			sprintf(buffer, "player uid= atk:%s def:%s cur:%s", PlayerManager::getInstance()->getAtkPlayer()->getUID().c_str(), PlayerManager::getInstance()->getDefPlayer()->getUID().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
 			getlblPlayerPos()->setString(buffer);
 		}
-	//@debug modify label
-	{
-		char buffer[80];
-		sprintf(buffer, "str = %d,\n mag = %d,\n food = %d", PlayerManager::getInstance()->getCurPlayer()->getLstr(), PlayerManager::getInstance()->getCurPlayer()->getGmag(), PlayerManager::getInstance()->getCurPlayer()->getFood());
-		getlblResourcePos()->setString(buffer);
-	}
 
 	if (_selSprite){
 		if (_selGroups->getPositionX() < BORDER_PIXEL)
@@ -525,84 +519,6 @@ bool MapModel::canMoveTo(MapPoint checkMapLoc, int z){
 	}
 
 	return false;
-}
-
-void MapModel::commandAttack(){
-	//PlayerManager::getInstance()->getAtkPlayer() = _curPlayer;
-	//_curPlayer->commandAttack();
-	//PlayerManager::getInstance()->getDefPlayer()->commandAttack();
-	//CCLOG("attack mode activate!!!!");
-	CMDCountdown::order(BattleModel::getModel())->execute();
-}
-
-void MapModel::attackLogic(){
-	/*
-	auto _tmp_troops = _troops;
-
-	for (auto &troop : _tmp_troops){
-	auto target = getClosestBuilding(troop);
-
-	if (target != nullptr){
-	bool could_attack = false;
-	for (int tr = 0; tr < target->occupy.X; tr++) for (int tc = 0; tc < target->occupy.Y; tc++){
-	Point pt = Point(target->getCoord().x + tr, target->getCoord().y + tc);
-	Point dist = pt - troop->getCoord();
-	if (MAX(abs(dist.x), abs(dist.y)) <= 1) could_attack = true;
-	}
-
-	if (!could_attack){
-	CCLOG("target = %.0f %.0f\n", target->getCoord().x, target->getCoord().y);
-
-	PII goEvent = findAttackPath(troop);
-	int goDir = goEvent.X;
-	int gohofs = goEvent.Y;
-	if (goDir != NO){
-	CCLOG(">> goDir = %d, gohofs = %d\n", goDir, gohofs);
-	//if (canMoveTo(troop->getCoord(), troop->height, goDir, gohofs)){
-	troopMove(troop, goDir, gohofs);
-	//}
-	}
-	}
-	//CCLOG(">>>>>> %.0f %.0f %.0f\n", troop->getCoord().x, troop->getCoord().y, troop->height);
-
-	Point moveVector = troop->getCoord() - target->getCoord();
-	if (moveVector.x > 1 && canMoveTo(troop, DIRECTION::LEFT)) troopMove(troop, DIRECTION::LEFT);
-	if (moveVector.y > 1 && canMoveTo(troop, DIRECTION::DOWN)) troopMove(troop, DIRECTION::DOWN);
-	if (moveVector.x < -1 && canMoveTo(troop, DIRECTION::RIGHT)) troopMove(troop, DIRECTION::RIGHT);
-	if (moveVector.y < -1 && canMoveTo(troop, DIRECTION::UP)) troopMove(troop, DIRECTION::UP);
-
-	//float moveAngle = ccpToAngle(moveVector);
-	//float cocosAngle = CC_RADIANS_TO_DEGREES(-1 * moveAngle);
-	//CCLOG("moveVector = %.2f\n", moveVector.x);
-	//float rotateSpeed = 0.5 / M_PI;
-	//float rotateDuration = fabs(moveAngle *rotateSpeed);
-
-	if (could_attack){
-	//attack building
-	CCLOG("troop attack");
-	target->hp -= MAX(0, troop->atk - target->def);
-	CCLOG("attack : hp = %d, atk = %d, def = %d\n", troop->hp, troop->atk, troop->def);
-	CCLOG("defend : hp = %d, atk = %d, def = %d\n", target->hp, target->atk, target->def);
-
-	if (target->hp <= 0){
-	buildingDelete(target);
-	PlayerManager::getInstance()->getAtkPlayer()->L_str += 1000;
-	PlayerManager::getInstance()->getAtkPlayer()->G_mag += 1000;
-	}
-
-	//troop->runAction(Sequence::create(RotateTo::create(rotateDuration, cocosAngle), NULL));
-	}
-	}
-	}
-
-
-	if (_buildings.empty()) //attack win
-	SceneManager::goBattleOverScreen("ATTACK WIN!!");
-	else if (_troops.empty()){// defense win
-	PlayerManager::getInstance()->getAtkPlayer()->height = -1;
-	SceneManager::goBattleOverScreen("DEFENSE WIN!!");
-	}
-	CCLOG("attack mode is now on");*/
 }
 
 Building* MapModel::getClosestBuilding(Troop* _troop){
@@ -712,6 +628,7 @@ void MapModel::readMapInfo(bool backup){
 	}
 	CCLOG(">> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
 	*/
+	CCLOG("readMapInfo finish");
 }
 
 MapModel::Weather MapModel::getWeather()

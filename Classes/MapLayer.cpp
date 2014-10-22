@@ -23,6 +23,7 @@ MapLayer::~MapLayer(){
 	mm->Detach(this);
 	mm = nullptr;
 	removeAllChildren();
+	this->unscheduleAllSelectors();
 }
 
 void MapLayer::Update(Subject* _subject){

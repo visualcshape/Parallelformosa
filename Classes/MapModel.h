@@ -51,9 +51,6 @@ public:
 	void ccdebug(float dt);
 	void produce(float dt);
 
-	void attackLogic();
-	void commandAttack();
-
 	void clickToAddBuildingCursor(int BID);
 	
 	//@func tilemap
@@ -93,7 +90,6 @@ public:
 	CC_SYNTHESIZE(Label*, _lblCursorPos, lblCursorPos);
 	CC_SYNTHESIZE(Label*, _lblTilePos, lblTilePos);
 	CC_SYNTHESIZE(Label*, _lblPlayerPos, lblPlayerPos);
-	CC_SYNTHESIZE(Label*, _lblResourcePos, lblResourcePos);
 	CC_SYNTHESIZE(Label*, _lblCountdownPos, lblCountdownPos);
 
 	//@brief touch event point
