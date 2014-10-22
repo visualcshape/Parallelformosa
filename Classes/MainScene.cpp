@@ -183,7 +183,13 @@ void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result
 }
 
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    SceneManager::goMapScreen("0.0.tmx", HUD_ID::DEFENSE);
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		char buffer[1000];
+		sprintf(buffer, "0.%d.tmx", rand() % 14);
+
+		SceneManager::goMapScreen(buffer, HUD_ID::DEFENSE);
+	}
 }
 
 void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){

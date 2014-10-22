@@ -42,9 +42,6 @@ void MapModel::init(std::string mapName){
 	_prevCursurOutside = false;
 	_status = HUD_ID::DEFENSE;
     _changedData = ChangedData::NONE;
-	PlayerManager::getInstance()->getCurPlayer()->init();
-	PlayerManager::getInstance()->getAtkPlayer()->init();
-	PlayerManager::getInstance()->getDefPlayer()->init();
 }
 
 void MapModel::loadLayers(Vector <TMXLayer*> &tileLayers, std::string prefix){
@@ -123,8 +120,9 @@ void MapModel::mapAddTroop(Troop* troop){
 }
 
 void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc, int z){
-	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, z);
+	CC_ASSERT(z > 0, "addBuildingToMap() => z-Coord need > 0");
 
+	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, z);
 	const int TW = _tileMap->getTileSize().width;
 	const int TH = 80;
 
@@ -688,7 +686,14 @@ void MapModel::readMapInfo(bool backup){
     char owner[256];
 	while (~fscanf(fp, "%d %d %d %d %s", &id, &x, &y, &height, owner)){
 		CCLOG("info: %d %d %d %d %s", id, x, y, height, owner);
-        string ownerString = owner;
+		string ownerString = owner;
+
+		//@brief for server assigned map
+		if (height > SZ(_pfLayers))
+			height = SZ(_pfLayers) - 1;
+		while (height > 2 && !canMoveTo(MapPoint(x, y), height))
+			height--;
+
 		addBuildingToMap(id, ownerString, MapPoint(x, y), height);
 	}
 
