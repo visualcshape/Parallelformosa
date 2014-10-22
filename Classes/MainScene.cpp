@@ -12,6 +12,10 @@
 #include "AppMacro.h"
 #include "BuildingModel.h"
 #include "SceneManager.h"
+#include "ConnectingSign.h"
+#include "NoticeBox.h"
+#include "OptionWindow.h"
+#include <UtilFunc.h>
 
 Scene* MainScene::createScene(){
     auto scene = Scene::create();
@@ -137,12 +141,75 @@ void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
 		UnitWindow* p = UnitWindow::create("Unit", [=](Ref* pSender, Widget::TouchEventType type){
 			if (type == Widget::TouchEventType::ENDED)
 				thisLayer->removeChildByName(windowName);
-		}, nullptr);
-#if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-		p->retain();
-#endif	
+        }, CC_CALLBACK_2(MainMenuLayer::TrainButtonPressedCallback, this));
 		addChild(p, 100, windowName);
 	}
+}
+
+void MainMenuLayer::TrainButtonPressedCallback(cocos2d::Ref *pSender, Widget::TouchEventType type)
+{
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
+        addChild(cs,100000,"cs");
+        
+        NoticeBox* nb = NoticeBox::create("Notice", "Sending Request");
+        addChild(nb,100000,"nb");
+        
+        auto unitTypeMap = UnitTypeModel::getInstance()->getUnitTypeMap();
+        auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+        auto button = dynamic_cast<Button*>(pSender);
+        CC_ASSERT(button!=nullptr);
+        auto window = dynamic_cast<UnitWindow*>(button->getBindedObject());
+        
+        auto troopName = window->getCurButton()->getKey();
+        
+        auto itr = unitTypeMap->find(troopName);
+        CC_ASSERT(itr!=unitTypeMap->end());
+        
+        int consumedGPower = itr->second.gPowerCost*window->getCurrentAmount();
+        int consumedLMana = itr->second.lManaCost*window->getCurrentAmount();
+        int consumedFood = itr->second.foodCost*window->getCurrentAmount();
+        
+        //set to player
+        curPlayer->setGmag(curPlayer->getGmag()-consumedGPower);
+        curPlayer->setLstr(curPlayer->getLstr()-consumedLMana);
+        curPlayer->setFood(curPlayer->getFood()-consumedFood);
+        
+        if(itr->second.name=="Sword Man")
+        {
+            curPlayer->setPlayerOwnedSwordMan(curPlayer->getPlayerOwnedSwordMan()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Archer")
+        {
+            curPlayer->setPlayerOwnedArcher(curPlayer->getPlayerOwnedArcher()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Priest")
+        {
+            curPlayer->setPlayerOwnedPriest(curPlayer->getPlayerOwnedPriest()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Magician")
+        {
+            curPlayer->setPlayerOwnedMagician(curPlayer->getPlayerOwnedMagician()+window->getCurrentAmount());
+        }
+        else
+        {
+            CC_ASSERT(false);
+        }
+        //send to server
+        const char* route = "parallelSpace.parallelSpaceHandler.trainTroop";
+        Json::Value msg;
+        Json::FastWriter writer;
+        
+        msg["troopName"] = itr->second.name;
+        msg["troopCount"] = window->getCurrentAmount();
+        
+        CCPomeloWrapper::getInstance()->notify(route, writer.write(msg), nullptr);
+        
+        removeChildByName("cs");
+        removeChildByName("nb");
+        removeChildByName("UnitWindow");
+    }
 }
 
 void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type){
@@ -165,8 +232,6 @@ void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventT
 				Json::FastWriter writer;
 
 				root["queriedMapCoord"] = mapCoord;
-
-
 				CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
 				txt->setText("");
 			}
@@ -185,13 +250,71 @@ void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result
 	{
 		CCLOG("%s", root.toStyledString().c_str());
 		if (root["mapExist"].asBool() == true){
+            //blocker
+            NoticeBox* nb = NoticeBox::create("Notice", "Downloading Info File");
+            addChild(nb,100,"mapNB");
+            ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
+            addChild(cs,100,"mapCS");
+            
 			string downloadPath = root["downloadPath"].asString();
-			int len = SZ(downloadPath);
-			string goMapStr = downloadPath.substr(len - 8, 3) + ".tmx";
-			CCLOG(">>>>> goMapStr = %s\n", goMapStr.c_str());
-			SceneManager::goMapScreen(goMapStr, HUD_ID::DEFENSE);
+            string mapCoord = root["mapCoord"].asString();
+            
+            UtilFunc::getInstance()->copyPlayerMapTMXFile(mapCoord);
+            _curMapCoord = mapCoord;
+            //download info file
+            HttpRequest* req = new cocos2d::network::HttpRequest();
+            req->setRequestType(HttpRequest::Type::GET);
+            req->setUrl(downloadPath.c_str());
+            req->setTag("Download info");
+            req->setResponseCallback(CC_CALLBACK_2(MainMenuLayer::onHttpResponseCallback,this));
+            HttpClient::getInstance()->send(req);
+            req->release();
+            //
 		}
+        else
+        {
+            string reason = root["reason"].asString();
+            
+            NoticeBox* nb = NoticeBox::create("Notice", reason);
+            addChild(nb,100,"nbMap");
+            
+            auto act = FadeOut::create(1.5f);
+            CallFunc* cf = CallFunc::create(CC_CALLBACK_0(MainMenuLayer::whenNBFadeOut, this));
+            auto seq = Sequence::create(act,DelayTime::create(1.5f),cf, NULL);
+            nb->runAction(seq);
+        }
     }
+}
+
+void MainMenuLayer::whenNBFadeOut()
+{
+    removeChildByName("nbMap");
+}
+
+void MainMenuLayer::onHttpResponseCallback(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
+{
+    CC_ASSERT(resp!=nullptr);
+    CC_ASSERT(
+              resp->isSucceed());
+    
+    //open file
+#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
+    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_curMapCoord+".info").c_str(), "wb");
+#else
+    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_curMapCoord+".info").c_str(), "wb");
+#endif
+    CC_ASSERT(fp!=nullptr);
+    vector<char>* buffer = resp->getResponseData();
+    for(unsigned int i = 0 ; i < buffer->size() ;i++)
+    {
+        fwrite(&buffer->at(i), 1, 1, fp);
+    }
+    fclose(fp);
+    
+    removeChildByName("mapNB");
+    removeChildByName("mapCS");
+    
+    SceneManager::goMapScreen(_curMapCoord+".tmx", HUD_ID::DEFENSE);
 }
 
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -206,6 +329,10 @@ void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEve
 
 void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
     
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        OptionWindow* ow = OptionWindow::create("Options", [=](Ref* pSender,Widget::TouchEventType type){}, nullptr);
+    }
 }
 ///////////////////
 

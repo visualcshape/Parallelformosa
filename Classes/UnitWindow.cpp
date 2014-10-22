@@ -352,6 +352,7 @@ bool UnitWindow::init()
     _trainButton->setTitleFontSize(fontSize);
     _trainButton->setLayoutParameter(trainButtonLLP);
     _trainButton->setContentSize(Size((downEachLayoutSize.width/10)*3,downEachLayoutSize.height));
+    _trainButton->addTouchEventListener(_trainButtonPressedCallback);
     
     Size buttonAmtLayoutSize(_plusButton->getContentSize().width+_amounts->getContentSize().width+_minusButton->getContentSize().width,_plusButton->getContentSize().height);
     
@@ -394,6 +395,9 @@ bool UnitWindow::init()
     _minusButton->setBright(false);
     _trainButton->setEnabled(false);
     _trainButton->setBright(false);
+    
+    //bind with this window
+    _trainButton->setBindedObject(this);
     
     return true;
 }

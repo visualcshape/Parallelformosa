@@ -390,7 +390,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
-            endingLineNumber = "40">
+            endingLineNumber = "40"
+            landmarkName = "LoadingLayer::LoadingLayer()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -404,7 +406,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
-            endingLineNumber = "41">
+            endingLineNumber = "41"
+            landmarkName = "LoadingLayer::~LoadingLayer()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -482,7 +486,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
-            endingLineNumber = "81">
+            endingLineNumber = "81"
+            landmarkName = "LoadingLayer::init()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -496,7 +502,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
-            endingLineNumber = "78">
+            endingLineNumber = "78"
+            landmarkName = "LoadingLayer::init()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -654,7 +662,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
-            endingLineNumber = "188">
+            endingLineNumber = "188"
+            landmarkName = "LoadingLayer::_startLoadUnitType()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -716,7 +726,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "459"
-            endingLineNumber = "459">
+            endingLineNumber = "459"
+            landmarkName = "LoadingLayer::_uidQueryCallback(void *para, int columns, char **columnValue, char **columnName)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -746,7 +758,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "256"
-            endingLineNumber = "256">
+            endingLineNumber = "256"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -760,7 +774,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "258"
-            endingLineNumber = "258">
+            endingLineNumber = "258"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -774,7 +790,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "282"
-            endingLineNumber = "282">
+            endingLineNumber = "282"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -788,7 +806,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "280"
-            endingLineNumber = "280">
+            endingLineNumber = "280"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -802,7 +822,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
-            endingLineNumber = "292">
+            endingLineNumber = "292"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -816,7 +838,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "314"
-            endingLineNumber = "314">
+            endingLineNumber = "314"
+            landmarkName = "LoadingLayer::onHttpRequestComplete(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -830,7 +854,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "286"
-            endingLineNumber = "286">
+            endingLineNumber = "286"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -844,7 +870,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "412"
-            endingLineNumber = "412">
+            endingLineNumber = "412"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -858,7 +886,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "422"
-            endingLineNumber = "422">
+            endingLineNumber = "422"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -872,7 +902,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "379"
-            endingLineNumber = "379">
+            endingLineNumber = "379"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -886,7 +918,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "390"
-            endingLineNumber = "390">
+            endingLineNumber = "390"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -900,7 +934,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "405"
-            endingLineNumber = "405">
+            endingLineNumber = "405"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -926,11 +962,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MapModel.cpp"
-            timestampString = "435423386.192723"
+            timestampString = "435674871.123026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "663"
-            endingLineNumber = "663"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
             landmarkName = "MapModel::getChangedData()"
             landmarkType = "5">
          </BreakpointContent>
@@ -942,11 +978,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MapModel.cpp"
-            timestampString = "435423386.192723"
+            timestampString = "435674871.123026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "671"
-            endingLineNumber = "671"
+            startingLineNumber = "686"
+            endingLineNumber = "686"
             landmarkName = "MapModel::getChangedData()"
             landmarkType = "5">
          </BreakpointContent>
@@ -958,11 +994,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MapModel.cpp"
-            timestampString = "435423386.192723"
+            timestampString = "435674871.123026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "670"
-            endingLineNumber = "670"
+            startingLineNumber = "685"
+            endingLineNumber = "685"
             landmarkName = "MapModel::getChangedData()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1008,7 +1044,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "434"
-            endingLineNumber = "434">
+            endingLineNumber = "434"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1032,12 +1070,26 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435608945.898858"
+            timestampString = "435674871.123026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "MainInfoLayer::~MainInfoLayer()"
+            startingLineNumber = "340"
+            endingLineNumber = "340">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/MainScene.cpp"
+            timestampString = "435674871.123026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
+            landmarkName = "MainInfoLayer::queryMapWeather()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1048,27 +1100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435608945.898858"
+            timestampString = "435674871.123026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
-            landmarkName = "MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &amp;result)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/MainScene.cpp"
-            timestampString = "435608945.898858"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "488"
-            endingLineNumber = "488"
+            startingLineNumber = "615"
+            endingLineNumber = "615"
             landmarkName = "MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &amp;result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1132,7 +1168,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "289"
-            endingLineNumber = "289">
+            endingLineNumber = "289"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1162,7 +1200,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "288"
-            endingLineNumber = "288">
+            endingLineNumber = "288"
+            landmarkName = "LoadingLayer::_requestCallback(const CCPomeloRequestResult&amp; result)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1188,12 +1228,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435608945.898858"
+            timestampString = "435674871.123026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "MainInfoLayer::produce(float dt)"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "MainInfoLayer::init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1238,7 +1278,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "346"
-            endingLineNumber = "346">
+            endingLineNumber = "346"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1252,7 +1294,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "342"
-            endingLineNumber = "342">
+            endingLineNumber = "342"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1266,7 +1310,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "344"
-            endingLineNumber = "344">
+            endingLineNumber = "344"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1280,7 +1326,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "347"
-            endingLineNumber = "347">
+            endingLineNumber = "347"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1294,7 +1342,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "348"
-            endingLineNumber = "348">
+            endingLineNumber = "348"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1308,7 +1358,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "358"
-            endingLineNumber = "358">
+            endingLineNumber = "358"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1322,7 +1374,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "353"
-            endingLineNumber = "353">
+            endingLineNumber = "353"
+            landmarkName = "LoadingLayer::_copyTMXandInfoToWriteablePath()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -415,6 +415,21 @@ void MapModel::tryTouchEnded(){
 				else if (_status == HUD_ID::ATTACK && PlayerManager::getInstance()->getCurPlayer()->canAddTroop(selID)){
 					addBuilding(_touchLocationInGameLayer, isBuildableLevel);
 					PlayerManager::getInstance()->getCurPlayer()->consumeResourceByTroop(selID);
+                    
+                    //notify
+                    //send add building notify
+                    const char* route = "parallelSpace.parallelSpaceHandler.buildBuilding";
+                    Json::Value root;
+                    Json::FastWriter writer;
+                    
+                    root["buildingX"] = 0;
+                    root["buildingY"] = 0;
+                    root["buildingZ"] = 0;
+                    root["gid"] = 0;
+                    root["uid"] = PlayerManager::getInstance()->getCurPlayer()->getUID();
+                    
+                    CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
+                    //
 				}
 			}
 		//}
