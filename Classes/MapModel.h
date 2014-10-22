@@ -22,6 +22,8 @@ public:
 	static const int BORDER_PIXEL = 40;
 	static const int BAR_ICON = 5;
     
+	static const int TW = 101;
+	static const int TH = 40;
     //enum
     typedef enum Weather
     {

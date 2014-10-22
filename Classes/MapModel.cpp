@@ -11,6 +11,7 @@
 #include <ctime>
 #include "Command.h"
 #include "PlayerManager.h"
+#include "BuildingModel.h"
 
 USING_NS_CC;
 
@@ -125,7 +126,7 @@ void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc
 	TilePoint tileBuildingLoc = tileCoordForMapPoint(buildingLoc, z);
 
 	const int TW = _tileMap->getTileSize().width;
-	const int TH = 50;
+	const int TH = 80;
 
 	PFComponent *target = nullptr;
 	/*
@@ -141,7 +142,7 @@ void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc
 	target->setOwner(owner);
 
 	target->setAnchorPoint(Point(0, 0));
-	target->setPosition(Point((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + z * 25 + 75)));
+	target->setPosition(Point((buildingLoc.x * TW) + TW / 2, (buildingLoc.y * TH + z * 40 + 120)));
 	target->setCoord(buildingLoc);
 	target->setZ(z);
 
@@ -267,7 +268,16 @@ void MapModel::showAllRange(bool visible){
 void MapModel::clickToAddBuildingCursor(int BID){
 	ResourceModel *rm = ResourceModel::getModel();
 
-	_selSprite = Sprite::create(rm->strBuilding[BID]);
+	auto buildingType = BuildingModel::getInstance()->getBuildingModelMap();
+	map<string, BuildingType>::const_iterator itr;
+	for (itr = buildingType->begin(); itr != buildingType->end(); itr++)
+	{
+		if (itr->second.bid == BID)
+			break;
+	}
+	CC_ASSERT(itr != buildingType->end());
+
+	_selSprite = Sprite::create(itr->Y.resourcePath);
 
 	_selSpriteRange = Sprite::create(rm->strRangePic);
 	_selSpriteRange->setScale(4);
@@ -338,9 +348,7 @@ void MapModel::tryTouchMoved(){
 	}
 }
 
-void MapModel::tryTouchEnded(){
-    /*!!!
-    
+void MapModel::tryTouchEnded(){    
 	CCLOG("MapModel::tryTouchEnded()");
 	ResourceModel *rm = ResourceModel::getModel();
 
@@ -358,13 +366,14 @@ void MapModel::tryTouchEnded(){
 							writeMapInfo();
 							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
 							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-							SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::DEFENSE);
+							
+							//SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::DEFENSE);
 						}
 						else{
 							writeMapInfo();
 							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
 							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+							//SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
 					else{
@@ -377,13 +386,13 @@ void MapModel::tryTouchEnded(){
 
 							PlayerManager::getInstance()->setDefPlayer(new PlayerModel(building->getOwner()));
 							CCLOG(">!> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
-							SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::ATTACK);
+							//SceneManager::goMapScreen(rm->strPlayerMap[building->getOwner()], HUD_ID::ATTACK);
 						}
 						else{
 							writeMapInfo();
 							PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
 							PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-							SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
+							//SceneManager::goMapScreen(rm->strWorldMap, HUD_ID::DEFENSE);
 						}
 					}
 					return;
@@ -396,13 +405,19 @@ void MapModel::tryTouchEnded(){
 		/*Rect backgroundRect = Rect(_background->getPositionX(),
 			_background->getPositionY(),
 			_background->getContentSize().width,
-			_background->getContentSize().height);
+			_background->getContentSize().height);*/
 
 		//if (!backgroundRect.containsPoint(_touchLocation)){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
-			if (~isBuildableLevel && PlayerManager::getInstance()->getCurPlayer()->canAddTroop(selID)){
-				addBuilding(_touchLocationInGameLayer, isBuildableLevel);
-				PlayerManager::getInstance()->getCurPlayer()->consumeResource(selID);
+			if (~isBuildableLevel){
+				if (_status == HUD_ID::DEFENSE &&PlayerManager::getInstance()->getCurPlayer()->canAddBuilding(selID)){
+					addBuilding(_touchLocationInGameLayer, isBuildableLevel);
+					PlayerManager::getInstance()->getCurPlayer()->consumeResourceByBuilding(selID);
+				}
+				else if (_status == HUD_ID::ATTACK && PlayerManager::getInstance()->getCurPlayer()->canAddTroop(selID)){
+					addBuilding(_touchLocationInGameLayer, isBuildableLevel);
+					PlayerManager::getInstance()->getCurPlayer()->consumeResourceByTroop(selID);
+				}
 			}
 		//}
 
@@ -412,7 +427,6 @@ void MapModel::tryTouchEnded(){
 
 		showAllRange(false);
 	}
-*/
 }
 
 bool MapModel::outsideBordor(Size contentSize, Point pos){

@@ -15,14 +15,17 @@ class PlayerModel :public Ref,public Subject{
 
 public:
 	PlayerModel();
-	PlayerModel(int uid);
+	PlayerModel(string uid);
 	~PlayerModel();
 
 	void init();
 	static PlayerModel* initWithPlayer(PlayerModel* rhs);
 
+	bool canAddBuilding(int BID);
 	bool canAddTroop(int TID);
-	void consumeResource(int TID);
+
+	void consumeResourceByBuilding(int BID);
+	void consumeResourceByTroop(int TID);
 
 	void changeUID(string uid);
 

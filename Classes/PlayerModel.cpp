@@ -3,6 +3,7 @@
 #include "command.h"
 #include "CCPomeloWrapper.h"
 #include "json.h"
+#include "BuildingModel.h"
 
 USING_NS_CC;
 
@@ -11,7 +12,7 @@ PlayerModel::PlayerModel(){
 	init();
 }
 
-PlayerModel::PlayerModel(int uid){
+PlayerModel::PlayerModel(string uid){
 	_uid = uid;
 	init();
 }
@@ -96,16 +97,51 @@ void PlayerModel::sendResourceAddNotify(int addedGPower,int addedLMana,int added
     CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
 }
 
-bool PlayerModel::canAddTroop(int TID){
-	ResourceModel *rm = ResourceModel::getModel();
-	return _lStr >= rm->costLstr[TID] &&
-		_gMag >= rm->costGmag[TID] &&
-		_food >= rm->costFood[TID];
+bool PlayerModel::canAddBuilding(int BID){
+	auto buildingType = BuildingModel::getInstance()->getBuildingModelMap();
+	map<string, BuildingType>::const_iterator itr;
+	for (itr = buildingType->begin(); itr != buildingType->end(); itr++)
+	{
+		if (itr->second.bid == BID)
+			break;
+	}
+	CC_ASSERT(itr != buildingType->end());
+	return _lStr >= itr->Y.lMana &&	_gMag >= itr->Y.gPower && _food >= itr->Y.foodCost;
 }
 
-void PlayerModel::consumeResource(int TID){
-	ResourceModel *rm = ResourceModel::getModel();
-	CMDResource::order(this, -rm->costLstr[TID], -rm->costGmag[TID], -rm->costFood[TID])->execute();
+bool PlayerModel::canAddTroop(int TID){
+	auto unitMap = UnitTypeModel::getInstance()->getUnitTypeMap();
+	map<string, UnitType>::const_iterator itr;
+	for (itr = unitMap->begin(); itr != unitMap->end(); itr++)
+	{
+		if (itr->second.id == TID)
+			break;
+	}
+	CC_ASSERT(itr != unitMap->end());
+	return _lStr >= itr->Y.lManaCost &&	_gMag >= itr->Y.gPowerCost && _food >= itr->Y.foodCost;
+}
+
+void PlayerModel::consumeResourceByBuilding(int BID){
+	auto buildingType = BuildingModel::getInstance()->getBuildingModelMap();
+	map<string, BuildingType>::const_iterator itr;
+	for (itr = buildingType->begin(); itr != buildingType->end(); itr++)
+	{
+		if (itr->second.bid == BID)
+			break;
+	}
+	CMDResource::order(this, -itr->Y.lMana, -itr->Y.gPower, -itr->Y.foodCost)->execute();
+}
+
+void PlayerModel::consumeResourceByTroop(int TID){
+	auto unitMap = UnitTypeModel::getInstance()->getUnitTypeMap();
+	map<string, UnitType>::const_iterator itr;
+	for (itr = unitMap->begin(); itr != unitMap->end(); itr++)
+	{
+		if (itr->second.id == TID)
+			break;
+	}
+	CC_ASSERT(itr != unitMap->end());
+	CMDResource::order(this, -itr->Y.lManaCost, -itr->Y.gPowerCost, -itr->Y.foodCost)->execute();
 }
 
 void PlayerModel::changeUID(string uid){

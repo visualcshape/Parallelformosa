@@ -107,9 +107,24 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 		BuildingWindow* p = BuildingWindow::create("Building", [=](Ref* pSender, Widget::TouchEventType type){
 			if (type == Widget::TouchEventType::ENDED)
 				thisLayer->removeChildByName(windowName);
-		}, CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback,this));
+		}, CC_CALLBACK_2(MainMenuLayer::BuildingButtonCallbackEnded, this));
 		ID = p->getCurButton()->getID();
 		addChild(p, 100, windowName);
+	}
+}
+void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::TouchEventType type){
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
+		CCLOG("go1");
+
+		int ID = p->getCurButton()->getID();
+		this->removeChildByName("BuildingWindow");
+		CCLOG("go2");
+
+		//@brief later modify
+		MapModel::getModel()->clickToAddBuildingCursor(ID);
+		CCLOG("go3");
 	}
 }
 
@@ -130,17 +145,8 @@ void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
 	}
 }
 
-void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-	if (type == Widget::TouchEventType::ENDED)
-	{
-        /*BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
-        int ID = p->getCurButton()->getID();
-        
-        this->removeChildByName("BuildingWindow");
+void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type){
 
-		//@brief later modify
-		MapModel::getModel()->clickToAddBuildingCursor(ID);*/
-	}
 }
 
 void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){

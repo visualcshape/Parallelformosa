@@ -58,6 +58,9 @@ public:
 
 	void gogo();
 	void BuildingButtonCallback(Ref* pSender, Widget::TouchEventType type);
+	void BuildingButtonCallbackEnded(Ref* pSender, Widget::TouchEventType type);
+
+
 	void UnitButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
 	void ItemButtonCallback(Ref* pSender, Widget::TouchEventType type);

@@ -165,8 +165,9 @@ void LoadingLayer::_startLoadMISC(){
 	++_loadedSprite;
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
+	*/
 	ResourceModel::getModel()->LoadMISC();
-	++_loadedSprite;*/
+	++_loadedSprite;
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 
