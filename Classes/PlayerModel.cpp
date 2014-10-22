@@ -40,9 +40,9 @@ void PlayerModel::produce(float dt){
 	int prepareGMag = 0;
 	int prepareLStr = 0;
 	int prepareFood = 0;
-	int baseGMag = 6;
-	int baseLStr = 10;
-	int baseFood = 20;
+	int baseGMag = 600;
+	int baseLStr = 1000;
+	int baseFood = 2000;
 
 	if (_playerOwnMapWeather == MapModel::Weather::NONEWEATHER)
 	{
