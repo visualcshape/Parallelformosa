@@ -44,6 +44,17 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	layer->addChild(mainMenuInfoLayer, 10001);
 	
 	//@brief bind HUDlayer
+	if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(mapName) == 0){
+		status = HUD_ID::DEFENSE;
+		PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+		PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+	}
+	else{
+		status = HUD_ID::ATTACK;
+		PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+		PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+	}
+
 	auto hudlayer = HUDLayer::create(status);
 	layer->addChild(hudlayer, 20000);
 

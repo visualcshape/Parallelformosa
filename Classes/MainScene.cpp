@@ -295,28 +295,31 @@ void MainMenuLayer::whenNBFadeOut()
 
 void MainMenuLayer::onHttpResponseCallback(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
 {
-    CC_ASSERT(resp!=nullptr);
-    CC_ASSERT(
-              resp->isSucceed());
-    
-    //open file
+	CC_ASSERT(resp != nullptr);
+	CC_ASSERT(
+		resp->isSucceed());
+
+	//open file
 #if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
-    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_curMapCoord+".info").c_str(), "wb");
+	FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_curMapCoord+".info").c_str(), "wb");
 #else
-    FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+_curMapCoord+".info").c_str(), "wb");
+	FILE* fp = fopen((FileUtils::getInstance()->getWritablePath() + _curMapCoord + ".info").c_str(), "wb");
 #endif
-    CC_ASSERT(fp!=nullptr);
-    vector<char>* buffer = resp->getResponseData();
-    for(unsigned int i = 0 ; i < buffer->size() ;i++)
-    {
-        fwrite(&buffer->at(i), 1, 1, fp);
-    }
-    fclose(fp);
-    
-    removeChildByName("mapNB");
-    removeChildByName("mapCS");
-    
-    SceneManager::goMapScreen(_curMapCoord+".tmx", HUD_ID::DEFENSE);
+	CC_ASSERT(fp != nullptr);
+	vector<char>* buffer = resp->getResponseData();
+	for (unsigned int i = 0; i < buffer->size(); i++)
+	{
+		fwrite(&buffer->at(i), 1, 1, fp);
+	}
+	fclose(fp);
+
+	removeChildByName("mapNB");
+	removeChildByName("mapCS");
+	if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(_curMapCoord + ".tmx") == 0)
+		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::DEFENSE);
+	else
+		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::ATTACK);
+
 }
 
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
