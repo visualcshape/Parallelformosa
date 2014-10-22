@@ -198,6 +198,9 @@
     <ClCompile Include="..\Classes\UtilFunc.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\NoticeBox.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -376,6 +379,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\UtilFunc.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoticeBox.h">
+      <Filter>Classes\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

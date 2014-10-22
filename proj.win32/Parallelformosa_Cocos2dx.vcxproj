@@ -171,6 +171,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\MapModel.cpp" />
     <ClCompile Include="..\Classes\MapWindow.cpp" />
     <ClCompile Include="..\Classes\NetManager.cpp" />
+    <ClCompile Include="..\Classes\NoticeBox.cpp" />
     <ClCompile Include="..\Classes\NoticeLoading.cpp" />
     <ClCompile Include="..\Classes\NoticeManager.cpp" />
     <ClCompile Include="..\Classes\Observer.cpp" />
@@ -232,6 +233,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\MapModel.h" />
     <ClInclude Include="..\Classes\MapWindow.h" />
     <ClInclude Include="..\Classes\NetManager.h" />
+    <ClInclude Include="..\Classes\NoticeBox.h" />
     <ClInclude Include="..\Classes\NoticeLoading.h" />
     <ClInclude Include="..\Classes\NoticeManager.h" />
     <ClInclude Include="..\Classes\Observer.h" />

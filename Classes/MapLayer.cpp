@@ -59,7 +59,7 @@ bool MapLayer::init(std::string& mapName){
 	mm->loadLayers(_pfLayers, "PF Layer");
 	mm->setPFLayers(_pfLayers);
 	CCLOG(">> %d\n", SZ(_pfLayers));
-
+    
 	mm->readMapInfo();
 
 	double tend = clock();
@@ -85,6 +85,11 @@ bool MapLayer::init(std::string& mapName){
 	this->schedule(schedule_selector(MapLayer::ccdebug), 5.0f);
 
 	return true;
+}
+
+void MapLayer::onHttpRequestCallback(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
+{
+    
 }
 
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){

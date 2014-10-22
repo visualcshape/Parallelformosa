@@ -10,6 +10,9 @@
 #include "json.h"
 #include "VisibleRect.h"
 
+
+#include <HttpClient.h>
+using namespace cocos2d::network;
 USING_NS_CC;
 
 class MapLayer : public BaseLayer, public ScreenObserver{
@@ -28,6 +31,8 @@ public:
 
 	static MapLayer* create(std::string& mapName);
 	bool init(std::string& mapName);
+    
+    void onHttpRequestCallback(HttpClient* sender,HttpResponse* resp);
 
 	void slide(Vec2 translation);
 	void refresh(float dt);

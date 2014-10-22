@@ -14,7 +14,9 @@
 #include "NetManager.h"
 #include "PlayerManager.h"
 #include "MapWindow.h"
+#include <HttpClient.h>
 
+USING_NS_CC::network;
 USING_NS_CC;
 using namespace cocos2d::ui;
 
@@ -38,6 +40,8 @@ private:
 
 	//----Other----//
 	Button* _optionButton;
+    
+    string _curMapCoord;
 protected:
 public:
 	virtual bool init();
@@ -50,6 +54,7 @@ public:
 	void BuildingButtonCallbackEnded(Ref* pSender, Widget::TouchEventType type);
 
 	void UnitButtonCallback(Ref* pSender, Widget::TouchEventType type);
+    void TrainButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
 
 	void ItemButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
@@ -63,6 +68,9 @@ public:
 
     void queriedMapResultCallback(const CCPomeloRequestResult& result);
 
+    void whenNBFadeOut();
+    
+    void onHttpResponseCallback(HttpClient* sender,HttpResponse* resp);
 private:
 	MapModel *mm;
 	int ID;
