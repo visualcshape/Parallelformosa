@@ -16,7 +16,6 @@
 #include "UnitTypeModel.h"
 #include "ResourceModel.h"
 #include "SceneManager.h"
-#include <dirent.h>
 
 Scene* LoadingScene::createScene()
 {
