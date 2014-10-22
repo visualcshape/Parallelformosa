@@ -16,9 +16,9 @@
 #include "UnitTypeModel.h"
 #include "ResourceModel.h"
 #include "SceneManager.h"
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-#include "dirent.h"
-#endif
+
+#include <dirent.h>
+
 
 Scene* LoadingScene::createScene()
 {
@@ -344,15 +344,15 @@ void LoadingLayer::_copyTMXandInfoToWriteablePath()
     vector<string> fileNamePathArray;
     vector<string> fileNameArray;
     
-    char sub[1000];
+    char sub[512];
     string p = FileUtils::getInstance()->fullPathForFilename("Tilemap/stub");
     strncpy(sub, p.c_str(), p.length()-4);
 	sub[p.length() - 4] = '\0';
     p = sub;
     
-    DIR* dir;
-    struct dirent* ent;
-    if((dir=opendir(p.c_str()))!=nullptr)
+    DIR* dir = nullptr;
+    struct dirent* ent = nullptr;
+    if((dir=opendir(sub))!=nullptr)
     {
         while((ent = readdir(dir))!=nullptr)
         {

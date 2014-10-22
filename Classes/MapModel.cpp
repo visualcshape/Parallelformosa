@@ -360,7 +360,7 @@ void MapModel::tryTouchEnded(){
 			for (auto &building : _buildings){
 				MapPoint coord = mapCoordForTilePoint(tileLoc, lr);
 				if (coord == building->getCoord() && lr == building->getZ()){
-					CCLOG(">>@ The building belongs %s", building->getOwner());
+					CCLOG(">>@ The building belongs %s", building->getOwner().c_str());
 					if (PlayerManager::getInstance()->getCurPlayer()->getUID() == building->getOwner()){
 						if (mapName.compare(rm->strWorldMap) == 0){
 							writeMapInfo();

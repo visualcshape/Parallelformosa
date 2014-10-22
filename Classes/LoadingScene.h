@@ -19,10 +19,6 @@
 #include <fstream>
 #include "PlayerManager.h"
 #include <HttpClient.h>
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
-#include <copyfile.h>
-#include <dirent.h>
-#endif
 #include "UtilFunc.h"
 
 USING_NS_CC;

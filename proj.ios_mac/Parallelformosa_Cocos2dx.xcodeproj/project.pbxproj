@@ -146,9 +146,7 @@
 		F6A6ED2819E3210D0020EFBB /* ortho-test1.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0319E3210C0020EFBB /* ortho-test1.png */; };
 		F6A6ED2919E3210D0020EFBB /* ortho-test1P200.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0419E3210C0020EFBB /* ortho-test1P200.png */; };
 		F6A6ED2A19E3210D0020EFBB /* OurMap(config).tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0519E3210C0020EFBB /* OurMap(config).tmx */; };
-		F6A6ED2D19E3210D0020EFBB /* PFMAP in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0819E3210D0020EFBB /* PFMAP */; };
 		F6A6ED2E19E3210D0020EFBB /* PlanetCute in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0919E3210D0020EFBB /* PlanetCute */; };
-		F6A6ED3019E3210D0020EFBB /* Range.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0B19E3210D0020EFBB /* Range.png */; };
 		F6A6ED3119E3210D0020EFBB /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0C19E3210D0020EFBB /* terrain.png */; };
 		F6A6ED3219E3210D0020EFBB /* test.info in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0D19E3210D0020EFBB /* test.info */; };
 		F6A6ED3A19E3210D0020EFBB /* TestTileset.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1519E3210D0020EFBB /* TestTileset.tsx */; };
@@ -1129,9 +1127,7 @@
 				F6A6ED2819E3210D0020EFBB /* ortho-test1.png in Resources */,
 				F6A6ED2919E3210D0020EFBB /* ortho-test1P200.png in Resources */,
 				F6A6ED2A19E3210D0020EFBB /* OurMap(config).tmx in Resources */,
-				F6A6ED2D19E3210D0020EFBB /* PFMAP in Resources */,
 				F6A6ED2E19E3210D0020EFBB /* PlanetCute in Resources */,
-				F6A6ED3019E3210D0020EFBB /* Range.png in Resources */,
 				F6A6ED3119E3210D0020EFBB /* terrain.png in Resources */,
 				F6A6ED3219E3210D0020EFBB /* test.info in Resources */,
 				F6A6ED3A19E3210D0020EFBB /* TestTileset.tsx in Resources */,
