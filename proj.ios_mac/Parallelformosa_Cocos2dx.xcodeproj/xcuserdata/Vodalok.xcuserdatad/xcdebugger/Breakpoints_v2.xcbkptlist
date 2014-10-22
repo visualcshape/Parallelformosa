@@ -1086,7 +1086,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
-            endingLineNumber = "145">
+            endingLineNumber = "145"
+            landmarkName = "PlayerModel::changeUID(string uid)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1197,7 +1199,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "431"
             endingLineNumber = "431"
-            landmarkName = "PlayerModel::setGmag(int value)"
+            landmarkName = "PlayerModel::writePlayerInfo(bool backup)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1213,7 +1215,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "436"
             endingLineNumber = "436"
-            landmarkName = "PlayerModel::getFood()"
+            landmarkName = "PlayerModel::writePlayerInfo(bool backup)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

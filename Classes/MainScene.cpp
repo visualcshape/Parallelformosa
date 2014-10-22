@@ -348,10 +348,6 @@ MainInfoLayer::MainInfoLayer(){
 	CCLOG("MainInfoLayer construct");
 	mm = MapModel::getModel();
 	mm->Attach(this);
-    
-    PlayerModel* curPlayer = PlayerManager::getInstance()->getCurPlayer();
-    _bindedPlayer = curPlayer;
-    _bindedPlayer->Attach(this);
 }
 
 MainInfoLayer::~MainInfoLayer(){
@@ -363,12 +359,6 @@ MainInfoLayer::~MainInfoLayer(){
 		_bindModel->Detach(this);
 		_bindModel = nullptr;
 	}
-    
-    if(_bindedPlayer!=nullptr)
-    {
-        _bindedPlayer->Detach(this);
-        _bindedPlayer = nullptr;
-    }
 }
 
 bool MainInfoLayer::init(){
@@ -491,7 +481,8 @@ bool MainInfoLayer::init(){
     addChild(infoMask,1);
     
     //add a schedule
-    schedule(schedule_selector(MainInfoLayer::_scroll), 0.01f);
+	schedule(schedule_selector(MainInfoLayer::_scroll), 0.01f);
+	schedule(schedule_selector(MainInfoLayer::refresh), mm->REFRESH_RATE);
     
     _bindModel->setScrollingText("Welcome to Parallelformosa Alpha Version...");
     
@@ -501,23 +492,18 @@ bool MainInfoLayer::init(){
     //////////////
     
     //set resource init value//
-    _gPowerValue->setString(to_string(_bindedPlayer->getGmag()));
-    _lManaValue->setString(to_string(_bindedPlayer->getLstr()));
-    _foodValue->setString(to_string(_bindedPlayer->getFood()));
+	auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+	_gPowerValue->setString(to_string(curPlayer->getGmag()));
+	_lManaValue->setString(to_string(curPlayer->getLstr()));
+	_foodValue->setString(to_string(curPlayer->getFood()));
     //////////////////
     //set now coord...///
     _locationValue->setString(mm->getMapName());
-    
-    this->schedule(schedule_selector(MainInfoLayer::produce), 3.0f);
-    
+
     ret = true;
     return ret;
 }
 
-void MainInfoLayer::produce(float dt)
-{
-    PlayerManager::getInstance()->getCurPlayer()->produce(dt);
-}
 
 void MainInfoLayer::PrepareNetwork()
 {
@@ -530,20 +516,31 @@ void MainInfoLayer::onConnectLost()
     auto p = NetManager::getInstance();
     p->onConnectLost();
 }
+void MainInfoLayer::refresh(float dt){
+	auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+	int gPower = curPlayer->getGmag();
+	int lMana = curPlayer->getLstr();
+	int food = curPlayer->getFood();
+
+	_gPowerValue->setString(to_string(gPower));
+	_lManaValue->setString(to_string(lMana));
+	_foodValue->setString(to_string(food));
+
+	_refreshLayout();
+}
 
 void MainInfoLayer::Update(Subject *changedSubject){
-    MainUIInfoModel* changedModel = dynamic_cast<MainUIInfoModel*>(changedSubject);
-    PlayerModel* playerModelChanged = dynamic_cast<PlayerModel*>(changedSubject);
-    MapModel* mapModelChanged = dynamic_cast<MapModel*>(changedSubject);
-    
-    //changedModel == MapModel
-    if (mapModelChanged != nullptr)
-    {
-        setPosition(mm->getHUDBasePosition());
-        _refreshLayout();
-        return;
-    }
-    //changedModel == MainUIInfoModel
+	MainUIInfoModel* changedModel = dynamic_cast<MainUIInfoModel*>(changedSubject);
+	MapModel* mapModelChanged = dynamic_cast<MapModel*>(changedSubject);
+
+	//changedModel == MapModel
+	if (mapModelChanged != nullptr)
+	{
+		setPosition(mm->getHUDBasePosition());
+		_refreshLayout();
+		return;
+	}
+	//changedModel == MainUIInfoModel
 	if (changedModel != nullptr)
 	{
 		switch (changedModel->getChagedData()) {
@@ -555,26 +552,11 @@ void MainInfoLayer::Update(Subject *changedSubject){
 		default:
 			break;
 		}
-        _refreshLayout();
-        return;
+		_refreshLayout();
+		return;
 	}
-    //ChangedModel==playerModel
-    if(playerModelChanged!=nullptr)
-    {
-        int gPower = playerModelChanged->getGmag();
-        int lMana = playerModelChanged->getLstr();
-        int food = playerModelChanged->getFood();
-        
-        _gPowerValue->setString(to_string(gPower));
-        _lManaValue->setString(to_string(lMana));
-        _foodValue->setString(to_string(food));
-        
-        _refreshLayout();
-        return;
-    }
-    
-    
-    CCASSERT(false,"Unknown Modelchanged or Model not attached yet");
+
+	CCASSERT(false, "Unknown Modelchanged or Model not attached yet");
 }
 
 void MainInfoLayer::_scrollingTextModelChanged(){

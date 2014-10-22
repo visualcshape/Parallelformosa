@@ -117,7 +117,8 @@ public:
     virtual bool init();
     
     virtual void Update(Subject* changedSubject);
-    
+	virtual void refresh(float dt);
+
 	CREATE_FUNC(MainInfoLayer);
 
     //Network
@@ -126,12 +127,9 @@ public:
     void onConnectLost();
     
     void queryMapWeather();
-    
-    void produce(float dt);
 
 private:
 	MapModel *mm;
-    PlayerModel* _bindedPlayer;
-    
+
     void _onQueryWeatherRequestCallback(const CCPomeloRequestResult& result);
 };

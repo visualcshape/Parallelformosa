@@ -478,6 +478,12 @@ void MapModel::refresh(float dt){
 	//@debug modify label.
 		{
 			char buffer[70];
+			sprintf(buffer, "str = %d,\nmag = %d,\n food = %d", PlayerManager::getInstance()->getCurPlayer()->getLstr(), PlayerManager::getInstance()->getCurPlayer()->getGmag(), PlayerManager::getInstance()->getCurPlayer()->getFood());
+			getlblResourcePos()->setString(buffer);
+		}
+	//@debug modify label.
+		{
+			char buffer[70];
 			sprintf(buffer, "player uid= atk:%s def:%s cur:%s", PlayerManager::getInstance()->getAtkPlayer()->getUID().c_str(), PlayerManager::getInstance()->getDefPlayer()->getUID().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
 			getlblPlayerPos()->setString(buffer);
 		}
@@ -604,15 +610,37 @@ void MapModel::writeMapInfo(bool backup){
 	FILE *fp = rm->OpenFileW(filename);
 	CCASSERT(fp != nullptr, "write map info fail");
 
-	for (auto &building : _buildings)
-		fprintf(fp, "%d %.0f %.0f %d %s\n", building->getID(), building->getCoord().x, building->getCoord().y, building->getZ(), building->getOwner().c_str());
+	const char* route = "parallelSpace.parallelSpaceHandler.writeMapInfo";
+	Json::Value msg;
+	Json::FastWriter writer;
 
+	for (auto &building : _buildings){
+		fprintf(fp, "%d %.0f %.0f %d %s\n", building->getID(), building->getCoord().x, building->getCoord().y, building->getZ(), building->getOwner().c_str());
+		Json::Value record;
+		record["GID"] = building->getID();
+		record["coordX"] = (int)building->getCoord().x;
+		record["coordY"] = (int)building->getCoord().y;
+		record["coordZ"] = (int)building->getZ();
+		record["owner"] = building->getOwner();
+		record["mapCoord"] = mapName;
+		msg.append(record);
+	}
 	if (backup){
-		for (auto &troop : _troops)
+		for (auto &troop : _troops){
 			fprintf(fp, "%d %.0f %.0f %d %s\n", troop->getID(), troop->getCoord().x, troop->getCoord().y, troop->getZ(), troop->getOwner().c_str());
+			Json::Value record;
+			record["GID"] = troop->getID();
+			record["coordX"] = (int)troop->getCoord().x;
+			record["coordY"] = (int)troop->getCoord().y;
+			record["coordZ"] = (int)troop->getZ();
+			record["owner"] = troop->getOwner();
+			record["mapCoord"] = mapName;
+			msg.append(record);
+		}
 	}
 
 	fclose(fp);
+	CCPomeloWrapper::getInstance()->request(route, writer.write(msg), nullptr);
 }
 
 void MapModel::readMapInfo(bool backup){
@@ -644,6 +672,7 @@ void MapModel::readMapInfo(bool backup){
 
 	fclose(fp);
 
+	
 	/*
 	CCLOG(">> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
 	if (PlayerManager::getInstance()->getCurPlayer()->height != -1 && rm->strWorldMap == mapName){

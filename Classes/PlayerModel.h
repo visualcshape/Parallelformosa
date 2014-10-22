@@ -33,6 +33,7 @@ public:
 	void writePlayerInfo(bool backup = false);
 
 	void produce(float dt);
+	void PlayerModelCallBack(const CCPomeloRequestResult& result);
 
 	//@resource
 	void gainLstr(int value);

@@ -269,13 +269,13 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
 		_infoFileName = sp[sp.size() - 1];
         
         //init player
-        PlayerModel* player = new PlayerModel();
-        player->init();
+        PlayerModel* player = new PlayerModel(_uid);
         
         PlayerManager::getInstance()->setCurPlayer(player);
         PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
         PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
         
+		/*
         //set player resources...
         auto playerInit = PlayerManager::getInstance()->getCurPlayer();
         playerInit->setGmag(atoi(user["GPower"].asString().c_str()));
@@ -289,7 +289,7 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         playerInit->setPlayerOwnedArcher(user["ArcherAmount"].asInt());
         playerInit->setPlayerOwnedPriest(user["PriestAmount"].asInt());
         playerInit->setPlayerOwnedPriest(user["Magician"].asInt());
-        
+        */
         //Sync to SQLite3
         _writeUserToDB(user);
         _downloadInfoFile(infoDownloadPath,user);
