@@ -8,7 +8,7 @@ USING_NS_CC;
 class ResourceModel :public Ref{
 public:
 	static const int BUILDING_SIZE = 5;
-	static const int TROOP_SIZE = 5;
+	static const int TROOP_SIZE = 4;
 	static const int TERRAIN_SIZE = 11;
 	static const int TILEMAP_SIZE = 9;
 	static const int PALYER_SIZE = 2;

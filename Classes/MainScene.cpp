@@ -52,7 +52,6 @@ bool MainMenuLayer::init(){
     //Super init
     if(!Layer::init())
         return false;
-    
     //Layout created
     _mainLayout = Layout::create();
     Sprite* tmpSprite = Sprite::create("UI/MainUI_Background.png");
@@ -237,6 +236,8 @@ void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventT
 
 void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result)
 {
+	MapModel::getModel()->writeMapInfo();
+
     Json::Value root;
     Json::Reader reader;
     
@@ -306,12 +307,13 @@ void MainMenuLayer::onHttpResponseCallback(cocos2d::network::HttpClient *sender,
 	fclose(fp);
 
 	removeChildByName("mapNB");
-	removeChildByName("mapCS");
+	removeChildByName("mapCS");    
+	MapModel::getModel()->writeMapInfo();
+
 	if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(_curMapCoord + ".tmx") == 0)
 		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::DEFENSE);
 	else
 		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::ATTACK);
-
 }
 
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -320,8 +322,10 @@ void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEve
 		char buffer[1000];
 		sprintf(buffer, "0.%d.tmx", rand() % 14);
 
+		MapModel::getModel()->writeMapInfo();
 		SceneManager::goMapScreen(buffer, HUD_ID::DEFENSE);
 	}
+
 }
 
 void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -565,14 +569,14 @@ void MainInfoLayer::_scrollingTextModelChanged(){
 }
 
 void MainInfoLayer::_scroll(float delta){
-    Vec2 prePos = _scrollingLabel->getPosition();
-    Vec2 postPos(prePos.x-1.f,prePos.y);
-    float rePositionThreshold = _infoNoticeBackground->getPosition().x-_scrollingLabel->getContentSize().width-2;
-    if(postPos.x<rePositionThreshold){
-        postPos = Vec2(_infoNoticeBackground->getPosition().x+_infoNoticeBackground->getContentSize().width, prePos.y);
-    }
-    
-    _scrollingLabel->setPosition(postPos);
+	Vec2 prePos = _scrollingLabel->getPosition();
+	Vec2 postPos(prePos.x - 1.f, prePos.y);
+	float rePositionThreshold = _infoNoticeBackground->getPosition().x - _scrollingLabel->getContentSize().width - 2;
+	if (postPos.x < rePositionThreshold){
+		postPos = Vec2(_infoNoticeBackground->getPosition().x + _infoNoticeBackground->getContentSize().width, prePos.y);
+	}
+
+	_scrollingLabel->setPosition(postPos);
 }
 
 void MainInfoLayer::_refreshLayout()

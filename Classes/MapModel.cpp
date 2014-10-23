@@ -308,7 +308,6 @@ void MapModel::clickToAddBuildingCursor(int BID){
 }
 
 bool MapModel::tryTouchBegan(){
-	/*
 	Sprite * newSprite = NULL;
 	for (int i = 0; i < _movableSprites.size(); i++){
 		Sprite* sprite = _movableSprites.at(i);
@@ -334,8 +333,28 @@ bool MapModel::tryTouchBegan(){
 			selID = i + 1;
 			showAllRange(true);
 		}
-	}*/
+	}
 	return true;
+}
+
+string MapModel::getUIDByMapCoord(MapPoint loc){
+	const char* route = "parallelSapce.parallelSpaceHandler.getUIDByMapCoord";
+	auto instance = CCPomeloWrapper::getInstance();
+
+	Json::Value msg;
+	Json::FastWriter writer;
+
+	msg["mapCoord"] = mapName.substr(0, SZ(mapName) - 4);
+
+	instance->request(route, writer.write(msg), CC_CALLBACK_1(MapModel::getUIDByMapCoordEnded, this));
+	return _uid;
+}
+
+void MapModel::getUIDByMapCoordEnded(const CCPomeloRequestResult& result){
+	Json::Value root;
+	Json::Reader reader;
+	if (reader.parse(result.jsonMsg, root))
+		_uid = root["uid"].asString();
 }
 
 void MapModel::tryTouchMoved(){
@@ -383,25 +402,8 @@ void MapModel::tryTouchEnded(){
 					sprintf(buffer, ".%.0f-%.0f", coord.x, coord.y);
 					string goMapStr = mapName + string(buffer) + ".tmx";
 
-					CCLOG(">>>>!>>>!>> %s", mapName.c_str());
-					CCLOG(">>>>>>>>>>>>>>>>>>>>>>>>>>>> %s\n", goMapStr.c_str());
-
-					if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(mapName) == 0){
-						writeMapInfo();
-						PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-						PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
-						SceneManager::goMapScreen(goMapStr, HUD_ID::DEFENSE);
-					}
-					else{
-						writeMapInfo();
-						PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
-						PlayerManager::getInstance()->getCurPlayer()->height = building->getZ();
-						PlayerManager::getInstance()->getCurPlayer()->coord = building->getCoord();
-
-						PlayerManager::getInstance()->setDefPlayer(new PlayerModel(building->getOwner()));
-						CCLOG(">!> _baseBuidling = nullptr => %s", PlayerManager::getInstance()->getCurPlayer()->height == -1 ? "Yes" : "No");
-						SceneManager::goMapScreen(goMapStr, HUD_ID::ATTACK);
-					}
+					writeMapInfo();
+					SceneManager::goMapScreen(goMapStr, HUD_ID::DEFENSE);
 					return;
 				}
 			}
@@ -409,12 +411,12 @@ void MapModel::tryTouchEnded(){
 	}
 
 	if (_selSprite){
-		/*Rect backgroundRect = Rect(_background->getPositionX(),
+		Rect backgroundRect = Rect(_background->getPositionX(),
 			_background->getPositionY(),
 			_background->getContentSize().width,
-			_background->getContentSize().height);*/
+			_background->getContentSize().height);
 
-		//if (!backgroundRect.containsPoint(_touchLocation)){
+		if (!backgroundRect.containsPoint(_touchLocation)){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
 			if (~isBuildableLevel){
 				if (_status == HUD_ID::DEFENSE &&PlayerManager::getInstance()->getCurPlayer()->canAddBuilding(selID)){
@@ -424,24 +426,23 @@ void MapModel::tryTouchEnded(){
 				else if (_status == HUD_ID::ATTACK && PlayerManager::getInstance()->getCurPlayer()->canAddTroop(selID)){
 					addBuilding(_touchLocationInGameLayer, isBuildableLevel);
 					PlayerManager::getInstance()->getCurPlayer()->consumeResourceByTroop(selID);
-                    
-                    //notify
-                    //send add building notify
-                    const char* route = "parallelSpace.parallelSpaceHandler.buildBuilding";
-                    Json::Value root;
-                    Json::FastWriter writer;
-                    
-                    root["buildingX"] = 0;
-                    root["buildingY"] = 0;
-                    root["buildingZ"] = 0;
-                    root["gid"] = 0;
-                    root["uid"] = PlayerManager::getInstance()->getCurPlayer()->getUID();
-                    
-                    CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
-                    //
+
+					//notify
+					//send add building notify
+					const char* route = "parallelSpace.parallelSpaceHandler.buildBuilding";
+					Json::Value root;
+					Json::FastWriter writer;
+
+					root["buildingX"] = 0;
+					root["buildingY"] = 0;
+					root["buildingZ"] = 0;
+					root["gid"] = 0;
+					root["uid"] = PlayerManager::getInstance()->getCurPlayer()->getUID();
+
+					CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
 				}
 			}
-		//}
+		}
 
 		_selGroups->removeAllChildren();
 		_selSprite = NULL;
@@ -622,7 +623,7 @@ void MapModel::writeMapInfo(bool backup){
 		record["coordY"] = (int)building->getCoord().y;
 		record["coordZ"] = (int)building->getZ();
 		record["owner"] = building->getOwner();
-		record["mapCoord"] = mapName;
+		record["mapCoord"] = mapName.substr(0, SZ(mapName) - 4);
 		msg.append(record);
 	}
 	if (backup){
@@ -633,8 +634,8 @@ void MapModel::writeMapInfo(bool backup){
 			record["coordX"] = (int)troop->getCoord().x;
 			record["coordY"] = (int)troop->getCoord().y;
 			record["coordZ"] = (int)troop->getZ();
-			record["owner"] = troop->getOwner();
-			record["mapCoord"] = mapName;
+			record["owner"] = troop->getOwner();       
+			record["mapCoord"] = mapName.substr(0, SZ(mapName) - 4);
 			msg.append(record);
 		}
 	}
