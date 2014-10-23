@@ -54,9 +54,9 @@ void PlayerModel::produce(float dt){
 
 	if (_playerOwnMapWeather == MapModel::Weather::NONEWEATHER)
 	{
-		prepareFood += baseFood*_foodGenRate * 0;
-		prepareLStr += baseLStr*_lStrGenRate * 0;
-		prepareGMag += baseGMag*_gMagGenRate * 0;
+		prepareFood += baseFood*_foodGenRate * 1.0;
+		prepareLStr += baseLStr*_lStrGenRate * 1.0;
+		prepareGMag += baseGMag*_gMagGenRate * 1.0;
 	}
 	else if (_playerOwnMapWeather == MapModel::Weather::RAIN)
 	{
@@ -366,9 +366,12 @@ void PlayerModel::PlayerModelCallBack(const CCPomeloRequestResult& result){
 		_lStrGenRate = atof(user["LManaGenRate"].asString().c_str());
 		_playerOwnedSwordMan = user["SwordManAmount"].asInt();
 		_playerOwnedArcher = user["ArcherAmount"].asInt();
-		_playerOwnedPriest = user["PriestAmount"].asInt();
-		_playerOwnedMagician = user["Magician"].asInt();
-		CCLOG("%d %d %d", _gMag, _lStr, _food);
+		_playerOwnedPriest = user["PriestAmount"].asInt();      
+		_playerOwnedSwordMan = user["SwordManAmount"].asInt();
+        _playerOwnedArcher = user["ArcherAmount"].asInt();
+        _playerOwnedPriest = user["PriestAmount"].asInt();
+        _playerOwnedMagician = user["MagicianAmount"].asInt();
+        CCLOG("%d %d %d", _gMag, _lStr, _food);
 	}
 }
 
@@ -407,6 +410,24 @@ int PlayerModel::UserQueryCB(void *para, int columns, char **columnValue, char *
 }
 
 void PlayerModel::writePlayerInfo(bool backup){
+	const char* route = "parallelSpace.parallelSpaceHandler.writePlayerInfo";
+	Json::Value record;
+	Json::FastWriter writer;
+
+	record["GPower"] = _gMag;
+	record["LMana"] = _lStr;
+	record["Food"] = _food;
+	record["OwnMapCoord"] = _playerOwnMapCoord;
+	record["FoodGenRate"] = _foodGenRate;
+	record["GPowerGenRate"] = _gMagGenRate;
+	record["LManaGenRate"] = _lStrGenRate;
+	record["SwordManAmount"] = _playerOwnedSwordMan;
+	record["ArcherAmount"] = _playerOwnedArcher;
+	record["PriestAmount"] = _playerOwnedPriest;
+	record["MagicianAmount"] = _playerOwnedMagician;
+
+	CCPomeloWrapper::getInstance()->request(route, writer.write(record), nullptr);
+	/*
 	sqlite3* pDB = Database::getInstance()->getDatabasePointer();
 	char sql[128] = "";
 	char* errMsg;
@@ -415,36 +436,57 @@ void PlayerModel::writePlayerInfo(bool backup){
 
 	int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
 
+
 	CC_ASSERT(result == SQLITE_OK);
 
 	/*ResourceModel *rm = ResourceModel::getModel();
-char buffer[1000];
-string playerName = "player" + _uid;
-string filename = playerName + ".info";
+	char buffer[1000];
+	string playerName = "player" + _uid;
+	string filename = playerName + ".info";
+	ResourceModel *rm = ResourceModel::getModel();
+	char buffer[1000];
+	string playerName = "player" + _uid;
+	string filename = playerName + ".info";
 
-if (backup)
-filename += ".backup";
+	if (backup)
+	filename += ".backup";
+	if (backup)
+	filename += ".backup";
 
-FILE *fp = rm->OpenFileW(filename);
-CCASSERT(fp != nullptr, "read map info fail");
+	FILE *fp = rm->OpenFileW(filename);
+	CCASSERT(fp != nullptr, "read map info fail");
+	FILE *fp = rm->OpenFileW(filename);
+	CCASSERT(fp != nullptr, "read map info fail");
 
-//@brief save resoures
-fprintf(fp, "%d %d %d\n", _lStr, _gMag, _food);
+	//@brief save resoures
+	fprintf(fp, "%d %d %d\n", _lStr, _gMag, _food);
+	//@brief save resoures
+	fprintf(fp, "%d %d %d\n", _lStr, _gMag, _food);
 
-//@brief save logout time
-fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
+	//@brief save logout time
+	fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
+	//@brief save logout time
+	fprintf(fp, "%s\n", rm->getSystemTimeString().c_str());
 
-//@brief save troops info
-for (auto &troop : _troops){
-fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
-}
+	//@brief save troops info
+	for (auto &troop : _troops){
+	fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
+	}
+	//@brief save troops info
+	for (auto &troop : _troops){
+	fprintf(fp, "troop %d %d (%.0f,%.0f,%d)\n", troop->getOID(), troop->getID() - 18, troop->getCoord().x, troop->getCoord().y, troop->getZ());
+	}
 
-//@brief save buildings info
-for (auto &building : _buildings){
-fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
-}
+	//@brief save buildings info
+	for (auto &building : _buildings){
+	fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
+	}
+	//@brief save buildings info
+	for (auto &building : _buildings){
+	fprintf(fp, "building %d %d (%.0f,%.0f,%d)\n", building->getOID(), building->getID() - 36, building->getCoord().x, building->getCoord().y, building->getZ());
+	}
 
-fclose(fp); */
+	fclose(fp); */
 }
 
 int PlayerModel::getLstr()

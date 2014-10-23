@@ -22,27 +22,27 @@ bool Troop::init(){
 }
 
 Troop* Troop::addTroop(int TID){
-    auto unitMap = UnitTypeModel::getInstance()->getUnitTypeMap();
-    map<string,UnitType>::const_iterator itr;
-    for(itr = unitMap->begin() ; itr!=unitMap->end();itr++)
-    {
-        if(itr->second.id==TID)
-            break;
-    }
-    CC_ASSERT(itr!=unitMap->end());
-    Troop* troop = Troop::create();
-    troop->_sprite = Sprite::create(itr->second.resourcePath);
-    troop->addChild(troop->_sprite,0);
-    troop->_id = itr->second.gid;
-    troop->_occupy = MP(1,1);
-    troop->_atk = itr->second.atk;
-    troop->_def = itr->second.def;
-    troop->_hp = itr->second.baseHP;
-    
-    return troop;
-    
-    //Deprecated...
-    /*
+	auto unitMap = UnitTypeModel::getInstance()->getUnitTypeMap();
+	map<string, UnitType>::const_iterator itr;
+	for (itr = unitMap->begin(); itr != unitMap->end(); itr++)
+	{
+		if (itr->second.id == TID)
+			break;
+	}
+	CC_ASSERT(itr != unitMap->end());
+	Troop* troop = Troop::create();
+	troop->_sprite = Sprite::create(itr->second.resourcePath);
+	troop->addChild(troop->_sprite, 0);
+	troop->_id = itr->second.gid;
+	troop->_occupy = MP(1, 1);
+	troop->_atk = itr->second.atk;
+	troop->_def = itr->second.def;
+	troop->_hp = itr->second.baseHP;
+
+	return troop;
+
+	//Deprecated...
+	/*
 	CCASSERT(TID >= 1 && TID <= 5, "TID index outside");
 	ResourceModel *rm = ResourceModel::getModel();
 
