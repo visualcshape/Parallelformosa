@@ -169,13 +169,6 @@ void MapModel::addBuildingToMap(int ID, std::string& owner, MapPoint buildingLoc
 int MapModel::canBuildOnTilePosition(Point pos){
 	Point TileLoc = tileCoordForPosition(pos);
 
-	//@debug modify label.
-	{
-		char buffer[30];
-		sprintf(buffer, "row:%.0f, col:%.0f", TileLoc.x, TileLoc.y);
-		getlblTilePos()->setString(buffer);
-	}
-
 	//@var later need to Resoucre Manager
 	PFComponent *target = nullptr;
 	if (_status == HUD_ID::DEFENSE) target = Building::build(selID);
@@ -354,11 +347,6 @@ void MapModel::tryTouchMoved(){
 	if (_selSprite){
 		_selGroups->setPosition(_selGroups->getPosition() + translation);
 
-		//@debug modify label.
-		char buffer[30];
-		sprintf(buffer, "x:%.1f, y:%.1f", _touchLocationInGameLayer.x, _touchLocationInGameLayer.y);
-		getlblCursorPos()->setString(buffer);
-
 		int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
 		if (~isBuildableLevel)
 			_selSprite->setOpacity(200);
@@ -458,13 +446,13 @@ void MapModel::refresh(float dt){
 		{
 			char buffer[70];
 			sprintf(buffer, "str = %d,\nmag = %d,\n food = %d", PlayerManager::getInstance()->getCurPlayer()->getLstr(), PlayerManager::getInstance()->getCurPlayer()->getGmag(), PlayerManager::getInstance()->getCurPlayer()->getFood());
-			getlblResourcePos()->setString(buffer);
+			//getlblResourcePos()->setString(buffer);
 		}
 	//@debug modify label.
 		{
 			char buffer[70];
 			sprintf(buffer, "player uid= atk:%s def:%s cur:%s", PlayerManager::getInstance()->getAtkPlayer()->getUID().c_str(), PlayerManager::getInstance()->getDefPlayer()->getUID().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
-			getlblPlayerPos()->setString(buffer);
+			//getlblPlayerPos()->setString(buffer);
 		}
 
 	if (_selSprite){

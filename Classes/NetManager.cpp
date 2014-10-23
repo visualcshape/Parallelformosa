@@ -7,6 +7,7 @@
 //
 
 #include "NetManager.h"
+#include "SceneManager.h"
 
 NetManager* NetManager::_instance = nullptr;
 
@@ -48,6 +49,11 @@ void NetManager::OKCB(cocos2d::Ref *pSender, Widget::TouchEventType type)
 {
     if(type == Widget::TouchEventType::ENDED)
     {
+        Director::getInstance()->getTextureCache()->removeAllTextures();
+        SpriteFrameCache::getInstance()->destroyInstance();
+        SceneManager::goTitleScreen();
+        
+        
         CCLOG("GoToTitle(STUB)");
     }
 }

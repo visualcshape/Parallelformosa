@@ -52,7 +52,7 @@ bool MainMenuLayer::init(){
     //Super init
     if(!Layer::init())
         return false;
-	if (mm->getStatus() == HUD_ID::ATTACK){
+	if (mm->getStatus() != HUD_ID::ATTACK){
 		return false;
 	}
     //Layout created
@@ -104,6 +104,7 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 	//Used for test
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		std::string windowName = "BuildingWindow";
 		MainUIInfoModel::getInstance()->setScrollingText("Building");
 		Layer* thisLayer = this;
@@ -119,6 +120,7 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
 
 		int ID = p->getCurButton()->getID();
@@ -132,6 +134,7 @@ void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::T
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		std::string windowName = "UnitWindow";
 		MainUIInfoModel::getInstance()->setScrollingText("Unit");
 		Layer* thisLayer = this;
@@ -145,68 +148,69 @@ void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEvent
 
 void MainMenuLayer::TrainButtonPressedCallback(cocos2d::Ref *pSender, Widget::TouchEventType type)
 {
-	if (type == Widget::TouchEventType::ENDED)
-	{
-		ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
-		addChild(cs, 100000, "cs");
-
-		NoticeBox* nb = NoticeBox::create("Notice", "Sending Request");
-		addChild(nb, 100000, "nb");
-
-		auto unitTypeMap = UnitTypeModel::getInstance()->getUnitTypeMap();
-		auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
-		auto button = dynamic_cast<Button*>(pSender);
-		CC_ASSERT(button != nullptr);
-		auto window = dynamic_cast<UnitWindow*>(button->getBindedObject());
-
-		auto troopName = window->getCurButton()->getKey();
-
-		auto itr = unitTypeMap->find(troopName);
-		CC_ASSERT(itr != unitTypeMap->end());
-
-		int consumedGPower = itr->second.gPowerCost*window->getCurrentAmount();
-		int consumedLMana = itr->second.lManaCost*window->getCurrentAmount();
-		int consumedFood = itr->second.foodCost*window->getCurrentAmount();
-
-		//set to player
-		curPlayer->setGmag(curPlayer->getGmag() - consumedGPower);
-		curPlayer->setLstr(curPlayer->getLstr() - consumedLMana);
-		curPlayer->setFood(curPlayer->getFood() - consumedFood);
-
-		if (itr->second.name == "Sword Man")
-		{
-			curPlayer->setPlayerOwnedSwordMan(curPlayer->getPlayerOwnedSwordMan() + window->getCurrentAmount());
-		}
-		else if (itr->second.name == "Archer")
-		{
-			curPlayer->setPlayerOwnedArcher(curPlayer->getPlayerOwnedArcher() + window->getCurrentAmount());
-		}
-		else if (itr->second.name == "Priest")
-		{
-			curPlayer->setPlayerOwnedPriest(curPlayer->getPlayerOwnedPriest() + window->getCurrentAmount());
-		}
-		else if (itr->second.name == "Magician")
-		{
-			curPlayer->setPlayerOwnedMagician(curPlayer->getPlayerOwnedMagician() + window->getCurrentAmount());
-		}
-		else
-		{
-			CC_ASSERT(false);
-		}
-		//send to server
-		const char* route = "parallelSpace.parallelSpaceHandler.trainTroop";
-		Json::Value msg;
-		Json::FastWriter writer;
-
-		msg["troopName"] = itr->second.name;
-		msg["troopCount"] = window->getCurrentAmount();
-
-		CCPomeloWrapper::getInstance()->notify(route, writer.write(msg), nullptr);
-
-		removeChildByName("cs");
-		removeChildByName("nb");
-		removeChildByName("UnitWindow");
-	}
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
+        ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
+        addChild(cs,100000,"cs");
+        
+        NoticeBox* nb = NoticeBox::create("Notice", "Sending Request");
+        addChild(nb,100000,"nb");
+        
+        auto unitTypeMap = UnitTypeModel::getInstance()->getUnitTypeMap();
+        auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+        auto button = dynamic_cast<Button*>(pSender);
+        CC_ASSERT(button!=nullptr);
+        auto window = dynamic_cast<UnitWindow*>(button->getBindedObject());
+        
+        auto troopName = window->getCurButton()->getKey();
+        
+        auto itr = unitTypeMap->find(troopName);
+        CC_ASSERT(itr!=unitTypeMap->end());
+        
+        int consumedGPower = itr->second.gPowerCost*window->getCurrentAmount();
+        int consumedLMana = itr->second.lManaCost*window->getCurrentAmount();
+        int consumedFood = itr->second.foodCost*window->getCurrentAmount();
+        
+        //set to player
+        curPlayer->setGmag(curPlayer->getGmag()-consumedGPower);
+        curPlayer->setLstr(curPlayer->getLstr()-consumedLMana);
+        curPlayer->setFood(curPlayer->getFood()-consumedFood);
+        
+        if(itr->second.name=="Sword Man")
+        {
+            curPlayer->setPlayerOwnedSwordMan(curPlayer->getPlayerOwnedSwordMan()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Archer")
+        {
+            curPlayer->setPlayerOwnedArcher(curPlayer->getPlayerOwnedArcher()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Priest")
+        {
+            curPlayer->setPlayerOwnedPriest(curPlayer->getPlayerOwnedPriest()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Magician")
+        {
+            curPlayer->setPlayerOwnedMagician(curPlayer->getPlayerOwnedMagician()+window->getCurrentAmount());
+        }
+        else
+        {
+            CC_ASSERT(false);
+        }
+        //send to server
+        const char* route = "parallelSpace.parallelSpaceHandler.trainTroop";
+        Json::Value msg;
+        Json::FastWriter writer;
+        
+        msg["troopName"] = itr->second.name;
+        msg["troopCount"] = window->getCurrentAmount();
+        
+        CCPomeloWrapper::getInstance()->notify(route, writer.write(msg), nullptr);
+        
+        removeChildByName("cs");
+        removeChildByName("nb");
+        removeChildByName("UnitWindow");
+    }
 }
 
 void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type){
@@ -216,6 +220,7 @@ void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type
 void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender, Widget::TouchEventType type){
 			this->removeChildByName("mw");
 		}, [=](Ref* pSender, Widget::TouchEventType type){
@@ -509,6 +514,11 @@ bool MainInfoLayer::init(){
     //set now coord...///
     _locationValue->setString(mm->getMapName());
 
+    //music
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Music/1-1.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.7f);
+    //
+    
     ret = true;
     return ret;
 }

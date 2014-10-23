@@ -164,15 +164,23 @@ MenuLayer::MenuLayer()
 	CC_ASSERT(m_menuForTransparentSpriteMenuItem != nullptr);
 	addChild(m_menuForTransparentSpriteMenuItem, 0);
 
+    
+    //music
+    auto music = CocosDenshion::SimpleAudioEngine::getInstance();
+    music->playBackgroundMusic("Music/1-2.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.7f);
+    //
 }
 
 void MenuLayer::aboutClickCallback(cocos2d::Ref *pSender)
 {
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
     MessageBox("NTUT CSIE\n 100590450 李政懋 \n 100590451 孫季加", "About");
 }
 
 void MenuLayer::settingClickCallback(cocos2d::Ref *pSender)
 {
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
     SpriteFrameCache* cache = SpriteFrameCache::getInstance();
     cache->addSpriteFramesWithFile("Building/BuildingType.plist", "Building/BuildingType.png");
     cache->addSpriteFramesWithFile("UI/MainUI_Windows_Component.plist", "UI/MainUI_Windows_Component.png");
