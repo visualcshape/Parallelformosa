@@ -676,6 +676,7 @@ void MapModel::readMapInfo(bool backup){
 	*/
 	CCLOG("readMapInfo finish");
 }
+
 void MapModel::MapModelCallBack(const CCPomeloRequestResult& result){
 	Json::Value root;
 	Json::Reader reader;

@@ -312,10 +312,9 @@ void MainMenuLayer::onHttpResponseCallback(cocos2d::network::HttpClient *sender,
 	fclose(fp);
 
 	removeChildByName("mapNB");
-	removeChildByName("mapCS"); 
+	removeChildByName("mapCS");
 
 	MapModel::getModel()->writeMapInfo();
-
 	if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(_curMapCoord + ".tmx") == 0)
 		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::DEFENSE);
 	else

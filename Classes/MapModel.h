@@ -44,7 +44,9 @@ public:
 	~MapModel();
 
 	void init(std::string mapName);
+
 	void MapModelCallBack(const CCPomeloRequestResult& result);
+
 	string getUIDByMapCoord(MapPoint loc);
 	void getUIDByMapCoordEnded(const CCPomeloRequestResult& result);
 	bool tryTouchBegan();
