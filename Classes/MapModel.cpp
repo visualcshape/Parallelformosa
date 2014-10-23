@@ -103,23 +103,26 @@ void MapModel::addBuilding(Point pos, int level){
 }
 
 void MapModel::mapAddBuilding(Building* building){
-	CCLOG("MapModel::mapAddBuilding");
+	CCLOG("MapModel::mapAddBuilding => %s", building->getOwner().c_str());
 	_buildings.pushBack((Building*)building);
-	if (building->getOwner() == PlayerManager::getInstance()->getCurPlayer()->getUID())
-		PlayerManager::getInstance()->getCurPlayer()->addBuilding((Building*)building);
-	else if (building->getOwner() == PlayerManager::getInstance()->getAtkPlayer()->getUID())
-		PlayerManager::getInstance()->getAtkPlayer()->addBuilding((Building*)building);
-	else if (building->getOwner() == PlayerManager::getInstance()->getDefPlayer()->getUID())
-		PlayerManager::getInstance()->getDefPlayer()->addBuilding((Building*)building);
+	PlayerManager::getInstance()->getDefPlayer()->addBuilding((Building*)building);
+	//}
+	//else{
+	//	if (building->getOwner().compare(PlayerManager::getInstance()->getCurPlayer()->getUID()) == 0)
+	//		PlayerManager::getInstance()->getCurPlayer()->addBuilding((Building*)building);
+	//}
+		
 }
 
 void MapModel::mapAddTroop(Troop* troop){
+	CCLOG("MapModel::mapAddTroop");
+	CCLOG(">>>> %s %s\n", troop->getOwner().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
 	_troops.pushBack((Troop*)troop);
-	if (troop->getOwner() == PlayerManager::getInstance()->getCurPlayer()->getUID())
+	if (troop->getOwner().compare(PlayerManager::getInstance()->getCurPlayer()->getUID()) == 0)
 		PlayerManager::getInstance()->getCurPlayer()->addTroop((Troop*)troop);
-	else if (troop->getOwner() == PlayerManager::getInstance()->getAtkPlayer()->getUID())
-		PlayerManager::getInstance()->getAtkPlayer()->addTroop((Troop*)troop);
-	else if (troop->getOwner() == PlayerManager::getInstance()->getDefPlayer()->getUID())
+	else// if (troop->getOwner().compare(PlayerManager::getInstance()->getAtkPlayer()->getUID()) == 0)
+		//PlayerManager::getInstance()->getAtkPlayer()->addTroop((Troop*)troop);
+	//else
 		PlayerManager::getInstance()->getDefPlayer()->addTroop((Troop*)troop);
 }
 
@@ -187,7 +190,7 @@ int MapModel::canBuildOnTilePosition(Point pos){
 	{
 		char buffer[30];
 		sprintf(buffer, "row:%.0f, col:%.0f", TileLoc.x, TileLoc.y);
-		getlblTilePos()->setString(buffer);
+		//getlblTilePos()->setString(buffer);
 	}
 
 	//@var later need to Resoucre Manager
@@ -371,7 +374,7 @@ void MapModel::tryTouchMoved(){
 		//@debug modify label.
 		char buffer[30];
 		sprintf(buffer, "x:%.1f, y:%.1f", _touchLocationInGameLayer.x, _touchLocationInGameLayer.y);
-		getlblCursorPos()->setString(buffer);
+		//getlblCursorPos()->setString(buffer);
 
 		int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
 		if (~isBuildableLevel)
@@ -411,15 +414,19 @@ void MapModel::tryTouchEnded(){
 	}
 
 	if (_selSprite){
-		Rect backgroundRect = Rect(_background->getPositionX(),
-			_background->getPositionY(),
-			_background->getContentSize().width,
-			_background->getContentSize().height);
-
-		if (!backgroundRect.containsPoint(_touchLocation)){
+		bool forbid = false;
+		if (_status == HUD_ID::ATTACK){
+			Rect backgroundRect = Rect(_background->getPositionX(),
+				_background->getPositionY(),
+				_background->getContentSize().width,
+				_background->getContentSize().height);
+			if (backgroundRect.containsPoint(_touchLocation))
+				forbid = true;
+		}
+		if (!forbid){
 			int isBuildableLevel = canBuildOnTilePosition(_touchLocationInGameLayer);
 			if (~isBuildableLevel){
-				if (_status == HUD_ID::DEFENSE &&PlayerManager::getInstance()->getCurPlayer()->canAddBuilding(selID)){
+				if (_status == HUD_ID::DEFENSE && PlayerManager::getInstance()->getCurPlayer()->canAddBuilding(selID)){
 					addBuilding(_touchLocationInGameLayer, isBuildableLevel);
 					PlayerManager::getInstance()->getCurPlayer()->consumeResourceByBuilding(selID);
 				}
@@ -429,21 +436,9 @@ void MapModel::tryTouchEnded(){
 
 					//notify
 					//send add building notify
-					const char* route = "parallelSpace.parallelSpaceHandler.buildBuilding";
-					Json::Value root;
-					Json::FastWriter writer;
-
-					root["buildingX"] = 0;
-					root["buildingY"] = 0;
-					root["buildingZ"] = 0;
-					root["gid"] = 0;
-					root["uid"] = PlayerManager::getInstance()->getCurPlayer()->getUID();
-
-					CCPomeloWrapper::getInstance()->notify(route, writer.write(root), nullptr);
 				}
 			}
 		}
-
 		_selGroups->removeAllChildren();
 		_selSprite = NULL;
 		_selSpriteRange = NULL;
@@ -473,6 +468,7 @@ void MapModel::slide(Vec2 translation){
 void MapModel::ccdebug(float dt){
 	CCLOG("buildings atk:%d def:%d, cur:%d\n", SZ(PlayerManager::getInstance()->getAtkPlayer()->getBuildings()), SZ(PlayerManager::getInstance()->getDefPlayer()->getBuildings()), SZ(PlayerManager::getInstance()->getCurPlayer()->getBuildings()));
 	CCLOG("troops atk:%d def:%d, cur:%d\n", SZ(PlayerManager::getInstance()->getAtkPlayer()->getTroops()), SZ(PlayerManager::getInstance()->getDefPlayer()->getTroops()), SZ(PlayerManager::getInstance()->getCurPlayer()->getTroops()));
+	CCLOG(">>!!>> %s %s %s\n", PlayerManager::getInstance()->getAtkPlayer()->getUID().c_str(), PlayerManager::getInstance()->getDefPlayer()->getUID().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
 }
 
 void MapModel::refresh(float dt){

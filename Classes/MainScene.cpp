@@ -16,6 +16,8 @@
 #include "NoticeBox.h"
 #include "OptionWindow.h"
 #include <UtilFunc.h>
+#include "BattleModel.h"
+#include "command.h"
 
 Scene* MainScene::createScene(){
     auto scene = Scene::create();
@@ -73,6 +75,11 @@ bool MainMenuLayer::init(){
     _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction,"UI/mapNormal.png","UI/mapPressed.png");
     CCASSERT(_statusButton!=nullptr, "_statusButton cannot be null");
     
+	//>>>>>fighting
+	bindFunction = CC_CALLBACK_2(MainMenuLayer::BattleButtonCallback, this);
+	_battleButton = MainUIButtonFactory::create(Vec2(layoutSize.width / 2, layoutSize.height / 2), bindFunction, "UI/unitNormal.png", "UI/unitPressed.png");
+	CCASSERT(_battleButton != nullptr, "_battleButton cannot be null");
+
     //Option
     bindFunction = CC_CALLBACK_2(MainMenuLayer::OptionButtonCallback, this);
     _optionButton = MainUIButtonFactory::create(Vec2(VisibleRect::getVisibleRect().size.width, 0), bindFunction,"UI/optionNormal.png","UI/optionPressed.png");
@@ -85,15 +92,24 @@ bool MainMenuLayer::init(){
     for(int i = 0 ; i < 3 ; i++){
         _mainLayout->addChild(mainButtonArray[i]);
     }
-    
+
     //Add to layer
-    this->addChild(_mainLayout);
+	this->addChild(_mainLayout);
+
+	//>>>>>fighting
+	this->scheduleUpdate();
+
     ret = true;
     return ret;
 }
 
 void MainMenuLayer::Update(Subject* _subject){
 	setPosition(mm->getHUDBasePosition());
+}
+
+//>>>>>fighting
+void MainMenuLayer::DoBattle(float dt){
+	CMDCountdown::order(BattleModel::getModel())->execute();
 }
 
 void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
@@ -206,6 +222,13 @@ void MainMenuLayer::TrainButtonPressedCallback(cocos2d::Ref *pSender, Widget::To
         removeChildByName("nb");
         removeChildByName("UnitWindow");
     }
+}
+
+//>>>>>fighting
+void MainMenuLayer::BattleButtonCallback(Ref* pSender, Widget::TouchEventType type){
+	BattleModel::getModel()->setupBattle(mm, false);
+	BattleModel::getModel()->startBattle();
+	this->schedule(schedule_selector(MainMenuLayer::DoBattle), 0.2f);
 }
 
 void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type){

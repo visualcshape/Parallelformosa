@@ -38,6 +38,9 @@ private:
 	Button* _itemButton;
 	Button* _alliesButton;
 
+	//>>>>>fighting
+	Button* _battleButton;
+
 	//----Other----//
 	Button* _optionButton;
     
@@ -50,6 +53,8 @@ public:
 	MainMenuLayer();
 	~MainMenuLayer();
 
+	void DoBattle(float dt);
+
 	void BuildingButtonCallback(Ref* pSender, Widget::TouchEventType type);
 	void BuildingButtonCallbackEnded(Ref* pSender, Widget::TouchEventType type);
 
@@ -59,6 +64,8 @@ public:
 	void ItemButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
 	void MapButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	void BattleButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
 	void AlliesButtonCallback(Ref* pSender, Widget::TouchEventType type);
 

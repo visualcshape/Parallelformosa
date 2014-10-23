@@ -45,7 +45,10 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	
 	
 	//@brief bind HUDlayer
-	if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(mapName.substr(0, SZ(mapName) - 4)) == 0){
+	bool haveDashLine = false;
+	for (int i = 0; i < SZ(mapName); i++) if (mapName.at(i) == '-')
+		haveDashLine = true;
+	if (!haveDashLine || PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(mapName.substr(0, SZ(mapName) - 4)) == 0){
 		status = HUD_ID::DEFENSE;
 		PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
 		PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
@@ -55,7 +58,8 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 		int firstMap, secondMap;
 		sscanf(mapName.substr(0, SZ(mapName) - 4).c_str(), "%d.%d", &firstMap, &secondMap);
 		string uid = MapModel::getModel()->getUIDByMapCoord(MapPoint(firstMap, secondMap));
-		PlayerManager::getInstance()->setDefPlayer(new PlayerModel(uid));
+		CCLOG("uuiiiiiiiiiiiiiiiddddd = %s", uid.c_str());
+		PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
 		PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
 	}
 

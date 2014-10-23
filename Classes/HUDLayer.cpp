@@ -73,10 +73,10 @@ bool HUDLayer::init(HUD_ID status){
 	
 	mm->setSelSprite(nullptr);
 
-    /*
 	//@var used to show message.
 	TTFConfig config("fonts/Avenir.ttf", computeFontSize(8 * 4));
 
+	/*
 	Label* lblcursorPos = Label::createWithTTF(config, "x:?? y:??", TextHAlignment::LEFT);
 	lblcursorPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 200, VisibleRect::getVisibleRect().size.height - 20));
 	addChild(lblcursorPos, -1);
@@ -96,12 +96,12 @@ bool HUDLayer::init(HUD_ID status){
 	lblResourcePos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 800, VisibleRect::getVisibleRect().size.height - 60));
 	addChild(lblResourcePos, -1);
 	mm->setlblResourcePos(lblResourcePos);
-
+	*/
 	Label* lblCountdownPos = Label::createWithTTF(config, "time remain: ??", TextHAlignment::LEFT);
 	lblCountdownPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 500, VisibleRect::getVisibleRect().size.height - 60));
 	addChild(lblCountdownPos, -1);
 	mm->setlblCountdownPos(lblCountdownPos);
-    */
+   
     
 	//@var used to manage building range images.
 	auto selGroups = Node::create();
