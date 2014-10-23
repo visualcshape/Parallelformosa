@@ -1331,5 +1331,53 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Troop.cpp"
+            timestampString = "435715050.564691"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "Troop::addTroop(int TID)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Troop.cpp"
+            timestampString = "435715057.254954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "Troop::addTroop(int TID)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Troop.cpp"
+            timestampString = "435715355.121581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "Troop::addTroop(int TID)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
