@@ -62,7 +62,7 @@ void ResourceModel::LoadBuildings(){
 	for (int i = 1; i <= BUILDING_SIZE; i++){
 		char buffer[30];
 		sprintf(buffer, "%03d", i);
-		std::string str("PlanetCute/Building");
+		std::string str("Normal/Building/Building");
 		str += std::string(buffer);
 		str += std::string(".png");
 		CCLOG(">> Load %s\n", str.c_str());
@@ -77,7 +77,7 @@ void ResourceModel::LoadTroops(){
 	for (int i = 1; i <= TROOP_SIZE; i++){
 		char buffer[30];
 		sprintf(buffer, "%03d", i);
-		std::string str("PlanetCute/Character");
+		std::string str("Normal/Unit/Character");
 		str += std::string(buffer);
 		str += std::string(".png");
 		CCLOG("%s\n", str.c_str());

@@ -268,10 +268,8 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         sp.shrink_to_fit();
 		_infoFileName = sp[sp.size() - 1];
         
-        //init player
-        PlayerModel* player = new PlayerModel(_uid);
-        
-        PlayerManager::getInstance()->setCurPlayer(player);
+        //init player        
+		PlayerManager::getInstance()->setCurPlayer(new PlayerModel(_uid));
         PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
         PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
         

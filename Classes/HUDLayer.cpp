@@ -40,7 +40,7 @@ bool HUDLayer::init(HUD_ID status){
 	mm->setHUDBasePosition(getPosition());
 	mm->setStatus(status);
 	Size winSize = CCDirector::getInstance()->getWinSize();
-	/*
+	
 	// Load the images of the buildings we'll have and draw them to the game HUD layer
 	ResourceModel *rm = ResourceModel::getModel();
 	auto _moveableSprites = mm->getMovableSprites();
@@ -52,26 +52,17 @@ bool HUDLayer::init(HUD_ID status){
 			addChild(sprite, 1);
 			_moveableSprites.pushBack(sprite);
 		}
-	}
-	else{
-		for (int i = 0; i < mm->BAR_ICON; ++i){
-			auto sprite = Sprite::create(rm->strBuilding[i + 1]);
-			float offsetFraction = ((float)(i + 1)) / (mm->BAR_ICON + 1);
-			sprite->setPosition(Point(winSize.width*offsetFraction, 70));
-			addChild(sprite, 1);
-			_moveableSprites.pushBack(sprite);
-		}
+		// Draw the background of the game HUD
+		CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565);
+		auto _background = Sprite::create(rm->strHUDPic);
+		_background->setScaleX(2);
+		_background->setAnchorPoint(Point(0, 0));
+		CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_Default);
+		addChild(_background, 0);
+		mm->setBackground(_background);
 	}
 	mm->setMovableSprites(_moveableSprites);
 
-	// Draw the background of the game HUD
-	CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565);
-	auto _background = Sprite::create(rm->strHUDPic);
-	_background->setScaleX(2);
-	_background->setAnchorPoint(Point(0, 0));
-	CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_Default);
-	addChild(_background, 0);
-	mm->setBackground(_background);*/
 	
 	mm->setSelSprite(nullptr);
 
