@@ -36,6 +36,8 @@ public:
     
     void onMusicEnabledCheckBoxCallback(Ref* pSender,CheckBox::EventType type);
     
+    void onResetButtonClick(Ref* pSender,Widget::TouchEventType type);
+    
     virtual bool init();
     
 };

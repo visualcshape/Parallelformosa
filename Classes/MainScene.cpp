@@ -100,6 +100,7 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 	//Used for test
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		std::string windowName = "BuildingWindow";
 		MainUIInfoModel::getInstance()->setScrollingText("Building");
 		Layer* thisLayer = this;
@@ -114,6 +115,7 @@ void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchE
 void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
 
 		int ID = p->getCurButton()->getID();
@@ -127,6 +129,7 @@ void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::T
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		std::string windowName = "UnitWindow";
 		MainUIInfoModel::getInstance()->setScrollingText("Unit");
 		Layer* thisLayer = this;
@@ -142,6 +145,7 @@ void MainMenuLayer::TrainButtonPressedCallback(cocos2d::Ref *pSender, Widget::To
 {
     if(type==Widget::TouchEventType::ENDED)
     {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
         ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
         addChild(cs,100000,"cs");
         
@@ -211,6 +215,7 @@ void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type
 void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender, Widget::TouchEventType type){
 			this->removeChildByName("mw");
 		}, [=](Ref* pSender, Widget::TouchEventType type){
@@ -504,6 +509,11 @@ bool MainInfoLayer::init(){
     //set now coord...///
     _locationValue->setString(mm->getMapName());
 
+    //music
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Music/1-1.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.7f);
+    //
+    
     ret = true;
     return ret;
 }

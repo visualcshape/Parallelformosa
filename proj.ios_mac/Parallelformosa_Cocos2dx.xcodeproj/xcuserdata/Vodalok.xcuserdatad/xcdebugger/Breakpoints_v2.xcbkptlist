@@ -688,11 +688,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/LoginTitleLayer.cpp"
-            timestampString = "435690157.391462"
+            timestampString = "435724303.970736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
             landmarkName = "MenuLayer::_startLoading(Json::Value resp)"
             landmarkType = "5">
          </BreakpointContent>
@@ -916,7 +916,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "680"
-            endingLineNumber = "680">
+            endingLineNumber = "680"
+            landmarkName = "MapModel::readMapInfo(bool backup)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -930,7 +932,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "688"
-            endingLineNumber = "688">
+            endingLineNumber = "688"
+            landmarkName = "MapModel::readMapInfo(bool backup)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -944,7 +948,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "687"
-            endingLineNumber = "687">
+            endingLineNumber = "687"
+            landmarkName = "MapModel::readMapInfo(bool backup)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1018,11 +1024,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435699115.318359"
+            timestampString = "435724080.670311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1034,12 +1040,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435699115.318359"
+            timestampString = "435724246.351567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "599"
-            endingLineNumber = "599"
-            landmarkName = "MainInfoLayer::_refreshLayout()"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
+            landmarkName = "MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &amp;result)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1050,11 +1056,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435699115.318359"
+            timestampString = "435724246.351567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "615"
-            endingLineNumber = "615"
+            startingLineNumber = "625"
+            endingLineNumber = "625"
             landmarkName = "MainInfoLayer::_onQueryWeatherRequestCallback(const CCPomeloRequestResult &amp;result)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1178,11 +1184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainScene.cpp"
-            timestampString = "435699115.318359"
+            timestampString = "435724080.670311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
             landmarkName = "MainInfoLayer::init()"
             landmarkType = "5">
          </BreakpointContent>

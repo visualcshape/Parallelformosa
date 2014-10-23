@@ -480,13 +480,13 @@ void MapModel::refresh(float dt){
 		{
 			char buffer[70];
 			sprintf(buffer, "str = %d,\nmag = %d,\n food = %d", PlayerManager::getInstance()->getCurPlayer()->getLstr(), PlayerManager::getInstance()->getCurPlayer()->getGmag(), PlayerManager::getInstance()->getCurPlayer()->getFood());
-			getlblResourcePos()->setString(buffer);
+			//getlblResourcePos()->setString(buffer);
 		}
 	//@debug modify label.
 		{
 			char buffer[70];
 			sprintf(buffer, "player uid= atk:%s def:%s cur:%s", PlayerManager::getInstance()->getAtkPlayer()->getUID().c_str(), PlayerManager::getInstance()->getDefPlayer()->getUID().c_str(), PlayerManager::getInstance()->getCurPlayer()->getUID().c_str());
-			getlblPlayerPos()->setString(buffer);
+			//getlblPlayerPos()->setString(buffer);
 		}
 
 	if (_selSprite){

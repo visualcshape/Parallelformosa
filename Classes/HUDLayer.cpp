@@ -7,6 +7,7 @@
 #include "SceneManager.h"
 #include "VisibleRect.h"
 #include "AppMacro.h"
+#include "PlayerManager.h"
 
 USING_NS_CC;
 
@@ -36,7 +37,9 @@ HUDLayer* HUDLayer::create(HUD_ID status){
 bool HUDLayer::init(HUD_ID status){
 	if (!BaseLayer::init())
 		return false;
-
+    auto player = PlayerManager::getInstance()->getCurPlayer();
+    
+    
 	mm->setHUDBasePosition(getPosition());
 	mm->setStatus(status);
 	Size winSize = CCDirector::getInstance()->getWinSize();
@@ -49,12 +52,16 @@ bool HUDLayer::init(HUD_ID status){
 			auto sprite = Sprite::create(rm->strTroop[i + 1]);
 			float offsetFraction = ((float)(i + 1)) / (mm->BAR_ICON + 1);
 			sprite->setPosition(Point(winSize.width*offsetFraction, 70));
+            TTFConfig ttfConfig("fonts/Silom.ttf",computeFontSize(20));
+            Label* count = Label::createWithTTF(ttfConfig, to_string(player->getPlayerOwnedArcher()));
+            
+            
 			addChild(sprite, 1);
 			_moveableSprites.pushBack(sprite);
 		}
 		// Draw the background of the game HUD
 		CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565);
-		auto _background = Sprite::create(rm->strHUDPic);
+		auto _background = Sprite::create("UI/HUD.png");
 		_background->setScaleX(2);
 		_background->setAnchorPoint(Point(0, 0));
 		CCTexture2D::setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_Default);
@@ -66,6 +73,7 @@ bool HUDLayer::init(HUD_ID status){
 	
 	mm->setSelSprite(nullptr);
 
+    /*
 	//@var used to show message.
 	TTFConfig config("fonts/Avenir.ttf", computeFontSize(8 * 4));
 
@@ -93,7 +101,8 @@ bool HUDLayer::init(HUD_ID status){
 	lblCountdownPos->setPosition(Vec2(VisibleRect::getVisibleRect().origin.x + 500, VisibleRect::getVisibleRect().size.height - 60));
 	addChild(lblCountdownPos, -1);
 	mm->setlblCountdownPos(lblCountdownPos);
-
+    */
+    
 	//@var used to manage building range images.
 	auto selGroups = Node::create();
 	addChild(selGroups, -50);
