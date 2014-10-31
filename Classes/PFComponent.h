@@ -7,6 +7,9 @@ USING_NS_CC;
 
 class PFComponent : public Sprite {
 public:
+	static const int HQ_GID = 37;
+
+public:
 	PFComponent();
 	~PFComponent();
 

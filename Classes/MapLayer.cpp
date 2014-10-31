@@ -41,6 +41,7 @@ MapLayer* MapLayer::create(std::string& mapName){
 
 bool MapLayer::init(std::string& mapName){
 	if (!BaseLayer::init()) return false;
+
 	mm->init(mapName);
 	mm->setMapBasePosition(getPosition());
 	mm->setMapContent(getContentSize());
@@ -59,7 +60,7 @@ bool MapLayer::init(std::string& mapName){
 	mm->loadLayers(_pfLayers, "PF Layer");
 	mm->setPFLayers(_pfLayers);
 	CCLOG(">> %d\n", SZ(_pfLayers));
-
+    
 	mm->readMapInfo();
 
 	double tend = clock();
@@ -70,7 +71,6 @@ bool MapLayer::init(std::string& mapName){
 	auto keyboardListener = EventListenerKeyboard::create();
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(MapLayer::keyPressed, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
-
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
@@ -83,9 +83,15 @@ bool MapLayer::init(std::string& mapName){
 
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(MapLayer::refresh), mm->REFRESH_RATE);
+	this->schedule(schedule_selector(MapLayer::produce), mm->PRODUCE_RATE);
 	this->schedule(schedule_selector(MapLayer::ccdebug), 5.0f);
 
 	return true;
+}
+
+void MapLayer::onHttpRequestCallback(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
+{
+    
 }
 
 void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
@@ -100,10 +106,13 @@ void MapLayer::keyPressed(EventKeyboard::KeyCode keyCode, Event *event){
 		this->unschedule(schedule_selector(MapLayer::attack));
 		CMDFileStream::getInstance()->execute();
 	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID("1");
+
+	if (keyCode == EventKeyboard::KeyCode::KEY_C){
+		PlayerManager::getInstance()->getCurPlayer()->init();
+	}
+
 	if (keyCode == EventKeyboard::KeyCode::KEY_V)
-		PlayerManager::getInstance()->getCurPlayer()->changeUID("2");
+		PlayerManager::getInstance()->getCurPlayer()->changeUID("1413977939022");
 }
 
 bool MapLayer::onTouchBegan(Touch *touch, Event *event){
@@ -133,7 +142,8 @@ void MapLayer::ccdebug(float dt){
 }
 
 void MapLayer::produce(float dt){
-	mm->produce(dt);
+	PlayerManager::getInstance()->getCurPlayer()->produce(dt);
+	CCLOG("%d\n", PlayerManager::getInstance()->getCurPlayer()->getLstr());
 }
 
 void MapLayer::attack(float dt){

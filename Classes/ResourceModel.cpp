@@ -62,7 +62,7 @@ void ResourceModel::LoadBuildings(){
 	for (int i = 1; i <= BUILDING_SIZE; i++){
 		char buffer[30];
 		sprintf(buffer, "%03d", i);
-		std::string str("PlanetCute/Building");
+		std::string str("Normal/Building/Building");
 		str += std::string(buffer);
 		str += std::string(".png");
 		CCLOG(">> Load %s\n", str.c_str());
@@ -77,7 +77,7 @@ void ResourceModel::LoadTroops(){
 	for (int i = 1; i <= TROOP_SIZE; i++){
 		char buffer[30];
 		sprintf(buffer, "%03d", i);
-		std::string str("PlanetCute/Character");
+		std::string str("Normal/Unit/Character");
 		str += std::string(buffer);
 		str += std::string(".png");
 		CCLOG("%s\n", str.c_str());
@@ -101,7 +101,7 @@ void ResourceModel::LoadTerrains(){
 		GIDTerrain[i] = i;
 	}
 }
-
+/*
 void ResourceModel::LoadTilemaps(){
 	//@var load map
 	strWorldMap = std::string("PFMAP/pfmap_world.tmx");
@@ -116,7 +116,6 @@ void ResourceModel::LoadTilemaps(){
 		strTileMap[i] = str;
 	}
 }
-
 void ResourceModel::LoadPlayers(){
 	//@var load map
 	for (int i = 1; i <= PALYER_SIZE; i++){
@@ -128,7 +127,7 @@ void ResourceModel::LoadPlayers(){
 		CCASSERT(CCFileUtils::getInstance()->isFileExist(str), "Player Map Resource Loading Fail!!");
 		strPlayerMap[i] = str;
 	}
-}
+}*/
 
 void ResourceModel::LoadMISC(){
 	//@var load range pic
@@ -231,20 +230,17 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 			CreateDownloadedDir(paths.at(k));
 	}
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
 	FILE* fp = fopen(strPath.c_str(), "r");
-#else
-	std::string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
-	FILE *fp = fopen(fullPath.c_str(), "r");
+//	std::string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
+//	FILE *fp = fopen(fullPath.c_str(), "r");
 
 	//@brief create empty file
 	if (fp == nullptr){
-		fp = fopen(fullPath.c_str(), "w");
+		fp = fopen(strPath.c_str(), "w");
 		fclose(fp);
-		fp = fopen(fullPath.c_str(), "r");
+		fp = fopen(strPath.c_str(), "r");
 	}
-#endif
 
 	CCASSERT(fp != nullptr, "OpenFileR failed");
 	return fp;
@@ -252,17 +248,18 @@ FILE* ResourceModel::OpenFileR(string relativePath){
 
 FILE* ResourceModel::OpenFileW(string relativePath){
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
+//#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)
 	relativePath = NoFolderPath(relativePath);
 	string strPath = CCFileUtils::getInstance()->getWritablePath() + relativePath;
+	CCLOG("============== %s ===================", strPath.c_str());
 	FILE* fp = fopen(strPath.c_str(), "w");
-#else
+/*#else
 	vector <string> paths = DecomposePath(relativePath);
 	for (int k = 0; k < SZ(paths); k++) if (!isFileExist(paths.at(k)))
 		CreateDownloadedDir(paths.at(k));
 	string fullPath = CCFileUtils::getInstance()->fullPathForFilename(relativePath);
 	FILE *fp = fopen(fullPath.c_str(), "w");
-#endif
+#endif*/
 
 	CCASSERT(fp != nullptr, "OpenFileW failed");
 	return fp;

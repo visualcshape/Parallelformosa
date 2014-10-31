@@ -1,14 +1,4 @@
-//
-//  MainScene.h
-//  Parallelformosa_Cocos2dx
-//
-//  Created by Chi-Chia Sun on 2014/9/29.
-//
-//
-
-#ifndef __Parallelformosa_Cocos2dx__MainScene__
-#define __Parallelformosa_Cocos2dx__MainScene__
-
+#pragma once
 #include <cocos2d.h>
 #include <CocosGUI.h>
 #include "Observer.h"
@@ -24,7 +14,9 @@
 #include "NetManager.h"
 #include "PlayerManager.h"
 #include "MapWindow.h"
+#include <HttpClient.h>
 
+USING_NS_CC::network;
 USING_NS_CC;
 using namespace cocos2d::ui;
 
@@ -46,8 +38,13 @@ private:
 	Button* _itemButton;
 	Button* _alliesButton;
 
+	//>>>>>fighting
+	Button* _battleButton;
+
 	//----Other----//
 	Button* _optionButton;
+    
+    string _curMapCoord;
 protected:
 public:
 	virtual bool init();
@@ -56,13 +53,19 @@ public:
 	MainMenuLayer();
 	~MainMenuLayer();
 
-	void gogo();
+	void DoBattle(float dt);
+
 	void BuildingButtonCallback(Ref* pSender, Widget::TouchEventType type);
+	void BuildingButtonCallbackEnded(Ref* pSender, Widget::TouchEventType type);
+
 	void UnitButtonCallback(Ref* pSender, Widget::TouchEventType type);
+    void TrainButtonPressedCallback(Ref* pSender,Widget::TouchEventType type);
 
 	void ItemButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
 	void MapButtonCallback(Ref* pSender, Widget::TouchEventType type);
+
+	void BattleButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
 	void AlliesButtonCallback(Ref* pSender, Widget::TouchEventType type);
 
@@ -71,6 +74,10 @@ public:
 	CREATE_FUNC(MainMenuLayer);
 
     void queriedMapResultCallback(const CCPomeloRequestResult& result);
+
+    void whenNBFadeOut();
+    
+    void onHttpResponseCallback(HttpClient* sender,HttpResponse* resp);
 private:
 	MapModel *mm;
 	int ID;
@@ -102,6 +109,7 @@ private:
     
     //model chaged
     void _scrollingTextModelChanged();
+	
     //Update scrolling text position.
     void _scroll(float delta);
     
@@ -116,7 +124,8 @@ public:
     virtual bool init();
     
     virtual void Update(Subject* changedSubject);
-    
+	virtual void refresh(float dt);
+
 	CREATE_FUNC(MainInfoLayer);
 
     //Network
@@ -125,12 +134,9 @@ public:
     void onConnectLost();
     
     void queryMapWeather();
-    
-    void produce(float dt);
+
 private:
 	MapModel *mm;
-    PlayerModel* _bindedPlayer;
-    
+
     void _onQueryWeatherRequestCallback(const CCPomeloRequestResult& result);
 };
-#endif /* defined(__Parallelformosa_Cocos2dx__MainScene__) */

@@ -43,7 +43,26 @@ void SceneManager::goMapScreen(std::string mapName, HUD_ID status){
 	auto mainMenuInfoLayer = MainInfoLayer::create();
 	layer->addChild(mainMenuInfoLayer, 10001);
 	
+	
 	//@brief bind HUDlayer
+	bool haveDashLine = false;
+	for (int i = 0; i < SZ(mapName); i++) if (mapName.at(i) == '-')
+		haveDashLine = true;
+	if (!haveDashLine || PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(mapName.substr(0, SZ(mapName) - 4)) == 0){
+		status = HUD_ID::DEFENSE;
+		PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+		PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+	}
+	else{
+		status = HUD_ID::ATTACK;
+		int firstMap, secondMap;
+		sscanf(mapName.substr(0, SZ(mapName) - 4).c_str(), "%d.%d", &firstMap, &secondMap);
+		string uid = MapModel::getModel()->getUIDByMapCoord(MapPoint(firstMap, secondMap));
+		CCLOG("uuiiiiiiiiiiiiiiiddddd = %s", uid.c_str());
+		PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
+		PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
+	}
+
 	auto hudlayer = HUDLayer::create(status);
 	layer->addChild(hudlayer, 20000);
 

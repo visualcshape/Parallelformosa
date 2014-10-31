@@ -102,6 +102,8 @@
 		F69E937419F66F6A00D4F6A1 /* Database in Resources */ = {isa = PBXBuildFile; fileRef = F69E937319F66F6A00D4F6A1 /* Database */; };
 		F69E937719F6BC2B00D4F6A1 /* NoticeBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */; };
 		F69E937819F6BC2B00D4F6A1 /* NoticeBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */; };
+		F69E937F19F89BAB00D4F6A1 /* Music in Resources */ = {isa = PBXBuildFile; fileRef = F69E937D19F89BAB00D4F6A1 /* Music */; };
+		F69E938019F89BAB00D4F6A1 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = F69E937E19F89BAB00D4F6A1 /* sounds */; };
 		F6A6ECB419E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6A6ECB519E166EA0020EFBB /* ButtonWithImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */; };
 		F6A6ECD619E31F340020EFBB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */; };
@@ -146,9 +148,7 @@
 		F6A6ED2819E3210D0020EFBB /* ortho-test1.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0319E3210C0020EFBB /* ortho-test1.png */; };
 		F6A6ED2919E3210D0020EFBB /* ortho-test1P200.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0419E3210C0020EFBB /* ortho-test1P200.png */; };
 		F6A6ED2A19E3210D0020EFBB /* OurMap(config).tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0519E3210C0020EFBB /* OurMap(config).tmx */; };
-		F6A6ED2D19E3210D0020EFBB /* PFMAP in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0819E3210D0020EFBB /* PFMAP */; };
 		F6A6ED2E19E3210D0020EFBB /* PlanetCute in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0919E3210D0020EFBB /* PlanetCute */; };
-		F6A6ED3019E3210D0020EFBB /* Range.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0B19E3210D0020EFBB /* Range.png */; };
 		F6A6ED3119E3210D0020EFBB /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0C19E3210D0020EFBB /* terrain.png */; };
 		F6A6ED3219E3210D0020EFBB /* test.info in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED0D19E3210D0020EFBB /* test.info */; };
 		F6A6ED3A19E3210D0020EFBB /* TestTileset.tsx in Resources */ = {isa = PBXBuildFile; fileRef = F6A6ED1519E3210D0020EFBB /* TestTileset.tsx */; };
@@ -448,6 +448,8 @@
 		F69E937319F66F6A00D4F6A1 /* Database */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Database; path = ../Resources/Database; sourceTree = "<group>"; };
 		F69E937519F6BC2A00D4F6A1 /* NoticeBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoticeBox.cpp; path = ../Classes/NoticeBox.cpp; sourceTree = "<group>"; };
 		F69E937619F6BC2A00D4F6A1 /* NoticeBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeBox.h; path = ../Classes/NoticeBox.h; sourceTree = "<group>"; };
+		F69E937D19F89BAB00D4F6A1 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Music; path = ../Resources/Music; sourceTree = "<group>"; };
+		F69E937E19F89BAB00D4F6A1 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = ../Resources/sounds; sourceTree = "<group>"; };
 		F6A6ECB219E166EA0020EFBB /* ButtonWithImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonWithImage.cpp; path = ../Classes/ButtonWithImage.cpp; sourceTree = "<group>"; };
 		F6A6ECB319E166EA0020EFBB /* ButtonWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonWithImage.h; path = ../Classes/ButtonWithImage.h; sourceTree = "<group>"; };
 		F6A6ECB819E31F340020EFBB /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseLayer.cpp; path = ../Classes/BaseLayer.cpp; sourceTree = "<group>"; };
@@ -801,6 +803,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F69E937D19F89BAB00D4F6A1 /* Music */,
+				F69E937E19F89BAB00D4F6A1 /* sounds */,
 				F69E937319F66F6A00D4F6A1 /* Database */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
@@ -1111,6 +1115,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69E937F19F89BAB00D4F6A1 /* Music in Resources */,
+				F69E938019F89BAB00D4F6A1 /* sounds in Resources */,
 				F69E937419F66F6A00D4F6A1 /* Database in Resources */,
 				F6A6ED1A19E3210D0020EFBB /* 62x120 in Resources */,
 				F6A6ED1B19E3210D0020EFBB /* 100_80_green.png in Resources */,
@@ -1129,9 +1135,7 @@
 				F6A6ED2819E3210D0020EFBB /* ortho-test1.png in Resources */,
 				F6A6ED2919E3210D0020EFBB /* ortho-test1P200.png in Resources */,
 				F6A6ED2A19E3210D0020EFBB /* OurMap(config).tmx in Resources */,
-				F6A6ED2D19E3210D0020EFBB /* PFMAP in Resources */,
 				F6A6ED2E19E3210D0020EFBB /* PlanetCute in Resources */,
-				F6A6ED3019E3210D0020EFBB /* Range.png in Resources */,
 				F6A6ED3119E3210D0020EFBB /* terrain.png in Resources */,
 				F6A6ED3219E3210D0020EFBB /* test.info in Resources */,
 				F6A6ED3A19E3210D0020EFBB /* TestTileset.tsx in Resources */,

@@ -99,9 +99,6 @@
     <ClCompile Include="..\Classes\BuildingModel.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\UtilFunc.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\VisibleRect.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -180,6 +177,30 @@
     <ClCompile Include="..\Classes\CMDFileStream.cpp">
       <Filter>Classes\Command</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\WeatherLayer.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ConnectingSign.cpp">
+      <Filter>Classes\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\globalVariable.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NetManager.cpp">
+      <Filter>Classes\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\OptionWindow.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapWindow.cpp">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UtilFunc.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NoticeBox.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -252,9 +273,6 @@
       <Filter>Classes\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\VisibleRect.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\UtilFunc.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Subject.h">
@@ -340,6 +358,30 @@
     </ClInclude>
     <ClInclude Include="..\Classes\CMDFileStream.h">
       <Filter>Classes\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeatherLayer.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ConnectingSign.h">
+      <Filter>Classes\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\globalVariable.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NetManager.h">
+      <Filter>Classes\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\OptionWindow.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapWindow.h">
+      <Filter>Classes\Controller &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UtilFunc.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoticeBox.h">
+      <Filter>Classes\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

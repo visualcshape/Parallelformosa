@@ -12,6 +12,12 @@
 #include "AppMacro.h"
 #include "BuildingModel.h"
 #include "SceneManager.h"
+#include "ConnectingSign.h"
+#include "NoticeBox.h"
+#include "OptionWindow.h"
+#include <UtilFunc.h>
+#include "BattleModel.h"
+#include "command.h"
 
 Scene* MainScene::createScene(){
     auto scene = Scene::create();
@@ -48,7 +54,6 @@ bool MainMenuLayer::init(){
     //Super init
     if(!Layer::init())
         return false;
-    
     //Layout created
     _mainLayout = Layout::create();
     Sprite* tmpSprite = Sprite::create("UI/MainUI_Background.png");
@@ -59,36 +64,41 @@ bool MainMenuLayer::init(){
     //Button
     std::function<void(Ref*,Widget::TouchEventType)> bindFunction;
     bindFunction = CC_CALLBACK_2(MainMenuLayer::BuildingButtonCallback, this);
-    _buildingButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2,layoutSize.height/2), bindFunction);
+    _buildingButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2,layoutSize.height/2), bindFunction,"UI/buildingNormal.png","UI/buildingPressed.png");
     CCASSERT(_buildingButton!=nullptr, "_buildingButton cannot be null");
+
     bindFunction = CC_CALLBACK_2(MainMenuLayer::UnitButtonCallback, this);
-    _unitButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
+    _unitButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction,"UI/unitNormal.png","UI/unitPressed.png");
     CCASSERT(_unitButton!=nullptr, "_unitButton cannot be null");
-    bindFunction = CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback, this);
-    _itemButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
-    CCASSERT(_itemButton!=nullptr, "_itemButton cannot be null");
+
     bindFunction = CC_CALLBACK_2(MainMenuLayer::MapButtonCallback, this);
-    _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
+    _statusButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction,"UI/mapNormal.png","UI/mapPressed.png");
     CCASSERT(_statusButton!=nullptr, "_statusButton cannot be null");
-    bindFunction = CC_CALLBACK_2(MainMenuLayer::AlliesButtonCallback, this);
-    _alliesButton = MainUIButtonFactory::create(Vec2(layoutSize.width/2, layoutSize.height/2), bindFunction);
-    CCASSERT(_alliesButton!=nullptr, "_alliesButton cannot be null");
     
+	//>>>>>fighting
+	bindFunction = CC_CALLBACK_2(MainMenuLayer::BattleButtonCallback, this);
+	_battleButton = MainUIButtonFactory::create(Vec2(layoutSize.width / 2, layoutSize.height / 2), bindFunction, "UI/unitNormal.png", "UI/unitPressed.png");
+	CCASSERT(_battleButton != nullptr, "_battleButton cannot be null");
+
     //Option
     bindFunction = CC_CALLBACK_2(MainMenuLayer::OptionButtonCallback, this);
-    _optionButton = MainUIButtonFactory::create(Vec2(VisibleRect::getVisibleRect().size.width, 0), bindFunction);
+    _optionButton = MainUIButtonFactory::create(Vec2(VisibleRect::getVisibleRect().size.width, 0), bindFunction,"UI/optionNormal.png","UI/optionPressed.png");
     CCASSERT(_optionButton!=nullptr,"_optionButton cannot be null");
     _optionButton->setAnchorPoint(Vec2(1.0,0.0));
     this->addChild(_optionButton);
     //
     
-    Button* mainButtonArray[] = {_buildingButton,_unitButton,_itemButton,_statusButton,_alliesButton};
-    for(int i = 0 ; i < 5 ; i++){
+    Button* mainButtonArray[] = {_buildingButton,_unitButton,_statusButton};
+    for(int i = 0 ; i < 3 ; i++){
         _mainLayout->addChild(mainButtonArray[i]);
     }
-    
+
     //Add to layer
-    this->addChild(_mainLayout);
+	this->addChild(_mainLayout);
+
+	//>>>>>fighting
+	this->scheduleUpdate();
+
     ret = true;
     return ret;
 }
@@ -97,91 +107,269 @@ void MainMenuLayer::Update(Subject* _subject){
 	setPosition(mm->getHUDBasePosition());
 }
 
+//>>>>>fighting
+void MainMenuLayer::DoBattle(float dt){
+	CMDCountdown::order(BattleModel::getModel())->execute();
+}
+
 void MainMenuLayer::BuildingButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	//Used for test
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		std::string windowName = "BuildingWindow";
 		MainUIInfoModel::getInstance()->setScrollingText("Building");
 		Layer* thisLayer = this;
 		BuildingWindow* p = BuildingWindow::create("Building", [=](Ref* pSender, Widget::TouchEventType type){
 			if (type == Widget::TouchEventType::ENDED)
 				thisLayer->removeChildByName(windowName);
-		}, CC_CALLBACK_2(MainMenuLayer::ItemButtonCallback,this));
+		}, CC_CALLBACK_2(MainMenuLayer::BuildingButtonCallbackEnded, this));
 		ID = p->getCurButton()->getID();
 		addChild(p, 100, windowName);
+	}
+}
+void MainMenuLayer::BuildingButtonCallbackEnded(cocos2d::Ref *pSender, Widget::TouchEventType type){
+	if (type == Widget::TouchEventType::ENDED)
+	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
+		BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
+
+		int ID = p->getCurButton()->getID();
+		this->removeChildByName("BuildingWindow");
+
+		//@brief later modify
+		MapModel::getModel()->clickToAddBuildingCursor(ID);
 	}
 }
 
 void MainMenuLayer::UnitButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
 	if (type == Widget::TouchEventType::ENDED)
 	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
 		std::string windowName = "UnitWindow";
 		MainUIInfoModel::getInstance()->setScrollingText("Unit");
 		Layer* thisLayer = this;
 		UnitWindow* p = UnitWindow::create("Unit", [=](Ref* pSender, Widget::TouchEventType type){
 			if (type == Widget::TouchEventType::ENDED)
 				thisLayer->removeChildByName(windowName);
-		}, nullptr);
-#if(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-		p->retain();
-#endif	
+        }, CC_CALLBACK_2(MainMenuLayer::TrainButtonPressedCallback, this));
 		addChild(p, 100, windowName);
 	}
 }
 
-void MainMenuLayer::ItemButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-	if (type == Widget::TouchEventType::ENDED)
-	{
-        /*BuildingWindow* p = dynamic_cast<BuildingWindow*>(this->getChildByName("BuildingWindow"));
-        int ID = p->getCurButton()->getID();
+void MainMenuLayer::TrainButtonPressedCallback(cocos2d::Ref *pSender, Widget::TouchEventType type)
+{
+    if(type==Widget::TouchEventType::ENDED)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
+        ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
+        addChild(cs,100000,"cs");
         
-        this->removeChildByName("BuildingWindow");
+        NoticeBox* nb = NoticeBox::create("Notice", "Sending Request");
+        addChild(nb,100000,"nb");
+        
+        auto unitTypeMap = UnitTypeModel::getInstance()->getUnitTypeMap();
+        auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+        auto button = dynamic_cast<Button*>(pSender);
+        CC_ASSERT(button!=nullptr);
+        auto window = dynamic_cast<UnitWindow*>(button->getBindedObject());
+        
+        auto troopName = window->getCurButton()->getKey();
+        
+        auto itr = unitTypeMap->find(troopName);
+        CC_ASSERT(itr!=unitTypeMap->end());
+        
+        int consumedGPower = itr->second.gPowerCost*window->getCurrentAmount();
+        int consumedLMana = itr->second.lManaCost*window->getCurrentAmount();
+        int consumedFood = itr->second.foodCost*window->getCurrentAmount();
+        
+        //set to player
+        curPlayer->setGmag(curPlayer->getGmag()-consumedGPower);
+        curPlayer->setLstr(curPlayer->getLstr()-consumedLMana);
+        curPlayer->setFood(curPlayer->getFood()-consumedFood);
+        
+        if(itr->second.name=="Sword Man")
+        {
+            curPlayer->setPlayerOwnedSwordMan(curPlayer->getPlayerOwnedSwordMan()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Archer")
+        {
+            curPlayer->setPlayerOwnedArcher(curPlayer->getPlayerOwnedArcher()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Priest")
+        {
+            curPlayer->setPlayerOwnedPriest(curPlayer->getPlayerOwnedPriest()+window->getCurrentAmount());
+        }
+        else if(itr->second.name=="Magician")
+        {
+            curPlayer->setPlayerOwnedMagician(curPlayer->getPlayerOwnedMagician()+window->getCurrentAmount());
+        }
+        else
+        {
+            CC_ASSERT(false);
+        }
+        //send to server
+        const char* route = "parallelSpace.parallelSpaceHandler.trainTroop";
+        Json::Value msg;
+        Json::FastWriter writer;
+        
+        msg["troopName"] = itr->second.name;
+        msg["troopCount"] = window->getCurrentAmount();
+        
+        CCPomeloWrapper::getInstance()->notify(route, writer.write(msg), nullptr);
+        
+        removeChildByName("cs");
+        removeChildByName("nb");
+        removeChildByName("UnitWindow");
+    }
+}
 
-		//@brief later modify
-		MapModel::getModel()->clickToAddBuildingCursor(ID);*/
-	}
+//>>>>>fighting
+void MainMenuLayer::BattleButtonCallback(Ref* pSender, Widget::TouchEventType type){
+	BattleModel::getModel()->setupBattle(mm, false);
+	BattleModel::getModel()->startBattle();
+	this->schedule(schedule_selector(MainMenuLayer::DoBattle), 0.2f);
+}
+
+void MainMenuLayer::ItemButtonCallback(Ref* pSender, Widget::TouchEventType type){
+
 }
 
 void MainMenuLayer::MapButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    if(type==Widget::TouchEventType::ENDED)
-    {
-        MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender,Widget::TouchEventType type){
-            this->removeChildByName("mw");
-        }, [=](Ref* pSender,Widget::TouchEventType type){
-            TextField* txt = dynamic_cast<TextField*>(((Button*)pSender)->getBindedObject());
-            CC_ASSERT(txt!=nullptr);
-            string mapCoord = txt->getStringValue();
-            const char* route = "parallelSpace.parallelSpaceHandler.queryMapInfo";
-            Json::Value root;
-            Json::FastWriter writer;
-            
-            root["queriedMapCoord"] = mapCoord;
-            
-            CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
-        });
-        CC_ASSERT(mw!=nullptr);
-        this->addChild(mw,10,"mw");
-    }
+	if (type == Widget::TouchEventType::ENDED)
+	{
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/button.mp3");
+		MapWindow* mw = MapWindow::create("Find Map", [=](Ref* pSender, Widget::TouchEventType type){
+			this->removeChildByName("mw");
+		}, [=](Ref* pSender, Widget::TouchEventType type){
+
+			if (type == Widget::TouchEventType::ENDED){
+				TextField* txt = dynamic_cast<TextField*>(((Button*)pSender)->getBindedObject());
+				CC_ASSERT(txt != nullptr);
+				string mapCoord = txt->getStringValue();
+				const char* route = "parallelSpace.parallelSpaceHandler.queryMapInfo";
+				Json::Value root;
+				Json::FastWriter writer;
+
+				root["queriedMapCoord"] = mapCoord;
+
+				CCPomeloWrapper::getInstance()->request(route, writer.write(root), CC_CALLBACK_1(MainMenuLayer::queriedMapResultCallback, this));
+				txt->setText("");
+			}
+		});
+		CC_ASSERT(mw != nullptr);
+		this->addChild(mw, 10, "mw");
+	}
 }
 
 void MainMenuLayer::queriedMapResultCallback(const CCPomeloRequestResult &result)
 {
+	MapModel::getModel()->writeMapInfo();
+
     Json::Value root;
     Json::Reader reader;
     
     if(reader.parse(result.jsonMsg, root))
-    {
-        CCLOG("%s",root.toStyledString().c_str());
+	{
+		CCLOG("%s", root.toStyledString().c_str());
+		if (root["mapExist"].asBool() == true){
+            //blocker
+            NoticeBox* nb = NoticeBox::create("Notice", "Downloading Info File");
+            addChild(nb,100,"mapNB");
+            ConnectingSign* cs = ConnectingSign::create("Connecting", Color3B::WHITE);
+            addChild(cs,100,"mapCS");
+            
+			string downloadPath = root["downloadPath"].asString();
+            string mapCoord = root["mapCoord"].asString();
+            
+            UtilFunc::getInstance()->copyPlayerMapTMXFile(mapCoord);
+            _curMapCoord = mapCoord;
+            //download info file
+            HttpRequest* req = new cocos2d::network::HttpRequest();
+            req->setRequestType(HttpRequest::Type::GET);
+            req->setUrl(downloadPath.c_str());
+            req->setTag("Download info");
+            req->setResponseCallback(CC_CALLBACK_2(MainMenuLayer::onHttpResponseCallback,this));
+            HttpClient::getInstance()->send(req);
+            req->release();
+            //
+		}
+        else
+        {
+            string reason = root["reason"].asString();
+            
+            NoticeBox* nb = NoticeBox::create("Notice", reason);
+            addChild(nb,100,"nbMap");
+            
+            auto act = FadeOut::create(1.5f);
+            CallFunc* cf = CallFunc::create(CC_CALLBACK_0(MainMenuLayer::whenNBFadeOut, this));
+            auto seq = Sequence::create(act,cf, NULL);
+            nb->runAction(seq);
+        }
     }
 }
 
+void MainMenuLayer::whenNBFadeOut()
+{
+    removeChildByName("nbMap");
+}
+
+void MainMenuLayer::onHttpResponseCallback(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *resp)
+{
+	CC_ASSERT(resp != nullptr);
+	CC_ASSERT(
+		resp->isSucceed());
+
+	//open file
+#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
+	FILE* fp = fopen((FileUtils::getInstance()->getWritablePath()+"/"+_curMapCoord+".info").c_str(), "wb");
+#else
+	FILE* fp = fopen((FileUtils::getInstance()->getWritablePath() + _curMapCoord + ".info").c_str(), "wb");
+#endif
+	CC_ASSERT(fp != nullptr);
+	vector<char>* buffer = resp->getResponseData();
+	for (unsigned int i = 0; i < buffer->size(); i++)
+	{
+		fwrite(&buffer->at(i), 1, 1, fp);
+	}
+	fclose(fp);
+
+	removeChildByName("mapNB");
+	removeChildByName("mapCS");    
+	MapModel::getModel()->writeMapInfo();
+
+	if (PlayerManager::getInstance()->getCurPlayer()->getPlayerOwnMapCoord().compare(_curMapCoord + ".tmx") == 0)
+		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::DEFENSE);
+	else
+		SceneManager::goMapScreen(_curMapCoord + ".tmx", HUD_ID::ATTACK);
+}
+
 void MainMenuLayer::AlliesButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
-    SceneManager::goMapScreen("0.0.tmx", HUD_ID::DEFENSE);
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		char buffer[1000];
+		sprintf(buffer, "0.%d.tmx", rand() % 14);
+
+		MapModel::getModel()->writeMapInfo();
+		SceneManager::goMapScreen(buffer, HUD_ID::DEFENSE);
+	}
+
 }
 
 void MainMenuLayer::OptionButtonCallback(cocos2d::Ref *pSender, Widget::TouchEventType type){
     
+    if(type == Widget::TouchEventType::ENDED)
+    {
+        OptionWindow* ow = OptionWindow::create("Options", [=](Ref* pSender,Widget::TouchEventType type){
+            if(type==Widget::TouchEventType::ENDED)
+            {
+                this->removeChildByName("ow");
+            }
+        }, nullptr);
+        
+        addChild(ow,100,"ow");
+        
+    }
 }
 ///////////////////
 
@@ -192,10 +380,6 @@ MainInfoLayer::MainInfoLayer(){
 	CCLOG("MainInfoLayer construct");
 	mm = MapModel::getModel();
 	mm->Attach(this);
-    
-    PlayerModel* curPlayer = PlayerManager::getInstance()->getCurPlayer();
-    _bindedPlayer = curPlayer;
-    _bindedPlayer->Attach(this);
 }
 
 MainInfoLayer::~MainInfoLayer(){
@@ -207,12 +391,6 @@ MainInfoLayer::~MainInfoLayer(){
 		_bindModel->Detach(this);
 		_bindModel = nullptr;
 	}
-    
-    if(_bindedPlayer!=nullptr)
-    {
-        _bindedPlayer->Detach(this);
-        _bindedPlayer = nullptr;
-    }
 }
 
 bool MainInfoLayer::init(){
@@ -335,7 +513,8 @@ bool MainInfoLayer::init(){
     addChild(infoMask,1);
     
     //add a schedule
-    schedule(schedule_selector(MainInfoLayer::_scroll), 0.01f);
+	schedule(schedule_selector(MainInfoLayer::_scroll), 0.01f);
+	schedule(schedule_selector(MainInfoLayer::refresh), mm->REFRESH_RATE);
     
     _bindModel->setScrollingText("Welcome to Parallelformosa Alpha Version...");
     
@@ -345,23 +524,23 @@ bool MainInfoLayer::init(){
     //////////////
     
     //set resource init value//
-    _gPowerValue->setString(to_string(_bindedPlayer->getGmag()));
-    _lManaValue->setString(to_string(_bindedPlayer->getLstr()));
-    _foodValue->setString(to_string(_bindedPlayer->getFood()));
+	auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+	_gPowerValue->setString(to_string(curPlayer->getGmag()));
+	_lManaValue->setString(to_string(curPlayer->getLstr()));
+	_foodValue->setString(to_string(curPlayer->getFood()));
     //////////////////
     //set now coord...///
     _locationValue->setString(mm->getMapName());
-    
-    this->schedule(schedule_selector(MainInfoLayer::produce), 3.0f);
+
+    //music
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Music/1-1.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.7f);
+    //
     
     ret = true;
     return ret;
 }
 
-void MainInfoLayer::produce(float dt)
-{
-    PlayerManager::getInstance()->getCurPlayer()->produce(dt);
-}
 
 void MainInfoLayer::PrepareNetwork()
 {
@@ -374,20 +553,31 @@ void MainInfoLayer::onConnectLost()
     auto p = NetManager::getInstance();
     p->onConnectLost();
 }
+void MainInfoLayer::refresh(float dt){
+	auto curPlayer = PlayerManager::getInstance()->getCurPlayer();
+	int gPower = curPlayer->getGmag();
+	int lMana = curPlayer->getLstr();
+	int food = curPlayer->getFood();
+
+	_gPowerValue->setString(to_string(gPower));
+	_lManaValue->setString(to_string(lMana));
+	_foodValue->setString(to_string(food));
+
+	_refreshLayout();
+}
 
 void MainInfoLayer::Update(Subject *changedSubject){
-    MainUIInfoModel* changedModel = dynamic_cast<MainUIInfoModel*>(changedSubject);
-    PlayerModel* playerModelChanged = dynamic_cast<PlayerModel*>(changedSubject);
-    MapModel* mapModelChanged = dynamic_cast<MapModel*>(changedSubject);
-    
-    //changedModel == MapModel
-    if (mapModelChanged != nullptr)
-    {
-        setPosition(mm->getHUDBasePosition());
-        _refreshLayout();
-        return;
-    }
-    //changedModel == MainUIInfoModel
+	MainUIInfoModel* changedModel = dynamic_cast<MainUIInfoModel*>(changedSubject);
+	MapModel* mapModelChanged = dynamic_cast<MapModel*>(changedSubject);
+
+	//changedModel == MapModel
+	if (mapModelChanged != nullptr)
+	{
+		setPosition(mm->getHUDBasePosition());
+		_refreshLayout();
+		return;
+	}
+	//changedModel == MainUIInfoModel
 	if (changedModel != nullptr)
 	{
 		switch (changedModel->getChagedData()) {
@@ -399,26 +589,11 @@ void MainInfoLayer::Update(Subject *changedSubject){
 		default:
 			break;
 		}
-        _refreshLayout();
-        return;
+		_refreshLayout();
+		return;
 	}
-    //ChangedModel==playerModel
-    if(playerModelChanged!=nullptr)
-    {
-        int gPower = playerModelChanged->getGmag();
-        int lMana = playerModelChanged->getLstr();
-        int food = playerModelChanged->getFood();
-        
-        _gPowerValue->setString(to_string(gPower));
-        _lManaValue->setString(to_string(lMana));
-        _foodValue->setString(to_string(food));
-        
-        _refreshLayout();
-        return;
-    }
-    
-    
-    CCASSERT(false,"Unknown Modelchanged or Model not attached yet");
+
+	CCASSERT(false, "Unknown Modelchanged or Model not attached yet");
 }
 
 void MainInfoLayer::_scrollingTextModelChanged(){
@@ -427,14 +602,14 @@ void MainInfoLayer::_scrollingTextModelChanged(){
 }
 
 void MainInfoLayer::_scroll(float delta){
-    Vec2 prePos = _scrollingLabel->getPosition();
-    Vec2 postPos(prePos.x-1.f,prePos.y);
-    float rePositionThreshold = _infoNoticeBackground->getPosition().x-_scrollingLabel->getContentSize().width-2;
-    if(postPos.x<rePositionThreshold){
-        postPos = Vec2(_infoNoticeBackground->getPosition().x+_infoNoticeBackground->getContentSize().width, prePos.y);
-    }
-    
-    _scrollingLabel->setPosition(postPos);
+	Vec2 prePos = _scrollingLabel->getPosition();
+	Vec2 postPos(prePos.x - 1.f, prePos.y);
+	float rePositionThreshold = _infoNoticeBackground->getPosition().x - _scrollingLabel->getContentSize().width - 2;
+	if (postPos.x < rePositionThreshold){
+		postPos = Vec2(_infoNoticeBackground->getPosition().x + _infoNoticeBackground->getContentSize().width, prePos.y);
+	}
+
+	_scrollingLabel->setPosition(postPos);
 }
 
 void MainInfoLayer::_refreshLayout()

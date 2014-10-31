@@ -16,6 +16,7 @@
 #include "UnitTypeModel.h"
 #include "ResourceModel.h"
 #include "SceneManager.h"
+#include "NoticeBox.h"
 
 Scene* LoadingScene::createScene()
 {
@@ -71,7 +72,10 @@ bool LoadingLayer::init(){
 	_loadingBar = LoadingBar::create("UI/LoadingBar.png");
 	CCASSERT(_loadingBar != nullptr, "\"LoadingBar\" cannot be null.");
 	_loadingBar->setPosition(Vec2(VisibleRect::getVisibleRect().size.width / 2, _loadingItemText->getContentSize().height + _loadingBar->getContentSize().height + 10));
-
+    
+    NoticeBox* nb = NoticeBox::create("Notice", "Loading...\nPlease wait...");
+    
+    this->addChild(nb,2);
 	this->addChild(_loadingItemText, 0);
 	this->addChild(_loadingBar, 1);
 
@@ -153,7 +157,7 @@ void LoadingLayer::_startLoadMISC(){
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
 
-	ResourceModel::getModel()->LoadTilemaps();
+/*	ResourceModel::getModel()->LoadTilemaps();
 	++_loadedSprite;
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
@@ -162,6 +166,7 @@ void LoadingLayer::_startLoadMISC(){
 	++_loadedSprite;
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
 	_loadingBar->setPercent((float)_calculateProgress());
+	*/
 	ResourceModel::getModel()->LoadMISC();
 	++_loadedSprite;
 	_loadingItemText->setString(_sprintfProgress("Loading MISC Components...(%.0f%%)", _calculateProgress()));
@@ -261,17 +266,16 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         //infoFileName...
         vector<string> sp = UtilFunc::getInstance()->split(infoDownloadPath, '/');
         sp.shrink_to_fit();
-        _infoFileName = sp[sp.size()-1];
-        
+		_infoFileName = sp[sp.size() - 1];
         
         //init player
-        PlayerModel* player = new PlayerModel();
-        player->init();
+        PlayerModel* player = new PlayerModel(_uid);
         
         PlayerManager::getInstance()->setCurPlayer(player);
         PlayerManager::getInstance()->setAtkPlayer(PlayerManager::getInstance()->getCurPlayer());
         PlayerManager::getInstance()->setDefPlayer(PlayerManager::getInstance()->getCurPlayer());
         
+		/*
         //set player resources...
         auto playerInit = PlayerManager::getInstance()->getCurPlayer();
         playerInit->setGmag(atoi(user["GPower"].asString().c_str()));
@@ -285,7 +289,7 @@ void LoadingLayer::_requestCallback(const CCPomeloRequestResult& result)
         playerInit->setPlayerOwnedArcher(user["ArcherAmount"].asInt());
         playerInit->setPlayerOwnedPriest(user["PriestAmount"].asInt());
         playerInit->setPlayerOwnedPriest(user["Magician"].asInt());
-        
+        */
         //Sync to SQLite3
         _writeUserToDB(user);
         _downloadInfoFile(infoDownloadPath,user);
@@ -343,11 +347,12 @@ void LoadingLayer::_copyTMXandInfoToWriteablePath()
     char sub[512];
     string p = FileUtils::getInstance()->fullPathForFilename("Tilemap/stub");
     strncpy(sub, p.c_str(), p.length()-4);
+	sub[p.length() - 4] = '\0';
     p = sub;
     
-    DIR* dir;
-    struct dirent* ent;
-    if((dir=opendir(p.c_str()))!=nullptr)
+    DIR* dir = nullptr;
+    struct dirent* ent = nullptr;
+    if((dir=opendir(sub))!=nullptr)
     {
         while((ent = readdir(dir))!=nullptr)
         {

@@ -7,6 +7,7 @@
 #include <map>
 #include "Subject.h"
 #include "MapModel.h"
+#include "CCPomeloWrapper.h"
 
 using namespace std;
 USING_NS_CC;
@@ -15,14 +16,16 @@ class PlayerModel :public Ref,public Subject{
 
 public:
 	PlayerModel();
-	PlayerModel(int uid);
+	PlayerModel(string uid);
 	~PlayerModel();
 
 	void init();
-	static PlayerModel* initWithPlayer(PlayerModel* rhs);
 
+	bool canAddBuilding(int BID);
 	bool canAddTroop(int TID);
-	void consumeResource(int TID);
+
+	void consumeResourceByBuilding(int BID);
+	void consumeResourceByTroop(int TID);
 
 	void changeUID(string uid);
 
@@ -30,6 +33,7 @@ public:
 	void writePlayerInfo(bool backup = false);
 
 	void produce(float dt);
+	void PlayerModelCallBack(const CCPomeloRequestResult& result);
 
 	//@resource
 	void gainLstr(int value);
@@ -93,6 +97,7 @@ public:
     //NET
     void sendResourceAddNotify(int addedGPower,int addedLMana,int addedFood);
     //
+
 protected:
 	int getProperTroopOID();
 	int getProperBuildingOID();
@@ -115,6 +120,7 @@ protected:
     MapModel::Weather _playerOwnMapWeather;
     
     string _playerOwnMapCoord;
+
 private:
 	bitset <PLAYER_MAX_TROOPS> usedTroopOID;
 	bitset <PLAYER_MAX_BUILDINGS> usedBuildingOID;

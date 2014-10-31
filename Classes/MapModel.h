@@ -4,6 +4,8 @@
 #include "Subject.h"
 #include "Troop.h"
 #include "CMD.h"
+#include "json.h"
+#include "CCPomeloWrapper.h"
 
 USING_NS_CC;
 using namespace std;
@@ -20,8 +22,10 @@ public:
 	const float REFRESH_RATE = 0.03f;
 	const float PRODUCE_RATE = 1.0f;
 	static const int BORDER_PIXEL = 40;
-	static const int BAR_ICON = 5;
+	static const int BAR_ICON = 4;
     
+	static const int TW = 101;
+	static const int TH = 40;
     //enum
     typedef enum Weather
     {
@@ -40,17 +44,14 @@ public:
 	~MapModel();
 
 	void init(std::string mapName);
-
+	string getUIDByMapCoord(MapPoint loc);
+	void getUIDByMapCoordEnded(const CCPomeloRequestResult& result);
 	bool tryTouchBegan();
 	void tryTouchMoved();
 	void tryTouchEnded();
 
 	void refresh(float dt);
 	void ccdebug(float dt);
-	void produce(float dt);
-
-	void attackLogic();
-	void commandAttack();
 
 	void clickToAddBuildingCursor(int BID);
 	
@@ -134,12 +135,15 @@ public:
     void setWeather(Weather weather);
     
     ChangedData getChangedData();
+
 protected:
 	static MapModel * mm_pInstance;
 
 	//@func internally add building
-	void addBuildingToMap(int ID, string& owner, MapPoint pos, int z);
+	void addBuildingToMap(int ID, string& owner, MapPoint pos, int z, bool writeToServer = true);
+
 private:
+	string _uid;
 	int selID;
 	bool _prevCursurOutside; 
 	Vector <Building*> _buildings;

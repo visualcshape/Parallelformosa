@@ -7,6 +7,10 @@
 //
 
 #include "OptionWindow.h"
+#include "Database.h"
+#include "PlayerManager.h"
+#include "SceneManager.h"
+#include "LoginTitleModel.h"
 
 OptionWindow::OptionWindow(string title,function<void(Ref*,Widget::TouchEventType)> closeCallback,function<void(Ref*,Widget::TouchEventType)> resetButtonPressedCallback):WindowProtocol(title,closeCallback)
 {
@@ -82,6 +86,7 @@ bool OptionWindow::init()
     _resetButton->setTitleFontName("fonts/Silom.ttf");
     _resetButton->setTitleFontSize(computeFontSize(24));
     _resetButton->setTitleText("Reset!");
+    _resetButton->addTouchEventListener(CC_CALLBACK_2(OptionWindow::onResetButtonClick, this));
     
     Layout* resetOptions = Layout::create();
     resetOptions->setLayoutType(Layout::Type::VERTICAL);
@@ -95,10 +100,44 @@ bool OptionWindow::init()
     _baseWindow->addChild(musicOptionLayout);
     _baseWindow->addChild(resetOptions);
     
+    if(CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+    {
+        _musicEnabledCheckBox->setSelectedState(true);
+    }
+    else
+    {
+        _musicEnabledCheckBox->setSelectedState(false);
+    }
+    
     return true;
 }
 
 void OptionWindow::onMusicEnabledCheckBoxCallback(cocos2d::Ref *pSender, CheckBox::EventType type)
 {
-    
+    if(type==CheckBox::EventType::SELECTED)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Music/1-2.mp3");
+    }
+    else
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    }
+}
+
+void OptionWindow::onResetButtonClick(cocos2d::Ref *pSender, Widget::TouchEventType type)
+{
+    if(Widget::TouchEventType::ENDED==type)
+    {
+        
+        auto pDB = Database::getInstance()->getDatabasePointer();
+        char sql[512];
+        char* errMsg;
+        sprintf(sql, "Update User SET ID=0,FirstTimeLogin=1 WHERE ID='%s'",LoginTitleModel::getInstance()->getUID().c_str());
+        
+        int result = sqlite3_exec(pDB, sql, nullptr, nullptr, &errMsg);
+        CC_ASSERT(result==SQLITE_OK);
+        LoginTitleModel::getInstance()->setUID("0");
+        
+        SceneManager::goTitleScreen();
+    }
 }

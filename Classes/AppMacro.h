@@ -25,7 +25,7 @@ using namespace std;
 //
 
 //server config
-#define GATE_HOST "220.133.209.239"
+#define GATE_HOST "10.101.5.2"
 #define GATE_PORT 30000
 //
 

@@ -27,7 +27,7 @@ BattleModel* BattleModel::getModel(){
 
 void BattleModel::setupBattle(MapModel* mapModel, bool isSimulation){
 	_mapModel = mapModel;
-	_isSimulation = isSimulation;
+	_isSimulation = false;
 	_isReplay = false;
 }
 
@@ -139,13 +139,13 @@ void BattleModel::startBattle(){
 		PlayerManager::getInstance()->getDefPlayer()->writePlayerInfo(true);
 		_mapModel->writeMapInfo(true);
 
-		CMDFileStream::getInstance()->OpenStream("CommandInfo/" + _mapModel->getMapName() + ".cmd");
+		CMDFileStream::getInstance()->OpenStream(_mapModel->getMapName() + ".cmd");
 	}
 }
 
 void BattleModel::readCommandConfig(){
 	ResourceModel *rm = ResourceModel::getModel();
-	string filename = "CommandInfo/" + _mapModel->getMapName() + ".cmd";
+	string filename = _mapModel->getMapName() + ".cmd";
 	FILE* fp = rm->OpenFileR(filename);
 
 	CCASSERT(fp != nullptr, "readCommandConfig fail");
@@ -176,15 +176,14 @@ void BattleModel::readCommandConfig(){
 			}
 		}
 		else if (strcmp(buffer, "CMDMove") == 0){
-            /*///wait to repair...
-			int owner, oid, dir, hofs;
-            
-			fscanf(fp, "%*s %d %d %d %d", &owner, &oid, &dir, &hofs);
-			if (owner == atkPlayer->getUID())
+			int oid, dir, hofs;
+			char buffer[1000];
+			fscanf(fp, "%*s %s %d %d %d", buffer, &oid, &dir, &hofs);
+			string owner = string(buffer);
+			if (atkPlayer->getUID().compare(owner))
 				atkPlayer->addCMDMoveToTroop(timing, oid, dir, hofs);
-			else if (owner == defPlayer->getUID())
+			if (defPlayer->getUID().compare(owner))
 				defPlayer->addCMDMoveToTroop(timing, oid, dir, hofs);
-            //....*/
 		}
 	}
 }

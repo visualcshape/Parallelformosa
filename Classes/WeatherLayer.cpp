@@ -23,7 +23,7 @@ WeatherLayer::~WeatherLayer()
 
 bool WeatherLayer::init()
 {
-    _rainLayer=LayerColor::create(Color4B(155,159,168,255*0.25));
+    _rainLayer=LayerColor::create(Color4B(155,159,168,255*0.40));
     CC_ASSERT(_rainLayer!=nullptr);
     
     _emitter = ParticleRain::create();
